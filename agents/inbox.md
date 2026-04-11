@@ -18,7 +18,7 @@ Called by `/mw inbox`.
 
 ### Step 1: Load Inbox
 
-Read all files in `activity/inbox/*.json` and collect jobs with `status: "pending"`.
+Read all files in `activity/inbox/*.json` and collect jobs with `matched: true` and `status: "pending"`.
 
 Sort by `date` descending (newest first).
 
@@ -104,7 +104,7 @@ For each pending job, show details and ask:
 Based on response:
 - **Add** → Read `agents/add-job.md` and follow with this URL
 - **Skip** → Update status to `"skipped"`, continue to next
-- **Open URL** → Use Bash to open URL, then ask again
+- **Open URL** → Navigate with Playwright and take `browser_screenshot` to preview, then ask again
 - **Stop** → Exit review loop
 
 ### If "Add all"
@@ -141,8 +141,14 @@ When updating a job's status:
 2. Update `status` field to `"added"` or `"skipped"`
 3. Save the file
 
+**Status values:**
+- `pending` → Matched job awaiting review
+- `added` → User added this job for analysis
+- `skipped` → User skipped this job
+- `filtered` → Didn't match target_roles (for dedup only)
+
 ## Notes
 
 - Jobs stay in inbox files for history (status changes, not deleted)
 - User can always add a job directly with `/mw add job <url>`
-- Skipped jobs won't reappear (URL is in seen/)
+- All jobs (matched + filtered) are stored for deduplication

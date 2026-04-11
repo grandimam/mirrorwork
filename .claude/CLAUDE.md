@@ -26,10 +26,8 @@ profile/                    # MASTER PROFILE (merged from all resumes)
 
 activity/                   # JOBS + PIPELINE
 ├── manifest.json           # Portals config for scanning
-├── inbox/                  # Discovered jobs (by date)
-│   └── {date}.json
-├── seen/                   # URLs already seen (by date)
-│   └── {date}.json
+├── inbox/                  # All discovered jobs (by date)
+│   └── {date}.json         # matched + filtered jobs for dedup
 └── jobs/*.json             # Analyzed jobs
 
 sources/                    # RAW INPUTS
@@ -237,11 +235,12 @@ Resume 1 (2024)          Resume 2 (2026)
 │ • Fetch     │──────────►│ • Pending   │──────────►│ • Parse JD  │
 │   portals   │           │   jobs      │           │ • Fit check │
 │ • Dedup     │           │ • Add/Skip  │           │ • Position  │
-│ • Queue     │           │             │           │             │
+│ • Filter    │           │             │           │             │
 └─────────────┘           └─────────────┘           └─────────────┘
        │                                                   │
        ▼                                                   ▼
-activity/inbox/             activity/seen/           activity/jobs/
+activity/inbox/                                      activity/jobs/
+(all jobs: matched + filtered)
 ```
 
 **Portals config** (`activity/manifest.json`):
@@ -268,6 +267,34 @@ activity/inbox/             activity/seen/           activity/jobs/
 | `target_roles` | Keywords to filter job titles |
 | `last_scan` | When last scanned |
 | `enabled` | Include in scans |
+
+**Inbox file** (`activity/inbox/{date}.json`):
+```json
+{
+  "date": "2026-04-12",
+  "jobs": [
+    {
+      "url": "https://...",
+      "portal": "Talabat",
+      "title": "Senior Backend Engineer",
+      "matched": true,
+      "status": "pending"
+    },
+    {
+      "url": "https://...",
+      "portal": "Talabat",
+      "title": "Office Manager",
+      "matched": false,
+      "status": "filtered"
+    }
+  ]
+}
+```
+
+| Field | Values |
+|-------|--------|
+| `matched` | `true` = matches target_roles, `false` = filtered out |
+| `status` | `pending`, `added`, `skipped`, `filtered` |
 
 ### Job → Resume Flow
 

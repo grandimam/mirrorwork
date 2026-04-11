@@ -68,9 +68,22 @@ Tip: Copy the entire job posting including requirements.
 
 If URL provided, fetch using **Playwright** (preferred) or **WebFetch**:
 
+**Method A: Snapshot (preferred)**
 1. `browser_navigate` to the URL
 2. `browser_snapshot` to read content
-3. Extract job details from page
+3. Extract job details from HTML
+
+**Method B: Screenshot (fallback)**
+1. `browser_navigate` to the URL
+2. `browser_screenshot` to capture the page visually
+3. Extract job details from the image
+4. Use when: page is JS-heavy, content loads dynamically, or snapshot is incomplete
+
+**When to use screenshot:**
+- Job description renders via JavaScript after page load
+- Complex page layouts where HTML is hard to parse
+- Snapshot returns incomplete or garbled content
+- Need to see the full visual context of the posting
 
 **Supported platforms:**
 | Platform | URL Pattern |

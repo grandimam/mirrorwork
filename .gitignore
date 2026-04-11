@@ -35,6 +35,9 @@ sources/github/reports/*
 sources/github/stories/*
 !sources/github/stories/.gitkeep
 
+activity/inbox/*
+!activity/inbox/.gitkeep
+
 activity/jobs/*
 !activity/jobs/.gitkeep
 
