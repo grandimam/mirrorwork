@@ -1,0 +1,20 @@
+{
+  "portals": [
+    {
+      "name": "Careem",
+      "url": "https://jobs.careem.com/",
+      "location": "United Arab Emirates, Remote",
+      "target_roles": ["backend", "platform", "senior", "staff"],
+      "last_scan": null,
+      "enabled": true
+    },
+    {
+      "name": "Talabat",
+      "url": "https://careers.deliveryhero.com/jobs?options=252&page=1",
+      "location": "United Arab Emirates, Remote",
+      "target_roles": ["backend", "platform", "senior", "staff"],
+      "last_scan": null,
+      "enabled": true
+    }
+  ]
+}

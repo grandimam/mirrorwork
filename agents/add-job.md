@@ -1,27 +1,37 @@
-# Job Description Ingest Agent
+# Add Job Agent
 
-You are the **job ingest agent** for mirrorwork. Your job is to parse job descriptions, derive positioning for this specific job, and run fit analysis.
+You are the **add job agent** for mirrorwork. Your job is to parse job descriptions, derive positioning for this specific job, and run fit analysis.
 
 ## Invocation
 
-Called by `/mw add job`.
+Called by `/mw add job [url]`.
 
 ## UX Guidelines
 
-- Start with a header:
-  ```
-  ╭─────────────────────────────────────╮
-  │  mirrorwork · Add Job               │
-  ╰─────────────────────────────────────╯
-  ```
+```
+╭─────────────────────────────────────╮
+│  mirrorwork · Add Job               │
+╰─────────────────────────────────────╯
+```
 
-- Use visual separators: `───────────────────────────────────────`
-- Show progress: `⏳ Parsing job description...`
-- Show success: `✓ Job saved!`
+## Input Detection
+
+**If URL provided as argument:**
+- Skip input method selection
+- Go directly to URL fetch flow
+
+**If no argument:**
+- Ask user for input method
 
 ## Flow
 
-### Step 1: Choose Input Method
+### Step 0: Check for URL Argument
+
+If the command includes a URL (e.g., `/mw add job https://...`):
+- Extract the URL
+- Skip to Step 2 (URL Flow)
+
+### Step 1: Choose Input Method (if no URL)
 
 Use the **AskUserQuestion** tool:
 
@@ -32,8 +42,8 @@ Use the **AskUserQuestion** tool:
     "header": "Input",
     "options": [
       {"label": "Paste JD (Recommended)", "description": "Copy-paste the job description text"},
-      {"label": "File path", "description": "Provide path to PDF, DOCX, or Markdown file"},
-      {"label": "URL", "description": "Provide the job posting URL"}
+      {"label": "URL", "description": "Provide the job posting URL"},
+      {"label": "File path", "description": "Provide path to PDF or Markdown file"}
     ],
     "multiSelect": false
   }]
@@ -42,46 +52,45 @@ Use the **AskUserQuestion** tool:
 
 ---
 
-### Step 2a: Paste Flow
+### Step 2: Get Job Description
+
+#### Paste Flow
 
 ```
 ───────────────────────────────────────
 📝 **Paste the job description below**
 
 Tip: Copy the entire job posting including requirements.
-When done, type `END` on a new line.
-
-▼ Start pasting below ▼
+───────────────────────────────────────
 ```
 
----
+#### URL Flow
 
-### Step 2b: File Flow
+If URL provided, fetch using **Playwright** (preferred) or **WebFetch**:
+
+1. `browser_navigate` to the URL
+2. `browser_snapshot` to read content
+3. Extract job details from page
+
+**Supported platforms:**
+| Platform | URL Pattern |
+|----------|-------------|
+| Lever | jobs.lever.co/* |
+| Greenhouse | boards.greenhouse.io/* |
+| Ashby | jobs.ashbyhq.com/* |
+| Workday | *.myworkdayjobs.com/* |
+| LinkedIn | linkedin.com/jobs/* |
+| Generic | Any job posting page |
+
+#### File Flow
 
 ```
 ───────────────────────────────────────
-📁 **Provide the job description file path**
+📁 **Provide the file path**
 
-Supported: PDF, DOCX, MD, TXT
-Example: `~/Downloads/stripe-job.pdf`
-
-▼ Enter path below ▼
-```
-
----
-
-### Step 2c: URL Flow
-
-```
+Supported: PDF, MD, TXT
 ───────────────────────────────────────
-🔗 **Provide the job posting URL**
-
-Example: `https://jobs.lever.co/stripe/abc123`
-
-▼ Enter URL below ▼
 ```
-
-Use the **WebFetch** tool to extract job details.
 
 ---
 

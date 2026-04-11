@@ -60,12 +60,14 @@ Show current status:
 • {count} with fit analysis
 
 ───────────────────────────────────────
+📬 **Inbox** — {pending count} pending
+
+───────────────────────────────────────
 **Quick actions**
 
-→ `/mw add resume` — Add another resume
-→ `/mw add job` — Track a job
-→ `/mw add brag` — Capture achievement
-→ `/mw add doc` — Add work sample
+→ `/mw scan` — Discover new jobs
+→ `/mw inbox` — Review pending jobs
+→ `/mw add job <url>` — Analyze a job
 ```
 
 #### `/mw init`
@@ -78,9 +80,43 @@ Same as `/mw` with no args.
 
 ---
 
+### Pipeline Commands
+
+#### `/mw scan`
+
+Discover new jobs from configured portals.
+
+Read `agents/scan.md` and follow its instructions.
+
+Portals are configured in `activity/manifest.json`:
+```json
+{
+  "portals": [
+    {
+      "name": "Careem",
+      "url": "https://jobs.careem.com/",
+      "location": "United Arab Emirates, Remote",
+      "target_roles": ["backend", "platform", "senior"],
+      "last_scan": "2026-04-12",
+      "enabled": true
+    }
+  ]
+}
+```
+
+- `target_roles`: Keywords to filter job titles (case-insensitive match)
+
+#### `/mw inbox`
+
+Review discovered jobs and decide which to analyze.
+
+Read `agents/inbox.md` and follow its instructions.
+
+---
+
 ### Add Commands
 
-All `/mw add` commands process immediately — no separate "ingest" step.
+All `/mw add` commands process immediately.
 
 #### `/mw add resume`
 
@@ -88,9 +124,12 @@ Add a resume and merge into profile.
 
 Read `agents/add-resume.md` and follow its instructions.
 
-#### `/mw add job`
+#### `/mw add job [url]`
 
 Add a job description, analyze fit, derive positioning.
+
+- If URL provided → fetch and analyze automatically
+- If no URL → prompt for URL or paste JD text
 
 Read `agents/add-job.md` and follow its instructions.
 
@@ -178,7 +217,12 @@ profile/                    # MASTER PROFILE (merged from all sources)
 └── proof-points.json       # Achievements (merged)
 
 activity/
-└── jobs/*.json             # Job + DERIVED positioning + fit analysis
+├── manifest.json           # Portals config
+├── inbox/                  # Discovered jobs (by date)
+│   └── {date}.json
+├── seen/                   # URLs already seen (by date)
+│   └── {date}.json
+└── jobs/*.json             # Analyzed jobs
 
 sources/                    # RAW INPUTS
 ├── manifest.json           # Central registry (tracks ALL files)
@@ -211,6 +255,8 @@ All source files tracked in `sources/manifest.json`:
 
 | Command | Agent | Purpose |
 |---------|-------|---------|
+| `scan` | `agents/scan.md` | Discover jobs |
+| `inbox` | `agents/inbox.md` | Review pending |
 | `init` | `agents/add-resume.md` | Setup profile |
 | `add resume` | `agents/add-resume.md` | Parse resume → merge |
 | `add job` | `agents/add-job.md` | Parse JD + brutal fit |
