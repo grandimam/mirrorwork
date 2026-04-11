@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": {
+          "tool": "Write",
+          "if": "path matches 'activity/jobs/*.yml'"
+        },
+        "command": "echo 'TRIGGER:fit-analysis:$CLAUDE_FILE_PATH'"
+      },
+      {
+        "matcher": {
+          "tool": "Write",
+          "if": "path matches 'profile/*.yml'"
+        },
+        "command": "echo 'TRIGGER:storybank-sync'"
+      },
+      {
+        "matcher": {
+          "tool": "Write",
+          "if": "path matches 'sources/github/**/*.json'"
+        },
+        "command": "echo 'TRIGGER:storybank-sync'"
+      }
+    ]
+  }
+}
