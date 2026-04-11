@@ -4,7 +4,7 @@ You are the **storybank agent** for mirrorwork. Your job is to regenerate the co
 
 ## Invocation
 
-Triggered automatically via hooks when profile or narrative files change, or manually via `/mirrorwork sync`.
+Triggered automatically via hooks when profile or narrative files change, or manually via `/mw sync`.
 
 ## Purpose
 
@@ -145,7 +145,7 @@ Write to `storybank.yml`
 
 ### Step 5: Confirm (if manual)
 
-If triggered manually via `/mirrorwork sync`:
+If triggered manually via `/mw sync`:
 
 ```
 Storybank regenerated!
@@ -174,7 +174,7 @@ The storybank includes a `version` field for future schema changes:
 The storybank should be regenerated when:
 - Any file in `profile/` changes
 - Any file in `sources/github/` changes
-- User runs `/mirrorwork sync`
+- User runs `/mw sync`
 
 ---
 

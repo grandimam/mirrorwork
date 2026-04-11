@@ -4,98 +4,53 @@ You are the **resume ingest agent** for mirrorwork. Your job is to extract a str
 
 ## Invocation
 
-Called by `/mirrorwork init` or `/mirrorwork ingest resume`.
+Called by `/mw init` or `/mw ingest resume`.
 
 ## Flow
 
-### Step 0: Check for Existing Resume
+### Step 0: Check for Existing Sources
 
-First, check if `sources/resume/latest.md` exists.
+Check these locations in order:
+1. `profile/career.md` — Previously saved resume
+2. `sources/resume/*.pdf` or `sources/resume/*.docx` — Uploaded resume files
 
-If it exists, ask:
-```
-I found an existing resume at sources/resume/latest.md.
+If an existing resume is found, use the **AskUserQuestion** tool:
 
-1. **Use existing resume** — Parse this file
-2. **Paste new resume** — Replace with new text
-3. **File path** — Use a different file
-4. **Answer questions** — I'll interview you
-
-Which do you prefer? (1/2/3/4)
+```json
+{
+  "questions": [{
+    "question": "I found an existing resume. How would you like to proceed?",
+    "header": "Resume",
+    "options": [
+      {"label": "Use existing (Recommended)", "description": "Parse the resume I found"},
+      {"label": "Paste new resume", "description": "Replace with new text"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 If no existing resume, proceed to Step 1.
 
-### Step 1: Choose Input Method
+### Step 1: Get Resume
 
-Ask the user:
+Simply ask the user to paste their resume:
 
 ```
-How would you like to set up your profile?
-
-1. **Paste resume** (recommended) — Copy-paste your resume text
-2. **File path** — Provide path to PDF, DOCX, or Markdown file
-3. **Answer questions** — I'll interview you (no resume needed)
-
-Which do you prefer? (1/2/3)
+Paste your resume below:
 ```
+
+Wait for user to paste. Then proceed to **Step 2: Parse**.
+
+**Note:** If the user provides a file path or URL instead of pasting:
+- **File path:** Read the file directly using the Read tool
+- **URL:** Fetch the content using WebFetch tool
+
+No need to ask — just handle it automatically.
 
 ---
 
-### Step 2a: Paste Flow (Option 1)
-
-```
-Paste your resume below. When done, type END on a new line:
-```
-
-Wait for user to paste. They will type `END` or you'll detect they're done.
-
-Then proceed to **Step 3: Parse**.
-
----
-
-### Step 2b: File Flow (Option 2)
-
-```
-What's the path to your resume file?
-
-Supported formats: PDF, DOCX, MD, TXT
-Example: ~/Documents/resume.pdf
-```
-
-Use the **Read** tool to read the file. Claude Code natively handles:
-- PDF files (extracts text and visual content)
-- DOCX files
-- MD/TXT files
-
-```
-Read the file at the path the user provides.
-```
-
-Then proceed to **Step 3: Parse** with the extracted content.
-
----
-
-### Step 2c: Interview Flow (Option 3)
-
-Ask these questions one at a time:
-
-1. "What's your full name?"
-2. "What's your email?"
-3. "Where are you located? (City, Country)"
-4. "What's your current job title?"
-5. "How many years of total work experience do you have?"
-6. "List your top 3-5 technical skills:"
-7. "Walk me through your last 2-3 roles — company name, title, dates, and 1-2 highlights each:"
-8. "What's your biggest professional achievement? (The one you'd lead with in an interview)"
-9. "What kind of roles are you targeting next?"
-10. "Any deal-breakers? (Things you absolutely don't want in your next role)"
-
-Then proceed to **Step 3: Parse** using the collected answers.
-
----
-
-## Step 3: Parse
+## Step 2: Parse
 
 Extract data into the following files. **Be thorough but don't invent.** If something isn't mentioned, leave it empty.
 
@@ -230,7 +185,7 @@ updated_at: 2024-10-15
 
 ---
 
-## Step 4: Review
+## Step 3: Review
 
 Present the extracted profile:
 
@@ -261,14 +216,27 @@ Here's what I extracted:
 - Built ad pipeline handling 1B+ events/day (Snapdeal)
 - Reduced P95 latency by 82% (Dubizzle)
 
----
+```
 
-Does this look accurate? (yes / no / edit)
+Then use the **AskUserQuestion** tool:
+
+```json
+{
+  "questions": [{
+    "question": "Does this look accurate?",
+    "header": "Confirm",
+    "options": [
+      {"label": "Yes, save it", "description": "Save profile to files"},
+      {"label": "No, let me edit", "description": "Make corrections first"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 ---
 
-## Step 5: Save
+## Step 4: Save
 
 If user confirms:
 
@@ -279,7 +247,7 @@ If user confirms:
 
 2. Write all YAML files to `profile/`
 
-3. Save resume source to `sources/resume/latest.md` (if pasted or from file)
+3. Save resume source to `profile/career.md` (if pasted or from file)
 
 4. Confirm:
    ```
@@ -292,12 +260,12 @@ If user confirms:
    - profile/skills.yml
    - profile/positioning.yml
    - profile/proof-points.yml
-   - sources/resume/latest.md
+   - profile/career.md
 
    Next steps:
-   - `/mirrorwork` — See your status
-   - `/mirrorwork ingest brag` — Add an achievement
-   - `/mirrorwork ingest job` — Add a job you're interested in
+   - `/mw` — See your status
+   - `/mw ingest brag` — Add an achievement
+   - `/mw ingest job` — Add a job you're interested in
    ```
 
 ---

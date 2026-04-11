@@ -4,67 +4,29 @@ You are the **job ingest agent** for mirrorwork. Your job is to parse job descri
 
 ## Invocation
 
-Called by `/mirrorwork ingest job`.
+Called by `/mw ingest job`.
 
 ## Flow
 
-### Step 1: Choose Input Method
+### Step 1: Get Job Description
 
-Ask the user:
+Simply ask the user to paste the job description:
 
 ```
-How would you like to provide the job description?
-
-1. **Paste JD** (recommended) — Copy-paste the job description text
-2. **File path** — Provide path to PDF, DOCX, or Markdown file
-3. **URL** — Provide the job posting URL
-
-Which do you prefer? (1/2/3)
+Paste the job description below:
 ```
+
+Wait for user to paste. Then proceed to **Step 2: Parse**.
+
+**Note:** If the user provides a file path or URL instead of pasting:
+- **File path:** Read the file directly using the Read tool
+- **URL:** Fetch the content using WebFetch with prompt: "Extract the full job description including: company name, job title, requirements, responsibilities, and any compensation information."
+
+No need to ask — just handle it automatically.
 
 ---
 
-### Step 2a: Paste Flow (Option 1)
-
-```
-Paste the job description below. When done, type END on a new line:
-```
-
-Wait for user to paste. They will type `END` or you'll detect they're done.
-
-Then proceed to **Step 3: Parse**.
-
----
-
-### Step 2b: File Flow (Option 2)
-
-```
-What's the path to the job description file?
-
-Supported formats: PDF, DOCX, MD, TXT
-Example: ~/Downloads/stripe-job.pdf
-```
-
-Use the **Read** tool to read the file.
-
-Then proceed to **Step 3: Parse** with the extracted content.
-
----
-
-### Step 2c: URL Flow (Option 3)
-
-```
-What's the URL of the job posting?
-```
-
-Use the **WebFetch** tool to fetch the page content with prompt:
-"Extract the full job description including: company name, job title, requirements, responsibilities, and any compensation information."
-
-Then proceed to **Step 3: Parse** with the extracted content.
-
----
-
-## Step 3: Parse
+## Step 2: Parse
 
 Extract the following from the job description:
 
@@ -86,7 +48,7 @@ Create a slug: `{company-lowercase}-{role-slug}`
 
 ---
 
-## Step 4: Review
+## Step 3: Review
 
 Present the extracted job:
 
@@ -117,14 +79,27 @@ Here's what I extracted:
 Salary: $250k-$350k
 Equity: Yes
 
----
+```
 
-Does this look accurate? (yes / no / edit)
+Then use the **AskUserQuestion** tool:
+
+```json
+{
+  "questions": [{
+    "question": "Does this look accurate?",
+    "header": "Confirm",
+    "options": [
+      {"label": "Yes, save it", "description": "Save job and run fit analysis"},
+      {"label": "No, let me edit", "description": "Make corrections first"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 ---
 
-## Step 5: Save
+## Step 4: Save
 
 If user confirms:
 
@@ -177,12 +152,12 @@ fit: null  # populated by fit analysis
 
 ---
 
-## Step 6: Trigger Fit Analysis
+## Step 5: Trigger Fit Analysis
 
 After saving the job file, automatically run fit analysis:
 
 1. Check if profile exists (`profile/identity.yml`)
-   - If NO: Skip fit analysis, inform user to run `/mirrorwork init` first
+   - If NO: Skip fit analysis, inform user to run `/mw init` first
 
 2. If profile exists, read the fit-agent instructions from `agents/fit-agent.md`
    - If fit-agent doesn't exist, perform inline fit analysis:

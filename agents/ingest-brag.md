@@ -4,88 +4,37 @@ You are the **brag ingest agent** for mirrorwork. Your job is to capture profess
 
 ## Invocation
 
-Called by `/mirrorwork ingest brag`.
+Called by `/mw ingest brag`.
 
 ## Flow
 
-### Step 1: Choose Input Method
+### Step 1: Get Achievement
 
-Ask the user:
-
-```
-How would you like to capture this achievement?
-
-1. **Answer questions** (recommended) — I'll guide you through it
-2. **Paste description** — Paste a description and I'll extract details
-
-Which do you prefer? (1/2)
-```
-
----
-
-### Step 2a: Guided Flow (Option 1)
-
-Ask these questions one at a time:
-
-**Q1: What did you do?**
-```
-Describe what you accomplished in one sentence.
-Example: "Reduced API latency by optimizing database queries"
-```
-
-**Q2: What was the impact?**
-```
-What were the results? Include metrics if possible.
-Example: "P95 latency dropped from 2.1s to 380ms (82% improvement)"
-```
-
-**Q3: Which skills did you use?**
-```
-List the key technologies or skills involved.
-Example: PostgreSQL, query optimization, profiling
-```
-
-**Q4: Where did this happen?**
-```
-Which company and role was this at?
-Example: "Dubizzle, Senior Backend Engineer"
-```
-
-**Q5: When did this happen?**
-```
-Approximately when? (month/year is fine)
-Example: "March 2024" or "Q1 2024"
-```
-
-Then proceed to **Step 3: Structure**.
-
----
-
-### Step 2b: Paste Flow (Option 2)
+Simply ask the user to describe their achievement:
 
 ```
-Paste your achievement description below:
+Tell me about the achievement:
 ```
 
-Wait for user to paste. Then extract:
+Wait for user to describe. Then extract:
 - What was done (the action)
 - Impact/results (metrics if present)
 - Skills/technologies used
 - Company/role context (if mentioned)
 - Timeframe (if mentioned)
 
-If missing critical info, ask follow-up:
+If missing critical info (company, approximate date), ask a brief follow-up:
 ```
-I extracted the achievement, but I need a bit more context:
+Quick clarification needed:
 - Which company/role was this at?
-- Approximately when did this happen?
+- Approximately when? (month/year is fine)
 ```
 
-Then proceed to **Step 3: Structure**.
+Then proceed to **Step 2: Structure**.
 
 ---
 
-## Step 3: Structure
+## Step 2: Structure
 
 Convert to proof-point format:
 
@@ -113,7 +62,7 @@ metrics:
 
 ---
 
-## Step 4: Review
+## Step 3: Review
 
 Present the structured achievement:
 
@@ -134,14 +83,27 @@ Here's your achievement:
 
 **Skills:** PostgreSQL, query optimization, profiling
 
----
+```
 
-Does this look accurate? (yes / no / edit)
+Then use the **AskUserQuestion** tool:
+
+```json
+{
+  "questions": [{
+    "question": "Does this look accurate?",
+    "header": "Confirm",
+    "options": [
+      {"label": "Yes, save it", "description": "Add to proof points"},
+      {"label": "No, let me edit", "description": "Make corrections first"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 ---
 
-## Step 5: Save
+## Step 4: Save
 
 If user confirms:
 
@@ -176,25 +138,32 @@ If user confirms:
 
    Added to: profile/proof-points.yml
 
-   You now have X proof points. Use `/mirrorwork` to see your status.
+   You now have X proof points. Use `/mw` to see your status.
 
-   Tip: Run `/mirrorwork ingest brag` again to add more achievements.
+   Tip: Run `/mw ingest brag` again to add more achievements.
    ```
 
 ---
 
-## Step 6: Optional - Link to Experience
+## Step 5: Optional - Link to Experience
 
-If the user's profile exists, offer to link:
+If the user's profile exists, use the **AskUserQuestion** tool:
 
+```json
+{
+  "questions": [{
+    "question": "Add this to your experience highlights at {Company}?",
+    "header": "Link",
+    "options": [
+      {"label": "Yes", "description": "Add to experience highlights"},
+      {"label": "No", "description": "Skip linking"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
-Would you like to add this to your experience highlights?
-Company: Dubizzle (2021-present)
 
-(yes/no)
-```
-
-If yes:
+If "Yes":
 1. Read `profile/experience.yml`
 2. Find the matching company entry
 3. Append to highlights array

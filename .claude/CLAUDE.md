@@ -7,9 +7,9 @@ Career OS built on Claude Code. Track achievements, prep for interviews, search 
 ## Quick Start
 
 ```
-/mirrorwork init    # Set up profile (paste resume)
-/mirrorwork         # See status
-/mirrorwork sync    # Regenerate storybank
+/mw init    # Set up profile (paste resume)
+/mw         # See status
+/mw sync    # Regenerate storybank
 /github sync        # Sync GitHub contributions
 ```
 
@@ -18,16 +18,17 @@ Career OS built on Claude Code. Track achievements, prep for interviews, search 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  SOURCES (raw inputs)                                       │
-│  ├── resume/latest.md      # Your resume text               │
+│  ├── resume/*.pdf          # Uploaded resume files          │
 │  ├── documents/*.pdf       # Work samples                   │
 │  ├── research/*.md         # Company notes                  │
 │  └── github/**/*.json      # GitHub API data                │
 └─────────────────────┬───────────────────────────────────────┘
-                      │ /mirrorwork init
-                      │ /mirrorwork ingest
+                      │ /mw init
+                      │ /mw ingest
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PROFILE (structured YAML)                                  │
+│  PROFILE (structured)                                       │
+│  ├── career.md             # Living narrative (grows)       │
 │  ├── identity.yml          # Name, contact, links           │
 │  ├── experience.yml        # Work history                   │
 │  ├── education.yml         # Education                      │
@@ -36,11 +37,17 @@ Career OS built on Claude Code. Track achievements, prep for interviews, search 
 │  ├── stories.yml           # STAR stories                   │
 │  └── proof-points.yml      # Achievements with metrics      │
 └─────────────────────┬───────────────────────────────────────┘
-                      │ /mirrorwork sync (auto via hooks)
+                      │ /mw sync (auto via hooks)
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  STORYBANK (consolidated snapshot)                          │
 │  └── storybank.yml         # Single file for agents         │
+└─────────────────────┬───────────────────────────────────────┘
+                      │ /mw prep, fit-agent
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│  OUTPUT (generated artifacts)                               │
+│  └── {year}/               # Tailored resumes, cover letters│
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -50,7 +57,8 @@ Career OS built on Claude Code. Track achievements, prep for interviews, search 
 cv.md                       # Master resume (markdown)
 storybank.yml               # Consolidated profile (auto-generated)
 
-profile/                    # WHO YOU ARE (structured)
+profile/                    # WHO YOU ARE
+├── career.md               # Living career narrative (grows over time)
 ├── identity.yml            # Name, email, location, links
 ├── experience.yml          # Work history with highlights
 ├── education.yml           # Degrees, certifications
@@ -62,9 +70,13 @@ profile/                    # WHO YOU ARE (structured)
 activity/                   # WHAT'S HAPPENING
 └── jobs/*.yml              # Job descriptions + fit analysis
 
+output/                     # GENERATED ARTIFACTS
+└── {year}/                 # Organized by year
+    ├── {company}-resume.md # Tailored resumes
+    └── {company}-cover.md  # Cover letters
+
 sources/                    # RAW INPUTS
-├── resume/                 # Resume versions
-│   └── latest.md           # Current resume (auto-saved on ingest)
+├── resume/                 # Uploaded resume files (PDF, DOCX)
 ├── documents/              # Work samples, tech specs, presentations
 ├── research/               # Company research, strategy notes
 └── github/                 # GitHub API data
@@ -86,8 +98,8 @@ scripts/                    # Python tools
 
 .claude/                    # Claude Code config
 ├── skills/
-│   ├── mirrorwork/SKILL.md # /mirrorwork command router
-│   ├── mw/SKILL.md         # /mw shorthand alias
+│   ├── mw/SKILL.md         # /mw command router
+│   ├── mirrorwork/SKILL.md # /mirrorwork alias (points to /mw)
 │   └── github/SKILL.md     # /github command router
 ├── hooks.json              # Workflow automation
 └── settings.json           # Permissions
@@ -99,7 +111,7 @@ Raw inputs that feed into your structured profile.
 
 | Directory | Purpose | Examples |
 |-----------|---------|----------|
-| `sources/resume/` | Resume versions | `latest.md` (auto-saved on ingest) |
+| `sources/resume/` | Uploaded resumes | `resume.pdf`, `resume.docx` |
 | `sources/documents/` | Work samples | Tech specs, presentations, designs |
 | `sources/research/` | Research & notes | Company research, job search strategy |
 | `sources/github/reports/` | GitHub yearly data | `2025.json`, `2026.json` |
@@ -107,10 +119,11 @@ Raw inputs that feed into your structured profile.
 
 ## Profile
 
-Structured YAML files generated from sources.
+Structured data about you, generated from sources.
 
 | File | Purpose | Key Fields |
 |------|---------|------------|
+| `career.md` | Living career narrative | Grows over time with reflections |
 | `identity.yml` | Contact info | name, email, location, linkedin, github |
 | `experience.yml` | Work history | company, role, dates, highlights, skills |
 | `education.yml` | Education | institution, degree, field, year |
@@ -123,19 +136,19 @@ Structured YAML files generated from sources.
 
 | Skill | Purpose |
 |-------|---------|
-| `/mirrorwork` | Career OS main router |
-| `/mw` | Shorthand for `/mirrorwork` |
+| `/mw` | Career OS main router |
+| `/mirrorwork` | Alias for `/mw` |
 | `/github` | GitHub contribution analysis |
 
 ## Agents
 
 | Agent | Purpose | Trigger |
 |-------|---------|---------|
-| `ingest.md` | Route to specialized ingest | `/mirrorwork ingest` |
-| `ingest-resume.md` | Parse resume → profile/ | `/mirrorwork init`, `ingest resume` |
-| `ingest-job.md` | Parse JD → activity/jobs/ | `/mirrorwork ingest job` |
-| `ingest-brag.md` | Capture achievement | `/mirrorwork ingest brag` |
-| `storybank.md` | Consolidate profile | `/mirrorwork sync`, hooks |
+| `ingest.md` | Route to specialized ingest | `/mw ingest` |
+| `ingest-resume.md` | Parse resume → profile/ | `/mw init`, `ingest resume` |
+| `ingest-job.md` | Parse JD → activity/jobs/ | `/mw ingest job` |
+| `ingest-brag.md` | Capture achievement | `/mw ingest brag` |
+| `storybank.md` | Consolidate profile | `/mw sync`, hooks |
 | `fit-agent.md` | Build case for candidate | After job ingest |
 
 ## Storybank
@@ -165,13 +178,13 @@ Automated workflows triggered by file changes.
 
 | Command | Agent | Description |
 |---------|-------|-------------|
-| `/mirrorwork` | (inline) | Show status |
-| `/mirrorwork init` | ingest-resume | First-time setup |
-| `/mirrorwork sync` | storybank | Regenerate storybank |
-| `/mirrorwork ingest` | ingest | Route to ingest type |
-| `/mirrorwork ingest resume` | ingest-resume | Parse resume |
-| `/mirrorwork ingest job` | ingest-job | Parse job description |
-| `/mirrorwork ingest brag` | ingest-brag | Capture achievement |
+| `/mw` | (inline) | Show status |
+| `/mw init` | ingest-resume | First-time setup |
+| `/mw sync` | storybank | Regenerate storybank |
+| `/mw ingest` | ingest | Route to ingest type |
+| `/mw ingest resume` | ingest-resume | Parse resume |
+| `/mw ingest job` | ingest-job | Parse job description |
+| `/mw ingest brag` | ingest-brag | Capture achievement |
 | `/github sync` | (skill) | Sync GitHub data |
 | `/github fetch` | (skill) | Fetch contributions |
 | `/github story` | (skill) | Build org narrative |

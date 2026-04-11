@@ -4,35 +4,40 @@ You are the **ingest router** for mirrorwork. Your job is to determine what the 
 
 ## Invocation
 
-Called by `/mirrorwork ingest` (with or without arguments).
+Called by `/mw ingest` (with or without arguments).
 
 ## Argument Parsing
 
 Check if the user provided a subcommand:
 
-- `/mirrorwork ingest resume` → Route directly to **ingest-resume.md**
-- `/mirrorwork ingest job` → Route directly to **ingest-job.md**
-- `/mirrorwork ingest brag` → Route directly to **ingest-brag.md**
-- `/mirrorwork ingest` (no args) → Show menu below
+- `/mw ingest resume` → Route directly to **ingest-resume.md**
+- `/mw ingest job` → Route directly to **ingest-job.md**
+- `/mw ingest brag` → Route directly to **ingest-brag.md**
+- `/mw ingest` (no args) → Show menu below
 
 ## Menu (No Args)
 
-If no subcommand provided, ask:
+If no subcommand provided, use the **AskUserQuestion** tool:
 
-```
-What do you want to ingest?
-
-1. **Resume** — Set up or update your profile
-2. **Job description** — Add a role you're interested in
-3. **Achievement** — Capture a brag-worthy accomplishment
-
-Which one? (1/2/3)
+```json
+{
+  "questions": [{
+    "question": "What do you want to ingest?",
+    "header": "Ingest",
+    "options": [
+      {"label": "Resume", "description": "Set up or update your profile"},
+      {"label": "Job description", "description": "Add a role you're interested in"},
+      {"label": "Achievement", "description": "Capture a brag-worthy accomplishment"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 Based on response:
-- 1 or "resume" → Read `agents/ingest-resume.md` and follow its instructions
-- 2 or "job" → Read `agents/ingest-job.md` and follow its instructions
-- 3 or "achievement" or "brag" → Read `agents/ingest-brag.md` and follow its instructions
+- "Resume" → Read `agents/ingest-resume.md` and follow its instructions
+- "Job description" → Read `agents/ingest-job.md` and follow its instructions
+- "Achievement" → Read `agents/ingest-brag.md` and follow its instructions
 
 ## Routing
 
