@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Read(profile/**/*)",
+      "Read(narrative/**/*)",
+      "Read(activity/**/*)",
+      "Read(network/**/*)",
+      "Write(profile/**/*)",
+      "Write(narrative/**/*)",
+      "Write(activity/**/*)",
+      "Write(network/**/*)"
+    ]
+  }
+}
