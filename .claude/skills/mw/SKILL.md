@@ -2,16 +2,30 @@
 
 Your career, reflected.
 
+## UX Guidelines
+
+Always use rich formatting for a polished terminal experience:
+
+- **Box borders** for headers: `╭───╮ │ │ ╰───╯`
+- **Separators** between sections: `───────────────────────────────────────`
+- **Icons** for status: `✓` success, `⏳` loading, `→` actions
+- **Bullets** for lists: `•`
+
 ## Commands
 
 On EVERY invocation, first check if `profile/identity.yml` exists.
 
-If file does not exist:
+If file does not exist, show welcome:
 
 ```
-> "Welcome to mirrorwork! I don't have your profile yet.
->
-> Run `/mw init` to get started."
+╭─────────────────────────────────────╮
+│  mirrorwork                         │
+│  Your career, reflected.            │
+╰─────────────────────────────────────╯
+
+Welcome! I don't have your profile yet.
+
+→ Run `/mw init` to get started
 ```
 
 ### Available Commands
@@ -20,12 +34,37 @@ If file does not exist:
 
 Show current status:
 1. Check if `profile/identity.yml` exists
-2. If NO → prompt to run `/mw init`
-3. If YES → read `profile/career.md` and `profile/identity.yml`, show summary:
-   - Name, current role, target roles
-   - Proof points count
-   - Jobs in pipeline count
-   - GitHub stats (if synced)
+2. If NO → show welcome message above
+3. If YES → read profile files and show rich status dashboard:
+
+```
+╭─────────────────────────────────────╮
+│  mirrorwork · {Name}                │
+╰─────────────────────────────────────╯
+
+**{Current Role}** at {Company}
+{Headline from positioning.yml}
+
+───────────────────────────────────────
+📊 **Profile**
+
+• Experience: {X} years across {Y} companies
+• Skills: {top 3 expert skills}
+• Proof points: {count}
+
+───────────────────────────────────────
+🎯 **Job Pipeline**
+
+• {count} jobs tracked
+• {count} with fit analysis
+
+───────────────────────────────────────
+**Quick actions**
+
+→ `/mw ingest brag` — Add achievement
+→ `/mw ingest job` — Track a job
+→ `/github sync` — Sync GitHub
+```
 
 #### `/mw init`
 
@@ -62,6 +101,30 @@ Read `agents/ingest-job.md` and follow its instructions.
 Capture a professional achievement.
 
 Read `agents/ingest-brag.md` and follow its instructions.
+
+---
+
+### Case Commands
+
+#### `/mw case <job-id>`
+
+Build the strongest case for a job you want to apply to.
+
+**Prerequisites:** Job must exist in `activity/jobs/` with fit analysis completed.
+
+Read `agents/case-agent.md` and follow its instructions.
+
+If no job-id provided, list available jobs:
+```
+───────────────────────────────────────
+📋 **Jobs in pipeline**
+
+| ID | Company | Title | Fit |
+|----|---------|-------|-----|
+| unison-group-senior-java | Unison Group | Senior Java Backend | 65% |
+
+Which job? Enter the ID:
+```
 
 ---
 
@@ -106,10 +169,29 @@ sources/                    # RAW INPUTS
 
 ## Agent Routing
 
-| Command | Agent |
-|---------|-------|
-| `init` | `agents/ingest-resume.md` |
-| `ingest` | `agents/ingest.md` |
-| `ingest resume` | `agents/ingest-resume.md` |
-| `ingest job` | `agents/ingest-job.md` |
-| `ingest brag` | `agents/ingest-brag.md` |
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `init` | `agents/ingest-resume.md` | Setup profile |
+| `ingest` | `agents/ingest.md` | Route to ingest type |
+| `ingest resume` | `agents/ingest-resume.md` | Parse resume |
+| `ingest job` | `agents/ingest-job.md` | Parse JD + brutal fit |
+| `ingest brag` | `agents/ingest-brag.md` | Capture achievement |
+| `case` | `agents/case-agent.md` | Build advocacy case |
+
+## Two-Step Job Analysis
+
+```
+/mw ingest job          /mw case <job-id>
+      │                        │
+      ▼                        ▼
+┌─────────────┐         ┌─────────────┐
+│ FIT ANALYSIS│         │ MAKE A CASE │
+│             │         │             │
+│ • Brutal    │         │ • Advocate  │
+│ • Honest    │         │ • Reframe   │
+│ • Binary    │         │ • Story     │
+│             │         │             │
+│ "Do I meet  │         │ "How do I   │
+│  the reqs?" │         │  position?" │
+└─────────────┘         └─────────────┘
+```

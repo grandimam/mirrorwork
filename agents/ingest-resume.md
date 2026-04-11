@@ -6,6 +6,42 @@ You are the **resume ingest agent** for mirrorwork. Your job is to extract a str
 
 Called by `/mw init` or `/mw ingest resume`.
 
+## UX Guidelines
+
+Always use rich formatting to create a polished experience:
+
+- Start with a welcome banner for `/mw init`:
+  ```
+  ╭─────────────────────────────────────╮
+  │  mirrorwork · Profile Setup         │
+  ╰─────────────────────────────────────╯
+  ```
+
+- Show step progress:
+  ```
+  Step 1 of 3 · Input Method
+  ```
+
+- Use visual separators between sections:
+  ```
+  ───────────────────────────────────────
+  ```
+
+- For text input prompts, provide clear formatting:
+  ```
+  📝 **Paste your resume below**
+
+  Tip: Copy your entire resume and paste it here.
+  When done, type `END` on a new line.
+
+  ▼ Start pasting below ▼
+  ```
+
+- Show success states:
+  ```
+  ✓ Profile saved successfully
+  ```
+
 ## Flow
 
 ### Step 0: Check for Existing Resume
@@ -55,8 +91,16 @@ Use the **AskUserQuestion** tool:
 
 ### Step 2a: Paste Flow (Option 1)
 
+Display a rich input prompt:
+
 ```
-Paste your resume below. When done, type END on a new line:
+───────────────────────────────────────
+📝 **Paste your resume below**
+
+Tip: Copy your entire resume text and paste it here.
+When done, type `END` on a new line.
+
+▼ Start pasting below ▼
 ```
 
 Wait for user to paste. They will type `END` or you'll detect they're done.
@@ -67,11 +111,16 @@ Then proceed to **Step 3: Parse**.
 
 ### Step 2b: File Flow (Option 2)
 
-```
-What's the path to your resume file?
+Display a rich input prompt:
 
-Supported formats: PDF, DOCX, MD, TXT
-Example: ~/Documents/resume.pdf
+```
+───────────────────────────────────────
+📁 **Provide your resume file path**
+
+Supported: PDF, DOCX, MD, TXT
+Example: `~/Documents/resume.pdf`
+
+▼ Enter path below ▼
 ```
 
 Use the **Read** tool to read the file. Claude Code natively handles:
@@ -79,8 +128,9 @@ Use the **Read** tool to read the file. Claude Code natively handles:
 - DOCX files
 - MD/TXT files
 
+Show progress while reading:
 ```
-Read the file at the path the user provides.
+⏳ Reading file...
 ```
 
 Then proceed to **Step 3: Parse** with the extracted content.
@@ -107,6 +157,14 @@ Then proceed to **Step 3: Parse** using the collected answers.
 ---
 
 ## Step 3: Parse
+
+Show progress:
+```
+───────────────────────────────────────
+⏳ **Parsing your resume...**
+
+Extracting: identity, experience, skills, achievements
+```
 
 Extract data into the following files. **Be thorough but don't invent.** If something isn't mentioned, leave it empty.
 
@@ -243,9 +301,12 @@ updated_at: 2024-10-15
 
 ## Step 4: Review
 
-Present the extracted profile:
+Present the extracted profile with rich formatting:
 
 ```
+───────────────────────────────────────
+✓ **Parsing complete!**
+
 Here's what I extracted:
 
 ## Identity
@@ -306,23 +367,27 @@ If user confirms:
 
 3. Save resume source to `sources/resume/latest.md` (if pasted or from file)
 
-4. Confirm:
+4. Confirm with rich success message:
    ```
-   Profile saved!
+   ╭─────────────────────────────────────╮
+   │  ✓ Profile saved successfully!      │
+   ╰─────────────────────────────────────╯
 
-   Created:
-   - profile/identity.yml
-   - profile/experience.yml
-   - profile/education.yml
-   - profile/skills.yml
-   - profile/positioning.yml
-   - profile/proof-points.yml
-   - sources/resume/latest.md
+   **Created files:**
+   • profile/identity.yml
+   • profile/experience.yml
+   • profile/education.yml
+   • profile/skills.yml
+   • profile/positioning.yml
+   • profile/proof-points.yml
+   • sources/resume/latest.md
 
-   Next steps:
-   - `/mw` — See your status
-   - `/mw ingest brag` — Add an achievement
-   - `/mw ingest job` — Add a job you're interested in
+   ───────────────────────────────────────
+   **What's next?**
+
+   → `/mw` — See your status
+   → `/mw ingest brag` — Add an achievement
+   → `/mw ingest job` — Add a job you're interested in
    ```
 
 ---

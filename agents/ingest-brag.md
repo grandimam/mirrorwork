@@ -6,6 +6,22 @@ You are the **brag ingest agent** for mirrorwork. Your job is to capture profess
 
 Called by `/mw ingest brag`.
 
+## UX Guidelines
+
+Always use rich formatting to create a polished experience:
+
+- Start with a header:
+  ```
+  ╭─────────────────────────────────────╮
+  │  mirrorwork · Capture Achievement   │
+  ╰─────────────────────────────────────╯
+  ```
+
+- Use visual separators: `───────────────────────────────────────`
+- Show progress: `⏳ Structuring achievement...`
+- Show success: `✓ Achievement saved!`
+- Number questions in guided flow: `Q1 of 5 ·`
+
 ## Flow
 
 ### Step 1: Choose Input Method
@@ -30,36 +46,61 @@ Use the **AskUserQuestion** tool:
 
 ### Step 2a: Guided Flow (Option 1)
 
-Ask these questions one at a time:
+Ask these questions one at a time with rich formatting:
 
 **Q1: What did you do?**
 ```
-Describe what you accomplished in one sentence.
+───────────────────────────────────────
+Q1 of 5 · **What did you accomplish?**
+
+Describe it in one sentence.
 Example: "Reduced API latency by optimizing database queries"
+
+▼ Your answer ▼
 ```
 
 **Q2: What was the impact?**
 ```
-What were the results? Include metrics if possible.
+───────────────────────────────────────
+Q2 of 5 · **What was the impact?**
+
+Include metrics if possible.
 Example: "P95 latency dropped from 2.1s to 380ms (82% improvement)"
+
+▼ Your answer ▼
 ```
 
 **Q3: Which skills did you use?**
 ```
-List the key technologies or skills involved.
+───────────────────────────────────────
+Q3 of 5 · **Which skills/technologies did you use?**
+
+List the key ones, comma-separated.
 Example: PostgreSQL, query optimization, profiling
+
+▼ Your answer ▼
 ```
 
 **Q4: Where did this happen?**
 ```
-Which company and role was this at?
+───────────────────────────────────────
+Q4 of 5 · **Where did this happen?**
+
+Company and role.
 Example: "Dubizzle, Senior Backend Engineer"
+
+▼ Your answer ▼
 ```
 
 **Q5: When did this happen?**
 ```
-Approximately when? (month/year is fine)
+───────────────────────────────────────
+Q5 of 5 · **When did this happen?**
+
+Month/year is fine.
 Example: "March 2024" or "Q1 2024"
+
+▼ Your answer ▼
 ```
 
 Then proceed to **Step 3: Structure**.
@@ -68,8 +109,15 @@ Then proceed to **Step 3: Structure**.
 
 ### Step 2b: Paste Flow (Option 2)
 
+Display a rich input prompt:
+
 ```
-Paste your achievement description below:
+───────────────────────────────────────
+📝 **Paste your achievement description**
+
+Include what you did, the impact, and any metrics.
+
+▼ Start typing below ▼
 ```
 
 Wait for user to paste. Then extract:
@@ -203,15 +251,21 @@ If user confirms:
   story_ready: false
 ```
 
-4. Confirm:
+4. Confirm with rich success message:
    ```
-   Achievement saved!
+   ╭─────────────────────────────────────╮
+   │  ✓ Achievement saved!               │
+   ╰─────────────────────────────────────╯
 
-   Added to: profile/proof-points.yml
+   **Added to:** profile/proof-points.yml
+   **Total proof points:** X
 
-   You now have X proof points. Use `/mw` to see your status.
+   ───────────────────────────────────────
+   **What's next?**
 
-   Tip: Run `/mw ingest brag` again to add more achievements.
+   → `/mw ingest brag` — Add another achievement
+   → `/mw ingest job` — Add a job to track
+   → `/mw` — See your full status
    ```
 
 ---

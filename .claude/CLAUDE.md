@@ -71,9 +71,10 @@ sources/                    # RAW INPUTS
 agents/                     # Agent instructions (markdown)
 ├── ingest.md               # Ingest router
 ├── ingest-resume.md        # Resume → profile/
-├── ingest-job.md           # JD → activity/jobs/ + fit
+├── ingest-job.md           # JD → activity/jobs/ + brutal fit
 ├── ingest-brag.md          # Achievement → proof-points.yml
-└── fit-agent.md            # Compare profile vs job
+├── fit-analysis.md         # Brutal, honest fit check
+└── case-agent.md           # Advocacy mode, build your case
 
 scripts/                    # Python tools
 └── github_tracker/         # GitHub contribution CLI
@@ -125,9 +126,28 @@ Structured YAML files generated from sources.
 |-------|---------|---------|
 | `ingest.md` | Route to specialized ingest | `/mw ingest` |
 | `ingest-resume.md` | Parse resume → profile/ | `/mw init`, `ingest resume` |
-| `ingest-job.md` | Parse JD → activity/jobs/ | `/mw ingest job` |
+| `ingest-job.md` | Parse JD + brutal fit | `/mw ingest job` |
 | `ingest-brag.md` | Capture achievement | `/mw ingest brag` |
-| `fit-agent.md` | Build case for candidate | After job ingest |
+| `fit-analysis.md` | Brutal, honest fit check | Auto after job ingest |
+| `case-agent.md` | Build advocacy case | `/mw case <job-id>` |
+
+### Two-Step Job Analysis
+
+```
+/mw ingest job              /mw case <job-id>
+      │                            │
+      ▼                            ▼
+┌─────────────┐             ┌─────────────┐
+│ FIT ANALYSIS│             │ MAKE A CASE │
+│             │             │             │
+│ • Brutal    │     ──►     │ • Advocate  │
+│ • Honest    │  (if you    │ • Reframe   │
+│ • Binary    │   decide    │ • Story     │
+│             │  to apply)  │             │
+│ "Do I meet  │             │ "How do I   │
+│  the reqs?" │             │  position?" │
+└─────────────┘             └─────────────┘
+```
 
 ## Hooks
 
@@ -145,8 +165,9 @@ Automated workflows triggered by file changes.
 | `/mw init` | ingest-resume | First-time setup |
 | `/mw ingest` | ingest | Route to ingest type |
 | `/mw ingest resume` | ingest-resume | Parse resume |
-| `/mw ingest job` | ingest-job | Parse job description |
+| `/mw ingest job` | ingest-job | Parse JD + brutal fit |
 | `/mw ingest brag` | ingest-brag | Capture achievement |
+| `/mw case <job-id>` | case-agent | Build advocacy case |
 | `/github sync` | (skill) | Sync GitHub data |
 | `/github fetch` | (skill) | Fetch contributions |
 | `/github story` | (skill) | Build org narrative |

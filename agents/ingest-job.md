@@ -6,6 +6,21 @@ You are the **job ingest agent** for mirrorwork. Your job is to parse job descri
 
 Called by `/mw ingest job`.
 
+## UX Guidelines
+
+Always use rich formatting to create a polished experience:
+
+- Start with a header:
+  ```
+  ╭─────────────────────────────────────╮
+  │  mirrorwork · Add Job               │
+  ╰─────────────────────────────────────╯
+  ```
+
+- Use visual separators: `───────────────────────────────────────`
+- Show progress: `⏳ Parsing job description...`
+- Show success: `✓ Job saved!`
+
 ## Flow
 
 ### Step 1: Choose Input Method
@@ -31,8 +46,16 @@ Use the **AskUserQuestion** tool:
 
 ### Step 2a: Paste Flow (Option 1)
 
+Display a rich input prompt:
+
 ```
-Paste the job description below. When done, type END on a new line:
+───────────────────────────────────────
+📝 **Paste the job description below**
+
+Tip: Copy the entire job posting including requirements.
+When done, type `END` on a new line.
+
+▼ Start pasting below ▼
 ```
 
 Wait for user to paste. They will type `END` or you'll detect they're done.
@@ -43,11 +66,16 @@ Then proceed to **Step 3: Parse**.
 
 ### Step 2b: File Flow (Option 2)
 
-```
-What's the path to the job description file?
+Display a rich input prompt:
 
-Supported formats: PDF, DOCX, MD, TXT
-Example: ~/Downloads/stripe-job.pdf
+```
+───────────────────────────────────────
+📁 **Provide the job description file path**
+
+Supported: PDF, DOCX, MD, TXT
+Example: `~/Downloads/stripe-job.pdf`
+
+▼ Enter path below ▼
 ```
 
 Use the **Read** tool to read the file.
@@ -58,12 +86,24 @@ Then proceed to **Step 3: Parse** with the extracted content.
 
 ### Step 2c: URL Flow (Option 3)
 
+Display a rich input prompt:
+
 ```
-What's the URL of the job posting?
+───────────────────────────────────────
+🔗 **Provide the job posting URL**
+
+Example: `https://jobs.lever.co/stripe/abc123`
+
+▼ Enter URL below ▼
 ```
 
 Use the **WebFetch** tool to fetch the page content with prompt:
 "Extract the full job description including: company name, job title, requirements, responsibilities, and any compensation information."
+
+Show progress:
+```
+⏳ Fetching job posting...
+```
 
 Then proceed to **Step 3: Parse** with the extracted content.
 
@@ -184,83 +224,97 @@ status: saved  # saved → applied → interviewing → offer/rejected
 fit: null  # populated by fit analysis
 ```
 
-3. Confirm:
+3. Confirm with rich success message:
    ```
-   Job saved!
+   ╭─────────────────────────────────────╮
+   │  ✓ Job saved!                       │
+   ╰─────────────────────────────────────╯
 
-   Created:
-   - activity/jobs/stripe-staff-backend.yml
+   **Created:** activity/jobs/stripe-staff-backend.yml
 
-   Running fit analysis...
+   ───────────────────────────────────────
+   ⏳ Running fit analysis...
    ```
 
 ---
 
 ## Step 6: Trigger Fit Analysis
 
-After saving the job file, automatically run fit analysis:
+After saving the job file, automatically run **brutal fit analysis** (not advocacy).
 
 1. Check if profile exists (`profile/identity.yml`)
    - If NO: Skip fit analysis, inform user to run `/mw init` first
 
-2. If profile exists, read the fit-agent instructions from `agents/fit-agent.md`
-   - If fit-agent doesn't exist, perform inline fit analysis:
+2. Read `agents/fit-analysis.md` and follow its instructions for a cold, honest assessment.
 
-### Inline Fit Analysis
+### Fit Analysis Output
 
-Compare the job requirements against the user's profile:
-
-1. Read user's profile files:
-   - `profile/skills.yml`
-   - `profile/experience.yml`
-   - `profile/proof-points.yml`
-
-2. Analyze fit:
-   - **Strong matches**: Requirements the user clearly meets
-   - **Gaps**: Requirements the user doesn't meet
-   - **Talking points**: Achievements that relate to this role
-
-3. Calculate a rough fit score (0-100%)
-
-4. Present results:
+The fit analysis should be **brutal and honest**:
 
 ```
-## Fit Analysis: Stripe Staff Backend Engineer
+───────────────────────────────────────
+⚖️ **Fit Analysis**
 
-**Fit Score:** 78%
+Brutal honesty mode. No sugar-coating.
+───────────────────────────────────────
 
-### Strong Matches
-- 10 years backend experience (req: 8+)
-- Distributed systems: Built event pipeline at Snapdeal
-- Strong CS: MS Computer Science
+### Requirements Check
+
+| Requirement | Met? | Evidence |
+|-------------|------|----------|
+| 8+ years Java | ✓ Yes | 10 years at Cisco, Snapdeal |
+| Spring Boot | ✓ Yes | Expert level |
+| Banking domain | ✗ No | No banking experience |
+
+### Deal-Breakers
+
+🚨 **Banking domain** — Marked mandatory. You have no banking experience.
 
 ### Gaps
-- No fintech experience (nice-to-have)
-- Ruby/Go: Limited exposure
 
-### Talking Points
-Use these achievements in your application:
-1. Built ad pipeline handling 1B+ events/day → shows distributed systems
-2. Reduced P95 latency by 82% → shows performance focus
+| Gap | Severity | Reality |
+|-----|----------|---------|
+| Banking domain | 🔴 Critical | No banking experience. Mandatory. |
+| MySQL/SQL Server | 🟡 Minor | PostgreSQL expert. Similar but not exact. |
 
-### Recommendation
-Strong fit overall. Address the fintech gap by highlighting any financial data handling experience.
+### Verdict
+
+**Fit Score:** 65%
+
+**Should you apply?**
+- If banking is truly mandatory → Probably not
+- If they're flexible → Yes, strong technical fit
+
+───────────────────────────────────────
+**Next step:** `/mw case {job-id}` to build your case if you decide to apply
 ```
 
-5. Update the job file with fit data:
+### Save Fit Data
+
+Update the job file:
 
 ```yaml
 fit:
-  score: 78
-  analyzed_at: 2024-10-15T10:35:00Z
+  score: 65
+  analyzed_at: 2026-04-11T00:00:00Z
+  requirements_check:
+    - requirement: "8+ years Java"
+      met: yes
+      evidence: "10 years at Cisco, Snapdeal"
+    - requirement: "Banking domain"
+      met: no
+      deal_breaker: true
   matches:
-    - "10 years backend experience"
-    - "Distributed systems expertise"
+    - "10+ years Java experience"
+    - "Spring Boot, Microservices expert"
   gaps:
-    - "No fintech experience"
-  talking_points:
-    - "Built ad pipeline handling 1B+ events/day"
-    - "Reduced P95 latency by 82%"
+    - requirement: "Banking domain"
+      severity: critical
+      reality: "No banking experience"
+  deal_breakers:
+    - "Banking domain (mandatory)"
+  verdict: "Strong technical fit but missing mandatory banking requirement"
+  should_apply: "Only if banking requirement is flexible"
 ```
 
 ---

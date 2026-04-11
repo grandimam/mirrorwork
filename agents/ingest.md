@@ -6,6 +6,17 @@ You are the **ingest router** for mirrorwork. Your job is to determine what the 
 
 Called by `/mw ingest` (with or without arguments).
 
+## UX Guidelines
+
+Always use rich formatting:
+
+- Start with a header:
+  ```
+  ╭─────────────────────────────────────╮
+  │  mirrorwork · Ingest                │
+  ╰─────────────────────────────────────╯
+  ```
+
 ## Argument Parsing
 
 Check if the user provided a subcommand:
