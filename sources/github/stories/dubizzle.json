@@ -1,0 +1,1552 @@
+{
+  "organization": "dubizzle",
+  "user": "grandimam",
+  "tenure_start": "2024-03-04T07:22:23Z",
+  "tenure_end": "2026-03-24T06:27:24Z",
+  "total_prs": 600,
+  "total_commits": 1383,
+  "services": {
+    "property-lpv-service": {
+      "service": "property-lpv-service",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-03-14T04:21:16Z",
+      "tenure_end": "2026-03-24T06:27:24Z",
+      "total_prs": 301,
+      "total_commits": 734,
+      "categories": {
+        "feature": 54,
+        "fix": 62,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 2,
+        "docs": 1,
+        "test": 7,
+        "chore": 50,
+        "other": 125
+      },
+      "highlights": [
+        "Sync (37 PRs)",
+        "API (18 PRs)",
+        "Migration (9 PRs)",
+        "Algolia (6 PRs)",
+        "Email (5 PRs)",
+        "Webhook (3 PRs)",
+        "Queue (3 PRs)",
+        "Search (2 PRs)",
+        "Logging (2 PRs)",
+        "Performance (2 PRs)"
+      ],
+      "technologies": [
+        "FastAPI",
+        "REST",
+        "Algolia",
+        "Testing",
+        "GraphQL",
+        "Kafka",
+        "Authentication",
+        "Redis"
+      ],
+      "key_prs": [
+        {
+          "id": 2569347362,
+          "number": 1382,
+          "title": "Staging to Main (Enable ADM and Phone number)(Add location type to project dpv)",
+          "url": "https://github.com/dubizzle/property-lpv-service/pull/1382",
+          "state": "closed",
+          "created_at": "2024-10-07T05:20:51Z",
+          "merged_at": "2024-10-07T08:12:57Z",
+          "repository": "property-lpv-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2518511676,
+          "number": 1313,
+          "title": "[Staging -> Main]: Add new fields in Slow Sync",
+          "url": "https://github.com/dubizzle/property-lpv-service/pull/1313",
+          "state": "closed",
+          "created_at": "2024-09-11T05:21:24Z",
+          "merged_at": "2024-09-11T05:39:18Z",
+          "repository": "property-lpv-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3268424508,
+          "number": 1998,
+          "title": "Integ branch - Priority Queues on Image Upload and Bed and Bath NP + Sorting option",
+          "url": "https://github.com/dubizzle/property-lpv-service/pull/1998",
+          "state": "closed",
+          "created_at": "2025-07-28T07:00:04Z",
+          "merged_at": "2025-07-28T09:43:14Z",
+          "repository": "property-lpv-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2741318866,
+          "number": 1571,
+          "title": "Update search alert endpoint to add custom error message",
+          "url": "https://github.com/dubizzle/property-lpv-service/pull/1571",
+          "state": "closed",
+          "created_at": "2024-12-16T04:45:07Z",
+          "merged_at": "2024-12-16T06:16:09Z",
+          "repository": "property-lpv-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2442094738,
+          "number": 1230,
+          "title": "Added Site ID and Additional Logs for Link City Issue",
+          "url": "https://github.com/dubizzle/property-lpv-service/pull/1230",
+          "state": "closed",
+          "created_at": "2024-08-01T10:30:06Z",
+          "merged_at": "2024-08-01T10:54:05Z",
+          "repository": "property-lpv-service",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "dubizzle": {
+      "service": "dubizzle",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-05-10T10:40:18Z",
+      "tenure_end": "2026-01-28T10:24:07Z",
+      "total_prs": 39,
+      "total_commits": 167,
+      "categories": {
+        "feature": 12,
+        "fix": 1,
+        "refactor": 0,
+        "infra": 1,
+        "perf": 0,
+        "docs": 0,
+        "test": 1,
+        "chore": 5,
+        "other": 19
+      },
+      "highlights": [
+        "Migration (3 PRs)",
+        "Validation (2 PRs)",
+        "Sync: Sync agency from plpv",
+        "Integration: [Integration]: Update the RFR refreshes to config",
+        "API: RFR Info API"
+      ],
+      "technologies": [
+        "FastAPI",
+        "REST",
+        "Algolia"
+      ],
+      "key_prs": [
+        {
+          "id": 2563225995,
+          "number": 12223,
+          "title": "Add adm licence no and phone number in RealEstateAgent model.",
+          "url": "https://github.com/dubizzle/dubizzle/pull/12223",
+          "state": "closed",
+          "created_at": "2024-10-03T06:26:16Z",
+          "merged_at": "2024-10-07T07:29:20Z",
+          "repository": "dubizzle",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2580308109,
+          "number": 12261,
+          "title": "Added validation for updating ADM licence",
+          "url": "https://github.com/dubizzle/dubizzle/pull/12261",
+          "state": "closed",
+          "created_at": "2024-10-11T02:55:01Z",
+          "merged_at": "2024-10-11T04:42:29Z",
+          "repository": "dubizzle",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2510217981,
+          "number": 12077,
+          "title": "[Centralized Calltracking]: Added RealEstateAgentID for PropertyFeed events",
+          "url": "https://github.com/dubizzle/dubizzle/pull/12077",
+          "state": "closed",
+          "created_at": "2024-09-06T11:27:32Z",
+          "merged_at": "2024-09-10T09:04:29Z",
+          "repository": "dubizzle",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3412790917,
+          "number": 13435,
+          "title": "Broker and New Lister Discount Packages in RFR",
+          "url": "https://github.com/dubizzle/dubizzle/pull/13435",
+          "state": "closed",
+          "created_at": "2025-09-13T07:22:14Z",
+          "merged_at": "2025-09-30T03:24:10Z",
+          "repository": "dubizzle",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3864702817,
+          "number": 13854,
+          "title": "Remove Unique Listing Check for RFR Broker Offer Eligibility",
+          "url": "https://github.com/dubizzle/dubizzle/pull/13854",
+          "state": "closed",
+          "created_at": "2026-01-28T10:24:07Z",
+          "merged_at": "2026-01-29T07:20:45Z",
+          "repository": "dubizzle",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "chat-service": {
+      "service": "chat-service",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-04-01T20:30:40Z",
+      "tenure_end": "2026-03-16T11:54:46Z",
+      "total_prs": 38,
+      "total_commits": 114,
+      "categories": {
+        "feature": 15,
+        "fix": 2,
+        "refactor": 3,
+        "infra": 1,
+        "perf": 0,
+        "docs": 0,
+        "test": 1,
+        "chore": 1,
+        "other": 15
+      },
+      "highlights": [
+        "Migration (3 PRs)",
+        "API: Fb/refactor np api"
+      ],
+      "technologies": [
+        "Algolia",
+        "FastAPI",
+        "REST"
+      ],
+      "key_prs": [
+        {
+          "id": 4081785543,
+          "number": 797,
+          "title": "added new code owners for whatsapp directory",
+          "url": "https://github.com/dubizzle/chat-service/pull/797",
+          "state": "closed",
+          "created_at": "2026-03-16T11:03:47Z",
+          "merged_at": "2026-03-16T11:05:35Z",
+          "repository": "chat-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3915663704,
+          "number": 766,
+          "title": "Added a new variant for new project interactive",
+          "url": "https://github.com/dubizzle/chat-service/pull/766",
+          "state": "closed",
+          "created_at": "2026-02-09T10:30:50Z",
+          "merged_at": "2026-02-11T07:09:06Z",
+          "repository": "chat-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2307447227,
+          "number": 396,
+          "title": "Added more validations for mismatched listings",
+          "url": "https://github.com/dubizzle/chat-service/pull/396",
+          "state": "closed",
+          "created_at": "2024-05-21T06:39:36Z",
+          "merged_at": "2024-05-21T06:43:25Z",
+          "repository": "chat-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2294405416,
+          "number": 391,
+          "title": "Added index for legacy_id and category_id",
+          "url": "https://github.com/dubizzle/chat-service/pull/391",
+          "state": "closed",
+          "created_at": "2024-05-14T04:57:53Z",
+          "merged_at": "2024-05-14T05:28:53Z",
+          "repository": "chat-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3167787382,
+          "number": 595,
+          "title": "Added extra logs for handling wa cleanup",
+          "url": "https://github.com/dubizzle/chat-service/pull/595",
+          "state": "closed",
+          "created_at": "2025-06-23T11:12:30Z",
+          "merged_at": "2025-06-23T11:37:33Z",
+          "repository": "chat-service",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "calltracking": {
+      "service": "calltracking",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-04-15T08:42:34Z",
+      "tenure_end": "2026-02-20T07:16:53Z",
+      "total_prs": 38,
+      "total_commits": 70,
+      "categories": {
+        "feature": 13,
+        "fix": 3,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 1,
+        "test": 0,
+        "chore": 4,
+        "other": 17
+      },
+      "highlights": [
+        "Migration (3 PRs)",
+        "Notification (2 PRs)",
+        "Validation (2 PRs)",
+        "API (2 PRs)",
+        "Export: Export agency details",
+        "Reporting: [Command]: Fetch agent details report",
+        "SMS: [Integ] Duplicate agent phone numbers in Aswat & Handle SMS "
+      ],
+      "technologies": [
+        "FastAPI",
+        "REST",
+        "Testing"
+      ],
+      "key_prs": [
+        {
+          "id": 2749317771,
+          "number": 301,
+          "title": "Added more validations for phone number and a flag",
+          "url": "https://github.com/dubizzle/calltracking/pull/301",
+          "state": "closed",
+          "created_at": "2024-12-19T05:44:53Z",
+          "merged_at": "2024-12-19T05:45:12Z",
+          "repository": "calltracking",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2880224581,
+          "number": 397,
+          "title": "[Integ] Duplicate agent phone numbers in Aswat & Handle SMS Reporting number from PLPV",
+          "url": "https://github.com/dubizzle/calltracking/pull/397",
+          "state": "closed",
+          "created_at": "2025-02-26T05:06:03Z",
+          "merged_at": "2025-02-26T05:28:19Z",
+          "repository": "calltracking",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3853798029,
+          "number": 487,
+          "title": "Agent DIDs Not Released When Agency Switches to Unified Mode",
+          "url": "https://github.com/dubizzle/calltracking/pull/487",
+          "state": "closed",
+          "created_at": "2026-01-25T20:14:30Z",
+          "merged_at": "2026-01-26T10:43:56Z",
+          "repository": "calltracking",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2637197861,
+          "number": 284,
+          "title": "Add test cases for detailed tracking",
+          "url": "https://github.com/dubizzle/calltracking/pull/284",
+          "state": "closed",
+          "created_at": "2024-11-06T06:48:57Z",
+          "merged_at": "2024-11-06T07:22:36Z",
+          "repository": "calltracking",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2611659762,
+          "number": 268,
+          "title": "Added migration file for centralized calltracking",
+          "url": "https://github.com/dubizzle/calltracking/pull/268",
+          "state": "closed",
+          "created_at": "2024-10-24T13:42:46Z",
+          "merged_at": "2024-11-05T11:44:19Z",
+          "repository": "calltracking",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "helmfiles-apps": {
+      "service": "helmfiles-apps",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-06-20T05:03:31Z",
+      "tenure_end": "2026-03-16T06:31:10Z",
+      "total_prs": 44,
+      "total_commits": 47,
+      "categories": {
+        "feature": 13,
+        "fix": 1,
+        "refactor": 0,
+        "infra": 1,
+        "perf": 3,
+        "docs": 0,
+        "test": 0,
+        "chore": 13,
+        "other": 13
+      },
+      "highlights": [
+        "Sync (9 PRs)",
+        "Scaling (5 PRs)",
+        "Queue (3 PRs)",
+        "Scheduled Jobs (2 PRs)",
+        "Algolia: update algolia threshold"
+      ],
+      "technologies": [
+        "Celery",
+        "Docker",
+        "Kafka",
+        "Algolia"
+      ],
+      "key_prs": [
+        {
+          "id": 3447833065,
+          "number": 3435,
+          "title": "Added scaling rules for hbs queues",
+          "url": "https://github.com/dubizzle/helmfiles-apps/pull/3435",
+          "state": "closed",
+          "created_at": "2025-09-24T06:15:05Z",
+          "merged_at": "2025-09-24T07:18:04Z",
+          "repository": "helmfiles-apps",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 4043926888,
+          "number": 3965,
+          "title": "added new consumers",
+          "url": "https://github.com/dubizzle/helmfiles-apps/pull/3965",
+          "state": "closed",
+          "created_at": "2026-03-09T07:42:17Z",
+          "merged_at": "2026-03-10T07:06:27Z",
+          "repository": "helmfiles-apps",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3994041570,
+          "number": 3938,
+          "title": "added consumers for new queues",
+          "url": "https://github.com/dubizzle/helmfiles-apps/pull/3938",
+          "state": "closed",
+          "created_at": "2026-02-26T08:23:45Z",
+          "merged_at": "2026-02-27T06:53:26Z",
+          "repository": "helmfiles-apps",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3993794186,
+          "number": 3937,
+          "title": "Added new consumers for image-upload",
+          "url": "https://github.com/dubizzle/helmfiles-apps/pull/3937",
+          "state": "closed",
+          "created_at": "2026-02-26T07:28:35Z",
+          "merged_at": "2026-02-26T08:19:57Z",
+          "repository": "helmfiles-apps",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2383036020,
+          "number": 2483,
+          "title": "[ProfolioSlowSync][R1]: Missing and Outdated Listing Worker",
+          "url": "https://github.com/dubizzle/helmfiles-apps/pull/2483",
+          "state": "closed",
+          "created_at": "2024-07-01T07:12:13Z",
+          "merged_at": "2024-07-17T05:39:02Z",
+          "repository": "helmfiles-apps",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "content-first-service": {
+      "service": "content-first-service",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-04-14T14:17:04Z",
+      "tenure_end": "2025-10-17T11:31:59Z",
+      "total_prs": 26,
+      "total_commits": 40,
+      "categories": {
+        "feature": 6,
+        "fix": 4,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 0,
+        "chore": 4,
+        "other": 12
+      },
+      "highlights": [
+        "Algolia: Update v3 endpoint algolia filters"
+      ],
+      "technologies": [
+        "FastAPI",
+        "REST",
+        "Algolia"
+      ],
+      "key_prs": [
+        {
+          "id": 2308899246,
+          "number": 274,
+          "title": "Revert \"Add listing uuid support in Content First Service\"",
+          "url": "https://github.com/dubizzle/content-first-service/pull/274",
+          "state": "closed",
+          "created_at": "2024-05-21T18:45:40Z",
+          "merged_at": "2024-05-21T18:51:13Z",
+          "repository": "content-first-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3231749428,
+          "number": 369,
+          "title": "Add new fields in similar ads",
+          "url": "https://github.com/dubizzle/content-first-service/pull/369",
+          "state": "closed",
+          "created_at": "2025-07-15T10:38:19Z",
+          "merged_at": "2025-07-15T10:46:58Z",
+          "repository": "content-first-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2242190348,
+          "number": 265,
+          "title": "Add listing uuid support in Content First Service",
+          "url": "https://github.com/dubizzle/content-first-service/pull/265",
+          "state": "closed",
+          "created_at": "2024-04-14T14:17:04Z",
+          "merged_at": "2024-05-20T11:49:41Z",
+          "repository": "content-first-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3228604493,
+          "number": 368,
+          "title": "Added photos_urls_hd field in similar ads recommendation",
+          "url": "https://github.com/dubizzle/content-first-service/pull/368",
+          "state": "closed",
+          "created_at": "2025-07-14T12:31:05Z",
+          "merged_at": "2025-07-15T10:37:30Z",
+          "repository": "content-first-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3190768520,
+          "number": 367,
+          "title": "Added recommended listing for property and classified (v3)",
+          "url": "https://github.com/dubizzle/content-first-service/pull/367",
+          "state": "closed",
+          "created_at": "2025-07-01T05:31:50Z",
+          "merged_at": "2025-08-12T08:03:48Z",
+          "repository": "content-first-service",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "image-upload-service": {
+      "service": "image-upload-service",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-12-24T07:49:09Z",
+      "tenure_end": "2026-03-10T06:49:23Z",
+      "total_prs": 26,
+      "total_commits": 37,
+      "categories": {
+        "feature": 7,
+        "fix": 0,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 1,
+        "test": 0,
+        "chore": 5,
+        "other": 13
+      },
+      "highlights": [
+        "Queue (2 PRs)",
+        "Migration (2 PRs)",
+        "Sync: Move ius slow sync queue to shared celery"
+      ],
+      "technologies": [
+        "Docker",
+        "Celery"
+      ],
+      "key_prs": [
+        {
+          "id": 2757373499,
+          "number": 227,
+          "title": "Added additional log for bulk image upload",
+          "url": "https://github.com/dubizzle/image-upload-service/pull/227",
+          "state": "closed",
+          "created_at": "2024-12-24T08:01:11Z",
+          "merged_at": "2024-12-24T08:05:51Z",
+          "repository": "image-upload-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2757358468,
+          "number": 226,
+          "title": "Added additional log for bulk image upload",
+          "url": "https://github.com/dubizzle/image-upload-service/pull/226",
+          "state": "closed",
+          "created_at": "2024-12-24T07:49:09Z",
+          "merged_at": "2024-12-24T08:00:43Z",
+          "repository": "image-upload-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2758713522,
+          "number": 229,
+          "title": "Upgrade DBZ Shared on Image Upload Service",
+          "url": "https://github.com/dubizzle/image-upload-service/pull/229",
+          "state": "closed",
+          "created_at": "2024-12-25T10:29:59Z",
+          "merged_at": "2024-12-25T10:37:11Z",
+          "repository": "image-upload-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2757575749,
+          "number": 228,
+          "title": "Upgraded dbz_shared version in image upload",
+          "url": "https://github.com/dubizzle/image-upload-service/pull/228",
+          "state": "closed",
+          "created_at": "2024-12-24T10:36:06Z",
+          "merged_at": "2024-12-24T12:02:21Z",
+          "repository": "image-upload-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3268269633,
+          "number": 302,
+          "title": "Add priority queue for images",
+          "url": "https://github.com/dubizzle/image-upload-service/pull/302",
+          "state": "closed",
+          "created_at": "2025-07-28T06:09:12Z",
+          "merged_at": "2025-07-28T06:13:29Z",
+          "repository": "image-upload-service",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "favorites-service": {
+      "service": "favorites-service",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-04-01T09:13:43Z",
+      "tenure_end": "2024-09-26T05:19:16Z",
+      "total_prs": 17,
+      "total_commits": 34,
+      "categories": {
+        "feature": 9,
+        "fix": 0,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 0,
+        "chore": 2,
+        "other": 6
+      },
+      "highlights": [
+        "Migration (2 PRs)"
+      ],
+      "technologies": [
+        "FastAPI",
+        "REST",
+        "Algolia",
+        "PostgreSQL"
+      ],
+      "key_prs": [
+        {
+          "id": 2294423343,
+          "number": 201,
+          "title": "Added indexes for legacy fields in favorites",
+          "url": "https://github.com/dubizzle/favorites-service/pull/201",
+          "state": "closed",
+          "created_at": "2024-05-14T05:13:59Z",
+          "merged_at": "2024-05-14T06:00:41Z",
+          "repository": "favorites-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2546058335,
+          "number": 238,
+          "title": "Added V3 favorites lists",
+          "url": "https://github.com/dubizzle/favorites-service/pull/238",
+          "state": "closed",
+          "created_at": "2024-09-24T18:17:13Z",
+          "merged_at": "2024-09-26T05:18:24Z",
+          "repository": "favorites-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2472786469,
+          "number": 230,
+          "title": "Update V3 Endpoint to support only UUID",
+          "url": "https://github.com/dubizzle/favorites-service/pull/230",
+          "state": "closed",
+          "created_at": "2024-08-19T08:35:03Z",
+          "merged_at": "2024-08-19T09:29:13Z",
+          "repository": "favorites-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2471298040,
+          "number": 229,
+          "title": "Update FavoritesV3 endpoint to support only UUID",
+          "url": "https://github.com/dubizzle/favorites-service/pull/229",
+          "state": "closed",
+          "created_at": "2024-08-17T02:56:55Z",
+          "merged_at": "2024-08-19T08:20:52Z",
+          "repository": "favorites-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2218003247,
+          "number": 193,
+          "title": "Listing ID support for Favorites service",
+          "url": "https://github.com/dubizzle/favorites-service/pull/193",
+          "state": "closed",
+          "created_at": "2024-04-01T10:34:25Z",
+          "merged_at": "2024-05-13T11:31:53Z",
+          "repository": "favorites-service",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "seller-service": {
+      "service": "seller-service",
+      "role": "Primary Contributor",
+      "tenure_start": "2025-10-07T17:47:15Z",
+      "tenure_end": "2026-03-23T12:20:30Z",
+      "total_prs": 17,
+      "total_commits": 31,
+      "categories": {
+        "feature": 2,
+        "fix": 2,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 2,
+        "chore": 2,
+        "other": 9
+      },
+      "highlights": [],
+      "technologies": [
+        "Testing"
+      ],
+      "key_prs": [
+        {
+          "id": 3526181486,
+          "number": 1734,
+          "title": "[Staging to Main]: User staff users set default for share details to agent",
+          "url": "https://github.com/dubizzle/seller-service/pull/1734",
+          "state": "closed",
+          "created_at": "2025-10-17T13:26:33Z",
+          "merged_at": "2025-10-20T06:30:36Z",
+          "repository": "seller-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3525485252,
+          "number": 1727,
+          "title": "Revert \"User staff users set default for share details to agent\"",
+          "url": "https://github.com/dubizzle/seller-service/pull/1727",
+          "state": "closed",
+          "created_at": "2025-10-17T10:31:13Z",
+          "merged_at": "2025-10-17T10:43:34Z",
+          "repository": "seller-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3785950966,
+          "number": 2223,
+          "title": " Implement Rooms for Rent Discount System with Auto-Coupon Support",
+          "url": "https://github.com/dubizzle/seller-service/pull/2223",
+          "state": "closed",
+          "created_at": "2026-01-06T17:39:05Z",
+          "merged_at": null,
+          "repository": "seller-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3525933369,
+          "number": 1733,
+          "title": "share details to agents staff false",
+          "url": "https://github.com/dubizzle/seller-service/pull/1733",
+          "state": "closed",
+          "created_at": "2025-10-17T12:18:25Z",
+          "merged_at": "2025-10-17T13:01:06Z",
+          "repository": "seller-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3492444901,
+          "number": 1658,
+          "title": "Update mylistings with vertical specific metadata",
+          "url": "https://github.com/dubizzle/seller-service/pull/1658",
+          "state": "closed",
+          "created_at": "2025-10-07T17:47:15Z",
+          "merged_at": "2025-10-09T06:19:22Z",
+          "repository": "seller-service",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "horizontal-buyer-service": {
+      "service": "horizontal-buyer-service",
+      "role": "Primary Contributor",
+      "tenure_start": "2025-05-16T11:38:33Z",
+      "tenure_end": "2026-02-06T10:31:59Z",
+      "total_prs": 13,
+      "total_commits": 32,
+      "categories": {
+        "feature": 2,
+        "fix": 0,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 0,
+        "chore": 3,
+        "other": 8
+      },
+      "highlights": [
+        "Migration (2 PRs)"
+      ],
+      "technologies": [],
+      "key_prs": [
+        {
+          "id": 3321113723,
+          "number": 1877,
+          "title": "Update HBS source of truth - #1. Merge the library installation changes",
+          "url": "https://github.com/dubizzle/horizontal-buyer-service/pull/1877",
+          "state": "closed",
+          "created_at": "2025-08-14T07:28:08Z",
+          "merged_at": "2025-08-14T12:05:18Z",
+          "repository": "horizontal-buyer-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3322000472,
+          "number": 1879,
+          "title": "[Staging -> Main]: Release 15th Aug",
+          "url": "https://github.com/dubizzle/horizontal-buyer-service/pull/1879",
+          "state": "closed",
+          "created_at": "2025-08-14T12:06:42Z",
+          "merged_at": "2025-08-15T05:34:54Z",
+          "repository": "horizontal-buyer-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3321669419,
+          "number": 1878,
+          "title": "Update HBS source of truth - #2. Migration and Engine Update",
+          "url": "https://github.com/dubizzle/horizontal-buyer-service/pull/1878",
+          "state": "closed",
+          "created_at": "2025-08-14T10:18:20Z",
+          "merged_at": "2025-08-19T10:34:39Z",
+          "repository": "horizontal-buyer-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3333847813,
+          "number": 1886,
+          "title": "[Migration]: Geometry and Geometry Type Field",
+          "url": "https://github.com/dubizzle/horizontal-buyer-service/pull/1886",
+          "state": "closed",
+          "created_at": "2025-08-19T10:36:58Z",
+          "merged_at": "2025-08-19T11:24:46Z",
+          "repository": "horizontal-buyer-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3333521680,
+          "number": 1885,
+          "title": "Added geo location support",
+          "url": "https://github.com/dubizzle/horizontal-buyer-service/pull/1885",
+          "state": "closed",
+          "created_at": "2025-08-19T08:56:21Z",
+          "merged_at": "2025-08-19T10:23:09Z",
+          "repository": "horizontal-buyer-service",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "dbz-shared": {
+      "service": "dbz-shared",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-10-25T11:06:25Z",
+      "tenure_end": "2026-03-10T06:20:21Z",
+      "total_prs": 13,
+      "total_commits": 23,
+      "categories": {
+        "feature": 9,
+        "fix": 1,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 0,
+        "chore": 1,
+        "other": 2
+      },
+      "highlights": [],
+      "technologies": [
+        "FastAPI",
+        "REST"
+      ],
+      "key_prs": [
+        {
+          "id": 2613794156,
+          "number": 70,
+          "title": "Added v2 endpoint for centralized calltracking",
+          "url": "https://github.com/dubizzle/dbz-shared/pull/70",
+          "state": "closed",
+          "created_at": "2024-10-25T11:06:25Z",
+          "merged_at": "2024-11-05T08:30:32Z",
+          "repository": "dbz-shared",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3287486036,
+          "number": 144,
+          "title": "added project fields",
+          "url": "https://github.com/dubizzle/dbz-shared/pull/144",
+          "state": "closed",
+          "created_at": "2025-08-03T19:52:43Z",
+          "merged_at": "2025-08-05T10:11:51Z",
+          "repository": "dbz-shared",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3148790430,
+          "number": 139,
+          "title": "Added operation_type in RTL",
+          "url": "https://github.com/dubizzle/dbz-shared/pull/139",
+          "state": "closed",
+          "created_at": "2025-06-16T06:58:26Z",
+          "merged_at": "2025-06-16T10:42:54Z",
+          "repository": "dbz-shared",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3076886771,
+          "number": 133,
+          "title": "Added schema in dbz_shared",
+          "url": "https://github.com/dubizzle/dbz-shared/pull/133",
+          "state": "closed",
+          "created_at": "2025-05-20T12:41:18Z",
+          "merged_at": "2025-05-26T04:46:04Z",
+          "repository": "dbz-shared",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2847138777,
+          "number": 108,
+          "title": "Enabling hybrid calltracking model for agent and agencies",
+          "url": "https://github.com/dubizzle/dbz-shared/pull/108",
+          "state": "closed",
+          "created_at": "2025-02-12T04:20:08Z",
+          "merged_at": "2025-02-21T13:24:24Z",
+          "repository": "dbz-shared",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "llm-rules": {
+      "service": "llm-rules",
+      "role": "Primary Contributor",
+      "tenure_start": "2025-12-04T04:26:46Z",
+      "tenure_end": "2026-01-19T07:50:18Z",
+      "total_prs": 6,
+      "total_commits": 16,
+      "categories": {
+        "feature": 2,
+        "fix": 1,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 2,
+        "chore": 0,
+        "other": 1
+      },
+      "highlights": [],
+      "technologies": [
+        "Testing",
+        "PostgreSQL"
+      ],
+      "key_prs": [
+        {
+          "id": 3693092460,
+          "number": 3,
+          "title": "\u2728 Supercharge your git workflow with commit & PR agents",
+          "url": "https://github.com/dubizzle/llm-rules/pull/3",
+          "state": "closed",
+          "created_at": "2025-12-04T06:13:45Z",
+          "merged_at": "2025-12-04T06:14:50Z",
+          "repository": "llm-rules",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3693957230,
+          "number": 4,
+          "title": "Added unit test command",
+          "url": "https://github.com/dubizzle/llm-rules/pull/4",
+          "state": "closed",
+          "created_at": "2025-12-04T10:34:41Z",
+          "merged_at": "2025-12-04T10:34:47Z",
+          "repository": "llm-rules",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3692836649,
+          "number": 1,
+          "title": "Added reviewer agent",
+          "url": "https://github.com/dubizzle/llm-rules/pull/1",
+          "state": "closed",
+          "created_at": "2025-12-04T04:26:46Z",
+          "merged_at": "2025-12-04T04:27:11Z",
+          "repository": "llm-rules",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3737434008,
+          "number": 5,
+          "title": "Enabling progressive specs",
+          "url": "https://github.com/dubizzle/llm-rules/pull/5",
+          "state": "closed",
+          "created_at": "2025-12-17T05:46:05Z",
+          "merged_at": "2025-12-17T05:46:28Z",
+          "repository": "llm-rules",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3693016894,
+          "number": 2,
+          "title": "Fix the commands",
+          "url": "https://github.com/dubizzle/llm-rules/pull/2",
+          "state": "closed",
+          "created_at": "2025-12-04T05:42:57Z",
+          "merged_at": "2025-12-04T05:44:37Z",
+          "repository": "llm-rules",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "savedsearch-service": {
+      "service": "savedsearch-service",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-03-11T08:51:53Z",
+      "tenure_end": "2024-03-28T07:01:48Z",
+      "total_prs": 4,
+      "total_commits": 13,
+      "categories": {
+        "feature": 0,
+        "fix": 2,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 0,
+        "chore": 0,
+        "other": 2
+      },
+      "highlights": [
+        "Search: Handled db error for saved and recent search APIs"
+      ],
+      "technologies": [
+        "PostgreSQL",
+        "Algolia"
+      ],
+      "key_prs": [
+        {
+          "id": 2178574740,
+          "number": 311,
+          "title": "Handled db error for saved and recent search APIs",
+          "url": "https://github.com/dubizzle/savedsearch-service/pull/311",
+          "state": "closed",
+          "created_at": "2024-03-11T08:51:53Z",
+          "merged_at": "2024-03-12T07:07:08Z",
+          "repository": "savedsearch-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2212503031,
+          "number": 317,
+          "title": "[Staging -> Main]: Fix UnboundLocalError",
+          "url": "https://github.com/dubizzle/savedsearch-service/pull/317",
+          "state": "closed",
+          "created_at": "2024-03-28T07:01:48Z",
+          "merged_at": "2024-03-28T09:12:22Z",
+          "repository": "savedsearch-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2211670468,
+          "number": 316,
+          "title": "Fix for UnboundLocalError",
+          "url": "https://github.com/dubizzle/savedsearch-service/pull/316",
+          "state": "closed",
+          "created_at": "2024-03-27T18:56:47Z",
+          "merged_at": "2024-03-28T06:51:30Z",
+          "repository": "savedsearch-service",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2180964823,
+          "number": 312,
+          "title": "fb/db-error-retry [staging -> main] ",
+          "url": "https://github.com/dubizzle/savedsearch-service/pull/312",
+          "state": "closed",
+          "created_at": "2024-03-12T07:59:52Z",
+          "merged_at": "2024-03-12T10:37:03Z",
+          "repository": "savedsearch-service",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "sitemaps-indexer": {
+      "service": "sitemaps-indexer",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-12-24T11:01:45Z",
+      "tenure_end": "2026-02-24T12:43:18Z",
+      "total_prs": 5,
+      "total_commits": 10,
+      "categories": {
+        "feature": 2,
+        "fix": 0,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 0,
+        "chore": 1,
+        "other": 2
+      },
+      "highlights": [],
+      "technologies": [],
+      "key_prs": [
+        {
+          "id": 3884255380,
+          "number": 312,
+          "title": "Revert \"\u2b06\ufe0f Update komsary 3 version from v2.0.2 to v2.1.3\"",
+          "url": "https://github.com/dubizzle/sitemaps-indexer/pull/312",
+          "state": "closed",
+          "created_at": "2026-02-02T06:38:36Z",
+          "merged_at": "2026-02-02T06:40:40Z",
+          "repository": "sitemaps-indexer",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3983520621,
+          "number": 316,
+          "title": "Enable support for quorum queues",
+          "url": "https://github.com/dubizzle/sitemaps-indexer/pull/316",
+          "state": "closed",
+          "created_at": "2026-02-24T12:43:18Z",
+          "merged_at": "2026-03-11T07:13:29Z",
+          "repository": "sitemaps-indexer",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2757608812,
+          "number": 211,
+          "title": "Add sections for sitemap generation",
+          "url": "https://github.com/dubizzle/sitemaps-indexer/pull/211",
+          "state": "closed",
+          "created_at": "2024-12-24T11:01:45Z",
+          "merged_at": null,
+          "repository": "sitemaps-indexer",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3874197258,
+          "number": 309,
+          "title": "Uptick dbz-shared for komsary group",
+          "url": "https://github.com/dubizzle/sitemaps-indexer/pull/309",
+          "state": "open",
+          "created_at": "2026-01-30T06:23:53Z",
+          "merged_at": null,
+          "repository": "sitemaps-indexer",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 3874009171,
+          "number": 308,
+          "title": "Uptick komsary",
+          "url": "https://github.com/dubizzle/sitemaps-indexer/pull/308",
+          "state": "closed",
+          "created_at": "2026-01-30T05:23:42Z",
+          "merged_at": null,
+          "repository": "sitemaps-indexer",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "openresty-property": {
+      "service": "openresty-property",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-05-04T14:13:07Z",
+      "tenure_end": "2025-02-05T06:40:08Z",
+      "total_prs": 6,
+      "total_commits": 8,
+      "categories": {
+        "feature": 2,
+        "fix": 0,
+        "refactor": 0,
+        "infra": 2,
+        "perf": 0,
+        "docs": 0,
+        "test": 0,
+        "chore": 0,
+        "other": 2
+      },
+      "highlights": [],
+      "technologies": [
+        "FastAPI",
+        "REST"
+      ],
+      "key_prs": [
+        {
+          "id": 2832049556,
+          "number": 113,
+          "title": "Updated agency create endpoint prefix",
+          "url": "https://github.com/dubizzle/openresty-property/pull/113",
+          "state": "closed",
+          "created_at": "2025-02-05T06:40:08Z",
+          "merged_at": "2025-02-05T07:43:56Z",
+          "repository": "openresty-property",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2286945775,
+          "number": 88,
+          "title": "PLPV Shorturl Routes",
+          "url": "https://github.com/dubizzle/openresty-property/pull/88",
+          "state": "closed",
+          "created_at": "2024-05-09T05:51:47Z",
+          "merged_at": "2024-05-09T06:18:09Z",
+          "repository": "openresty-property",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2279015427,
+          "number": 87,
+          "title": "Rules for PLPV Shorturls",
+          "url": "https://github.com/dubizzle/openresty-property/pull/87",
+          "state": "closed",
+          "created_at": "2024-05-04T14:13:07Z",
+          "merged_at": "2024-05-07T05:38:43Z",
+          "repository": "openresty-property",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2832043067,
+          "number": 112,
+          "title": "Nginx config for agent/agency endpoints",
+          "url": "https://github.com/dubizzle/openresty-property/pull/112",
+          "state": "closed",
+          "created_at": "2025-02-05T06:36:00Z",
+          "merged_at": "2025-02-05T08:27:10Z",
+          "repository": "openresty-property",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2831096975,
+          "number": 111,
+          "title": "Nginx config for agent/agency endpoint",
+          "url": "https://github.com/dubizzle/openresty-property/pull/111",
+          "state": "closed",
+          "created_at": "2025-02-04T19:18:35Z",
+          "merged_at": "2025-02-05T06:15:42Z",
+          "repository": "openresty-property",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "frontend-nginx": {
+      "service": "frontend-nginx",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-05-04T14:14:05Z",
+      "tenure_end": "2024-05-15T07:07:35Z",
+      "total_prs": 4,
+      "total_commits": 4,
+      "categories": {
+        "feature": 2,
+        "fix": 0,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 0,
+        "chore": 0,
+        "other": 2
+      },
+      "highlights": [],
+      "technologies": [],
+      "key_prs": [
+        {
+          "id": 2297049987,
+          "number": 819,
+          "title": "Added newprojects routes, and homepage redirections",
+          "url": "https://github.com/dubizzle/frontend-nginx/pull/819",
+          "state": "closed",
+          "created_at": "2024-05-15T07:07:35Z",
+          "merged_at": null,
+          "repository": "frontend-nginx",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2297027621,
+          "number": 818,
+          "title": "Add routes for New Projects Homepage",
+          "url": "https://github.com/dubizzle/frontend-nginx/pull/818",
+          "state": "closed",
+          "created_at": "2024-05-15T06:58:22Z",
+          "merged_at": null,
+          "repository": "frontend-nginx",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2286950551,
+          "number": 813,
+          "title": "PLPV Shorturl Routes",
+          "url": "https://github.com/dubizzle/frontend-nginx/pull/813",
+          "state": "closed",
+          "created_at": "2024-05-09T05:56:04Z",
+          "merged_at": "2024-05-09T06:18:03Z",
+          "repository": "frontend-nginx",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2279015846,
+          "number": 811,
+          "title": "Rules for PLPV Shorturls",
+          "url": "https://github.com/dubizzle/frontend-nginx/pull/811",
+          "state": "closed",
+          "created_at": "2024-05-04T14:14:05Z",
+          "merged_at": "2024-05-07T05:38:59Z",
+          "repository": "frontend-nginx",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "dev": {
+      "service": "dev",
+      "role": "Primary Contributor",
+      "tenure_start": "2024-03-04T07:22:23Z",
+      "tenure_end": "2024-03-05T04:02:35Z",
+      "total_prs": 2,
+      "total_commits": 3,
+      "categories": {
+        "feature": 0,
+        "fix": 0,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 2,
+        "test": 0,
+        "chore": 0,
+        "other": 0
+      },
+      "highlights": [],
+      "technologies": [],
+      "key_prs": [
+        {
+          "id": 2168251787,
+          "number": 139,
+          "title": "readme updated for mac m2 compatibility issues",
+          "url": "https://github.com/dubizzle/dev/pull/139",
+          "state": "closed",
+          "created_at": "2024-03-05T04:02:35Z",
+          "merged_at": "2024-03-05T04:22:29Z",
+          "repository": "dev",
+          "organization": "dubizzle"
+        },
+        {
+          "id": 2166115169,
+          "number": 138,
+          "title": "Fb/update readme",
+          "url": "https://github.com/dubizzle/dev/pull/138",
+          "state": "closed",
+          "created_at": "2024-03-04T07:22:23Z",
+          "merged_at": "2024-03-04T12:55:21Z",
+          "repository": "dev",
+          "organization": "dubizzle"
+        }
+      ]
+    },
+    "algolia-indexes": {
+      "service": "algolia-indexes",
+      "role": "Primary Contributor",
+      "tenure_start": "2025-11-20T11:15:40Z",
+      "tenure_end": "2025-11-20T11:15:40Z",
+      "total_prs": 1,
+      "total_commits": 0,
+      "categories": {
+        "feature": 0,
+        "fix": 0,
+        "refactor": 0,
+        "infra": 0,
+        "perf": 0,
+        "docs": 0,
+        "test": 0,
+        "chore": 0,
+        "other": 1
+      },
+      "highlights": [
+        "Algolia: Delete algolia replicate records"
+      ],
+      "technologies": [
+        "Algolia"
+      ],
+      "key_prs": [
+        {
+          "id": 3646787556,
+          "number": 86,
+          "title": "Delete algolia replicate records",
+          "url": "https://github.com/dubizzle/algolia-indexes/pull/86",
+          "state": "open",
+          "created_at": "2025-11-20T11:15:40Z",
+          "merged_at": null,
+          "repository": "algolia-indexes",
+          "organization": "dubizzle"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "tenure_months": 24,
+    "total_prs": 600,
+    "total_commits": 1383,
+    "total_services": 18,
+    "top_services": [
+      {
+        "service": "property-lpv-service",
+        "prs": 301,
+        "commits": 734,
+        "role": "Primary Contributor",
+        "key_themes": [
+          "Sync",
+          "API",
+          "Migration",
+          "Algolia"
+        ]
+      },
+      {
+        "service": "dubizzle",
+        "prs": 39,
+        "commits": 167,
+        "role": "Primary Contributor",
+        "key_themes": [
+          "Migration",
+          "Validation",
+          "Sync",
+          "Integration"
+        ]
+      },
+      {
+        "service": "chat-service",
+        "prs": 38,
+        "commits": 114,
+        "role": "Primary Contributor",
+        "key_themes": [
+          "Migration",
+          "API"
+        ]
+      },
+      {
+        "service": "calltracking",
+        "prs": 38,
+        "commits": 70,
+        "role": "Primary Contributor",
+        "key_themes": [
+          "Migration",
+          "Notification",
+          "Validation",
+          "API"
+        ]
+      },
+      {
+        "service": "helmfiles-apps",
+        "prs": 44,
+        "commits": 47,
+        "role": "Primary Contributor",
+        "key_themes": [
+          "Sync",
+          "Scaling",
+          "Queue",
+          "Scheduled Jobs"
+        ]
+      },
+      {
+        "service": "content-first-service",
+        "prs": 26,
+        "commits": 40,
+        "role": "Primary Contributor",
+        "key_themes": [
+          "Algolia"
+        ]
+      },
+      {
+        "service": "image-upload-service",
+        "prs": 26,
+        "commits": 37,
+        "role": "Primary Contributor",
+        "key_themes": [
+          "Queue",
+          "Migration",
+          "Sync"
+        ]
+      },
+      {
+        "service": "favorites-service",
+        "prs": 17,
+        "commits": 34,
+        "role": "Primary Contributor",
+        "key_themes": [
+          "Migration"
+        ]
+      },
+      {
+        "service": "seller-service",
+        "prs": 17,
+        "commits": 31,
+        "role": "Primary Contributor",
+        "key_themes": []
+      },
+      {
+        "service": "horizontal-buyer-service",
+        "prs": 13,
+        "commits": 32,
+        "role": "Primary Contributor",
+        "key_themes": [
+          "Migration"
+        ]
+      }
+    ],
+    "categories": {
+      "feature": 150,
+      "fix": 79,
+      "refactor": 3,
+      "infra": 5,
+      "perf": 5,
+      "docs": 5,
+      "test": 13,
+      "chore": 91,
+      "other": 249
+    },
+    "technologies": [
+      "FastAPI",
+      "REST",
+      "Algolia",
+      "Testing",
+      "PostgreSQL",
+      "Kafka",
+      "Celery",
+      "Docker",
+      "GraphQL",
+      "Authentication"
+    ]
+  },
+  "generated_at": "2026-03-30T23:57:11.858884"
+}
