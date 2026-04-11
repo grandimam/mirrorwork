@@ -10,16 +10,21 @@ Called by `/mw ingest job`.
 
 ### Step 1: Choose Input Method
 
-Ask the user:
+Use the **AskUserQuestion** tool:
 
-```
-How would you like to provide the job description?
-
-1. **Paste JD** (recommended) — Copy-paste the job description text
-2. **File path** — Provide path to PDF, DOCX, or Markdown file
-3. **URL** — Provide the job posting URL
-
-Which do you prefer? (1/2/3)
+```json
+{
+  "questions": [{
+    "question": "How would you like to provide the job description?",
+    "header": "Input",
+    "options": [
+      {"label": "Paste JD (Recommended)", "description": "Copy-paste the job description text"},
+      {"label": "File path", "description": "Provide path to PDF, DOCX, or Markdown file"},
+      {"label": "URL", "description": "Provide the job posting URL"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 ---
@@ -117,9 +122,23 @@ Here's what I extracted:
 Salary: $250k-$350k
 Equity: Yes
 
----
+```
 
-Does this look accurate? (yes / no / edit)
+Then use the **AskUserQuestion** tool to confirm:
+
+```json
+{
+  "questions": [{
+    "question": "Does this look accurate?",
+    "header": "Confirm",
+    "options": [
+      {"label": "Yes", "description": "Save the job and run fit analysis"},
+      {"label": "No", "description": "Let me provide corrections"},
+      {"label": "Edit", "description": "Make specific changes"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 ---

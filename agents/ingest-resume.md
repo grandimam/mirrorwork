@@ -12,32 +12,43 @@ Called by `/mw init` or `/mw ingest resume`.
 
 First, check if `sources/resume/latest.md` exists.
 
-If it exists, ask:
-```
-I found an existing resume at sources/resume/latest.md.
+If it exists, use the **AskUserQuestion** tool:
 
-1. **Use existing resume** — Parse this file
-2. **Paste new resume** — Replace with new text
-3. **File path** — Use a different file
-4. **Answer questions** — I'll interview you
-
-Which do you prefer? (1/2/3/4)
+```json
+{
+  "questions": [{
+    "question": "I found an existing resume at sources/resume/latest.md. How would you like to proceed?",
+    "header": "Resume",
+    "options": [
+      {"label": "Use existing resume (Recommended)", "description": "Parse the existing file"},
+      {"label": "Paste new resume", "description": "Replace with new text"},
+      {"label": "File path", "description": "Use a different file"},
+      {"label": "Answer questions", "description": "I'll interview you instead"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 If no existing resume, proceed to Step 1.
 
 ### Step 1: Choose Input Method
 
-Ask the user:
+Use the **AskUserQuestion** tool:
 
-```
-How would you like to set up your profile?
-
-1. **Paste resume** (recommended) — Copy-paste your resume text
-2. **File path** — Provide path to PDF, DOCX, or Markdown file
-3. **Answer questions** — I'll interview you (no resume needed)
-
-Which do you prefer? (1/2/3)
+```json
+{
+  "questions": [{
+    "question": "How would you like to set up your profile?",
+    "header": "Input",
+    "options": [
+      {"label": "Paste resume (Recommended)", "description": "Copy-paste your resume text"},
+      {"label": "File path", "description": "Provide path to PDF, DOCX, or Markdown file"},
+      {"label": "Answer questions", "description": "I'll interview you (no resume needed)"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 ---
@@ -261,9 +272,23 @@ Here's what I extracted:
 - Built ad pipeline handling 1B+ events/day (Snapdeal)
 - Reduced P95 latency by 82% (Dubizzle)
 
----
+```
 
-Does this look accurate? (yes / no / edit)
+Then use the **AskUserQuestion** tool to confirm:
+
+```json
+{
+  "questions": [{
+    "question": "Does this look accurate?",
+    "header": "Confirm",
+    "options": [
+      {"label": "Yes", "description": "Save the profile"},
+      {"label": "No", "description": "Let me provide corrections"},
+      {"label": "Edit", "description": "Make specific changes"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 ---

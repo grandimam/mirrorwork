@@ -17,16 +17,21 @@ Check if the user provided a subcommand:
 
 ## Menu (No Args)
 
-If no subcommand provided, ask:
+If no subcommand provided, use the **AskUserQuestion** tool:
 
-```
-What do you want to ingest?
-
-1. **Resume** — Set up or update your profile
-2. **Job description** — Add a role you're interested in
-3. **Achievement** — Capture a brag-worthy accomplishment
-
-Which one? (1/2/3)
+```json
+{
+  "questions": [{
+    "question": "What do you want to ingest?",
+    "header": "Ingest",
+    "options": [
+      {"label": "Resume", "description": "Set up or update your profile"},
+      {"label": "Job description", "description": "Add a role you're interested in"},
+      {"label": "Achievement", "description": "Capture a brag-worthy accomplishment"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 Based on response:

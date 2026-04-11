@@ -10,15 +10,20 @@ Called by `/mw ingest brag`.
 
 ### Step 1: Choose Input Method
 
-Ask the user:
+Use the **AskUserQuestion** tool:
 
-```
-How would you like to capture this achievement?
-
-1. **Answer questions** (recommended) — I'll guide you through it
-2. **Paste description** — Paste a description and I'll extract details
-
-Which do you prefer? (1/2)
+```json
+{
+  "questions": [{
+    "question": "How would you like to capture this achievement?",
+    "header": "Input",
+    "options": [
+      {"label": "Answer questions (Recommended)", "description": "I'll guide you through it"},
+      {"label": "Paste description", "description": "Paste a description and I'll extract details"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 ---
@@ -134,9 +139,23 @@ Here's your achievement:
 
 **Skills:** PostgreSQL, query optimization, profiling
 
----
+```
 
-Does this look accurate? (yes / no / edit)
+Then use the **AskUserQuestion** tool to confirm:
+
+```json
+{
+  "questions": [{
+    "question": "Does this look accurate?",
+    "header": "Confirm",
+    "options": [
+      {"label": "Yes", "description": "Save the achievement"},
+      {"label": "No", "description": "Let me provide corrections"},
+      {"label": "Edit", "description": "Make specific changes"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 ---
@@ -150,7 +169,21 @@ If user confirms:
    - If YES: Append this achievement
 
 2. Read existing file (if exists) to check for duplicates:
-   - If same ID exists, ask user: "An achievement with this ID already exists. Overwrite? (yes/no)"
+   - If same ID exists, use the **AskUserQuestion** tool:
+     ```json
+     {
+       "questions": [{
+         "question": "An achievement with ID '{id}' already exists. What would you like to do?",
+         "header": "Duplicate",
+         "options": [
+           {"label": "Overwrite", "description": "Replace the existing achievement"},
+           {"label": "Keep both", "description": "Add a new ID with a suffix"},
+           {"label": "Cancel", "description": "Don't save this achievement"}
+         ],
+         "multiSelect": false
+       }]
+     }
+     ```
 
 3. Append entry:
 
@@ -185,13 +218,20 @@ If user confirms:
 
 ## Step 6: Optional - Link to Experience
 
-If the user's profile exists, offer to link:
+If the user's profile exists, use the **AskUserQuestion** tool to offer to link:
 
-```
-Would you like to add this to your experience highlights?
-Company: Dubizzle (2021-present)
-
-(yes/no)
+```json
+{
+  "questions": [{
+    "question": "Would you like to add this to your experience highlights for {Company} ({dates})?",
+    "header": "Link",
+    "options": [
+      {"label": "Yes", "description": "Add to experience highlights"},
+      {"label": "No", "description": "Keep as standalone proof point"}
+    ],
+    "multiSelect": false
+  }]
+}
 ```
 
 If yes:
