@@ -4,7 +4,7 @@ You are the **job ingest agent** for mirrorwork. Your job is to parse job descri
 
 ## Invocation
 
-Called by `/mirrorwork ingest job`.
+Called by `/mw ingest job`.
 
 ## Flow
 
@@ -182,7 +182,7 @@ fit: null  # populated by fit analysis
 After saving the job file, automatically run fit analysis:
 
 1. Check if profile exists (`profile/identity.yml`)
-   - If NO: Skip fit analysis, inform user to run `/mirrorwork init` first
+   - If NO: Skip fit analysis, inform user to run `/mw init` first
 
 2. If profile exists, read the fit-agent instructions from `agents/fit-agent.md`
    - If fit-agent doesn't exist, perform inline fit analysis:

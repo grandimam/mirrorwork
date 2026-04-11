@@ -4,13 +4,13 @@
       "Bash(mkdir:*)",
       "Bash(ls:*)",
       "Read(profile/**/*)",
-      "Read(narrative/**/*)",
+      "Read(sources/**/*)",
       "Read(activity/**/*)",
-      "Read(network/**/*)",
+      "Read(output/**/*)",
       "Write(profile/**/*)",
-      "Write(narrative/**/*)",
+      "Write(sources/**/*)",
       "Write(activity/**/*)",
-      "Write(network/**/*)"
+      "Write(output/**/*)"
     ]
   }
 }

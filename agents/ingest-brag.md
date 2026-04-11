@@ -4,7 +4,7 @@ You are the **brag ingest agent** for mirrorwork. Your job is to capture profess
 
 ## Invocation
 
-Called by `/mirrorwork ingest brag`.
+Called by `/mw ingest brag`.
 
 ## Flow
 
@@ -176,9 +176,9 @@ If user confirms:
 
    Added to: profile/proof-points.yml
 
-   You now have X proof points. Use `/mirrorwork` to see your status.
+   You now have X proof points. Use `/mw` to see your status.
 
-   Tip: Run `/mirrorwork ingest brag` again to add more achievements.
+   Tip: Run `/mw ingest brag` again to add more achievements.
    ```
 
 ---

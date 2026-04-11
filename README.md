@@ -8,9 +8,9 @@ A career OS built on Claude Code. Track achievements, prep for interviews, searc
 
 ```bash
 claude
-> /mirrorwork init    # Set up your profile (paste resume)
-> /mirrorwork         # See status (or /mw for short)
-> /github sync        # Sync GitHub contributions
+> /mw init           # Set up your profile (paste resume)
+> /mw                # See status
+> /github sync       # Sync GitHub contributions
 ```
 
 ## Features
@@ -20,15 +20,12 @@ claude
 - **Achievement Capture** — Log proof points with metrics
 - **GitHub Integration** — Pull contribution data to enrich profile
 - **Fit Analysis** — AI builds your strongest case for each role
-- **Storybank** — Consolidated profile for interview prep
 
 ## Structure
 
 ```
-cv.md                       # Master resume
-storybank.yml               # Consolidated profile (auto-generated)
-
-profile/                    # WHO YOU ARE (structured YAML)
+profile/                    # WHO YOU ARE
+├── career.md               # Living career narrative
 ├── identity.yml            # Name, contact, links
 ├── experience.yml          # Work history with highlights
 ├── education.yml           # Degrees, certifications
@@ -40,9 +37,11 @@ profile/                    # WHO YOU ARE (structured YAML)
 activity/                   # WHAT'S HAPPENING
 └── jobs/*.yml              # Job descriptions + fit analysis
 
+output/                     # GENERATED ARTIFACTS
+└── {year}/                 # Tailored resumes, cover letters
+
 sources/                    # RAW INPUTS
-├── resume/                 # Resume versions
-│   └── latest.md
+├── resume/                 # Uploaded resume files (PDF, DOCX)
 ├── documents/              # Work samples, tech specs
 ├── research/               # Company notes, strategy
 └── github/                 # GitHub API data
@@ -58,20 +57,19 @@ scripts/github_tracker/     # GitHub CLI tool
 
 ### Core
 
-| Command            | Description                     |
-| ------------------ | ------------------------------- |
-| `/mirrorwork`      | Show profile status             |
-| `/mirrorwork init` | First-time setup (parse resume) |
-| `/mirrorwork sync` | Regenerate storybank            |
+| Command      | Description                     |
+| ------------ | ------------------------------- |
+| `/mw`        | Show profile status             |
+| `/mw init`   | First-time setup (paste resume) |
 
 ### Ingest
 
-| Command                     | Description                        |
-| --------------------------- | ---------------------------------- |
-| `/mirrorwork ingest`        | Choose what to ingest              |
-| `/mirrorwork ingest resume` | Parse resume into profile          |
-| `/mirrorwork ingest job`    | Add job description + fit analysis |
-| `/mirrorwork ingest brag`   | Capture achievement                |
+| Command             | Description                        |
+| ------------------- | ---------------------------------- |
+| `/mw ingest`        | Choose what to ingest              |
+| `/mw ingest resume` | Parse resume into profile          |
+| `/mw ingest job`    | Add job description + fit analysis |
+| `/mw ingest brag`   | Capture achievement                |
 
 ### GitHub
 
@@ -85,15 +83,13 @@ scripts/github_tracker/     # GitHub CLI tool
 ## Data Flow
 
 ```
-Sources (raw)  →  Profile (structured)  →  Storybank (consolidated)
-     ↑                    ↑                        ↓
-  /ingest            auto-generated           agents read
+Sources (raw)  →  Profile (structured)  →  Output (tailored)
+     ↑                    ↑                      ↓
+  /ingest            career.md             fit-agent
 ```
 
 **Hooks auto-trigger:**
 
-- Profile changes → regenerate storybank
-- GitHub sync → regenerate storybank
 - Job added → run fit analysis
 
 ## Fit Agent
@@ -113,7 +109,7 @@ The fit agent is your advocate. It doesn't judge — it builds your strongest ca
 
 1. **Privacy first** — All data local, no external services
 2. **Advocate, not judge** — Agents build your case, not evaluate you
-3. **Sources of truth** — Raw inputs → structured profile → consolidated storybank
+3. **Single source of truth** — profile/career.md as living narrative
 4. **Progressive disclosure** — Simple by default, powerful when needed
 
 ## Requirements

@@ -4,7 +4,7 @@ You are the **resume ingest agent** for mirrorwork. Your job is to extract a str
 
 ## Invocation
 
-Called by `/mirrorwork init` or `/mirrorwork ingest resume`.
+Called by `/mw init` or `/mw ingest resume`.
 
 ## Flow
 
@@ -295,9 +295,9 @@ If user confirms:
    - sources/resume/latest.md
 
    Next steps:
-   - `/mirrorwork` — See your status
-   - `/mirrorwork ingest brag` — Add an achievement
-   - `/mirrorwork ingest job` — Add a job you're interested in
+   - `/mw` — See your status
+   - `/mw ingest brag` — Add an achievement
+   - `/mw ingest job` — Add a job you're interested in
    ```
 
 ---

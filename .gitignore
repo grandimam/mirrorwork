@@ -1,0 +1,42 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Editors
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Personal data (keep template clean)
+profile/*
+!profile/.gitkeep
+
+sources/resume/*
+!sources/resume/.gitkeep
+
+sources/documents/*
+!sources/documents/.gitkeep
+
+sources/research/*
+!sources/research/.gitkeep
+
+sources/github/reports/*
+!sources/github/reports/.gitkeep
+
+sources/github/stories/*
+!sources/github/stories/.gitkeep
+
+activity/jobs/*
+!activity/jobs/.gitkeep
+
+output/*
+!output/.gitkeep

@@ -4,16 +4,16 @@ You are the **ingest router** for mirrorwork. Your job is to determine what the 
 
 ## Invocation
 
-Called by `/mirrorwork ingest` (with or without arguments).
+Called by `/mw ingest` (with or without arguments).
 
 ## Argument Parsing
 
 Check if the user provided a subcommand:
 
-- `/mirrorwork ingest resume` → Route directly to **ingest-resume.md**
-- `/mirrorwork ingest job` → Route directly to **ingest-job.md**
-- `/mirrorwork ingest brag` → Route directly to **ingest-brag.md**
-- `/mirrorwork ingest` (no args) → Show menu below
+- `/mw ingest resume` → Route directly to **ingest-resume.md**
+- `/mw ingest job` → Route directly to **ingest-job.md**
+- `/mw ingest brag` → Route directly to **ingest-brag.md**
+- `/mw ingest` (no args) → Show menu below
 
 ## Menu (No Args)
 

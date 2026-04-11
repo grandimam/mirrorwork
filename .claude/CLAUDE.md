@@ -7,10 +7,9 @@ Career OS built on Claude Code. Track achievements, prep for interviews, search 
 ## Quick Start
 
 ```
-/mirrorwork init    # Set up profile (paste resume)
-/mirrorwork         # See status
-/mirrorwork sync    # Regenerate storybank
-/github sync        # Sync GitHub contributions
+/mw init           # Set up profile (paste resume)
+/mw                # See status
+/github sync       # Sync GitHub contributions
 ```
 
 ## Data Flow
@@ -18,39 +17,35 @@ Career OS built on Claude Code. Track achievements, prep for interviews, search 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  SOURCES (raw inputs)                                       │
-│  ├── resume/latest.md      # Your resume text               │
+│  ├── resume/*.pdf          # Uploaded resume files          │
 │  ├── documents/*.pdf       # Work samples                   │
 │  ├── research/*.md         # Company notes                  │
 │  └── github/**/*.json      # GitHub API data                │
 └─────────────────────┬───────────────────────────────────────┘
-                      │ /mirrorwork init
-                      │ /mirrorwork ingest
+                      │ /mw init
+                      │ /mw ingest
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PROFILE (structured YAML)                                  │
+│  PROFILE (who you are)                                      │
+│  ├── career.md             # Living narrative (grows)       │
 │  ├── identity.yml          # Name, contact, links           │
 │  ├── experience.yml        # Work history                   │
-│  ├── education.yml         # Education                      │
 │  ├── skills.yml            # Skills inventory               │
-│  ├── positioning.yml       # Headline, target roles         │
-│  ├── stories.yml           # STAR stories                   │
 │  └── proof-points.yml      # Achievements with metrics      │
 └─────────────────────┬───────────────────────────────────────┘
-                      │ /mirrorwork sync (auto via hooks)
+                      │ /mw prep, fit-agent
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  STORYBANK (consolidated snapshot)                          │
-│  └── storybank.yml         # Single file for agents         │
+│  OUTPUT (generated artifacts)                               │
+│  └── {year}/               # Tailored resumes, cover letters│
 └─────────────────────────────────────────────────────────────┘
 ```
 
 ## Structure
 
 ```
-cv.md                       # Master resume (markdown)
-storybank.yml               # Consolidated profile (auto-generated)
-
-profile/                    # WHO YOU ARE (structured)
+profile/                    # WHO YOU ARE
+├── career.md               # Living career narrative (grows over time)
 ├── identity.yml            # Name, email, location, links
 ├── experience.yml          # Work history with highlights
 ├── education.yml           # Degrees, certifications
@@ -78,7 +73,6 @@ agents/                     # Agent instructions (markdown)
 ├── ingest-resume.md        # Resume → profile/
 ├── ingest-job.md           # JD → activity/jobs/ + fit
 ├── ingest-brag.md          # Achievement → proof-points.yml
-├── storybank.md            # Regenerate storybank.yml
 └── fit-agent.md            # Compare profile vs job
 
 scripts/                    # Python tools
@@ -86,8 +80,7 @@ scripts/                    # Python tools
 
 .claude/                    # Claude Code config
 ├── skills/
-│   ├── mirrorwork/SKILL.md # /mirrorwork command router
-│   ├── mw/SKILL.md         # /mw shorthand alias
+│   ├── mw/SKILL.md         # /mw command router
 │   └── github/SKILL.md     # /github command router
 ├── hooks.json              # Workflow automation
 └── settings.json           # Permissions
@@ -123,33 +116,18 @@ Structured YAML files generated from sources.
 
 | Skill | Purpose |
 |-------|---------|
-| `/mirrorwork` | Career OS main router |
-| `/mw` | Shorthand for `/mirrorwork` |
+| `/mw` | Career OS main router |
 | `/github` | GitHub contribution analysis |
 
 ## Agents
 
 | Agent | Purpose | Trigger |
 |-------|---------|---------|
-| `ingest.md` | Route to specialized ingest | `/mirrorwork ingest` |
-| `ingest-resume.md` | Parse resume → profile/ | `/mirrorwork init`, `ingest resume` |
-| `ingest-job.md` | Parse JD → activity/jobs/ | `/mirrorwork ingest job` |
-| `ingest-brag.md` | Capture achievement | `/mirrorwork ingest brag` |
-| `storybank.md` | Consolidate profile | `/mirrorwork sync`, hooks |
+| `ingest.md` | Route to specialized ingest | `/mw ingest` |
+| `ingest-resume.md` | Parse resume → profile/ | `/mw init`, `ingest resume` |
+| `ingest-job.md` | Parse JD → activity/jobs/ | `/mw ingest job` |
+| `ingest-brag.md` | Capture achievement | `/mw ingest brag` |
 | `fit-agent.md` | Build case for candidate | After job ingest |
-
-## Storybank
-
-`storybank.yml` is a consolidated snapshot of your entire profile.
-
-**Auto-regenerated when:**
-- Profile files change (`profile/*.yml`)
-- GitHub data syncs (`sources/github/**/*.json`)
-
-**Used by:**
-- fit-agent (compare against jobs)
-- interview agents (prep and practice)
-- Any agent needing full context
 
 ## Hooks
 
@@ -157,21 +135,18 @@ Automated workflows triggered by file changes.
 
 | Trigger | Action |
 |---------|--------|
-| Write to `profile/*.yml` | Regenerate storybank |
-| Write to `sources/github/**` | Regenerate storybank |
 | Write to `activity/jobs/*.yml` | Run fit analysis |
 
 ## Commands
 
 | Command | Agent | Description |
 |---------|-------|-------------|
-| `/mirrorwork` | (inline) | Show status |
-| `/mirrorwork init` | ingest-resume | First-time setup |
-| `/mirrorwork sync` | storybank | Regenerate storybank |
-| `/mirrorwork ingest` | ingest | Route to ingest type |
-| `/mirrorwork ingest resume` | ingest-resume | Parse resume |
-| `/mirrorwork ingest job` | ingest-job | Parse job description |
-| `/mirrorwork ingest brag` | ingest-brag | Capture achievement |
+| `/mw` | (inline) | Show status |
+| `/mw init` | ingest-resume | First-time setup |
+| `/mw ingest` | ingest | Route to ingest type |
+| `/mw ingest resume` | ingest-resume | Parse resume |
+| `/mw ingest job` | ingest-job | Parse job description |
+| `/mw ingest brag` | ingest-brag | Capture achievement |
 | `/github sync` | (skill) | Sync GitHub data |
 | `/github fetch` | (skill) | Fetch contributions |
 | `/github story` | (skill) | Build org narrative |
@@ -180,7 +155,7 @@ Automated workflows triggered by file changes.
 
 - **YAML** for profile data (structured, editable)
 - **JSON** for external/API data (GitHub)
-- **Markdown** for narratives (cv.md, research notes)
+- **Markdown** for narratives (career.md, research notes)
 - File names: `kebab-case.yml`
 - IDs: `{company}-{slug}` (e.g., `dubizzle-latency-fix`)
 - Dates: `YYYY-MM-DD` or `YYYY-MM`
@@ -188,6 +163,6 @@ Automated workflows triggered by file changes.
 ## Principles
 
 1. **Privacy first** — All data stays local
-2. **Single source of truth** — storybank.yml for agents
+2. **Single source of truth** — profile/career.md as living narrative
 3. **Progressive disclosure** — Simple by default, powerful when needed
-4. **Separation of concerns** — Sources (raw) → Profile (structured) → Storybank (consolidated)
+4. **Separation of concerns** — Sources (raw) → Profile (structured) → Output (tailored)
