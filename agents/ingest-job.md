@@ -192,36 +192,26 @@ If user confirms:
    mkdir -p activity/jobs
    ```
 
-2. Write to `activity/jobs/{id}.yml`:
+2. Write to `activity/jobs/{id}.json`:
 
-```yaml
-id: stripe-staff-backend
-company: Stripe
-title: Staff Backend Engineer
-url: https://...
-source: paste  # or file or url
-ingested_at: 2024-10-15T10:30:00Z
-
-requirements:
-  must_have:
-    - "8+ years backend"
-    - "Distributed systems"
-  nice_to_have:
-    - "Fintech experience"
-
-responsibilities:
-  - "Design infrastructure"
-  - "Mentor engineers"
-
-compensation:
-  salary: "$250k-$350k"
-  equity: true
-
-location: "San Francisco, CA (Hybrid)"
-
-status: saved  # saved → applied → interviewing → offer/rejected
-
-fit: null  # populated by fit analysis
+```json
+{
+  "id": "stripe-staff-backend",
+  "company": "Stripe",
+  "title": "Staff Backend Engineer",
+  "url": "https://...",
+  "source": "paste",
+  "ingested_at": "2024-10-15T10:30:00Z",
+  "requirements": {
+    "must_have": ["8+ years backend", "Distributed systems"],
+    "nice_to_have": ["Fintech experience"]
+  },
+  "responsibilities": ["Design infrastructure", "Mentor engineers"],
+  "compensation": { "salary": "$250k-$350k", "equity": true },
+  "location": "San Francisco, CA (Hybrid)",
+  "status": "saved",
+  "fit": null
+}
 ```
 
 3. Confirm with rich success message:
@@ -230,7 +220,7 @@ fit: null  # populated by fit analysis
    │  ✓ Job saved!                       │
    ╰─────────────────────────────────────╯
 
-   **Created:** activity/jobs/stripe-staff-backend.yml
+   **Created:** activity/jobs/stripe-staff-backend.json
 
    ───────────────────────────────────────
    ⏳ Running fit analysis...
@@ -242,7 +232,7 @@ fit: null  # populated by fit analysis
 
 After saving the job file, automatically run **brutal fit analysis** (not advocacy).
 
-1. Check if profile exists (`profile/identity.yml`)
+1. Check if profile exists (`profile/identity.json`)
    - If NO: Skip fit analysis, inform user to run `/mw init` first
 
 2. Read `agents/fit-analysis.md` and follow its instructions for a cold, honest assessment.
@@ -291,30 +281,27 @@ Brutal honesty mode. No sugar-coating.
 
 ### Save Fit Data
 
-Update the job file:
+Update the job file with fit data:
 
-```yaml
-fit:
-  score: 65
-  analyzed_at: 2026-04-11T00:00:00Z
-  requirements_check:
-    - requirement: "8+ years Java"
-      met: yes
-      evidence: "10 years at Cisco, Snapdeal"
-    - requirement: "Banking domain"
-      met: no
-      deal_breaker: true
-  matches:
-    - "10+ years Java experience"
-    - "Spring Boot, Microservices expert"
-  gaps:
-    - requirement: "Banking domain"
-      severity: critical
-      reality: "No banking experience"
-  deal_breakers:
-    - "Banking domain (mandatory)"
-  verdict: "Strong technical fit but missing mandatory banking requirement"
-  should_apply: "Only if banking requirement is flexible"
+```json
+{
+  "fit": {
+    "score": 65,
+    "analyzed_at": "2026-04-11T00:00:00Z",
+    "matches": [
+      "10+ years Java experience",
+      "Spring Boot, Microservices expert"
+    ],
+    "gaps": [
+      {
+        "severity": "critical",
+        "requirement": "Banking domain",
+        "response": "No banking experience"
+      }
+    ],
+    "verdict": "Strong technical fit but missing mandatory banking requirement"
+  }
+}
 ```
 
 ---

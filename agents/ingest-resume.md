@@ -172,84 +172,81 @@ Extract data into the following files. **Be thorough but don't invent.** If some
 
 ```
 profile/
-├── identity.yml
-├── experience.yml
-├── education.yml
-├── skills.yml
-├── positioning.yml
-└── proof-points.yml
+├── identity.json
+├── experience.json
+├── education.json
+├── skills.json
+├── positioning.json
+└── proof-points.json
 ```
 
 ---
 
-### `profile/identity.yml`
+### `profile/identity.json`
 
-```yaml
-name: "Full Name"
-email: "email@example.com"
-phone: "+1-234-567-8900"
-location: "City, Country"
-linkedin: "linkedin.com/in/..."
-github: "github.com/..."
-website: "https://..."
-
-source:
-  type: "paste"           # or "file" or "interview"
-  file: null              # file path if applicable
-  ingested_at: "2024-10-15T10:30:00Z"
+```json
+{
+  "name": "Full Name",
+  "email": "email@example.com",
+  "phone": "+1-234-567-8900",
+  "location": "City, Country",
+  "linkedin": "linkedin.com/in/...",
+  "github": "github.com/...",
+  "website": "https://...",
+  "source": {
+    "type": "paste",
+    "file": null,
+    "ingested_at": "2024-10-15T10:30:00Z"
+  }
+}
 ```
 
 ---
 
-### `profile/experience.yml`
+### `profile/experience.json`
 
-```yaml
-- company: "Company Name"
-  role: "Job Title"
-  dates:
-    start: 2021-01-01
-    end: null             # null if current
-  location: "City, Country"
-  highlights:
-    - "Achievement or responsibility"
-    - "Another highlight"
-  skills:
-    - "python"
-    - "postgresql"
+```json
+[
+  {
+    "company": "Company Name",
+    "role": "Job Title",
+    "dates": { "start": "2021-01-01", "end": null },
+    "location": "City, Country",
+    "highlights": [
+      "Achievement or responsibility",
+      "Another highlight"
+    ],
+    "skills": ["python", "postgresql"]
+  }
+]
 ```
 
 ---
 
-### `profile/education.yml`
+### `profile/education.json`
 
-```yaml
-- institution: "University Name"
-  degree: "BS"
-  field: "Computer Science"
-  year: 2014
+```json
+[
+  {
+    "institution": "University Name",
+    "degree": "BS",
+    "field": "Computer Science",
+    "year": 2014
+  }
+]
 ```
 
 ---
 
-### `profile/skills.yml`
+### `profile/skills.json`
 
-```yaml
-expert:
-  - python
-  - distributed-systems
-  - postgresql
-
-proficient:
-  - kubernetes
-  - aws
-  - java
-
-familiar:
-  - rust
-  - ml-ops
-
-learning:
-  - golang
+```json
+{
+  "expert": ["python", "distributed-systems", "postgresql"],
+  "proficient": ["kubernetes", "aws", "java"],
+  "familiar": ["rust", "ml-ops"],
+  "learning": ["golang"]
+}
 ```
 
 **Categorization:**
@@ -260,41 +257,39 @@ learning:
 
 ---
 
-### `profile/positioning.yml`
+### `profile/positioning.json`
 
-```yaml
-headline: "One-line professional description"
-years_experience: 10
-
-target_roles:
-  - "Staff Backend Engineer"
-  - "Principal Engineer"
-
-target_companies: []      # only if mentioned
-
-anti_patterns: []         # deal-breakers, only if mentioned
-
-superpower: null          # unique strength, if evident
-
-updated_at: 2024-10-15
+```json
+{
+  "headline": "One-line professional description",
+  "years_experience": 10,
+  "target_roles": ["Staff Backend Engineer", "Principal Engineer"],
+  "target_companies": [],
+  "anti_patterns": [],
+  "superpower": null,
+  "updated_at": "2024-10-15"
+}
 ```
 
 ---
 
-### `profile/proof-points.yml`
+### `profile/proof-points.json`
 
-```yaml
-- id: "company-achievement-slug"
-  date: 2024-03
-  company: "Company Name"
-  summary: "Built X that achieved Y"
-  metrics:
-    volume: "1B events/day"
-    improvement: "40% faster"
-  skills:
-    - kafka
-    - java
-  story_ready: true
+```json
+[
+  {
+    "id": "company-achievement-slug",
+    "date": "2024-03",
+    "company": "Company Name",
+    "summary": "Built X that achieved Y",
+    "metrics": {
+      "volume": "1B events/day",
+      "improvement": "40% faster"
+    },
+    "skills": ["kafka", "java"],
+    "story_ready": true
+  }
+]
 ```
 
 ---
@@ -363,7 +358,7 @@ If user confirms:
    mkdir -p profile sources/resume
    ```
 
-2. Write all YAML files to `profile/`
+2. Write all JSON files to `profile/`
 
 3. Save resume source to `sources/resume/latest.md` (if pasted or from file)
 
@@ -374,12 +369,12 @@ If user confirms:
    ╰─────────────────────────────────────╯
 
    **Created files:**
-   • profile/identity.yml
-   • profile/experience.yml
-   • profile/education.yml
-   • profile/skills.yml
-   • profile/positioning.yml
-   • profile/proof-points.yml
+   • profile/identity.json
+   • profile/experience.json
+   • profile/education.json
+   • profile/skills.json
+   • profile/positioning.json
+   • profile/proof-points.json
    • sources/resume/latest.md
 
    ───────────────────────────────────────

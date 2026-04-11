@@ -13,7 +13,7 @@ Always use rich formatting for a polished terminal experience:
 
 ## Commands
 
-On EVERY invocation, first check if `profile/identity.yml` exists.
+On EVERY invocation, first check if `profile/identity.json` exists.
 
 If file does not exist, show welcome:
 
@@ -33,7 +33,7 @@ Welcome! I don't have your profile yet.
 #### `/mw` (no args)
 
 Show current status:
-1. Check if `profile/identity.yml` exists
+1. Check if `profile/identity.json` exists
 2. If NO → show welcome message above
 3. If YES → read profile files and show rich status dashboard:
 
@@ -43,7 +43,7 @@ Show current status:
 ╰─────────────────────────────────────╯
 
 **{Current Role}** at {Company}
-{Headline from positioning.yml}
+{Headline from positioning.json}
 
 ───────────────────────────────────────
 📊 **Profile**
@@ -128,6 +128,16 @@ Which job? Enter the ID:
 
 ---
 
+### Dashboard Commands
+
+#### `/mw dashboard`
+
+Generate and open the HTML dashboard.
+
+Read `agents/dashboard.md` and follow its instructions.
+
+---
+
 ### Planned Commands
 
 | Command | Purpose | Status |
@@ -144,16 +154,16 @@ Which job? Enter the ID:
 ```
 profile/                    # WHO YOU ARE
 ├── career.md               # Living career narrative (grows over time)
-├── identity.yml
-├── experience.yml
-├── education.yml
-├── skills.yml
-├── positioning.yml         # Headline, target roles, superpowers
-├── stories.yml             # STAR stories
-└── proof-points.yml        # Achievements with metrics
+├── identity.json
+├── experience.json
+├── education.json
+├── skills.json
+├── positioning.json        # Headline, target roles, superpowers
+├── stories.json            # STAR stories
+└── proof-points.json       # Achievements with metrics
 
 activity/
-└── jobs/*.yml              # Job descriptions + fit analysis
+└── jobs/*.json             # Job descriptions + fit analysis
 
 output/
 └── {year}/                 # Tailored resumes, cover letters
@@ -177,6 +187,7 @@ sources/                    # RAW INPUTS
 | `ingest job` | `agents/ingest-job.md` | Parse JD + brutal fit |
 | `ingest brag` | `agents/ingest-brag.md` | Capture achievement |
 | `case` | `agents/case-agent.md` | Build advocacy case |
+| `dashboard` | `agents/dashboard.md` | Generate HTML dashboard |
 
 ## Two-Step Job Analysis
 

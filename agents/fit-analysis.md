@@ -31,10 +31,10 @@ Given a job file and profile, perform a cold analysis:
 ### 1. Load Data
 
 Read:
-- The job file from `activity/jobs/{id}.yml`
-- `profile/skills.yml`
-- `profile/experience.yml`
-- `profile/proof-points.yml`
+- The job file from `activity/jobs/{id}.json`
+- `profile/skills.json`
+- `profile/experience.json`
+- `profile/proof-points.json`
 
 ### 2. Requirement-by-Requirement Check
 
@@ -101,37 +101,34 @@ Be direct:
 
 ## Output Format
 
-```yaml
-fit:
-  score: 65
-  analyzed_at: 2026-04-11T00:00:00Z
-
-  requirements_check:
-    - requirement: "8+ years Java"
-      met: yes
-      evidence: "10 years at Cisco, Snapdeal"
-    - requirement: "Banking domain"
-      met: no
-      evidence: null
-      deal_breaker: true
-
-  matches:
-    - "10+ years Java experience"
-    - "Spring Boot, Microservices expert"
-
-  gaps:
-    - requirement: "Banking domain"
-      severity: critical
-      reality: "No banking experience. Mandatory requirement."
-    - requirement: "MySQL/SQL Server"
-      severity: minor
-      reality: "PostgreSQL expert. Transferable but not exact."
-
-  deal_breakers:
-    - "Banking domain (mandatory)"
-
-  verdict: "Strong technical fit but missing mandatory banking requirement."
-  should_apply: "Only if banking requirement is flexible"
+```json
+{
+  "fit": {
+    "score": 65,
+    "analyzed_at": "2026-04-11T00:00:00Z",
+    "matches": [
+      "10+ years Java experience",
+      "Spring Boot, Microservices expert"
+    ],
+    "gaps": [
+      {
+        "severity": "critical",
+        "requirement": "Banking domain",
+        "response": "No banking experience. Mandatory requirement."
+      },
+      {
+        "severity": "minor",
+        "requirement": "MySQL/SQL Server",
+        "response": "PostgreSQL expert. Transferable but not exact."
+      }
+    ],
+    "talking_points": [
+      "Built ad platform processing 1B+ events/day"
+    ],
+    "proof_points": ["snapdeal-ad-pipeline"],
+    "verdict": "Strong technical fit but missing mandatory banking requirement."
+  }
+}
 ```
 
 ## Tone Guidelines

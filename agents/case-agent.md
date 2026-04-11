@@ -28,9 +28,9 @@ Advocacy mode. Let's make this work.
 ## Prerequisites
 
 Before running, check:
-1. Job file exists at `activity/jobs/{id}.yml`
-2. Profile exists at `profile/identity.yml`
-3. Fit analysis has been run (job file has `fit:` data)
+1. Job file exists at `activity/jobs/{id}.json`
+2. Profile exists at `profile/identity.json`
+3. Fit analysis has been run (job file has `fit` data)
 
 If fit analysis hasn't been run:
 ```
@@ -42,11 +42,11 @@ If fit analysis hasn't been run:
 ### 1. Load Data
 
 Read:
-- Job file from `activity/jobs/{id}.yml`
-- `profile/skills.yml`
-- `profile/experience.yml`
-- `profile/proof-points.yml`
-- `profile/positioning.yml`
+- Job file from `activity/jobs/{id}.json`
+- `profile/skills.json`
+- `profile/experience.json`
+- `profile/proof-points.json`
+- `profile/positioning.json`
 
 ### 2. Find the Narrative
 
@@ -213,40 +213,34 @@ If they're open to non-banking candidates, you're competitive.
 
 ## Output to Job File
 
-After generating the case, offer to save key points:
+After generating the case, offer to save key points to the job's JSON:
 
-```yaml
-case:
-  generated_at: 2026-04-11T00:00:00Z
-  narrative:
-    one_liner: "10-year backend veteran who's built payment-scale systems"
-    career_arc: "Ad-tech scale → enterprise security → marketplace infrastructure"
-    unique_angle: "0→1 AND scale experience"
-
-  bridges:
-    - gap: "Banking domain"
-      reframe: "Ad-tech revenue systems have same reliability requirements"
-      story: "Snapdeal ad platform processed $X million in spend"
-
-  talking_points:
-    - "Scale: 1B+ events/day"
-    - "Reliability: P95 ≤5ms"
-    - "Compliance: Built CSPM for Fortune 500s"
-
-  cover_letter_hook: "I've spent 10 years building systems where every transaction matters..."
-
-  interview_prep:
-    - question: "You don't have banking experience..."
-      answer: "What I have is 10 years of reliability-critical systems..."
-
-  lead_with:
-    - "Scale experience"
-    - "Reliability focus"
-    - "Security/compliance background"
-
-  prepare_for:
-    - "Banking domain questions"
-    - "Java depth questions"
+```json
+{
+  "case": {
+    "generated_at": "2026-04-11T00:00:00Z",
+    "narrative": {
+      "one_liner": "10-year backend veteran who's built payment-scale systems",
+      "career_arc": "Ad-tech scale → enterprise security → marketplace infrastructure",
+      "unique_angle": "0→1 AND scale experience"
+    },
+    "bridges": [
+      {
+        "gap": "Banking domain",
+        "reframe": "Ad-tech revenue systems have same reliability requirements",
+        "story": "Snapdeal ad platform processed $X million in spend"
+      }
+    ],
+    "talking_points": [
+      "Scale: 1B+ events/day",
+      "Reliability: P95 ≤5ms",
+      "Compliance: Built CSPM for Fortune 500s"
+    ],
+    "cover_letter_hook": "I've spent 10 years building systems where every transaction matters...",
+    "lead_with": ["Scale experience", "Reliability focus", "Security/compliance background"],
+    "prepare_for": ["Banking domain questions", "Java depth questions"]
+  }
+}
 ```
 
 ## Tone Guidelines

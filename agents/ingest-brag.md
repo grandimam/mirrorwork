@@ -150,18 +150,24 @@ Create a slug: `{company-lowercase}-{achievement-slug}`
 ### Parse Metrics
 
 If the user provided metrics, structure them:
-```yaml
-metrics:
-  before: "2.1s"
-  after: "380ms"
-  improvement: "82%"
+```json
+{
+  "metrics": {
+    "before": "2.1s",
+    "after": "380ms",
+    "improvement": "82%"
+  }
+}
 ```
 
 Or for volume metrics:
-```yaml
-metrics:
-  volume: "1B events/day"
-  scale: "10x previous"
+```json
+{
+  "metrics": {
+    "volume": "1B events/day",
+    "scale": "10x previous"
+  }
+}
 ```
 
 ---
@@ -212,7 +218,7 @@ Then use the **AskUserQuestion** tool to confirm:
 
 If user confirms:
 
-1. Check if `profile/proof-points.yml` exists
+1. Check if `profile/proof-points.json` exists
    - If NO: Create it with this achievement as the first entry
    - If YES: Append this achievement
 
@@ -233,22 +239,22 @@ If user confirms:
      }
      ```
 
-3. Append entry:
+3. Append entry to the JSON array:
 
-```yaml
-- id: dubizzle-latency-fix
-  date: 2024-03
-  company: Dubizzle
-  summary: "Reduced P95 latency from 2.1s to 380ms through database query optimization"
-  metrics:
-    before: "2.1s"
-    after: "380ms"
-    improvement: "82%"
-  skills:
-    - postgresql
-    - query-optimization
-    - profiling
-  story_ready: false
+```json
+{
+  "id": "dubizzle-latency-fix",
+  "date": "2024-03",
+  "company": "Dubizzle",
+  "summary": "Reduced P95 latency from 2.1s to 380ms through database query optimization",
+  "metrics": {
+    "before": "2.1s",
+    "after": "380ms",
+    "improvement": "82%"
+  },
+  "skills": ["postgresql", "query-optimization", "profiling"],
+  "story_ready": false
+}
 ```
 
 4. Confirm with rich success message:
@@ -257,7 +263,7 @@ If user confirms:
    │  ✓ Achievement saved!               │
    ╰─────────────────────────────────────╯
 
-   **Added to:** profile/proof-points.yml
+   **Added to:** profile/proof-points.json
    **Total proof points:** X
 
    ───────────────────────────────────────
@@ -289,7 +295,7 @@ If the user's profile exists, use the **AskUserQuestion** tool to offer to link:
 ```
 
 If yes:
-1. Read `profile/experience.yml`
+1. Read `profile/experience.json`
 2. Find the matching company entry
 3. Append to highlights array
 4. Write updated file

@@ -4,14 +4,14 @@
       {
         "matcher": {
           "tool": "Write",
-          "if": "path matches 'activity/jobs/*.yml'"
+          "if": "path matches 'activity/jobs/*.json'"
         },
         "command": "echo 'TRIGGER:fit-analysis:$CLAUDE_FILE_PATH'"
       },
       {
         "matcher": {
           "tool": "Write",
-          "if": "path matches 'profile/*.yml'"
+          "if": "path matches 'profile/*.json'"
         },
         "command": "echo 'TRIGGER:storybank-sync'"
       },
