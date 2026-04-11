@@ -303,13 +303,23 @@ If user confirms:
 }
 ```
 
-3. Show success:
+3. **Update tracker** — Add row to `activity/tracker.md`:
+
+   Read the tracker file and append a new row to the table:
+   ```
+   | {company} | {title} | {fit_score}% | saved | - | {short_verdict} |
+   ```
+
+   If fit analysis hasn't run yet, use `-` for fit score.
+
+4. Show success:
    ```
    ╭─────────────────────────────────────╮
    │  ✓ Job saved!                       │
    ╰─────────────────────────────────────╯
 
    **Created:** activity/jobs/stripe-staff-backend.json
+   **Tracker:** Updated
 
    ───────────────────────────────────────
    ⏳ Running fit analysis...

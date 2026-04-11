@@ -15,6 +15,14 @@
       "target_roles": ["backend", "platform", "senior", "staff"],
       "last_scan": "2026-04-12",
       "enabled": true
+    },
+    {
+      "name": "Edge Group",
+      "url": "https://careers.edgegroup.ae/search/?q=&q2=&alertId=&title=Software&facility=&date=#searchresults",
+      "location": "United Arab Emirates, Remote",
+      "target_roles": ["backend", "platform", "senior", "staff", "software"],
+      "last_scan": "2026-04-12",
+      "enabled": true
     }
   ]
 }
