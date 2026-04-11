@@ -1,99 +1,64 @@
 # Dashboard Agent
 
-Generate and open the mirrorwork HTML dashboard.
+Open the mirrorwork HTML dashboard.
 
 ## Invocation
 
 Called by `/mw dashboard`.
 
+## How It Works
+
+The dashboard is a static HTML file that fetches JSON data directly using JavaScript. No build step needed.
+
+**Data sources (fetched via browser):**
+- `profile/identity.json`
+- `profile/positioning.json`
+- `profile/experience.json`
+- `profile/skills.json`
+- `profile/proof-points.json`
+- `activity/jobs/*.json`
+
 ## Flow
 
-### Step 1: Load Data
+### Step 1: Start Server
 
-Read all profile and job files:
-
-```
-profile/identity.yml      → name, email, location
-profile/positioning.yml   → headline, years_experience
-profile/experience.yml    → list of companies
-profile/skills.yml        → expert, proficient, familiar
-profile/proof-points.yml  → achievements list
-activity/jobs/*.yml       → all job files with fit data
-```
-
-### Step 2: Build Data Object
-
-Create a JSON object:
-
-```json
-{
-  "profile": {
-    "name": "From identity.yml or 'Unknown'",
-    "headline": "From positioning.yml",
-    "years": "From positioning.yml years_experience"
-  },
-  "stats": {
-    "companies": "Count of experience.yml entries",
-    "proofs": "Count of proof-points.yml entries",
-    "jobs": "Count of job files",
-    "skills": ["top", "3", "expert", "skills"]
-  },
-  "jobs": [
-    {
-      "id": "job-id",
-      "company": "Company Name",
-      "title": "Job Title",
-      "status": "saved",
-      "fit_score": 68,
-      "matches": ["match1", "match2"],
-      "gaps": ["gap1"],
-      "deal_breakers": ["deal-breaker1"],
-      "verdict": "Summary text"
-    }
-  ],
-  "proofs": [
-    {
-      "id": "proof-id",
-      "summary": "Achievement summary",
-      "company": "Company",
-      "date": "2024-03",
-      "metrics": {"volume": "1B+"},
-      "skills": ["skill1", "skill2"]
-    }
-  ]
-}
-```
-
-### Step 3: Generate HTML
-
-1. Read `dashboard/index.html` template
-2. Replace `__MIRRORWORK_DATA__` with the JSON object (properly formatted)
-3. Write to `dashboard/index.html`
-
-### Step 4: Open in Browser
+Start a local HTTP server in the project root:
 
 ```bash
-open dashboard/index.html
+cd /path/to/mirrorwork && python -m http.server 3333 &
+```
+
+Check if already running first to avoid port conflicts.
+
+### Step 2: Open Dashboard
+
+```bash
+open http://localhost:3333/dashboard/
 ```
 
 On Linux use `xdg-open`, on Windows use `start`.
 
-### Step 5: Confirm
+### Step 3: Confirm
 
 ```
 ╭─────────────────────────────────────╮
-│  ✓ Dashboard generated!             │
+│  ✓ Dashboard ready!                 │
 ╰─────────────────────────────────────╯
 
-Opened: dashboard/index.html
+→ Open: http://localhost:3333/dashboard/
 
-Auto-refresh: 5 seconds
-Run `/mw dashboard` again to update after changes.
+The dashboard auto-refreshes every 5 seconds.
+Edit your profile or job files and watch it update.
+
+To stop the server: kill %1 (or close terminal)
 ```
 
-## Notes
+## Updating Job List
 
-- Jobs are sorted by fit_score descending
-- Only show top 8 proof points
-- Only show top 3 skills in stats
-- Truncate long text in gaps/matches arrays
+The dashboard currently needs a list of job files. To add new jobs to the dashboard, update the `files` array in `dashboard/index.html`:
+
+```javascript
+const files = ['unison-group-senior-java-backend.json', 'new-job.json'];
+```
+
+Or implement a manifest file (`activity/jobs/manifest.json`) for dynamic loading.
