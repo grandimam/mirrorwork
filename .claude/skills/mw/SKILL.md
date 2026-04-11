@@ -43,7 +43,7 @@ Show current status:
 ╰─────────────────────────────────────╯
 
 **{Current Role}** at {Company}
-{Headline from positioning.json}
+{Location}
 
 ───────────────────────────────────────
 📊 **Profile**
@@ -51,6 +51,7 @@ Show current status:
 • Experience: {X} years across {Y} companies
 • Skills: {top 3 expert skills}
 • Proof points: {count}
+• Resumes ingested: {count from manifest}
 
 ───────────────────────────────────────
 🎯 **Job Pipeline**
@@ -61,6 +62,7 @@ Show current status:
 ───────────────────────────────────────
 **Quick actions**
 
+→ `/mw ingest resume` — Add another resume
 → `/mw ingest brag` — Add achievement
 → `/mw ingest job` — Track a job
 → `/github sync` — Sync GitHub
@@ -128,16 +130,6 @@ Which job? Enter the ID:
 
 ---
 
-### Dashboard Commands
-
-#### `/mw dashboard`
-
-Generate and open the HTML dashboard.
-
-Read `agents/dashboard.md` and follow its instructions.
-
----
-
 ### Planned Commands
 
 | Command | Purpose | Status |
@@ -152,30 +144,31 @@ Read `agents/dashboard.md` and follow its instructions.
 ## Data Model
 
 ```
-profile/                    # WHO YOU ARE
-├── career.md               # Living career narrative (grows over time)
-├── identity.json
-├── experience.json
-├── education.json
-├── skills.json
-├── positioning.json        # Headline, target roles, superpowers
-├── stories.json            # STAR stories
-└── proof-points.json       # Achievements with metrics
+profile/                    # MASTER PROFILE (merged from all resumes)
+├── identity.json           # Name, contact, links
+├── experience.json         # Work history (merged, deduped)
+├── education.json          # Degrees, certifications
+├── skills.json             # Skills (union of all resumes)
+└── proof-points.json       # Achievements (merged)
 
 activity/
-└── jobs/*.json             # Job descriptions + fit analysis
-
-output/
-└── {year}/                 # Tailored resumes, cover letters
+└── jobs/*.json             # Job + DERIVED positioning + fit analysis
 
 sources/                    # RAW INPUTS
-├── resume/                 # Uploaded resume files (PDF, DOCX)
+├── resume/                 # All ingested resumes
+│   ├── manifest.json       # Tracks what's been ingested
+│   └── {date}-{source}.md  # Individual resume files
 ├── documents/              # Work samples, tech specs
 ├── research/               # Company notes, strategy
 └── github/                 # GitHub API data
     ├── reports/            # Yearly: 2025.json
     └── stories/            # Per-org: dubizzle.json
+
+output/
+└── {year}/                 # Tailored resumes, cover letters
 ```
+
+**Note:** No `positioning.json` — positioning is derived per job during `/mw ingest job`.
 
 ## Agent Routing
 
@@ -187,7 +180,6 @@ sources/                    # RAW INPUTS
 | `ingest job` | `agents/ingest-job.md` | Parse JD + brutal fit |
 | `ingest brag` | `agents/ingest-brag.md` | Capture achievement |
 | `case` | `agents/case-agent.md` | Build advocacy case |
-| `dashboard` | `agents/dashboard.md` | Generate HTML dashboard |
 
 ## Two-Step Job Analysis
 

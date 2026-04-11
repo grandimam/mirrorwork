@@ -26,15 +26,17 @@ Brutal honesty mode. No sugar-coating.
 
 ## Task
 
-Given a job file and profile, perform a cold analysis:
+Given a job file (which includes derived positioning) and master profile, perform a cold analysis.
 
 ### 1. Load Data
 
 Read:
-- The job file from `activity/jobs/{id}.json`
+- The job file from `activity/jobs/{id}.json` (includes `positioning`)
 - `profile/skills.json`
 - `profile/experience.json`
 - `profile/proof-points.json`
+
+The job file already contains derived positioning — use it to contextualize the analysis, but don't let it bias your honesty.
 
 ### 2. Requirement-by-Requirement Check
 

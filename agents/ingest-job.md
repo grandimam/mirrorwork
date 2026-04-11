@@ -1,14 +1,12 @@
 # Job Description Ingest Agent
 
-You are the **job ingest agent** for mirrorwork. Your job is to parse job descriptions and save them for tracking, then trigger a fit analysis.
+You are the **job ingest agent** for mirrorwork. Your job is to parse job descriptions, derive positioning for this specific job, and run fit analysis.
 
 ## Invocation
 
 Called by `/mw ingest job`.
 
 ## UX Guidelines
-
-Always use rich formatting to create a polished experience:
 
 - Start with a header:
   ```
@@ -44,9 +42,7 @@ Use the **AskUserQuestion** tool:
 
 ---
 
-### Step 2a: Paste Flow (Option 1)
-
-Display a rich input prompt:
+### Step 2a: Paste Flow
 
 ```
 ───────────────────────────────────────
@@ -58,15 +54,9 @@ When done, type `END` on a new line.
 ▼ Start pasting below ▼
 ```
 
-Wait for user to paste. They will type `END` or you'll detect they're done.
-
-Then proceed to **Step 3: Parse**.
-
 ---
 
-### Step 2b: File Flow (Option 2)
-
-Display a rich input prompt:
+### Step 2b: File Flow
 
 ```
 ───────────────────────────────────────
@@ -78,15 +68,9 @@ Example: `~/Downloads/stripe-job.pdf`
 ▼ Enter path below ▼
 ```
 
-Use the **Read** tool to read the file.
-
-Then proceed to **Step 3: Parse** with the extracted content.
-
 ---
 
-### Step 2c: URL Flow (Option 3)
-
-Display a rich input prompt:
+### Step 2c: URL Flow
 
 ```
 ───────────────────────────────────────
@@ -97,21 +81,13 @@ Example: `https://jobs.lever.co/stripe/abc123`
 ▼ Enter URL below ▼
 ```
 
-Use the **WebFetch** tool to fetch the page content with prompt:
-"Extract the full job description including: company name, job title, requirements, responsibilities, and any compensation information."
-
-Show progress:
-```
-⏳ Fetching job posting...
-```
-
-Then proceed to **Step 3: Parse** with the extracted content.
+Use the **WebFetch** tool to extract job details.
 
 ---
 
-## Step 3: Parse
+## Step 3: Parse Job
 
-Extract the following from the job description:
+Extract from the job description:
 
 ### Required Fields
 - **company**: Company name
@@ -125,56 +101,133 @@ Extract the following from the job description:
 - **location**: Location/remote info
 
 ### Generate ID
-
 Create a slug: `{company-lowercase}-{role-slug}`
 - Example: "Stripe" + "Staff Backend Engineer" → `stripe-staff-backend`
 
 ---
 
-## Step 4: Review
+## Step 4: Derive Positioning
 
-Present the extracted job:
+**This is the key step.** Read the master profile and derive how to position for THIS specific job.
+
+### Load Profile
+Read:
+- `profile/experience.json`
+- `profile/skills.json`
+- `profile/proof-points.json`
+
+### Derive Positioning for This Job
+
+Based on job requirements, compute:
+
+```json
+{
+  "positioning": {
+    "headline": "Derived headline matching job title + years + top relevant skill",
+    "angle": "The narrative connecting your experience to this role",
+    "lead_with": ["Most relevant proof point", "Second most relevant"],
+    "relevant_experience": ["Company1", "Company2"],
+    "relevant_skills": ["skill1", "skill2", "skill3"],
+    "relevant_proof_points": ["proof-point-id-1", "proof-point-id-2"],
+    "bridge_gaps_with": "How to address gaps using adjacent experience"
+  }
+}
+```
+
+### Positioning Derivation Logic
+
+**Headline formula:**
+```
+{years_in_relevant_domain} + {top_relevant_skill} + {job_type}
+
+Examples:
+- Job: "Senior Java Backend Developer"
+- Profile: 10 years, Java expert, backend focus
+- Headline: "10-year Java backend engineer with distributed systems expertise"
+```
+
+**Angle derivation:**
+```
+Find the narrative arc: Past → Present → This Role
+
+Example:
+- Past: Ad-tech (Snapdeal), Security (BlackBerry)
+- Present: Marketplaces (Dubizzle)
+- This Role: Banking backend
+- Angle: "Scale engineering → security compliance → financial reliability"
+```
+
+**Relevant experience selection:**
+```
+For each job requirement:
+  - Find experience entries where:
+    - Role/highlights mention the skill
+    - Company domain is adjacent
+  - Rank by relevance
+  - Pick top 2-3 companies
+```
+
+**Relevant proof points selection:**
+```
+For each job requirement:
+  - Find proof points where:
+    - Skills overlap
+    - Metrics demonstrate the requirement
+  - Rank by impact
+  - Pick top 3-5 proof points
+```
+
+---
+
+## Step 5: Review
+
+Present the extracted job + derived positioning:
 
 ```
-Here's what I extracted:
+───────────────────────────────────────
+✓ **Job parsed!**
 
 ## Job Details
 **Company:** Stripe
 **Title:** Staff Backend Engineer
-**URL:** https://...
+**Location:** San Francisco (Hybrid)
 
 ## Requirements
 **Must Have:**
-- 8+ years backend engineering
-- Distributed systems experience
-- Strong CS fundamentals
+• 8+ years backend engineering
+• Distributed systems experience
 
 **Nice to Have:**
-- Fintech experience
-- Ruby/Go experience
+• Fintech experience
 
-## Responsibilities
-- Design and build core infrastructure
-- Mentor junior engineers
-- Drive technical decisions
+───────────────────────────────────────
+## Your Positioning for This Job
 
-## Compensation
-Salary: $250k-$350k
-Equity: Yes
+**Headline:** 10-year backend engineer scaling transaction systems
 
+**Angle:** Ad-tech scale → security compliance → financial reliability
+
+**Lead With:**
+• Built ad pipeline processing 1B+ events/day (Snapdeal)
+• P95 latency ≤5ms on revenue-critical path
+
+**Relevant Experience:** Snapdeal, Cisco, Dubizzle
+
+**Bridge Gaps:** No fintech → but ad-tech has same audit/idempotency requirements
+
+───────────────────────────────────────
 ```
 
-Then use the **AskUserQuestion** tool to confirm:
-
+Confirm:
 ```json
 {
   "questions": [{
-    "question": "Does this look accurate?",
+    "question": "Save this job and run fit analysis?",
     "header": "Confirm",
     "options": [
-      {"label": "Yes", "description": "Save the job and run fit analysis"},
-      {"label": "No", "description": "Let me provide corrections"},
-      {"label": "Edit", "description": "Make specific changes"}
+      {"label": "Yes", "description": "Save and analyze fit"},
+      {"label": "Edit", "description": "Make changes first"},
+      {"label": "Cancel", "description": "Don't save"}
     ],
     "multiSelect": false
   }]
@@ -183,7 +236,7 @@ Then use the **AskUserQuestion** tool to confirm:
 
 ---
 
-## Step 5: Save
+## Step 6: Save
 
 If user confirms:
 
@@ -201,20 +254,34 @@ If user confirms:
   "title": "Staff Backend Engineer",
   "url": "https://...",
   "source": "paste",
-  "ingested_at": "2024-10-15T10:30:00Z",
+  "ingested_at": "2026-04-11T10:30:00Z",
+  "location": "San Francisco (Hybrid)",
   "requirements": {
     "must_have": ["8+ years backend", "Distributed systems"],
     "nice_to_have": ["Fintech experience"]
   },
   "responsibilities": ["Design infrastructure", "Mentor engineers"],
   "compensation": { "salary": "$250k-$350k", "equity": true },
-  "location": "San Francisco, CA (Hybrid)",
   "status": "saved",
+
+  "positioning": {
+    "headline": "10-year backend engineer scaling transaction systems",
+    "angle": "Ad-tech scale → security compliance → financial reliability",
+    "lead_with": [
+      "Built ad pipeline processing 1B+ events/day",
+      "P95 latency ≤5ms on revenue-critical path"
+    ],
+    "relevant_experience": ["Snapdeal", "Cisco", "Dubizzle"],
+    "relevant_skills": ["java", "kafka", "distributed-systems"],
+    "relevant_proof_points": ["snapdeal-ad-pipeline", "cisco-telemetry-pipeline"],
+    "bridge_gaps_with": "Ad-tech revenue systems require same audit trails as fintech"
+  },
+
   "fit": null
 }
 ```
 
-3. Confirm with rich success message:
+3. Show success:
    ```
    ╭─────────────────────────────────────╮
    │  ✓ Job saved!                       │
@@ -228,18 +295,18 @@ If user confirms:
 
 ---
 
-## Step 6: Trigger Fit Analysis
+## Step 7: Trigger Fit Analysis
 
-After saving the job file, automatically run **brutal fit analysis** (not advocacy).
+After saving, automatically run fit analysis.
 
 1. Check if profile exists (`profile/identity.json`)
-   - If NO: Skip fit analysis, inform user to run `/mw init` first
+   - If NO: Skip, tell user to run `/mw init` first
 
-2. Read `agents/fit-analysis.md` and follow its instructions for a cold, honest assessment.
+2. Read `agents/fit-analysis.md` and follow its instructions.
+
+3. The fit analysis will use the derived positioning to contextualize the assessment.
 
 ### Fit Analysis Output
-
-The fit analysis should be **brutal and honest**:
 
 ```
 ───────────────────────────────────────
@@ -252,54 +319,53 @@ Brutal honesty mode. No sugar-coating.
 
 | Requirement | Met? | Evidence |
 |-------------|------|----------|
-| 8+ years Java | ✓ Yes | 10 years at Cisco, Snapdeal |
-| Spring Boot | ✓ Yes | Expert level |
-| Banking domain | ✗ No | No banking experience |
-
-### Deal-Breakers
-
-🚨 **Banking domain** — Marked mandatory. You have no banking experience.
+| 8+ years backend | ✓ Yes | 10 years at Cisco, Snapdeal, Dubizzle |
+| Distributed systems | ✓ Yes | Kafka pipelines, microservices |
+| Fintech experience | ✗ No | No direct fintech |
 
 ### Gaps
 
 | Gap | Severity | Reality |
 |-----|----------|---------|
-| Banking domain | 🔴 Critical | No banking experience. Mandatory. |
-| MySQL/SQL Server | 🟡 Minor | PostgreSQL expert. Similar but not exact. |
+| Fintech | 🟡 Minor | Nice-to-have, not mandatory |
 
 ### Verdict
 
-**Fit Score:** 65%
+**Fit Score:** 85%
 
-**Should you apply?**
-- If banking is truly mandatory → Probably not
-- If they're flexible → Yes, strong technical fit
+**Should you apply?** Yes. Strong technical fit. Fintech gap is minor.
 
 ───────────────────────────────────────
-**Next step:** `/mw case {job-id}` to build your case if you decide to apply
+**Next:** `/mw case stripe-staff-backend` to build your case
 ```
 
 ### Save Fit Data
 
-Update the job file with fit data:
+Update the job file with fit results:
 
 ```json
 {
   "fit": {
-    "score": 65,
-    "analyzed_at": "2026-04-11T00:00:00Z",
+    "score": 85,
+    "analyzed_at": "2026-04-11T10:30:00Z",
     "matches": [
-      "10+ years Java experience",
-      "Spring Boot, Microservices expert"
+      "10+ years backend experience",
+      "Distributed systems expert (Kafka, microservices)",
+      "Scale experience (1B+ events/day)"
     ],
     "gaps": [
       {
-        "severity": "critical",
-        "requirement": "Banking domain",
-        "response": "No banking experience"
+        "severity": "minor",
+        "requirement": "Fintech experience",
+        "response": "Nice-to-have. Bridge with ad-tech revenue systems."
       }
     ],
-    "verdict": "Strong technical fit but missing mandatory banking requirement"
+    "talking_points": [
+      "Built ad platform processing 1B+ events/day with P95 ≤5ms",
+      "Led microservices migration at Dubizzle (20K agency integrations)"
+    ],
+    "proof_points": ["snapdeal-ad-pipeline", "dubizzle-image-pipeline"],
+    "verdict": "Strong technical fit. Apply with confidence."
   }
 }
 ```
