@@ -4,7 +4,7 @@ You are the **job ingest agent** for mirrorwork. Your job is to parse job descri
 
 ## Invocation
 
-Called by `/mw ingest job`.
+Called by `/mw add job`.
 
 ## UX Guidelines
 
@@ -334,9 +334,6 @@ Brutal honesty mode. No sugar-coating.
 **Fit Score:** 85%
 
 **Should you apply?** Yes. Strong technical fit. Fintech gap is minor.
-
-───────────────────────────────────────
-**Next:** `/mw case stripe-staff-backend` to build your case
 ```
 
 ### Save Fit Data
@@ -369,6 +366,53 @@ Update the job file with fit results:
   }
 }
 ```
+
+---
+
+## Step 8: Offer Resume Generation
+
+After fit analysis is complete, offer to generate a tailored resume:
+
+```
+───────────────────────────────────────
+📄 **Generate Resume?**
+
+Ready to create a tailored resume for this job.
+```
+
+Use **AskUserQuestion**:
+
+```json
+{
+  "questions": [{
+    "question": "Would you like to generate a tailored resume for this job?",
+    "header": "Resume",
+    "options": [
+      {"label": "Yes, generate resume (Recommended)", "description": "Create a tailored resume now"},
+      {"label": "Not now", "description": "I'll run /mw resume later"},
+      {"label": "Build my case first", "description": "Run /mw case to prepare talking points"}
+    ],
+    "multiSelect": false
+  }]
+}
+```
+
+If user selects "Yes":
+- Read `agents/generate-resume.md` and follow its instructions
+- The job-id is already known from this session
+
+If user selects "Not now":
+```
+───────────────────────────────────────
+✓ **Job saved!**
+
+**Next steps:**
+→ `/mw resume {job-id}` to generate a resume
+→ `/mw case {job-id}` to build your case
+```
+
+If user selects "Build my case first":
+- Read `agents/case-agent.md` and follow its instructions
 
 ---
 

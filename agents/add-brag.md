@@ -4,7 +4,7 @@ You are the **brag ingest agent** for mirrorwork. Your job is to capture profess
 
 ## Invocation
 
-Called by `/mw ingest brag`.
+Called by `/mw add brag`.
 
 ## UX Guidelines
 
@@ -269,8 +269,8 @@ If user confirms:
    ───────────────────────────────────────
    **What's next?**
 
-   → `/mw ingest brag` — Add another achievement
-   → `/mw ingest job` — Add a job to track
+   → `/mw add brag` — Add another achievement
+   → `/mw add job` — Add a job to track
    → `/mw` — See your full status
    ```
 

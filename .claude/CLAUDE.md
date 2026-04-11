@@ -1,19 +1,8 @@
-# mirrorwork
+# Mirrorwork
 
 > Your career, reflected.
 
 Career OS built on Claude Code. Track achievements, prep for interviews, search for jobs.
-
-## Quick Start
-
-```
-/mw init           # Set up profile (paste resume)
-/mw                # See status
-/mw ingest resume  # Add another resume (merges into profile)
-/github sync       # Sync GitHub contributions
-```
-
-## Core Concept
 
 ```
 Resume₁ ──┐
@@ -30,15 +19,14 @@ Resume₃ ──┘        (facts)          (fit)            (per job)
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  SOURCES (raw inputs)                                       │
-│  ├── resume/               # All ingested resumes           │
-│  │   ├── manifest.json     # Tracks what's been ingested    │
+│  ├── manifest.json         # Central registry of all files  │
+│  ├── resume/               # All resumes                    │
 │  │   ├── 2024-01-paste.md  # Resume v1                      │
 │  │   └── 2026-04-file.md   # Resume v2                      │
-│  ├── documents/*.pdf       # Work samples                   │
-│  ├── research/*.md         # Company notes                  │
-│  └── github/**/*.json      # GitHub API data                │
+│  └── work-samples/         # Tech specs, design docs        │
+│      └── *.pdf, *.md                                        │
 └─────────────────────┬───────────────────────────────────────┘
-                      │ /mw init, /mw ingest resume (MERGE)
+                      │ /mw add <type> (MERGE)
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  PROFILE (master record - merged from all sources)          │
@@ -47,7 +35,7 @@ Resume₃ ──┘        (facts)          (fit)            (per job)
 │  ├── skills.json           # All skills (union)             │
 │  └── proof-points.json     # All achievements (merged)      │
 └─────────────────────┬───────────────────────────────────────┘
-                      │ /mw ingest job
+                      │ /mw add job
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  JOBS (per-job analysis + derived positioning)              │
@@ -75,23 +63,24 @@ activity/                   # JOBS + DERIVED POSITIONING
                             #   - fit analysis
 
 sources/                    # RAW INPUTS
-├── resume/                 # All ingested resumes
-│   ├── manifest.json       # Tracks ingested resumes
-│   ├── 2024-01-paste.md    # Resume v1
-│   └── 2026-04-file.md     # Resume v2 (adds to profile)
-├── documents/              # Work samples, tech specs
-├── research/               # Company research, strategy notes
-└── github/                 # GitHub API data
-    ├── reports/            # Yearly contribution summaries
-    └── stories/            # Per-organization narratives
+├── manifest.json           # Central registry (tracks all files)
+├── resume/                 # All resumes
+│   └── {date}-{source}.md  # e.g., 2026-04-11-backend.md
+└── work-samples/           # Tech specs, design docs, RFCs
+    └── *.pdf, *.md
 
 agents/                     # Agent instructions (markdown)
-├── ingest.md               # Ingest router
-├── ingest-resume.md        # Resume → MERGE into profile
-├── ingest-job.md           # JD → job file + derived positioning + fit
-├── ingest-brag.md          # Achievement → proof-points.json
+├── add-resume.md           # Resume → MERGE into profile
+├── add-job.md              # JD → job file + positioning + fit
+├── add-brag.md             # Achievement → proof-points.json
+├── add-doc.md              # Tech spec → proof points + skills
 ├── fit-analysis.md         # Brutal, honest fit check
-└── case-agent.md           # Advocacy mode, build your case
+├── case-agent.md           # Advocacy mode, build your case
+└── generate-resume.md      # Generate tailored resumes
+
+generated/                     # GENERATED ARTIFACTS
+└── {job-id}/               # Per-job output folder
+    └── {date}-resume.md    # Tailored resume
 
 scripts/                    # Python tools
 └── github_tracker/         # GitHub contribution CLI
@@ -106,7 +95,7 @@ scripts/                    # Python tools
 
 ## Multi-Resume Flow
 
-Each `/mw ingest resume` MERGES into the master profile:
+Each `/mw add resume` MERGES into the master profile:
 
 ```
 Resume 1 (2024)          Resume 2 (2026)
@@ -123,19 +112,67 @@ Resume 1 (2024)          Resume 2 (2026)
 ```
 
 **Merge rules:**
+
 - **Experience:** Dedup by (company, role, start_date). Merge highlights.
 - **Skills:** Union. Upgrade tiers (familiar → proficient → expert).
 - **Proof Points:** Dedup by id. Merge metrics.
 
+## Sources Manifest
+
+All source files are tracked in `sources/manifest.json`:
+
+```json
+{
+  "files": [
+    {
+      "path": "resume/2026-04-11-backend.md",
+      "type": "resume",
+      "label": "Backend-focused resume",
+      "added_at": "2026-04-11",
+      "status": "processed",
+      "extracted": {
+        "experience": 4,
+        "skills": 15,
+        "proof_points": 3
+      }
+    },
+    {
+      "path": "work-samples/payment-rfc.pdf",
+      "type": "tech-spec",
+      "label": "Payment gateway design doc",
+      "added_at": "2026-04-11",
+      "status": "pending",
+      "extracted": null
+    }
+  ]
+}
+```
+
+| Field       | Purpose                                                          |
+| ----------- | ---------------------------------------------------------------- |
+| `path`      | Relative to `sources/`                                           |
+| `type`      | `resume`, `tech-spec`, `case-study`, `code-sample`               |
+| `label`     | User-provided description                                        |
+| `added_at`  | When file was added                                              |
+| `status`    | `processed` / `failed` (processed immediately on add)            |
+| `extracted` | What was pulled out (type-specific, populated after processing)  |
+
+**Workflow:**
+1. User runs `/mw add <type>` (resume, job, brag, doc)
+2. Agent prompts for file/content
+3. File saved to `sources/`, registered in manifest
+4. Parsed immediately → merged into profile
+5. Manifest updated with `extracted` details
+
 ## Profile Files
 
-| File               | Purpose            | Key Fields                                |
-| ------------------ | ------------------ | ----------------------------------------- |
-| `identity.json`    | Contact info       | name, email, location, linkedin, github   |
-| `experience.json`  | Work history       | company, role, dates, highlights, skills  |
-| `education.json`   | Education          | institution, degree, field, year          |
-| `skills.json`      | Skills inventory   | expert, proficient, familiar, learning    |
-| `proof-points.json`| Achievements       | id, summary, metrics, skills, story_ready |
+| File                | Purpose          | Key Fields                                |
+| ------------------- | ---------------- | ----------------------------------------- |
+| `identity.json`     | Contact info     | name, email, location, linkedin, github   |
+| `experience.json`   | Work history     | company, role, dates, highlights, skills  |
+| `education.json`    | Education        | institution, degree, field, year          |
+| `skills.json`       | Skills inventory | expert, proficient, familiar, learning    |
+| `proof-points.json` | Achievements     | id, summary, metrics, skills, story_ready |
 
 **Note:** No `positioning.json` — positioning is derived per job.
 
@@ -169,21 +206,38 @@ Each job in `activity/jobs/*.json` contains:
 
 ## Agents
 
-| Agent              | Purpose                     | Trigger                     |
-| ------------------ | --------------------------- | --------------------------- |
-| `ingest.md`        | Route to specialized ingest | `/mw ingest`                |
-| `ingest-resume.md` | Parse resume → MERGE        | `/mw init`, `ingest resume` |
-| `ingest-job.md`    | JD + derive positioning     | `/mw ingest job`            |
-| `ingest-brag.md`   | Capture achievement         | `/mw ingest brag`           |
-| `fit-analysis.md`  | Brutal, honest fit check    | Auto after job ingest       |
-| `case-agent.md`    | Build advocacy case         | `/mw case <job-id>`         |
+| Agent                | Purpose                  | Trigger              |
+| -------------------- | ------------------------ | -------------------- |
+| `add-resume.md`      | Parse resume → MERGE     | `/mw init`, `add resume` |
+| `add-job.md`         | JD + derive positioning  | `/mw add job`        |
+| `add-brag.md`        | Capture achievement      | `/mw add brag`       |
+| `add-doc.md`         | Tech spec → proof points | `/mw add doc`        |
+| `fit-analysis.md`    | Brutal, honest fit check | Auto after add job   |
+| `case-agent.md`      | Build advocacy case      | `/mw case <job-id>`  |
+| `generate-resume.md` | Generate tailored resume | `/mw resume <job-id>`|
 
-## Two-Step Job Analysis
+## Job → Resume Flow
 
 ```
-/mw ingest job              /mw case <job-id>
-      │                            │
-      ▼                            ▼
+/mw add job
+      │
+      ▼
+┌─────────────┐
+│ PARSE JD    │
+│ + POSITION  │
+│ + FIT CHECK │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────────────────────────────────┐
+│ "Generate resume now?"                       │
+│                                              │
+│  [Yes] ──────► Generate tailored resume      │
+│  [Not now] ──► Run /mw resume later          │
+│  [Case first] ► Build talking points first   │
+└─────────────────────────────────────────────┘
+       │
+       ▼
 ┌─────────────┐             ┌─────────────┐
 │ FIT ANALYSIS│             │ MAKE A CASE │
 │             │             │             │
@@ -194,22 +248,23 @@ Each job in `activity/jobs/*.json` contains:
 │ "Do I meet  │             │ "How do I   │
 │  the reqs?" │             │  position?" │
 └─────────────┘             └─────────────┘
-
-Positioning is DERIVED during /mw ingest job
-based on master profile + job requirements
 ```
+
+**Streamlined workflow:** Paste JD → Fit Analysis → Generate Resume (all in one flow)
 
 ## Commands
 
-| Command             | Agent         | Description                    |
-| ------------------- | ------------- | ------------------------------ |
-| `/mw`               | (inline)      | Show status                    |
-| `/mw init`          | ingest-resume | First-time setup               |
-| `/mw ingest resume` | ingest-resume | Add resume (merges)            |
-| `/mw ingest job`    | ingest-job    | Add job + derive positioning   |
-| `/mw ingest brag`   | ingest-brag   | Capture achievement            |
-| `/mw case <job-id>` | case-agent    | Build advocacy case            |
-| `/github sync`      | (skill)       | Sync GitHub data               |
+| Command               | Agent           | Description                        |
+| --------------------- | --------------- | ---------------------------------- |
+| `/mw`                 | (inline)        | Show status                        |
+| `/mw init`            | add-resume      | First-time setup                   |
+| `/mw add resume`      | add-resume      | Add resume (merges into profile)   |
+| `/mw add job`         | add-job         | Add job + derive positioning       |
+| `/mw add brag`        | add-brag        | Capture achievement                |
+| `/mw add doc`         | add-doc         | Add tech spec, work sample         |
+| `/mw case <job-id>`   | case-agent      | Build advocacy case                |
+| `/mw resume <job-id>` | generate-resume | Generate tailored resume           |
+| `/github sync`        | (skill)         | Sync GitHub data                   |
 
 ## Hooks
 

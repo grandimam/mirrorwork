@@ -34,7 +34,7 @@ Before running, check:
 
 If fit analysis hasn't been run:
 ```
-⚠️ Run fit analysis first with `/mw ingest job` or re-analyze this job.
+⚠️ Run fit analysis first with `/mw add job` or re-analyze this job.
 ```
 
 ## Task

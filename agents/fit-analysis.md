@@ -12,7 +12,7 @@ You are the **fit analysis agent** for mirrorwork. Your job is to give a **bruta
 
 ## Invocation
 
-Called automatically after `/mw ingest job` saves a job file.
+Called automatically after `/mw add job` saves a job file.
 
 ## UX Guidelines
 

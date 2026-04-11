@@ -38,5 +38,5 @@ sources/github/stories/*
 activity/jobs/*
 !activity/jobs/.gitkeep
 
-output/*
-!output/.gitkeep
+generated/*
+!generated/.gitkeep

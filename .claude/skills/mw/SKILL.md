@@ -51,7 +51,7 @@ Show current status:
 • Experience: {X} years across {Y} companies
 • Skills: {top 3 expert skills}
 • Proof points: {count}
-• Resumes ingested: {count from manifest}
+• Sources: {count} files
 
 ───────────────────────────────────────
 🎯 **Job Pipeline**
@@ -62,15 +62,15 @@ Show current status:
 ───────────────────────────────────────
 **Quick actions**
 
-→ `/mw ingest resume` — Add another resume
-→ `/mw ingest brag` — Add achievement
-→ `/mw ingest job` — Track a job
-→ `/github sync` — Sync GitHub
+→ `/mw add resume` — Add another resume
+→ `/mw add job` — Track a job
+→ `/mw add brag` — Capture achievement
+→ `/mw add doc` — Add work sample
 ```
 
 #### `/mw init`
 
-First-time setup. Read `agents/ingest-resume.md` and follow its instructions.
+First-time setup. Read `agents/add-resume.md` and follow its instructions.
 
 #### `/mw status`
 
@@ -78,31 +78,33 @@ Same as `/mw` with no args.
 
 ---
 
-### Ingest Commands
+### Add Commands
 
-#### `/mw ingest`
+All `/mw add` commands process immediately — no separate "ingest" step.
 
-Router for ingesting career data.
+#### `/mw add resume`
 
-Read `agents/ingest.md` and follow its instructions.
+Add a resume and merge into profile.
 
-#### `/mw ingest resume`
+Read `agents/add-resume.md` and follow its instructions.
 
-Parse a resume and create/update profile.
+#### `/mw add job`
 
-Read `agents/ingest-resume.md` and follow its instructions.
+Add a job description, analyze fit, derive positioning.
 
-#### `/mw ingest job`
+Read `agents/add-job.md` and follow its instructions.
 
-Parse a job description and add to pipeline.
-
-Read `agents/ingest-job.md` and follow its instructions.
-
-#### `/mw ingest brag`
+#### `/mw add brag`
 
 Capture a professional achievement.
 
-Read `agents/ingest-brag.md` and follow its instructions.
+Read `agents/add-brag.md` and follow its instructions.
+
+#### `/mw add doc`
+
+Add a tech spec, RFC, design doc, or work sample.
+
+Read `agents/add-doc.md` and follow its instructions.
 
 ---
 
@@ -130,6 +132,30 @@ Which job? Enter the ID:
 
 ---
 
+### Resume Commands
+
+#### `/mw resume <job-id>`
+
+Generate a tailored resume for a specific job.
+
+**Prerequisites:** Job must exist in `activity/jobs/` with fit analysis completed.
+
+Read `agents/generate-resume.md` and follow its instructions.
+
+Features:
+- Select which experiences to include
+- Choose highlights per experience
+- Pick relevant skills
+- Select proof points to feature
+- Generate tailored headline
+- Reword bullets to match job language
+
+Output saved to `generated/{job-id}/{date}-resume.md`
+
+If no job-id provided, list available jobs (same as case command).
+
+---
+
 ### Planned Commands
 
 | Command | Purpose | Status |
@@ -144,47 +170,59 @@ Which job? Enter the ID:
 ## Data Model
 
 ```
-profile/                    # MASTER PROFILE (merged from all resumes)
+profile/                    # MASTER PROFILE (merged from all sources)
 ├── identity.json           # Name, contact, links
 ├── experience.json         # Work history (merged, deduped)
 ├── education.json          # Degrees, certifications
-├── skills.json             # Skills (union of all resumes)
+├── skills.json             # Skills (union of all sources)
 └── proof-points.json       # Achievements (merged)
 
 activity/
 └── jobs/*.json             # Job + DERIVED positioning + fit analysis
 
 sources/                    # RAW INPUTS
-├── resume/                 # All ingested resumes
-│   ├── manifest.json       # Tracks what's been ingested
-│   └── {date}-{source}.md  # Individual resume files
-├── documents/              # Work samples, tech specs
-├── research/               # Company notes, strategy
-└── github/                 # GitHub API data
-    ├── reports/            # Yearly: 2025.json
-    └── stories/            # Per-org: dubizzle.json
+├── manifest.json           # Central registry (tracks ALL files)
+├── resume/                 # All resumes
+│   └── {date}-{source}.md
+└── work-samples/           # Tech specs, design docs, RFCs
+    └── *.pdf, *.md
 
-output/
-└── {year}/                 # Tailored resumes, cover letters
+generated/
+└── {job-id}/               # Per-job output
+    └── {date}-resume.md    # Tailored resume
 ```
 
-**Note:** No `positioning.json` — positioning is derived per job during `/mw ingest job`.
+### Manifest Schema
+
+All source files tracked in `sources/manifest.json`:
+
+| Field       | Purpose                                            |
+| ----------- | -------------------------------------------------- |
+| `path`      | Relative to `sources/`                             |
+| `type`      | `resume`, `tech-spec`, `case-study`, `code-sample` |
+| `label`     | User-provided description                          |
+| `added_at`  | When file was added                                |
+| `status`    | `pending` → `processed` / `failed`                 |
+| `extracted` | What was pulled out (populated after processing)   |
+
+**Note:** No `positioning.json` — positioning is derived per job during `/mw add job`.
 
 ## Agent Routing
 
 | Command | Agent | Purpose |
 |---------|-------|---------|
-| `init` | `agents/ingest-resume.md` | Setup profile |
-| `ingest` | `agents/ingest.md` | Route to ingest type |
-| `ingest resume` | `agents/ingest-resume.md` | Parse resume |
-| `ingest job` | `agents/ingest-job.md` | Parse JD + brutal fit |
-| `ingest brag` | `agents/ingest-brag.md` | Capture achievement |
+| `init` | `agents/add-resume.md` | Setup profile |
+| `add resume` | `agents/add-resume.md` | Parse resume → merge |
+| `add job` | `agents/add-job.md` | Parse JD + brutal fit |
+| `add brag` | `agents/add-brag.md` | Capture achievement |
+| `add doc` | `agents/add-doc.md` | Extract proof points |
 | `case` | `agents/case-agent.md` | Build advocacy case |
+| `resume` | `agents/generate-resume.md` | Generate tailored resume |
 
 ## Two-Step Job Analysis
 
 ```
-/mw ingest job          /mw case <job-id>
+/mw add job             /mw case <job-id>
       │                        │
       ▼                        ▼
 ┌─────────────┐         ┌─────────────┐

@@ -14,7 +14,7 @@ Each resume ADDS to the profile. We never lose data.
 
 ## Invocation
 
-Called by `/mw init` or `/mw ingest resume`.
+Called by `/mw init` or `/mw add resume`.
 
 ## UX Guidelines
 
@@ -333,8 +333,8 @@ If user confirms:
    **What's next?**
 
    → `/mw` — See your status
-   → `/mw ingest resume` — Add another resume version
-   → `/mw ingest job` — Track a job opportunity
+   → `/mw add resume` — Add another resume version
+   → `/mw add job` — Track a job opportunity
    ```
 
 ---
@@ -356,7 +356,7 @@ sources/resume/
 └── 2026-04-11-paste.md ← raw resume v3
 ```
 
-**Note:** `positioning.json` is NOT created here. Positioning is derived per-job during `/mw ingest job`.
+**Note:** `positioning.json` is NOT created here. Positioning is derived per-job during `/mw add job`.
 
 ---
 

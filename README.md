@@ -37,7 +37,7 @@ profile/                    # WHO YOU ARE
 activity/                   # WHAT'S HAPPENING
 └── jobs/*.yml              # Job descriptions + fit analysis
 
-output/                     # GENERATED ARTIFACTS
+generated/                     # GENERATED ARTIFACTS
 └── {year}/                 # Tailored resumes, cover letters
 
 sources/                    # RAW INPUTS
@@ -62,14 +62,14 @@ scripts/github_tracker/     # GitHub CLI tool
 | `/mw`        | Show profile status             |
 | `/mw init`   | First-time setup (paste resume) |
 
-### Ingest
+### Add
 
-| Command             | Description                        |
-| ------------------- | ---------------------------------- |
-| `/mw ingest`        | Choose what to ingest              |
-| `/mw ingest resume` | Parse resume into profile          |
-| `/mw ingest job`    | Add job description + fit analysis |
-| `/mw ingest brag`   | Capture achievement                |
+| Command          | Description                        |
+| ---------------- | ---------------------------------- |
+| `/mw add resume` | Parse resume into profile          |
+| `/mw add job`    | Add job description + fit analysis |
+| `/mw add brag`   | Capture achievement                |
+| `/mw add doc`    | Add tech spec or work sample       |
 
 ### GitHub
 

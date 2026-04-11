@@ -6,11 +6,11 @@
       "Read(profile/**/*)",
       "Read(sources/**/*)",
       "Read(activity/**/*)",
-      "Read(output/**/*)",
+      "Read(generated/**/*)",
       "Write(profile/**/*)",
       "Write(sources/**/*)",
       "Write(activity/**/*)",
-      "Write(output/**/*)"
+      "Write(generated/**/*)"
     ]
   }
 }
