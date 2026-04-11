@@ -1,123 +1,180 @@
-# mirrorwork
+# Mirrorwork
 
 > Your career, reflected.
 
-A career OS built on Claude Code. Track achievements, prep for interviews, search for jobs — all from one place.
+A Career OS built on [Claude Code](https://claude.ai/claude-code). Build a master profile from your resumes, discover jobs, get honest fit analysis, and generate tailored resumes — all from your terminal.
+
+```
+Resume₁ ──┐
+Resume₂ ──┼──► Master Profile ──► Job Analysis ──► Derived Positioning
+Resume₃ ──┘        (facts)          (fit)            (per job)
+```
+
+## Why Mirrorwork?
+
+Most job tools make you re-enter your info for every application. Mirrorwork flips this:
+
+1. **Build once** — Create a master profile from all your resumes
+2. **Position contextually** — Derive positioning per job, not generic
+3. **Stay honest** — Get brutal fit analysis before you apply
+4. **Own your data** — Everything stays local, in JSON files you control
 
 ## Quick Start
 
+### Prerequisites
+
+- [Claude Code CLI](https://claude.ai/claude-code) installed
+- Playwright MCP (for job scanning): `npx @anthropic/mcp-server-playwright`
+
+### Setup
+
 ```bash
-claude
-> /mw init           # Set up your profile (paste resume)
-> /mw                # See status
-> /github sync       # Sync GitHub contributions
-```
+git clone https://github.com/grandimam/mirrorwork.git
+cd mirrorwork
 
-## Features
-
-- **Resume Parsing** — Paste or upload resume, extract structured profile
-- **Job Tracking** — Save job descriptions, get fit analysis
-- **Achievement Capture** — Log proof points with metrics
-- **GitHub Integration** — Pull contribution data to enrich profile
-- **Fit Analysis** — AI builds your strongest case for each role
-
-## Structure
-
-```
-profile/                    # WHO YOU ARE
-├── career.md               # Living career narrative
-├── identity.yml            # Name, contact, links
-├── experience.yml          # Work history with highlights
-├── education.yml           # Degrees, certifications
-├── skills.yml              # Expert/proficient/familiar
-├── positioning.yml         # Headline, target roles
-├── stories.yml             # STAR interview stories
-└── proof-points.yml        # Quantified achievements
-
-activity/                   # WHAT'S HAPPENING
-└── jobs/*.yml              # Job descriptions + fit analysis
-
-generated/                     # GENERATED ARTIFACTS
-└── {year}/                 # Tailored resumes, cover letters
-
-sources/                    # RAW INPUTS
-├── resume/                 # Uploaded resume files (PDF, DOCX)
-├── documents/              # Work samples, tech specs
-├── research/               # Company notes, strategy
-└── github/                 # GitHub API data
-    ├── reports/            # Yearly contributions
-    └── stories/            # Per-org narratives
-
-agents/                     # Agent instructions
-scripts/github_tracker/     # GitHub CLI tool
-.claude/                    # Skills, hooks, config
+# Initialize with your resume
+/mw init
 ```
 
 ## Commands
 
-### Core
+| Command | What it does |
+|---------|--------------|
+| `/mw` | Show status |
+| `/mw init` | First-time setup with your resume |
+| `/mw scan` | Discover jobs from configured portals |
+| `/mw inbox` | Review discovered jobs |
+| `/mw tracker` | View/update applications tracker |
+| `/mw add job [url]` | Analyze a job posting |
+| `/mw add resume` | Add another resume (merges into profile) |
+| `/mw add brag` | Capture an achievement |
+| `/mw case <job-id>` | Build advocacy talking points |
+| `/mw resume <job-id>` | Generate a tailored resume |
 
-| Command      | Description                     |
-| ------------ | ------------------------------- |
-| `/mw`        | Show profile status             |
-| `/mw init`   | First-time setup (paste resume) |
+## How It Works
 
-### Add
+### 1. Master Profile
 
-| Command          | Description                        |
-| ---------------- | ---------------------------------- |
-| `/mw add resume` | Parse resume into profile          |
-| `/mw add job`    | Add job description + fit analysis |
-| `/mw add brag`   | Capture achievement                |
-| `/mw add doc`    | Add tech spec or work sample       |
-
-### GitHub
-
-| Command         | Description                      |
-| --------------- | -------------------------------- |
-| `/github sync`  | Sync all GitHub data             |
-| `/github fetch` | Fetch yearly contributions       |
-| `/github story` | Build org contribution narrative |
-| `/github orgs`  | List organizations               |
-
-## Data Flow
+Your profile is built from all your resumes, merged and deduplicated:
 
 ```
-Sources (raw)  →  Profile (structured)  →  Output (tailored)
-     ↑                    ↑                      ↓
-  /ingest            career.md             fit-agent
+profile/
+├── identity.json       # Name, contact, links
+├── experience.json     # All roles (merged)
+├── skills.json         # Expert / proficient / familiar
+└── proof-points.json   # Quantified achievements
 ```
 
-**Hooks auto-trigger:**
+Each `/mw add resume` **adds** to your profile — never overwrites.
 
-- Job added → run fit analysis
+### 2. Job Discovery
 
-## Fit Agent
+Configure portals to scan in `activity/manifest.json`:
 
-The fit agent is your advocate. It doesn't judge — it builds your strongest case.
+```json
+{
+  "portals": [
+    {
+      "name": "Stripe",
+      "url": "https://stripe.com/jobs/search",
+      "location": "Remote",
+      "target_roles": ["backend", "senior", "staff"],
+      "enabled": true
+    }
+  ]
+}
+```
 
-**Outputs:**
+Run `/mw scan` to discover jobs matching your `target_roles`.
 
-- Career narrative connecting you to the role
-- Strongest matches with proof points
-- Gap reframes as transferable skills
-- Cover letter hooks & interview talking points
-- Resume rewrites using company's language
-- Red flag responses prepared
+### 3. Contextual Positioning
 
-## Philosophy
+When you add a job, mirrorwork derives positioning **for that specific role**:
 
-1. **Privacy first** — All data local, no external services
-2. **Advocate, not judge** — Agents build your case, not evaluate you
-3. **Single source of truth** — profile/career.md as living narrative
-4. **Progressive disclosure** — Simple by default, powerful when needed
+```json
+{
+  "positioning": {
+    "headline": "10-year backend engineer scaling transaction systems",
+    "angle": "Ad-tech scale → financial reliability",
+    "lead_with": ["1B+ events/day", "P95 ≤5ms"],
+    "relevant_experience": ["Snapdeal", "Cisco"],
+    "bridge_gaps_with": "Ad-tech revenue systems = same audit requirements"
+  }
+}
+```
 
-## Requirements
+This isn't generic — it's derived from YOUR profile matched against THIS job.
 
-- [Claude Code](https://claude.ai/code) CLI
-- Python 3.10+ (for GitHub tracker)
-- `gh` CLI authenticated (for GitHub features)
+### 4. Honest Fit Analysis
+
+No sugar-coating. You get:
+
+- **Matches** — Requirements you meet with evidence
+- **Gaps** — What's missing and how severe
+- **Verdict** — Should you actually apply?
+
+```
+| Requirement         | Met? | Evidence                    |
+|---------------------|------|-----------------------------|
+| 8+ years backend    | ✓    | 10 years at Cisco, Snapdeal |
+| Distributed systems | ✓    | Kafka pipelines             |
+| Fintech experience  | ✗    | No direct fintech           |
+
+Fit Score: 85%
+Verdict: Strong technical fit. Apply with confidence.
+```
+
+## Project Structure
+
+```
+profile/            # Your master profile (merged from resumes)
+activity/           # Job pipeline
+├── manifest.json   # Portal config
+├── inbox/          # Discovered jobs
+└── jobs/           # Analyzed jobs with positioning + fit
+sources/            # Raw inputs (resumes, work samples)
+agents/             # Agent instructions (the brains)
+generated/          # Output artifacts (tailored resumes)
+```
+
+## Status: Early Preview
+
+This is a work in progress. The core flow works:
+
+- ✅ Profile building from resumes
+- ✅ Job scanning with filtering
+- ✅ Inbox review workflow
+- ✅ Positioning derivation
+- ✅ Fit analysis
+
+### Roadmap
+
+- [x] Applications tracker (unified view)
+- [ ] API scanning for Greenhouse/Ashby/Lever (faster, zero-token)
+- [ ] Legitimacy check (is the posting still active?)
+- [ ] Interview story bank (STAR stories across jobs)
+- [ ] Cover letter generation
+
+## Contributing
+
+PRs welcome! Areas that need help:
+
+1. **Portal patterns** — Add extraction logic for more job boards
+2. **Fit analysis** — Make scoring more nuanced
+3. **Zero-token scripts** — Move scanning to Node.js scripts
+
+## Privacy
+
+All data stays local. Nothing is sent anywhere except:
+- Claude API calls (for analysis)
+- Job portal fetches (to read postings)
+
+Your profile, resumes, and job data never leave your machine.
 
 ## License
 
 MIT
+
+---
+
+Built with [Claude Code](https://claude.ai/claude-code)

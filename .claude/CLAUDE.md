@@ -26,6 +26,7 @@ profile/                    # MASTER PROFILE (merged from all resumes)
 
 activity/                   # JOBS + PIPELINE
 ├── manifest.json           # Portals config for scanning
+├── tracker.md              # Applications tracker (unified view)
 ├── inbox/                  # All discovered jobs (by date)
 │   └── {date}.json         # matched + filtered jobs for dedup
 └── jobs/*.json             # Analyzed jobs
@@ -40,6 +41,7 @@ sources/                    # RAW INPUTS
 agents/                     # Agent instructions (markdown)
 ├── scan.md                 # Discover jobs from portals
 ├── inbox.md                # Review discovered jobs
+├── tracker.md              # View/update applications tracker
 ├── add-resume.md           # Resume → MERGE into profile
 ├── add-job.md              # JD → job file + positioning + fit
 ├── add-brag.md             # Achievement → proof-points.json
@@ -48,7 +50,7 @@ agents/                     # Agent instructions (markdown)
 ├── case-agent.md           # Advocacy mode, build your case
 └── generate-resume.md      # Generate tailored resumes
 
-generated/                     # GENERATED ARTIFACTS
+generated/                  # GENERATED ARTIFACTS
 └── {job-id}/               # Per-job output folder
     └── {date}-resume.md    # Tailored resume
 
@@ -145,17 +147,18 @@ All source files are tracked in `sources/manifest.json`:
 
 ## Agents
 
-| Agent                | Purpose                  | Trigger                  |
-| -------------------- | ------------------------ | ------------------------ |
-| `scan.md`            | Discover jobs from portals | `/mw scan`             |
-| `inbox.md`           | Review discovered jobs   | `/mw inbox`              |
-| `add-resume.md`      | Parse resume → MERGE     | `/mw init`, `add resume` |
-| `add-job.md`         | JD + derive positioning  | `/mw add job [url]`      |
-| `add-brag.md`        | Capture achievement      | `/mw add brag`           |
-| `add-doc.md`         | Tech spec → proof points | `/mw add doc`            |
-| `fit-analysis.md`    | Brutal, honest fit check | Auto after add job       |
-| `case-agent.md`      | Build advocacy case      | `/mw case <job-id>`      |
-| `generate-resume.md` | Generate tailored resume | `/mw resume <job-id>`    |
+| Agent                | Purpose                    | Trigger                  |
+| -------------------- | -------------------------- | ------------------------ |
+| `scan.md`            | Discover jobs from portals | `/mw scan`               |
+| `inbox.md`           | Review discovered jobs     | `/mw inbox`              |
+| `tracker.md`         | View/update tracker        | `/mw tracker`            |
+| `add-resume.md`      | Parse resume → MERGE       | `/mw init`, `add resume` |
+| `add-job.md`         | JD + derive positioning    | `/mw add job [url]`      |
+| `add-brag.md`        | Capture achievement        | `/mw add brag`           |
+| `add-doc.md`         | Tech spec → proof points   | `/mw add doc`            |
+| `fit-analysis.md`    | Brutal, honest fit check   | Auto after add job       |
+| `case-agent.md`      | Build advocacy case        | `/mw case <job-id>`      |
+| `generate-resume.md` | Generate tailored resume   | `/mw resume <job-id>`    |
 
 ## Features
 
@@ -244,6 +247,7 @@ activity/inbox/                                      activity/jobs/
 ```
 
 **Portals config** (`activity/manifest.json`):
+
 ```json
 {
   "portals": [
@@ -259,16 +263,17 @@ activity/inbox/                                      activity/jobs/
 }
 ```
 
-| Field | Purpose |
-|-------|---------|
-| `name` | Display name |
-| `url` | Careers page URL |
-| `location` | Target location |
+| Field          | Purpose                       |
+| -------------- | ----------------------------- |
+| `name`         | Display name                  |
+| `url`          | Careers page URL              |
+| `location`     | Target location               |
 | `target_roles` | Keywords to filter job titles |
-| `last_scan` | When last scanned |
-| `enabled` | Include in scans |
+| `last_scan`    | When last scanned             |
+| `enabled`      | Include in scans              |
 
 **Inbox file** (`activity/inbox/{date}.json`):
+
 ```json
 {
   "date": "2026-04-12",
@@ -291,10 +296,10 @@ activity/inbox/                                      activity/jobs/
 }
 ```
 
-| Field | Values |
-|-------|--------|
+| Field     | Values                                                |
+| --------- | ----------------------------------------------------- |
 | `matched` | `true` = matches target_roles, `false` = filtered out |
-| `status` | `pending`, `added`, `skipped`, `filtered` |
+| `status`  | `pending`, `added`, `skipped`, `filtered`             |
 
 ### Job → Resume Flow
 

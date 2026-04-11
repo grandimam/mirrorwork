@@ -112,6 +112,19 @@ Review discovered jobs and decide which to analyze.
 
 Read `agents/inbox.md` and follow its instructions.
 
+#### `/mw tracker`
+
+View and update the applications tracker.
+
+Read `agents/tracker.md` and follow its instructions.
+
+**Subcommands:**
+- `/mw tracker` — Show tracker table
+- `/mw tracker update <job-id> --status <status>` — Update job status
+- `/mw tracker note <job-id> <note>` — Update next step
+
+**Statuses:** `saved`, `applied`, `interviewing`, `offered`, `accepted`, `rejected`, `withdrawn`
+
 ---
 
 ### Add Commands
@@ -218,9 +231,8 @@ profile/                    # MASTER PROFILE (merged from all sources)
 
 activity/
 ├── manifest.json           # Portals config
+├── tracker.md              # Applications tracker
 ├── inbox/                  # Discovered jobs (by date)
-│   └── {date}.json
-├── seen/                   # URLs already seen (by date)
 │   └── {date}.json
 └── jobs/*.json             # Analyzed jobs
 
