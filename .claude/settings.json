@@ -3,6 +3,7 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(ls:*)",
+      "WebFetch",
       "Read(profile/**/*)",
       "Read(sources/**/*)",
       "Read(activity/**/*)",
