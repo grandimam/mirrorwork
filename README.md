@@ -124,12 +124,44 @@ Fit Score: 85%
 Verdict: Strong technical fit. Apply with confidence.
 ```
 
+### 5. Applications Tracker
+
+Track all your jobs in one place with `/mw tracker`:
+
+```
+| Company | Role | Fit | Status | Applied | Next Step |
+|---------|------|-----|--------|---------|-----------|
+| Stripe | Staff Backend | 85% | applied | 2026-04-10 | Interview 4/15 |
+| Talabat | Senior Analytics | 65% | saved | - | Low fit |
+| Careem | Platform Lead | 90% | interviewing | 2026-04-08 | Final round |
+```
+
+**Update status when you apply:**
+```bash
+/mw tracker update stripe-staff-backend --status applied
+```
+
+**Add notes for next steps:**
+```bash
+/mw tracker note stripe-staff-backend "Interview scheduled Monday 2pm"
+```
+
+**Status flow:**
+```
+saved → applied → interviewing → offered → accepted
+                              ↘ rejected
+                              ↘ withdrawn
+```
+
+Jobs are automatically added to the tracker when you run `/mw add job`.
+
 ## Project Structure
 
 ```
 profile/            # Your master profile (merged from resumes)
 activity/           # Job pipeline
 ├── manifest.json   # Portal config
+├── tracker.md      # Applications tracker
 ├── inbox/          # Discovered jobs
 └── jobs/           # Analyzed jobs with positioning + fit
 sources/            # Raw inputs (resumes, work samples)
