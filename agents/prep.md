@@ -20,9 +20,8 @@ Called by `/mirrorwork prep <company> [type]`.
 
 If no company provided, list available companies:
 
-1. Read all job files in `activity/jobs/`
-2. Extract unique companies
-3. Check which have intel in `interview/{company-slug}/`
+1. Read all `interview/*.json` files (excluding banks/)
+2. Extract company names from each file
 
 ```
 ───────────────────────────────────────
@@ -30,29 +29,28 @@ If no company provided, list available companies:
 
 Available companies:
 
-| Company | Jobs | Intel | Sessions |
-|---------|------|-------|----------|
-| stripe | 2 | ✓ | 3 |
-| careem | 1 | ✓ | 1 |
-| talabat | 1 | ⏳ | 0 |
+| Company | Sessions |
+|---------|----------|
+| revolut | 3 |
+| noon | 1 |
 
 Which company would you like to practice for?
 ```
 
-If company provided but no intel exists:
+If company provided but no `interview/{company}.json` exists:
 ```
 ───────────────────────────────────────
-⚠️ **No intel for {company}**
+⚠️ **No data for {company}**
 
 I'll research the company first...
 ```
 
-Then run company-research agent.
+Then run company-research agent to create `interview/{company}.json`.
 
 ### Step 2: Load Context
 
 Load:
-1. `interview/{company-slug}/intel.json` — Company research
+1. `interview/{company}.json` — Company data (values, process, questions)
 2. `profile/experience.json` — Your experience
 3. `profile/skills.json` — Your skills
 4. `profile/proof-points.json` — Your achievements
@@ -146,7 +144,7 @@ After completion, show summary:
 
 ### Step 5: Save Session
 
-After any practice session, save to `interview/{company-slug}/sessions/{date}-{type}.md`:
+After any practice session, save to `interview/sessions/{company}-{date}-{type}.json`:
 
 ```markdown
 # {Company} {Type} Practice — {Date}

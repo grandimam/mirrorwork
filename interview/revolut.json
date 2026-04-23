@@ -1,0 +1,293 @@
+{
+  "company": "Revolut",
+  "slug": "revolut",
+  "website": "https://revolut.com",
+  "careers": "https://revolut.com/careers",
+
+  "about": {
+    "description": "Global financial super app with 70M+ customers",
+    "products": ["Spending", "Saving", "Investing", "Exchanging", "Travelling"],
+    "scale": "13,000+ employees worldwide",
+    "tech_stack": ["Python", "Java", "Kotlin", "PostgreSQL", "Kafka", "GCP", "K8s", "Docker"]
+  },
+
+  "values": [
+    {
+      "name": "Never Settle",
+      "tagline": "We never settle for good enough. We can always go 10x from here.",
+      "description": "Always in startup mode, always building. Redefine expectations, disrupt industries. Being mediocre isn't an option.",
+      "what_they_look_for": [
+        "Pushing beyond what's asked",
+        "Seeking harder problems",
+        "Not accepting mediocrity",
+        "Continuous improvement"
+      ],
+      "example_question": "Tell me about a time you weren't satisfied with the status quo and pushed for something better."
+    },
+    {
+      "name": "Dream Team",
+      "tagline": "We operate like a professional sports team. All-star players only.",
+      "description": "Radical honesty, high standards, no tolerance for mediocrity. Brilliant people self-identify goals and self-direct to reach them.",
+      "what_they_look_for": [
+        "Radical honesty - giving and receiving feedback",
+        "High standards for yourself and others",
+        "Collaboration without ego",
+        "Mentoring and elevating others"
+      ],
+      "example_question": "Tell me about a time you gave difficult feedback to a colleague."
+    },
+    {
+      "name": "Think Deeper",
+      "tagline": "Logic, reason, and common sense prevail. We always ask: Is that true? Why?",
+      "description": "Start with problem definition. Dive deep into details. Challenge each other to find truth. Managers must understand every detail.",
+      "what_they_look_for": [
+        "First-principles thinking",
+        "Challenging assumptions",
+        "Data-driven decisions",
+        "Getting to root cause, not symptoms"
+      ],
+      "example_question": "Tell me about a time you disagreed with a widely-held belief on your team and were right."
+    },
+    {
+      "name": "Get It Done",
+      "tagline": "We care about results. Grit, determination, and ownership.",
+      "description": "Push through obstacles. No excuses, no politics. Full ownership start to finish. Urgency without panic.",
+      "what_they_look_for": [
+        "End-to-end ownership",
+        "Pushing through obstacles",
+        "Urgency without panic",
+        "No excuses, no 'someone else's job'"
+      ],
+      "example_question": "Tell me about a time you delivered something under extreme pressure."
+    },
+    {
+      "name": "Deliver WOW",
+      "tagline": "We build Minimum Lovable Products, not MVPs. Excellent quality is a must.",
+      "description": "Love building great products. Simple and elegant solutions. Attention to every detail. Internal quality matters too.",
+      "what_they_look_for": [
+        "Attention to detail",
+        "Pride in craftsmanship",
+        "User-centric thinking",
+        "Internal quality, not just external"
+      ],
+      "example_question": "Tell me about something you built that you're genuinely proud of."
+    }
+  ],
+
+  "interview_process": {
+    "timeline": "2-4 weeks",
+    "difficulty": "Hard",
+    "rounds": [
+      {
+        "name": "HR Screening",
+        "duration": "30 min",
+        "focus": "Background, motivation, values alignment"
+      },
+      {
+        "name": "Build It (Live Coding)",
+        "duration": "45-60 min",
+        "focus": "TDD, clean code, thread safety",
+        "environment": "Your IDE, screen share",
+        "language": "Java preferred, Python accepted",
+        "rules": ["No AI tools", "No Spring framework", "No hidden assistance"]
+      },
+      {
+        "name": "Technical Deep-Dive",
+        "duration": "45-60 min",
+        "focus": "Past projects, architecture decisions, concurrency"
+      },
+      {
+        "name": "System Design",
+        "duration": "45-60 min",
+        "focus": "Production-focused, API contracts, DB schemas, failure handling"
+      },
+      {
+        "name": "Team Fit",
+        "duration": "45-60 min",
+        "focus": "Values alignment, behavioral, working style",
+        "note": "May have multiple team fit rounds with different teams"
+      },
+      {
+        "name": "Bar Raiser (optional)",
+        "duration": "45-60 min",
+        "focus": "Senior engineer outside hiring team, has veto power"
+      }
+    ],
+    "what_they_look_for": {
+      "technical": ["TDD mindset", "Clean code", "Thread safety", "Design patterns", "Production thinking"],
+      "soft_skills": ["Radical honesty", "Self-direction", "High standards", "Ownership"]
+    },
+    "tips": [
+      "Know the 5 values cold",
+      "Use STAR format with specific numbers",
+      "Show ownership - 'I did X' not 'We did X'",
+      "Be direct - they value radical honesty",
+      "Ask good questions - shows genuine interest"
+    ],
+    "red_flags": [
+      "Blaming others for failures",
+      "Vague answers without specifics",
+      "No questions for them",
+      "Badmouthing previous employers",
+      "'That wasn't my job' attitude",
+      "Unable to articulate disagreements"
+    ]
+  },
+
+  "questions": {
+    "coding": {
+      "problems": [
+        {
+          "name": "Load Balancer",
+          "frequency": "Most common",
+          "requirements": [
+            "register(server) - max 10, unique addresses",
+            "deregister(server) - remove from pool",
+            "get() - return server using Random strategy",
+            "Add Round-Robin strategy",
+            "Make it thread-safe"
+          ],
+          "expectations": ["Strategy Pattern", "Thread safety with locks", "Custom exceptions", "TDD", "SOLID principles"]
+        },
+        {
+          "name": "URL Shortener",
+          "frequency": "Common",
+          "requirements": [
+            "shorten(url) - return 4-6 char short URL",
+            "resolve(short_url) - return original URL",
+            "Limit storage to 100 URLs",
+            "Duplicate URLs return existing short URL",
+            "Thread-safe"
+          ],
+          "expectations": ["Bidirectional mapping", "Random generation with collision handling", "Thread safety"]
+        },
+        {
+          "name": "Money Transfer / Account Ledger",
+          "frequency": "Common",
+          "requirements": [
+            "transfer(from, to, amount)",
+            "Prevent overdraft",
+            "Thread-safe concurrent transfers",
+            "Prevent deadlocks"
+          ],
+          "expectations": ["Consistent lock ordering", "Atomic operations", "Decimal for money", "Proper exceptions"]
+        }
+      ],
+      "time_management": {
+        "requirements_clarification": "5 min",
+        "basic_implementation": "15 min",
+        "add_features": "15 min",
+        "thread_safety": "10 min",
+        "edge_cases": "5 min"
+      },
+      "common_mistakes": [
+        "Returning strings for errors instead of exceptions",
+        "Missing get() or deregister() methods",
+        "No tests for concurrency",
+        "Only happy path tests",
+        "Not using Strategy Pattern"
+      ]
+    },
+    "system_design": [
+      {
+        "name": "Card Delivery System",
+        "domain": "logistics",
+        "key_points": ["Webhook receiver", "Courier integration", "Delivery tracking", "Idempotency"]
+      },
+      {
+        "name": "Payment Notification Service",
+        "domain": "payments",
+        "key_points": ["Event sourcing", "CQRS", "Idempotency", "Multiple channels", "Retry policy"]
+      },
+      {
+        "name": "Distributed Rate Limiter",
+        "domain": "infrastructure",
+        "key_points": ["Sliding window counter", "Redis", "Token bucket vs alternatives", "Fail open vs closed"]
+      },
+      {
+        "name": "Apartment Booking System",
+        "domain": "booking",
+        "key_points": ["Double-booking prevention", "Reservation expiry", "3rd party integration", "Payment flow"]
+      },
+      {
+        "name": "Temporary Debit Card Issuance",
+        "domain": "fintech",
+        "key_points": ["Real-time authorization", "Spending limits", "Atomic spend updates", "Expiry job"]
+      }
+    ],
+    "system_design_concepts": {
+      "event_driven": ["Event sourcing", "CQRS", "Idempotency keys", "At-least-once vs exactly-once"],
+      "database": ["Transaction isolation levels", "SELECT FOR UPDATE", "Optimistic locking", "Index design"],
+      "distributed": ["CAP theorem", "Eventual consistency", "Distributed locking (Redlock)", "Circuit breaker"],
+      "payments": ["Double-entry bookkeeping", "Idempotent processing", "Audit trails", "PCI compliance"]
+    },
+    "behavioral": [
+      {
+        "question": "Walk me through your background",
+        "assesses": "Clarity, progression, why you made each move"
+      },
+      {
+        "question": "Why are you leaving your current role?",
+        "assesses": "Running from vs toward something"
+      },
+      {
+        "question": "Why Revolut?",
+        "assesses": "Understanding of company, genuine interest"
+      },
+      {
+        "question": "Tell me about a project you delivered end-to-end",
+        "assesses": "Get It Done, Never Settle"
+      },
+      {
+        "question": "Describe a time you disagreed with your manager",
+        "assesses": "Think Deeper, Dream Team"
+      },
+      {
+        "question": "Tell me about a failure or mistake",
+        "assesses": "Dream Team (honesty), Think Deeper (learning)"
+      },
+      {
+        "question": "How do you handle conflicting priorities?",
+        "assesses": "Get It Done"
+      },
+      {
+        "question": "Tell me about a time you received tough feedback",
+        "assesses": "Dream Team"
+      },
+      {
+        "question": "How do you ensure quality in your work?",
+        "assesses": "Deliver WOW"
+      },
+      {
+        "question": "Where do you see yourself in 2-3 years?",
+        "assesses": "Ambition, staying technical"
+      }
+    ],
+    "bar_raiser": [
+      "You mentioned X in an earlier round - tell me more",
+      "Walk me through the technical details of how you solved Y",
+      "What would you do differently if you had to do it again?",
+      "If you joined and found the codebase was a mess, what would you do?",
+      "How would you handle a teammate who consistently misses deadlines?",
+      "Tell me about a time you had to choose between quality and speed",
+      "What's the biggest risk we'd be taking by hiring you?",
+      "Why shouldn't we hire you?"
+    ],
+    "questions_to_ask": {
+      "about_team": [
+        "What does the engineering team I'd join own end-to-end?",
+        "What's the biggest technical challenge the team is facing?",
+        "How are technical decisions made on the team?",
+        "What does on-call look like?"
+      ],
+      "about_culture": [
+        "How long have you been at Revolut and what keeps you here?",
+        "What does 'Never Settle' look like in practice on this team?"
+      ],
+      "about_growth": [
+        "What does career progression look like for engineers?",
+        "How do you give feedback to engineers?"
+      ]
+    }
+  }
+}
