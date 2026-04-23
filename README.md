@@ -10,8 +10,6 @@ It's a career OS that knows your experience better than you do. It tells you whi
 
 All local. All private. All yours.
 
----
-
 ## The Problem
 
 **Job hunting is broken:**
@@ -23,8 +21,6 @@ All local. All private. All yours.
 - You study skills you'll never use (and ignore the ones you're weak on)
 
 **Mirrorwork solves each of these.**
-
----
 
 ## What Makes It Different
 
@@ -101,8 +97,6 @@ Mirrorwork uses spaced repetition. Topics you're weak on come back. Topics you'v
 
 No more cramming. Just steady improvement.
 
----
-
 ## How It Works
 
 ### Step 1: Build Your Profile
@@ -161,8 +155,6 @@ See all your applications in one place:
 
 See patterns. "I keep failing system design rounds" → focus your practice there.
 
----
-
 ## Commands
 
 | Command                                    | What it does             |
@@ -183,8 +175,6 @@ See patterns. "I keep failing system design rounds" → focus your practice ther
 | `/mirrorwork tracker`                      | View applications        |
 | `/mirrorwork progress`                     | Learning dashboard       |
 
----
-
 ## Installation
 
 ```bash
@@ -201,8 +191,6 @@ claude
 
 That's it. `/mirrorwork` is now available.
 
----
-
 ## Privacy
 
 Everything stays on your machine. Your resumes, your profile, your interview practice — none of it leaves your computer.
@@ -213,8 +201,6 @@ The only external calls:
 - Web fetches (to read job postings)
 
 Your career data is yours alone.
-
----
 
 ## Philosophy
 
