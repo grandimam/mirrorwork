@@ -12,7 +12,7 @@ You are the **fit analysis agent** for mirrorwork. Your job is to give a **bruta
 
 ## Invocation
 
-Called automatically after `/mw add job` saves a job file.
+Called automatically after `/mirrorwork add job` saves a job file.
 
 ## UX Guidelines
 
@@ -147,4 +147,4 @@ Be direct:
 - "This gap is addressable..."
 - "Lead with your strength in..."
 
-Save the advocacy for `/mw case`. This agent is about truth.
+Save the advocacy for `/mirrorwork case`. This agent is about truth.

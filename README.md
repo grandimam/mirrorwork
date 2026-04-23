@@ -2,316 +2,224 @@
 
 > Your career, reflected.
 
-A Career OS built on [Claude Code](https://claude.ai/claude-code). Build a master profile from your resumes, discover jobs, get honest fit analysis, and generate tailored resumes — all from your terminal.
+You've applied to 50 jobs. Heard back from 3. Bombed an interview because you blanked on a behavioral question you should've nailed. Sound familiar?
 
-```
-Resume₁ ──┐
-Resume₂ ──┼──► Master Profile ──► Job Analysis ──► Derived Positioning
-Resume₃ ──┘        (facts)          (fit)            (per job)
-```
+**Mirrorwork fixes this.**
 
-## Installation
+It's a career OS that knows your experience better than you do. It tells you which jobs you'll actually get. It practices interviews with you — not generic questions, but questions _the way that company asks them_. And when you blank, it reminds you: "Remember that time you reduced latency by 40x at Snapdeal? Use that."
 
-### 1. Install Claude Code
-
-```bash
-# macOS / Linux
-brew install claude-code
-
-# or via npm
-npm install -g @anthropic/claude-code
-```
-
-### 2. Clone this repo
-
-```bash
-git clone https://github.com/grandimam/mirrorwork.git
-cd mirrorwork
-```
-
-### 3. Start Claude Code
-
-```bash
-claude
-```
-
-That's it. The `/mw` commands are now available.
-
-## Getting Started
-
-### Step 1: Initialize your profile
-
-```bash
-/mw init
-```
-
-You'll be asked to paste your resume. Mirrorwork extracts:
-- Your identity (name, contact, location)
-- Work experience (companies, roles, highlights)
-- Skills (categorized by proficiency)
-- Proof points (quantified achievements)
-
-### Step 2: Configure job portals
-
-Edit `activity/manifest.json` to add companies you want to track:
-
-```json
-{
-  "portals": [
-    {
-      "name": "Stripe",
-      "url": "https://stripe.com/jobs/search",
-      "location": "Remote",
-      "target_roles": ["backend", "senior", "staff", "platform"],
-      "enabled": true
-    },
-    {
-      "name": "Airbnb",
-      "url": "https://careers.airbnb.com/positions/",
-      "location": "Remote",
-      "target_roles": ["backend", "senior", "engineer"],
-      "enabled": true
-    }
-  ]
-}
-```
-
-| Field | Description |
-|-------|-------------|
-| `name` | Company name (for display) |
-| `url` | Careers page URL |
-| `location` | Your target location |
-| `target_roles` | Keywords to filter job titles (e.g., "backend", "senior") |
-| `enabled` | Set to `false` to skip this portal |
-
-### Step 3: Discover jobs
-
-```bash
-/mw scan
-```
-
-This scans all enabled portals and finds jobs matching your `target_roles`. New jobs go to your inbox.
-
-### Step 4: Review your inbox
-
-```bash
-/mw inbox
-```
-
-You'll see discovered jobs and can:
-- **Add** — Analyze the job (fit + positioning)
-- **Skip** — Not interested
-- **Preview** — See job details first
-
-### Step 5: Track your applications
-
-```bash
-/mw tracker
-```
-
-See all jobs in one view:
-
-```
-| Company | Role | Fit | Status | Applied | Next Step |
-|---------|------|-----|--------|---------|-----------|
-| Stripe | Staff Backend | 85% | applied | 2026-04-10 | Interview 4/15 |
-| Airbnb | Senior Engineer | 72% | saved | - | Need to apply |
-```
-
-Update status when you apply:
-```bash
-/mw tracker update stripe-staff-backend --status applied
-```
-
-Add notes:
-```bash
-/mw tracker note stripe-staff-backend "Interview Monday 2pm"
-```
-
-## Daily Workflow
-
-```
-Morning:
-  /mw scan              # Check for new jobs
-
-When you find interesting jobs:
-  /mw inbox             # Review and add jobs you like
-
-Before applying:
-  /mw resume <job-id>   # Generate tailored resume
-
-After applying:
-  /mw tracker update <job-id> --status applied
-
-Track progress:
-  /mw tracker           # See all applications
-```
-
-## Commands Reference
-
-| Command | What it does |
-|---------|--------------|
-| `/mw` | Show status dashboard |
-| `/mw init` | First-time setup (paste your resume) |
-| `/mw scan` | Discover jobs from configured portals |
-| `/mw inbox` | Review discovered jobs |
-| `/mw tracker` | View/update applications tracker |
-| `/mw add job [url]` | Analyze a specific job posting |
-| `/mw add resume` | Add another resume (merges into profile) |
-| `/mw add brag` | Capture a new achievement |
-| `/mw case <job-id>` | Build advocacy talking points |
-| `/mw resume <job-id>` | Generate a tailored resume |
-
-## How It Works
-
-### Master Profile
-
-Your profile lives in `profile/` and is built from all your resumes:
-
-```
-profile/
-├── identity.json       # Name, email, location, links
-├── experience.json     # All roles (merged from resumes)
-├── skills.json         # Expert / proficient / familiar
-└── proof-points.json   # Quantified achievements
-```
-
-Each `/mw add resume` **merges** into your profile — it never overwrites. Add multiple resumes to build a complete picture.
-
-### Contextual Positioning
-
-When you analyze a job, mirrorwork doesn't just check fit — it derives **positioning for that specific role**:
-
-```json
-{
-  "positioning": {
-    "headline": "10-year backend engineer scaling transaction systems",
-    "angle": "Ad-tech scale → financial reliability",
-    "lead_with": ["1B+ events/day", "P95 ≤5ms"],
-    "relevant_experience": ["Snapdeal", "Cisco"],
-    "bridge_gaps_with": "Ad-tech revenue systems = same audit requirements"
-  }
-}
-```
-
-This tells you exactly how to position yourself for THIS job.
-
-### Honest Fit Analysis
-
-No sugar-coating. For each job you get:
-
-```
-| Requirement         | Met? | Evidence                    |
-|---------------------|------|-----------------------------|
-| 8+ years backend    | ✓    | 10 years at Cisco, Snapdeal |
-| Distributed systems | ✓    | Kafka pipelines             |
-| Fintech experience  | ✗    | No direct fintech           |
-
-Fit Score: 85%
-Verdict: Strong technical fit. Apply with confidence.
-```
-
-### Applications Tracker
-
-All jobs in one place with status tracking:
-
-```
-saved → applied → interviewing → offered → accepted
-                              ↘ rejected
-                              ↘ withdrawn
-```
-
-## Project Structure
-
-```
-profile/              # Your master profile
-├── identity.json
-├── experience.json
-├── skills.json
-└── proof-points.json
-
-activity/             # Job pipeline
-├── manifest.json     # Portal configuration
-├── tracker.md        # Applications tracker
-├── inbox/            # Discovered jobs (by date)
-└── jobs/             # Analyzed jobs
-
-sources/              # Your raw inputs
-├── resume/           # All your resumes
-└── work-samples/     # Tech specs, design docs
-
-generated/            # Output artifacts
-└── {job-id}/         # Tailored resumes per job
-```
-
-## Adding a Job Manually
-
-Don't want to scan? Add a job directly:
-
-```bash
-# From URL
-/mw add job https://stripe.com/jobs/staff-backend-engineer
-
-# Or paste the job description
-/mw add job
-# Then paste the JD when prompted
-```
-
-## Multiple Resumes
-
-Have different resume versions? Add them all:
-
-```bash
-/mw add resume
-# Paste your backend-focused resume
-
-/mw add resume
-# Paste your platform-focused resume
-```
-
-Mirrorwork merges them intelligently:
-- Experiences are deduplicated by (company, role, dates)
-- Skills are unioned (highest proficiency wins)
-- Proof points are merged by ID
-
-## Privacy
-
-All data stays on your machine. Nothing is sent anywhere except:
-- Claude API calls (for analysis)
-- Job portal fetches (to read postings)
-
-Your profile, resumes, and job data never leave your machine.
-
-## Status
-
-This is an early preview. The core flow works:
-
-- ✅ Profile building from resumes
-- ✅ Job scanning with filtering
-- ✅ Inbox review workflow
-- ✅ Positioning derivation
-- ✅ Fit analysis
-- ✅ Applications tracker
-
-### Roadmap
-
-- [ ] API scanning for Greenhouse/Ashby/Lever (faster)
-- [ ] Legitimacy check (is the posting still active?)
-- [ ] Interview story bank (STAR stories)
-- [ ] Cover letter generation
-
-## Contributing
-
-PRs welcome! Areas that need help:
-
-1. **Portal patterns** — Add extraction logic for more job boards
-2. **Fit analysis** — Make scoring more nuanced
-3. **Zero-token scripts** — Move scanning to Node.js for speed
-
-## License
-
-MIT
+All local. All private. All yours.
 
 ---
 
-Built with [Claude Code](https://claude.ai/claude-code)
+## The Problem
+
+**Job hunting is broken:**
+
+- You apply to jobs you're not qualified for (wasting everyone's time)
+- You skip jobs you'd be perfect for (because the JD sounds intimidating)
+- You prep with generic interview questions (that don't match how the company actually interviews)
+- You forget your own accomplishments (and undersell yourself)
+- You study skills you'll never use (and ignore the ones you're weak on)
+
+**Mirrorwork solves each of these.**
+
+---
+
+## What Makes It Different
+
+### 1. Brutal Honesty
+
+Most tools tell you what you want to hear. Mirrorwork tells you the truth.
+
+```
+Fit Score: 65%
+
+| Requirement | Met? | Evidence |
+|-------------|------|----------|
+| 8+ years backend | ✓ | 10 years at Cisco, Snapdeal |
+| Banking domain | ✗ | No banking experience |
+
+Verdict: You meet the technical bar, but banking is mandatory.
+Don't apply unless you can bridge this gap.
+```
+
+Stop wasting time on jobs you won't get. Focus on the ones you will.
+
+### 2. Answers From YOUR Experience
+
+Generic interview prep gives you generic answers. Mirrorwork gives you _your_ answers.
+
+When Stripe asks about reliability, it doesn't suggest a hypothetical. It pulls from your profile:
+
+```
+📌 snapdeal-ad-pipeline
+   "Reduced P95 latency from 200ms to 5ms while handling 1B+ events/day"
+
+STAR format:
+• Situation: Ad platform hitting latency issues at scale
+• Task: Maintain SLAs while traffic grew 10x
+• Action: Redesigned pipeline with batching + caching
+• Result: P95 ≤5ms, zero incidents in 6 months
+
+Stripe angle: Emphasize reliability metrics and user impact.
+```
+
+Your stories. Your numbers. Your voice.
+
+### 3. Company-Modeled Practice
+
+Not "tell me about a time you showed leadership." That's lazy.
+
+Mirrorwork researches each company — their values, their interview style, what they actually look for — and asks you questions _the way they would ask them_:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ INTERVIEWER (as Stripe engineering manager)                 │
+│                                                             │
+│ "At Stripe, we obsess over reliability. Our users trust us │
+│  with their revenue. Tell me about a time you improved     │
+│  system reliability when the stakes were high."            │
+└─────────────────────────────────────────────────────────────┘
+```
+
+Practice like it's the real thing. Because it basically is.
+
+### 4. Skills That Actually Stick
+
+You cram before interviews. Forget everything after. Repeat.
+
+Mirrorwork uses spaced repetition. Topics you're weak on come back. Topics you've mastered fade away. Over time, you actually _know_ the material.
+
+```
+| Topic | Score | Next Review |
+|-------|-------|-------------|
+| basics | 95% | — |
+| concurrency | 45% | TODAY |
+| metaclasses | 30% | TODAY |
+```
+
+No more cramming. Just steady improvement.
+
+---
+
+## How It Works
+
+### Step 1: Build Your Profile
+
+```bash
+/mirrorwork init
+```
+
+Paste your resume. Mirrorwork extracts everything: experience, skills, quantified achievements. Add multiple resumes — they merge together, building a complete picture of your career.
+
+### Step 2: Analyze Jobs
+
+```bash
+/mirrorwork add job
+```
+
+Paste any job description. Get:
+
+- **Fit analysis** — Do you actually qualify?
+- **Positioning** — How to present yourself for this role
+- **Company intel** — Their values, interview process, what they look for
+
+### Step 3: Practice Interviews
+
+```bash
+/mirrorwork prep stripe behavioral
+/mirrorwork prep stripe coding
+/mirrorwork prep stripe system-design
+```
+
+Practice with an interviewer who sounds like they work there. Get feedback. Get better.
+
+### Step 4: Master Your Skills
+
+```bash
+/mirrorwork learn python
+/mirrorwork learn system-design --review
+```
+
+Evaluate your knowledge. Drill weak areas. Track progress over time.
+
+### Step 5: Track Everything
+
+```bash
+/mirrorwork tracker
+```
+
+See all your applications in one place:
+
+```
+| Company | Role | Fit | Status | Stage | Outcome |
+|---------|------|-----|--------|-------|---------|
+| Stripe | Staff Backend | 85% | interviewing | coding | passed |
+| Careem | Platform Lead | 90% | rejected | system-design | failed |
+```
+
+See patterns. "I keep failing system design rounds" → focus your practice there.
+
+---
+
+## Commands
+
+| Command                                    | What it does             |
+| ------------------------------------------ | ------------------------ |
+| `/mirrorwork`                              | Status dashboard         |
+| `/mirrorwork init`                         | First-time setup         |
+| `/mirrorwork add job`                      | Analyze a job posting    |
+| `/mirrorwork add resume`                   | Add another resume       |
+| `/mirrorwork add brag`                     | Capture an achievement   |
+| `/mirrorwork prep <company>`               | Interview prep menu      |
+| `/mirrorwork prep <company> behavioral`    | Behavioral practice      |
+| `/mirrorwork prep <company> coding`        | Coding practice          |
+| `/mirrorwork prep <company> system-design` | System design            |
+| `/mirrorwork learn <skill>`                | Practice a skill         |
+| `/mirrorwork learn <skill> --review`       | Spaced repetition        |
+| `/mirrorwork case <job-id>`                | Build talking points     |
+| `/mirrorwork resume <job-id>`              | Generate tailored resume |
+| `/mirrorwork tracker`                      | View applications        |
+| `/mirrorwork progress`                     | Learning dashboard       |
+
+---
+
+## Installation
+
+```bash
+# Install Claude Code
+npm install -g @anthropic/claude-code
+
+# Clone mirrorwork
+git clone https://github.com/grandimam/mirrorwork.git
+cd mirrorwork
+
+# Start
+claude
+```
+
+That's it. `/mirrorwork` is now available.
+
+---
+
+## Privacy
+
+Everything stays on your machine. Your resumes, your profile, your interview practice — none of it leaves your computer.
+
+The only external calls:
+
+- Claude API (for analysis)
+- Web fetches (to read job postings)
+
+Your career data is yours alone.
+
+---
+
+## Philosophy
+
+1. **Facts first** — Build a profile of what you've actually done
+2. **Honesty over hype** — Know the truth about your fit
+3. **Your voice, not AI's** — Answers come from your experience
+4. **Practice like it's real** — Company-modeled, not generic
+5. **Learn for keeps** — Spaced repetition over cramming

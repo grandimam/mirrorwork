@@ -1,0 +1,150 @@
+{
+  "skill": "python",
+  "topic": "concurrency",
+  "subtopics": ["threading", "multiprocessing", "asyncio", "gil"],
+  "questions": [
+    {
+      "id": "py-conc-001",
+      "subtopic": "gil",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What is the GIL in Python, and why does it exist?",
+      "answer": "The Global Interpreter Lock (GIL) is a mutex that protects access to Python objects, preventing multiple threads from executing Python bytecode simultaneously. It exists because CPython's memory management (reference counting) is not thread-safe. The GIL simplifies the implementation but limits true parallelism for CPU-bound tasks.",
+      "key_points": [
+        "GIL is a mutex protecting Python objects",
+        "Only one thread executes Python bytecode at a time",
+        "Exists due to CPython's reference counting",
+        "Affects CPU-bound more than I/O-bound tasks"
+      ],
+      "hints": [
+        "Think about memory management in CPython",
+        "Consider reference counting"
+      ]
+    },
+    {
+      "id": "py-conc-002",
+      "subtopic": "gil",
+      "difficulty": "hard",
+      "type": "conceptual",
+      "question": "How can you achieve true parallelism in Python despite the GIL?",
+      "answer": "1) Use multiprocessing instead of threading - each process has its own GIL. 2) Use C extensions that release the GIL (like NumPy). 3) Use alternative Python implementations without GIL (Jython, IronPython). 4) For I/O-bound tasks, asyncio or threading still work well since GIL is released during I/O.",
+      "key_points": [
+        "multiprocessing bypasses GIL with separate processes",
+        "C extensions can release the GIL",
+        "I/O-bound tasks are less affected",
+        "Alternative interpreters don't have GIL"
+      ],
+      "hints": [
+        "Think about process vs thread",
+        "What happens during I/O operations?"
+      ]
+    },
+    {
+      "id": "py-conc-003",
+      "subtopic": "asyncio",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What is the difference between asyncio.gather() and asyncio.wait()?",
+      "answer": "asyncio.gather() runs awaitables concurrently and returns results in the same order as input. It fails fast - if one task raises an exception (unless return_exceptions=True), others are cancelled. asyncio.wait() returns two sets: (done, pending), giving more control. You can specify return_when (FIRST_COMPLETED, FIRST_EXCEPTION, ALL_COMPLETED) to handle partial completion.",
+      "key_points": [
+        "gather() returns results in order",
+        "gather() fails fast on exception by default",
+        "wait() returns (done, pending) sets",
+        "wait() has return_when parameter for control"
+      ],
+      "hints": [
+        "Think about error handling differences",
+        "Consider when you need partial results"
+      ]
+    },
+    {
+      "id": "py-conc-004",
+      "subtopic": "asyncio",
+      "difficulty": "easy",
+      "type": "code_output",
+      "question": "What does this code print?\n\n```python\nimport asyncio\n\nasync def foo():\n    print('foo start')\n    await asyncio.sleep(1)\n    print('foo end')\n    return 'foo'\n\nasync def bar():\n    print('bar start')\n    await asyncio.sleep(0.5)\n    print('bar end')\n    return 'bar'\n\nasync def main():\n    results = await asyncio.gather(foo(), bar())\n    print(results)\n\nasyncio.run(main())\n```",
+      "answer": "foo start\nbar start\nbar end\nfoo end\n['foo', 'bar']\n\nBoth coroutines start immediately. bar finishes first (0.5s sleep), then foo (1s sleep). Results are returned in the order they were passed to gather(), not completion order.",
+      "key_points": [
+        "Both start concurrently",
+        "bar finishes first (shorter sleep)",
+        "Results maintain input order, not completion order"
+      ],
+      "hints": [
+        "gather() runs tasks concurrently",
+        "Think about the sleep durations"
+      ]
+    },
+    {
+      "id": "py-conc-005",
+      "subtopic": "threading",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What is a race condition? Give an example in Python threading.",
+      "answer": "A race condition occurs when multiple threads access shared data and the result depends on the timing of their execution. Example: two threads incrementing a counter. Thread A reads counter=5, Thread B reads counter=5, both compute 6, both write 6. Result: counter=6 instead of 7. Fix with Lock: `with lock: counter += 1`",
+      "key_points": [
+        "Multiple threads accessing shared state",
+        "Result depends on execution timing",
+        "Read-modify-write is not atomic",
+        "Use locks to protect critical sections"
+      ],
+      "hints": [
+        "Think about what happens between read and write",
+        "Consider non-atomic operations"
+      ]
+    },
+    {
+      "id": "py-conc-006",
+      "subtopic": "threading",
+      "difficulty": "hard",
+      "type": "conceptual",
+      "question": "What is a deadlock? How can you prevent it in Python?",
+      "answer": "Deadlock occurs when two or more threads are waiting for each other to release resources, creating a circular dependency. Prevention strategies: 1) Lock ordering - always acquire locks in same order. 2) Use timeout with lock.acquire(timeout=5). 3) Use RLock for recursive locking. 4) Use context managers to ensure locks are released. 5) Avoid nested locks when possible.",
+      "key_points": [
+        "Circular wait between threads",
+        "Lock ordering prevents deadlock",
+        "Timeouts can break deadlocks",
+        "RLock allows same thread to acquire multiple times"
+      ],
+      "hints": [
+        "Think about circular dependencies",
+        "What happens if thread A has lock1 and wants lock2, while thread B has lock2 and wants lock1?"
+      ]
+    },
+    {
+      "id": "py-conc-007",
+      "subtopic": "multiprocessing",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "When should you use multiprocessing vs threading in Python?",
+      "answer": "Use multiprocessing for CPU-bound tasks (calculations, data processing) because each process has its own GIL, enabling true parallelism. Use threading for I/O-bound tasks (network requests, file I/O) because threads release the GIL during I/O, and thread creation is lighter than process creation. Use asyncio for many concurrent I/O operations with less overhead than threads.",
+      "key_points": [
+        "CPU-bound → multiprocessing (bypasses GIL)",
+        "I/O-bound → threading or asyncio",
+        "Processes have more overhead than threads",
+        "asyncio is lightest for I/O concurrency"
+      ],
+      "hints": [
+        "Think about what the GIL affects",
+        "Consider the overhead of each approach"
+      ]
+    },
+    {
+      "id": "py-conc-008",
+      "subtopic": "asyncio",
+      "difficulty": "hard",
+      "type": "debugging",
+      "question": "This async code doesn't work as expected. What's wrong?\n\n```python\nimport asyncio\n\nasync def fetch_data():\n    await asyncio.sleep(1)\n    return {'data': 'value'}\n\ndef process():\n    data = fetch_data()  # Line A\n    print(data)\n\nprocess()\n```",
+      "answer": "fetch_data() returns a coroutine object, not the result. Coroutines must be awaited, and await can only be used in async functions. Fix: 1) Make process() async and use await. 2) Use asyncio.run() to execute. Correct code:\n\n```python\nasync def process():\n    data = await fetch_data()\n    print(data)\n\nasyncio.run(process())\n```",
+      "key_points": [
+        "Calling async function returns coroutine, not result",
+        "Must await coroutines to get result",
+        "await only works in async functions",
+        "Use asyncio.run() to start event loop"
+      ],
+      "hints": [
+        "What does calling an async function return?",
+        "Where can you use await?"
+      ]
+    }
+  ]
+}

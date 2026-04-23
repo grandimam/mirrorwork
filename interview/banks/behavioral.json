@@ -1,0 +1,155 @@
+{
+  "description": "Common behavioral interview questions mapped to competencies",
+  "questions": [
+    {
+      "id": "leadership-ownership",
+      "question": "Tell me about a time you took ownership of a project beyond your normal responsibilities",
+      "competency": "leadership",
+      "follow_ups": [
+        "What was the outcome?",
+        "What would you do differently?",
+        "How did others react?"
+      ],
+      "what_they_look_for": [
+        "Initiative",
+        "Accountability",
+        "Impact"
+      ]
+    },
+    {
+      "id": "conflict-resolution",
+      "question": "Describe a disagreement you had with a colleague. How did you handle it?",
+      "competency": "collaboration",
+      "follow_ups": [
+        "What was the root cause of the disagreement?",
+        "How did you reach a resolution?",
+        "What did you learn?"
+      ],
+      "what_they_look_for": [
+        "Emotional intelligence",
+        "Communication",
+        "Compromise"
+      ]
+    },
+    {
+      "id": "failure-learning",
+      "question": "Tell me about a time you failed. What did you learn?",
+      "competency": "growth",
+      "follow_ups": [
+        "How did you recover?",
+        "What would you do differently?",
+        "How has this changed your approach?"
+      ],
+      "what_they_look_for": [
+        "Self-awareness",
+        "Resilience",
+        "Learning mindset"
+      ]
+    },
+    {
+      "id": "ambiguity",
+      "question": "Describe a situation where you had to make a decision with incomplete information",
+      "competency": "problem_solving",
+      "follow_ups": [
+        "How did you gather more information?",
+        "What was your decision-making process?",
+        "What was the outcome?"
+      ],
+      "what_they_look_for": [
+        "Judgment",
+        "Risk assessment",
+        "Action bias"
+      ]
+    },
+    {
+      "id": "technical-challenge",
+      "question": "Tell me about the most challenging technical problem you've solved",
+      "competency": "technical",
+      "follow_ups": [
+        "What made it challenging?",
+        "How did you approach the solution?",
+        "What was the impact?"
+      ],
+      "what_they_look_for": [
+        "Technical depth",
+        "Problem-solving process",
+        "Perseverance"
+      ]
+    },
+    {
+      "id": "influence-without-authority",
+      "question": "Describe a time you had to influence others without direct authority",
+      "competency": "leadership",
+      "follow_ups": [
+        "What tactics did you use?",
+        "How did you build buy-in?",
+        "What was the result?"
+      ],
+      "what_they_look_for": [
+        "Persuasion",
+        "Stakeholder management",
+        "Communication"
+      ]
+    },
+    {
+      "id": "user-focus",
+      "question": "Tell me about a time you went above and beyond for a user or customer",
+      "competency": "customer_focus",
+      "follow_ups": [
+        "How did you identify their need?",
+        "What did you do?",
+        "What was the impact?"
+      ],
+      "what_they_look_for": [
+        "Empathy",
+        "Initiative",
+        "User obsession"
+      ]
+    },
+    {
+      "id": "tight-deadline",
+      "question": "Describe a time you delivered under a tight deadline",
+      "competency": "execution",
+      "follow_ups": [
+        "How did you prioritize?",
+        "What trade-offs did you make?",
+        "What did you learn about working under pressure?"
+      ],
+      "what_they_look_for": [
+        "Prioritization",
+        "Execution",
+        "Stress management"
+      ]
+    },
+    {
+      "id": "mentoring",
+      "question": "Tell me about a time you mentored or developed someone",
+      "competency": "leadership",
+      "follow_ups": [
+        "How did you approach the mentoring?",
+        "What was challenging about it?",
+        "What was the outcome for them?"
+      ],
+      "what_they_look_for": [
+        "Coaching ability",
+        "Patience",
+        "Investment in others"
+      ]
+    },
+    {
+      "id": "process-improvement",
+      "question": "Describe a process or system you improved",
+      "competency": "problem_solving",
+      "follow_ups": [
+        "How did you identify the problem?",
+        "What was your approach?",
+        "How did you measure success?"
+      ],
+      "what_they_look_for": [
+        "Initiative",
+        "Systems thinking",
+        "Impact"
+      ]
+    }
+  ]
+}
