@@ -82,7 +82,9 @@ Show current status:
 
 #### `/mirrorwork init`
 
-First-time setup. Read `agents/add-resume.md` and follow its instructions.
+First-time setup. Creates directories, initializes profile files, guides user through adding resume.
+
+Read `agents/setup.md` and follow its instructions.
 
 #### `/mirrorwork status`
 
@@ -350,30 +352,6 @@ Which job? Enter the ID:
 
 ---
 
-### Resume Commands
-
-#### `/mirrorwork resume <job-id>`
-
-Generate a tailored resume for a specific job.
-
-**Prerequisites:** Job must exist in `activity/jobs/` with fit analysis completed.
-
-Read `agents/generate-resume.md` and follow its instructions.
-
-Features:
-- Select which experiences to include
-- Choose highlights per experience
-- Pick relevant skills
-- Select proof points to feature
-- Generate tailored headline
-- Reword bullets to match job language
-
-Output saved to `generated/{job-id}/{date}-resume.md`
-
-If no job-id provided, list available jobs (same as case command).
-
----
-
 ## Data Model
 
 ```
@@ -393,10 +371,9 @@ interview/
 │   ├── behavioral.json
 │   ├── coding/
 │   └── system-design/
-└── {company-slug}/           # Per-company
-    ├── intel.json            # Company research
-    ├── questions.json        # Company-specific questions
-    └── sessions/             # Practice history
+├── {company}.json            # Company data + questions
+└── sessions/                 # Practice history
+    └── {company}-{date}-{type}.json
 
 learning/
 ├── progress.json             # Overall progress
@@ -409,31 +386,26 @@ learning/
     └── sessions/
 
 sources/
-├── manifest.json             # Central registry
-├── resume/
-└── work-samples/
-
-generated/
-└── {job-id}/
-    └── {date}-resume.md
+└── resume/                   # User's resumes
 ```
 
 ## Agent Routing
 
 | Command | Agent | Purpose |
 |---------|-------|---------|
-| `init` | `agents/add-resume.md` | Setup profile |
+| `init` | `agents/setup.md` | Setup local environment |
 | `add resume` | `agents/add-resume.md` | Parse resume → merge |
 | `add job` | `agents/add-job.md` | Parse JD + company research + fit |
 | `add brag` | `agents/add-brag.md` | Capture achievement |
 | `add doc` | `agents/add-doc.md` | Extract proof points |
+| `add question` | `agents/add-question.md` | Add interview question |
 | `tracker` | `agents/tracker.md` | View/update tracker |
 | `case` | `agents/case-agent.md` | Build advocacy case |
-| `resume` | `agents/generate-resume.md` | Generate tailored resume |
 | `prep` | `agents/prep.md` | Interview prep menu |
 | `prep <company> behavioral` | `agents/behavioral.md` | Behavioral practice |
 | `prep <company> coding` | `agents/coding.md` | Coding practice |
 | `prep <company> system-design` | `agents/system-design.md` | System design practice |
+| `prep <company> mock` | `agents/mock-interview.md` | Full mock interview |
 | `learn` | `agents/learn.md` | Skills dashboard |
 | `learn <skill>` | `agents/learn.md` | Practice skill |
 | `progress` | `agents/learn.md` | Overall progress |
