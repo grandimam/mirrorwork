@@ -1,0 +1,160 @@
+{
+  "company": "noon",
+  "round": "behavioral",
+
+  "format": {
+    "duration": "30-45 minutes",
+    "rounds": "1-2 rounds (HR + Hiring Manager)",
+    "position": "Final rounds after technical",
+    "style": "Conversational, STAR format expected"
+  },
+
+  "structure": {
+    "introduction": "5 min - Your background, why noon",
+    "behavioral_questions": "20-25 min - Past experiences, challenges",
+    "role_discussion": "10 min - Team structure, expectations",
+    "your_questions": "5 min - Questions for them"
+  },
+
+  "common_questions": {
+    "motivation_fit": [
+      {
+        "q": "Why do you want to join noon?",
+        "assess": "Research about company, genuine interest",
+        "tips": ["Research noon's business: UAE, KSA, Egypt markets", "Know their products: marketplace, grocery (noon Daily), fintech (noon Pay)", "Mention specific things that excite you about e-commerce/tech"]
+      },
+      {
+        "q": "Why are you leaving your current role?",
+        "assess": "Red flags, motivations"
+      },
+      {
+        "q": "What do you know about noon?",
+        "assess": "Preparation, interest level"
+      },
+      {
+        "q": "Where do you see yourself in 3-5 years?",
+        "assess": "Career alignment"
+      }
+    ],
+    "problem_solving": [
+      {
+        "q": "Describe a significant obstacle you encountered",
+        "assess": "Resilience, problem-solving"
+      },
+      {
+        "q": "Tell me about a challenging project",
+        "assess": "Technical depth, ownership"
+      },
+      {
+        "q": "How did you handle a disagreement with a colleague?",
+        "assess": "Conflict resolution"
+      },
+      {
+        "q": "Describe a time you failed",
+        "assess": "Self-awareness, learning"
+      }
+    ],
+    "leadership_teamwork": [
+      {
+        "q": "How do you mentor junior developers?",
+        "assess": "Teaching ability, patience"
+      },
+      {
+        "q": "Describe leading a project from start to finish",
+        "assess": "Ownership, planning"
+      },
+      {
+        "q": "How do you handle tight deadlines?",
+        "assess": "Prioritization, stress management"
+      },
+      {
+        "q": "Tell me about receiving critical feedback",
+        "assess": "Receptiveness, growth mindset"
+      }
+    ],
+    "technical_decisions": [
+      {
+        "q": "Walk me through a technical decision you made",
+        "assess": "Reasoning, trade-offs"
+      },
+      {
+        "q": "How do you stay updated with technology?",
+        "assess": "Continuous learning"
+      },
+      {
+        "q": "Describe a time you had to learn something new quickly",
+        "assess": "Adaptability"
+      }
+    ]
+  },
+
+  "star_framework": {
+    "situation": "Set the context (1-2 sentences)",
+    "task": "What was your responsibility",
+    "action": "Specific steps YOU took",
+    "result": "Quantifiable outcome if possible"
+  },
+
+  "sample_answer": {
+    "question": "Describe a challenge you faced in a project",
+    "situation": "In my previous role, we had a critical payment service going down during peak traffic, affecting 20% of transactions.",
+    "task": "As the senior engineer on the team, I was responsible for diagnosing and fixing the issue while minimizing customer impact.",
+    "action": "I immediately set up a war room, delegated monitoring to one engineer while I analyzed logs. Identified a connection pool exhaustion issue, implemented a quick fix by increasing pool size, then properly fixed with connection timeout handling.",
+    "result": "Service was restored in 45 minutes. Follow-up changes reduced similar incidents by 90% over the next quarter."
+  },
+
+  "hr_screening": {
+    "topics": [
+      "Current/Expected Salary - Be prepared with a range",
+      "Notice Period - Know your contractual obligations",
+      "Visa/Relocation - For Dubai roles, sponsorship available",
+      "English Proficiency - Interview often conducted in English"
+    ],
+    "common_questions": [
+      "Tell me about your professional experience",
+      "What's your current compensation?",
+      "What are your salary expectations?",
+      "When can you start?",
+      "Are you interviewing elsewhere?"
+    ]
+  },
+
+  "questions_for_them": {
+    "about_role": [
+      "What does success look like in the first 6 months?",
+      "What are the biggest challenges the team is facing?",
+      "How is performance measured?"
+    ],
+    "about_team": [
+      "What's the team structure?",
+      "How does the team handle on-call?",
+      "What's the tech stack?"
+    ],
+    "about_growth": [
+      "What learning opportunities are available?",
+      "How does career progression work?"
+    ],
+    "about_noon": [
+      "What's the engineering culture like?",
+      "How does noon handle technical debt?"
+    ]
+  },
+
+  "red_flags": [
+    "Badmouthing previous employer - Unprofessional",
+    "Vague answers without specifics - Seems unprepared",
+    "Taking credit for team work - Not collaborative",
+    "No questions for them - Lack of interest",
+    "Only talking about money - Wrong motivation"
+  ],
+
+  "tips": [
+    "Research noon's business: UAE, KSA, Egypt markets",
+    "Know their products: marketplace, grocery, fintech",
+    "Use STAR format for all behavioral answers",
+    "Be specific with numbers and outcomes",
+    "Show ownership - 'I did X' not 'We did X'",
+    "Demonstrate self-awareness",
+    "Ask thoughtful questions about the role and team"
+  ]
+}

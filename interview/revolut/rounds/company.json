@@ -1,0 +1,77 @@
+{
+  "company": "Revolut",
+  "slug": "revolut",
+  "researched_at": "2026-04-24",
+
+  "values": [
+    {
+      "name": "Never Settle",
+      "description": "Strive for excellence, be 10x, never settle for good enough. Always day 1, always building. Number 1 in everything.",
+      "interview_signals": [
+        "Tell me about a time you pushed beyond what was expected",
+        "Describe a situation where you weren't satisfied with the status quo",
+        "When did you challenge a decision that others had accepted?"
+      ]
+    },
+    {
+      "name": "Dream Team",
+      "description": "All-star players only. Radical honesty, tough coaches, feedback as fuel. Self-identify goals, self-direct, redefine standards.",
+      "interview_signals": [
+        "Tell me about giving/receiving difficult feedback",
+        "How do you handle underperformers?",
+        "Describe how you've developed someone on your team"
+      ]
+    },
+    {
+      "name": "Think Deeper",
+      "description": "Logic and reason prevail. Start with problem definition. Ask 'Is that true?' and 'Why?' to find root cause. Hands-on managers. Challenge each other.",
+      "interview_signals": [
+        "Walk me through how you approached a complex problem",
+        "Tell me about a time you challenged someone's assumption",
+        "How do you make technical decisions?"
+      ]
+    },
+    {
+      "name": "Get It Done",
+      "description": "Push through, no excuses. Execution champions. Full ownership start to finish. Grit, urgency, no analysis paralysis. Manage risks, have contingency plans.",
+      "interview_signals": [
+        "Tell me about a time you delivered under pressure",
+        "Describe a situation where everything was urgent",
+        "When did you push through significant obstacles?"
+      ]
+    },
+    {
+      "name": "Deliver WOW",
+      "description": "Great products, delight customers. Simple and elegant solutions. Minimum Lovable Products, not MVPs. Internal tools must be sleek too.",
+      "interview_signals": [
+        "Tell me about a product you're proud of",
+        "Describe how you obsess over quality",
+        "When did you go beyond functional to make something beautiful?"
+      ]
+    }
+  ],
+
+  "interview_process": {
+    "rounds": ["HR screen", "Technical interview", "System design", "Hiring manager", "Values/Culture fit"],
+    "style": "Direct, fast-paced, values-focused. They probe for specific examples.",
+    "what_they_look_for": [
+      "10x mindset — not satisfied with good enough",
+      "Radical honesty — can give and receive tough feedback",
+      "Depth — understands problems at root cause level",
+      "Execution — ships, doesn't just plan",
+      "Craft — cares about elegance, not just function"
+    ]
+  },
+
+  "tech_context": {
+    "stack": ["Python", "Go", "Kotlin", "PostgreSQL", "Kafka", "Kubernetes", "AWS"],
+    "scale": "50M+ customers, billions of transactions",
+    "challenges": ["Financial reliability", "Regulatory compliance", "Global scale", "Real-time processing"]
+  },
+
+  "recent_news": [
+    "Reached profitability in 2024",
+    "Expanding banking licenses globally",
+    "Building out crypto and trading products"
+  ]
+}

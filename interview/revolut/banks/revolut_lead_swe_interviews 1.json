@@ -1,0 +1,79 @@
+{
+  "source": "Glassdoor",
+  "company": "Revolut",
+  "role": "Lead Software Engineer",
+  "filter": "Lead+Software+Engineer",
+  "totalInterviewsOnSite": 5,
+  "totalExtracted": 5,
+  "extractedAt": "2026-04-14",
+  "interviews": [
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW100062129.htm",
+      "title": "Lead Software Engineer Interview",
+      "date": "Sep 17, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut in Sep 2025",
+      "interviewSection": "After first stage of interview I decided I don't want to go with the process (writing this before I got any feedback from the interviewer). It was a 30 minutes call with their recruiter who was 2 minutes late. I was bombarded with a series of questions about my career where I was not allowed to complete two entire sentences, and I was asked about things that are clearly visible in my CV. To my surprise, although interviewer was not a technical person, they asked couple of technical questions which I answered without hesitations, but clearly they were expecting single-word answers and did not understand the subject of the matter.",
+      "questions": [
+        "What transaction isolation level you would use for online payment processing."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW85799411.htm",
+      "title": "Lead Software Engineer Interview",
+      "date": "Mar 28, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut",
+      "interviewSection": "They take the LoadBalancer exercise. Look for it, it's in the Internet. I didn't want to move on with the interview process because I noticed a HUGE toxicity in their team. The recruiter was following a script and she was EXTREMELY rude. The 1st live coding interview was peace of cake because they take the LoadBalancer exercise which is in the Internet (look for it). I didn't want to move on because the engineer was VERY mean during the interview. Check other reviews. This company is VERY toxic. Also they are in a bubble when it comes to Technology... Java in 2024? LOL",
+      "questions": [
+        "Look for the LoadBalancer exercise. It's always the same."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW84755720.htm",
+      "title": "Software Engineer Lead Interview",
+      "date": "Feb 26, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied online. I interviewed at Revolut (London, England) in Feb 2024",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW82081992.htm",
+      "title": "Lead Software Developer Interview",
+      "date": "Nov 25, 2023",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 2 weeks. I interviewed at Revolut (Kraków) in Nov 2023",
+      "interviewSection": "Quite typical for bit software companies. First round was a coding exercise which was fairly easy. Second round was a short coding exercise with pseudo-code followed by a number of questions - domain, concurrency, databases, production environment. Third round was a system design interview which was the most difficult as the requirement was to cover a lot of detail (specifiy interfaces, database schemas, technologies, systems configuration, deployment, etc.). Time management is very important.",
+      "questions": [
+        "Design a system for delivering physical cards to customers"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW75467899.htm",
+      "title": "Lead Software Engineer Interview",
+      "date": "Apr 13, 2023",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 3 weeks. I interviewed at Revolut (London, England)",
+      "interviewSection": "The recruitment process started when I was contacted by HR via LinkedIn and asked to share my availability for the initial HR discussion. After sharing my availability, I received an invitation for the discussion. The process consisted of four rounds (it may vary based on the experience and the role applied for). In the first round, HR asked both general and technical questions. Following this, the second round was scheduled, which was the Coding round. In the Coding round, I was given a problem to solve with code. The interviewer was sharing the problem statements on chat and I had to solve them via code. After successfully completing the Coding round, I was scheduled for the next round, the Coding + Tech round. In the Coding + Tech round, I was asked to solve a problem statement using code/pseudo code. The interviewers asked many questions related to multi-threading and concurrency. Both of them were asking a variety of questions. I loved this conversation. I even could not understand a question and straight away told them. After clearing the round, I realised how mature they were. After clearing this round, HR scheduled me for the fourth and final round, the System Design round. During the System Design round, I was given a problem statement and asked to discuss the final design, including API creation and Schema design etc. However, due to the accent of the interviewer, I faced difficulty understanding what was being said. I had to clarify several times and get his agreement on what I thought the design was. Because it's all about the conversation and how you would work with your peers in reality. Although, in my opinion, the interviewer's questions were more inclined towards the domain rather than technical stuff. Additionally, his accent was a problem for me in understanding 30-40% of what was being said. Unfortunately, I did not clear this round and received feedback that I was asking for more hints. Disappointed - but this is what it is. This interview should have involved discussing the trade-offs rather than understanding the domain perspective.",
+      "questions": [
+        "Mainly core Java, Multithreading concepts, and distributed systems."
+      ]
+    }
+  ]
+}

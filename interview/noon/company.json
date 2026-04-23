@@ -1,0 +1,128 @@
+{
+  "company": "noon",
+  "slug": "noon",
+  "researched_at": "2026-04-24",
+
+  "overview": {
+    "description": "Leading e-commerce marketplace in the Middle East",
+    "markets": ["UAE", "Saudi Arabia", "Egypt"],
+    "products": ["Marketplace", "noon Daily (grocery)", "noon Pay (fintech)"],
+    "locations": {
+      "Dubai": "HQ, most positions, visa sponsorship",
+      "Cairo": "Large backend team",
+      "Bengaluru": "India hub",
+      "London": "Smaller team"
+    }
+  },
+
+  "values": [
+    {
+      "name": "Ownership",
+      "description": "Take full responsibility for outcomes",
+      "interview_signals": ["Examples of taking end-to-end ownership", "Not passing blame"]
+    },
+    {
+      "name": "Speed",
+      "description": "Move fast in a fast-paced environment",
+      "interview_signals": ["Working under tight deadlines", "Quick decision making"]
+    },
+    {
+      "name": "Customer Focus",
+      "description": "Decisions driven by user impact",
+      "interview_signals": ["User-centric thinking", "Impact on customer experience"]
+    },
+    {
+      "name": "Data-Driven",
+      "description": "Using metrics to guide decisions",
+      "interview_signals": ["Measuring outcomes", "A/B testing experience"]
+    },
+    {
+      "name": "Collaboration",
+      "description": "Cross-team work and communication",
+      "interview_signals": ["Working with other teams", "Communication skills"]
+    }
+  ],
+
+  "interview_process": {
+    "timeline": "3-4 weeks typical, can extend to 2 months",
+    "success_rate": "~24% (13 accepted out of 54 UAE interviews)",
+    "rounds": [
+      {
+        "name": "HR Screen",
+        "duration": "5-10 min",
+        "focus": "Background, salary expectations, visa/relocation"
+      },
+      {
+        "name": "Online Assessment",
+        "duration": "2-3 hours",
+        "platform": "HackerRank",
+        "focus": "DSA problems (5-7), SQL queries (2-3), MCQs (10-15)"
+      },
+      {
+        "name": "Technical Interviews",
+        "count": "2-3 rounds",
+        "duration": "45-60 min each",
+        "focus": "Live coding (LeetCode easy-medium), backend concepts, project discussion"
+      },
+      {
+        "name": "System Design",
+        "duration": "30-45 min",
+        "focus": "Schema design, API design, scalability (often combined with technical)"
+      },
+      {
+        "name": "Behavioral/Culture Fit",
+        "count": "1-2 rounds",
+        "duration": "30-45 min",
+        "focus": "STAR format, values alignment"
+      }
+    ],
+    "style": "LeetCode-focused, practical, e-commerce domain knowledge valued",
+    "what_they_look_for": [
+      "Problem-solving approach (think out loud)",
+      "Code quality and edge case handling",
+      "Complexity analysis",
+      "Technical breadth in backend systems",
+      "Clear communication"
+    ]
+  },
+
+  "tech_context": {
+    "stack": ["Python", "Java", "Go", "PostgreSQL", "Elasticsearch", "Kafka", "Redis", "AWS"],
+    "domain": "E-commerce marketplace",
+    "scale": "Millions of products, high read volume",
+    "challenges": ["Product catalog and search", "Inventory management", "Payment systems", "Delivery logistics"]
+  },
+
+  "interview_statistics": {
+    "total_analyzed": 62,
+    "difficulty": {
+      "easy": 10,
+      "average": 26,
+      "difficult": 18
+    },
+    "experience": {
+      "positive": 24,
+      "neutral": 15,
+      "negative": 15
+    }
+  },
+
+  "candidate_feedback": {
+    "positive": [
+      "Everyone was cooperative and helpful",
+      "Well communicated at every step",
+      "Process was smooth and fast",
+      "Interviewers were helpful and gave hints"
+    ],
+    "negative": [
+      "Sometimes long gaps without communication",
+      "Some unprofessional behavior reported",
+      "No feedback on rejection in some cases"
+    ]
+  },
+
+  "resources": [
+    "https://careers.noon.com/",
+    "https://engineering.noon.com/"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "company": "revolut",
+  "round": "live-coding",
+  "official_name": "Build it",
+
+  "format": {
+    "duration": "45-60 minutes",
+    "position": "Round 2 (after HR screening)",
+    "environment": "Your IDE (IntelliJ, VS Code), Google Meet screen share",
+    "language": "Java preferred, Python accepted",
+    "style": "TDD — write tests alongside implementation",
+    "constraints": ["No AI tools", "No Spring framework", "Standard IDE features only"]
+  },
+
+  "tips": [
+    "Clarify functional requirements before implementing — a few minutes is enough",
+    "There are multiple stages — keep each stage simple so you can complete more",
+    "Code quality and testing matter heavily",
+    "Refresh concurrency knowledge — they want high-performance solutions"
+  ],
+
+  "practice_bank": "../banks/coding/live-coding.json",
+
+  "problems": [
+    {
+      "name": "Load Balancer",
+      "frequency": "Most Common",
+      "leetcode_practice": [
+        { "id": "insert-delete-getrandom", "leetcode": 380, "why": "Core register/deregister/random-select shape" },
+        { "id": "insert-delete-getrandom-duplicates", "leetcode": 381, "why": "Backing for weighted-random strategy" },
+        { "id": "design-phone-directory", "leetcode": 379, "why": "Fixed-pool register/release pattern" },
+        { "id": "seat-reservation-manager", "leetcode": 1845, "why": "Heap-based selection → least-connections strategy" },
+        { "id": "design-authentication-manager", "leetcode": 1797, "why": "TTL pattern → auto-deregister on heartbeat expiry" }
+      ],
+      "requirements": [
+        "register(server) — register a backend server (max 10, unique addresses)",
+        "deregister(server) — remove a server from the pool",
+        "get() — return a server using Random strategy",
+        "Add Round-Robin strategy",
+        "Make it thread-safe"
+      ],
+      "expectations": [
+        "Strategy Pattern — pluggable algorithms via interface",
+        "Thread Safety — Lock, ReentrantReadWriteLock, or ConcurrentHashMap",
+        "Proper Error Handling — throw exceptions, not return strings",
+        "Tests — happy path + edge cases + concurrency",
+        "SOLID Principles — open for extension, closed for modification"
+      ],
+      "python_implementation": "from abc import ABC, abstractmethod\nfrom threading import Lock\nfrom typing import Protocol\nimport random\n\n\nclass Server:\n    def __init__(self, server_id: str, address: str):\n        self.server_id = server_id\n        self.address = address\n\n    def __eq__(self, other: object) -> bool:\n        if not isinstance(other, Server):\n            return False\n        return self.address == other.address\n\n    def __hash__(self) -> int:\n        return hash(self.address)\n\n\nclass LoadBalancingStrategy(Protocol):\n    def select(self, servers: list[Server]) -> Server: ...\n    def reset(self) -> None: ...\n\n\nclass RandomStrategy:\n    def select(self, servers: list[Server]) -> Server:\n        return random.choice(servers)\n\n    def reset(self) -> None:\n        pass\n\n\nclass RoundRobinStrategy:\n    def __init__(self):\n        self._index = 0\n        self._lock = Lock()\n\n    def select(self, servers: list[Server]) -> Server:\n        with self._lock:\n            server = servers[self._index % len(servers)]\n            self._index += 1\n            return server\n\n    def reset(self) -> None:\n        with self._lock:\n            self._index = 0\n\n\nclass LoadBalancerFullError(Exception):\n    pass\n\n\nclass ServerAlreadyRegisteredError(Exception):\n    pass\n\n\nclass NoServersAvailableError(Exception):\n    pass\n\n\nclass LoadBalancer:\n    MAX_SERVERS = 10\n\n    def __init__(self, strategy: LoadBalancingStrategy | None = None):\n        self._servers: list[Server] = []\n        self._addresses: set[str] = set()\n        self._strategy = strategy or RandomStrategy()\n        self._lock = Lock()\n\n    def register(self, server: Server) -> None:\n        with self._lock:\n            if len(self._servers) >= self.MAX_SERVERS:\n                raise LoadBalancerFullError(f\"Cannot exceed {self.MAX_SERVERS} servers\")\n            if server.address in self._addresses:\n                raise ServerAlreadyRegisteredError(f\"Server {server.address} already registered\")\n            self._servers.append(server)\n            self._addresses.add(server.address)\n\n    def deregister(self, server: Server) -> None:\n        with self._lock:\n            if server.address not in self._addresses:\n                return\n            self._servers = [s for s in self._servers if s.address != server.address]\n            self._addresses.remove(server.address)\n            self._strategy.reset()\n\n    def get(self) -> Server:\n        with self._lock:\n            if not self._servers:\n                raise NoServersAvailableError(\"No servers registered\")\n            return self._strategy.select(list(self._servers))\n\n    @property\n    def server_count(self) -> int:\n        with self._lock:\n            return len(self._servers)"
+    },
+    {
+      "name": "URL Shortener",
+      "leetcode_practice": [
+        { "id": "design-phone-directory", "leetcode": 379, "why": "Capacity-bounded handle pool" },
+        { "id": "lru-cache", "leetcode": 146, "why": "Capacity + eviction policy if MAX_URLS overflows" }
+      ],
+      "requirements": [
+        "shorten(url) — return a short URL (4-6 alphanumeric chars)",
+        "resolve(short_url) — return the original URL",
+        "Limit storage to 100 URLs",
+        "Duplicate full URLs should return the existing short URL",
+        "Make it thread-safe"
+      ],
+      "python_implementation": "from threading import Lock\nimport random\nimport string\n\n\nclass UrlShortenerFullError(Exception):\n    pass\n\n\nclass UrlNotFoundError(Exception):\n    pass\n\n\nclass UrlShortener:\n    MAX_URLS = 100\n    SHORT_URL_LENGTH = 6\n\n    def __init__(self):\n        self._url_to_short: dict[str, str] = {}\n        self._short_to_url: dict[str, str] = {}\n        self._lock = Lock()\n\n    def shorten(self, url: str) -> str:\n        with self._lock:\n            if url in self._url_to_short:\n                return self._url_to_short[url]\n\n            if len(self._url_to_short) >= self.MAX_URLS:\n                raise UrlShortenerFullError(f\"Cannot exceed {self.MAX_URLS} URLs\")\n\n            short_url = self._generate_short_url()\n            while short_url in self._short_to_url:\n                short_url = self._generate_short_url()\n\n            self._url_to_short[url] = short_url\n            self._short_to_url[short_url] = url\n            return short_url\n\n    def resolve(self, short_url: str) -> str:\n        with self._lock:\n            if short_url not in self._short_to_url:\n                raise UrlNotFoundError(f\"Short URL {short_url} not found\")\n            return self._short_to_url[short_url]\n\n    def _generate_short_url(self) -> str:\n        chars = string.ascii_letters + string.digits\n        return ''.join(random.choice(chars) for _ in range(self.SHORT_URL_LENGTH))\n\n    @property\n    def url_count(self) -> int:\n        with self._lock:\n            return len(self._url_to_short)"
+    },
+    {
+      "name": "Money Transfer / Account Ledger",
+      "leetcode_practice": [
+        { "id": "design-underground-system", "leetcode": 1396, "why": "Per-entity state + aggregation pattern" }
+      ],
+      "requirements": [
+        "transfer(from_account, to_account, amount) — transfer money",
+        "Prevent overdraft (insufficient funds)",
+        "Thread-safe for concurrent transfers",
+        "Prevent deadlocks"
+      ],
+      "key_insight": "Consistent lock ordering to prevent deadlock — sort accounts by ID before acquiring locks",
+      "python_implementation": "from threading import Lock\nfrom decimal import Decimal\nfrom typing import Dict\n\n\nclass InsufficientFundsError(Exception):\n    pass\n\n\nclass AccountNotFoundError(Exception):\n    pass\n\n\nclass InvalidAmountError(Exception):\n    pass\n\n\nclass Account:\n    def __init__(self, account_id: str, initial_balance: Decimal):\n        self.account_id = account_id\n        self._balance = initial_balance\n        self._lock = Lock()\n\n    @property\n    def balance(self) -> Decimal:\n        with self._lock:\n            return self._balance\n\n\nclass TransferService:\n    def __init__(self):\n        self._accounts: Dict[str, Account] = {}\n        self._global_lock = Lock()\n\n    def create_account(self, account_id: str, initial_balance: Decimal) -> Account:\n        with self._global_lock:\n            if account_id in self._accounts:\n                raise ValueError(f\"Account {account_id} already exists\")\n            account = Account(account_id, initial_balance)\n            self._accounts[account_id] = account\n            return account\n\n    def transfer(self, from_account_id: str, to_account_id: str, amount: Decimal) -> None:\n        if amount <= 0:\n            raise InvalidAmountError(\"Transfer amount must be positive\")\n\n        from_account = self._accounts[from_account_id]\n        to_account = self._accounts[to_account_id]\n\n        # Consistent lock ordering to prevent deadlock\n        first, second = sorted([from_account, to_account], key=lambda a: a.account_id)\n\n        with first._lock:\n            with second._lock:\n                if from_account._balance < amount:\n                    raise InsufficientFundsError(f\"Insufficient funds\")\n                from_account._balance -= amount\n                to_account._balance += amount"
+    }
+  ],
+
+  "common_mistakes": [
+    "Returning strings for errors — throw custom exceptions instead",
+    "Missing get() method on Load Balancer",
+    "No deregister() method",
+    "Hardcoding constants — use class constants",
+    "No tests for concurrency",
+    "Tests only for happy path — include edge cases",
+    "Not using Strategy Pattern"
+  ],
+
+  "time_management": {
+    "requirements_clarification": "5 min",
+    "basic_implementation": "15 min",
+    "add_features": "15 min",
+    "thread_safety": "10 min",
+    "edge_cases_cleanup": "5 min"
+  }
+}

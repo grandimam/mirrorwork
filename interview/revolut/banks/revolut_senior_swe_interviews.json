@@ -1,0 +1,535 @@
+{
+  "source": "Glassdoor",
+  "company": "Revolut",
+  "role": "Senior Software Engineer",
+  "filter": "Senior Software Engineer",
+  "totalInterviews": 122,
+  "extractedAt": "2026-04-14",
+  "interviews": [
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW103424423.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Apr 7, 2026",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW101281091.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 14, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut",
+      "interviewSection": "On made the first stage of the interview, didn't get to the next stage. This is for the new observerbily team that is been formed. About 4 stages in total",
+      "questions": [
+        "Question about metics and traces Prometheus and Loki"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW101155436.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 8, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "Declined offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. I interviewed at Revolut (Warsaw, Masovia) in Oct 2025",
+      "interviewSection": "Process included: recruiter screening (Java fundamentals + concurrency), live coding (load balancer / URL shortener with TDD), technical deep dive (Java internals, DB, distributed systems), system design, team fit. About 5 weeks total.",
+      "questions": [
+        "Implement a thread-safe load balancer in Java with register and get methods",
+        "How would you handle concurrent requests in the load balancer?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW98900145.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jul 23, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut (Dubai)",
+      "interviewSection": "Very polite interviewers, average questions about concurrency, databases, But if you answer not by manual of interviewer, your answers will be wrong, despite on your expertise. Lack of adequate feedback after technical sections",
+      "questions": [
+        "Circuit breaker coding task, databases, K8s"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW97635677.htm",
+      "title": "Sr. Software Engineer Interview",
+      "date": "May 27, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter.",
+      "interviewSection": "4 stages: recruiter screen, live coding (TDD, load balancer), technical/system design, team fit.",
+      "questions": [
+        "Design a URL shortener with TDD"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW96982124.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Apr 28, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (London, England) in Oct 2024",
+      "interviewSection": "I interviewed at Revolut in April 2024 first, and then in October as well. The interview process is unnecessarily long. The recruiter asks technical questions without understanding your responses — just after buzz words. Then one or two rounds of core Java interviews — very in depth, lots of internal workings of Java concurrency and multithreading libraries. With 20 years of experience I still struggled because they expect textbook answers.",
+      "questions": [
+        "Java concurrency internals: locks, synchronized, volatile, thread pools",
+        "How does HashMap work internally under concurrent access?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW94319108.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jan 14, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "Declined offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut in Nov 2024",
+      "interviewSection": "The interview had 4 steps: 1. Recruiter call, where you will be asked standard tech questions. 2. Live coding. 3. System design 4. Team fit (it can be multiple teams). After each interview, you will hear from their recruitment department. It took more than a month because it was 1+ week wait for the next interview.",
+      "questions": [
+        "Standard questions that were mentioned several times here about multi-threading in Java"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW94296645.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jan 13, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter.",
+      "interviewSection": "Live coding round: implement a feature step by step with TDD. Kept being interrupted and pushed to next requirement before completing current one. Very poor experience.",
+      "questions": [
+        "Implement a URL shortener using TDD step by step"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW93729319.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Dec 17, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 4 weeks. I interviewed at Revolut (Warsaw, Masovia) in Oct 2024",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW93311826.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Dec 2, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 4 weeks. I interviewed at Revolut in Aug 2024",
+      "interviewSection": "The interview process was very friendly. The HR team provided information on everything. Everything was very clear and there were no surprises. The process went smoothly.",
+      "questions": [
+        "Design a thread-safe service registry",
+        "Questions about ACID, transaction isolation"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW92274604.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 25, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "Declined offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 1 week. I interviewed at Revolut (Vienna) in Aug 2024",
+      "interviewSection": "The interview process at Revolut is highly professional, beginning with an HR interview to evaluate the candidate's alignment with the company's culture and values, followed by several rounds of technical questions and assessments that thoroughly test the candidate's skills, problem-solving abilities, and adaptability to complex challenges.",
+      "questions": [
+        "There are some routine questions and some technical questions specific to the position"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW92203316.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 23, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter.",
+      "interviewSection": "Multiple stages. Live coding was a load balancer. System design round was deep. Team fit round rejected without feedback.",
+      "questions": [
+        "Implement load balancer with round-robin and weighted strategies",
+        "System design: design a payment notification service"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW91972662.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 16, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (London, England) in Oct 2024",
+      "interviewSection": "I advise people not to waste their time. 5 stages of interview. Initial screen with internal recruiter was fine. Coding challenge was nice. I would say I did it almost all right with TDD and explaining my thoughts, fulfilled all their requirements — just core Java with 15+ years experience. The interviewer seemed unengaged. Got an email back to say they thought about it and decided no.",
+      "questions": [
+        "Core Java TDD live coding challenge — implement a service with tests",
+        "Follow-up: add concurrency / thread-safety to the solution"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW90505752.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Aug 28, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 2 weeks. I interviewed at Revolut in Jul 2024",
+      "interviewSection": "The interview process at Revolut is thorough and consists of five rounds: 1. Technical HR interview 2. Live Coding interview 3. Technical Round 4. System Design Interview 5. Culture Fit (for team selection). I had the opportunity to participate in the first two rounds. The Technical HR interview was a concise 30-minute GMeet call focused on my background and experience. The Live Coding interview was a practical exercise to assess understanding of basic coding practices — I was given a task to implement with TDD.",
+      "questions": [
+        "Implement a basic URL shortener service using TDD in Java",
+        "What are the SOLID principles?",
+        "What is the difference between concurrency and parallelism?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW88800336.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jul 3, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 1 week. I interviewed at Revolut in Jun 2024",
+      "interviewSection": "Total disgrace — interviewer didn't show up. Wrote emails everywhere. No one responded. Very unprofessional recruitment process. I applied to the same role again, this time they didn't even respond to my application.",
+      "questions": [
+        "Available time for screening interview"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW88726576.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jul 1, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter.",
+      "interviewSection": "Recruiter screening with Java/DB questions, then live coding (load balancer in Java with TDD), then system design and team fit rounds.",
+      "questions": [
+        "Implement a load balancer service in Core Java",
+        "Explain transaction isolation levels in detail",
+        "What are DB indexes and when would you avoid them?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW87341599.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "May 16, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied through a recruiter. The process took 4 weeks. I interviewed at Revolut (Vilnius) in May 2024",
+      "interviewSection": "The technical interview started with some weird requirements. They said in an email to have laptop and wi-fi, but what if you have a desktop with RJ45? They suggested training at HackerRank to prepare, but HackerRank is algorithmic while their task was just implementation of a simple load balancer registry which should store no more than n instances. Pretty average stuff.",
+      "questions": [
+        "Implement a load balancer registry that stores up to N server instances",
+        "Add thread safety to the registry",
+        "Implement random and round-robin selection strategies"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW84967869.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Mar 4, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. I interviewed at Revolut in Feb 2024",
+      "interviewSection": "I sat my live coding interview a week ago and still haven't been told if I passed or not. My experience during the first round interview was good — caught off guard by some technical questions but assume that is by design. Was then invited to a live coding interview with instructions on how to prepare and the expected coding environment. The live coding interview was OK. They put a large emphasis on TDD but also on speed of delivery.",
+      "questions": [
+        "Live coding — implement a service using TDD",
+        "Focus on clean code, tests, and incremental delivery"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW82040938.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 23, 2023",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied online. I interviewed at Revolut",
+      "interviewSection": "I had the interview with the HR and she was in a rush, asking questions very fast and difficult to understand. She probably doesn't catch the idea if you are talking about something because she only knows the exact answer and ignores similar ones. A lot of database related questions while they are not looking for a DBA.",
+      "questions": [
+        "Too many theoretical questions related to database read and write",
+        "What are transaction isolation levels?",
+        "Explain ACID properties"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW81450746.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 1, 2023",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter.",
+      "interviewSection": "Standard process: recruiter screen, live coding, technical deep-dive, system design, team fit. Feedback was poor.",
+      "questions": [
+        "Design a distributed rate limiter",
+        "Java concurrency questions: volatile, synchronized, happens-before"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW78714951.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jul 31, 2023",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 2 months. I interviewed at Revolut in Mar 2023",
+      "interviewSection": "Two technical rounds. First one with live coding and writing tests, second with little coding and technical discussion. Coding exercises related to multithreading. After technical rounds feedback was decent. Later I got 3 'team fit' interviews and got declined without any feedback.",
+      "questions": [
+        "Multithreading, partitioning, sharding, transaction isolation levels, db indexes, generally stuff from Designing Data-Intensive Applications book"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW77436410.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jun 2023",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter.",
+      "interviewSection": "Live coding round — implement load balancer. Then system design and team fit. Overall long process.",
+      "questions": [
+        "Implement a load balancer with register(), get() random and round-robin",
+        "ACID, CAP theorem, transaction isolation levels"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW76832140.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "May 27, 2023",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (Barcelona) in Aug 2022",
+      "interviewSection": "Just some standard Coding Challenges mostly focusing on speed and slightly on correctness. If you work to prepare your coding speed you will find it easy. However, they do ask you about Multithreading so you need to have those concepts very clear beforehand.",
+      "questions": [
+        "ACID properties, CAP theorem, Multithreading concepts, Sharding/Partitioning, DB indexes (pros and cons)"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW76104020.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "May 4, 2023",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter.",
+      "interviewSection": "Recruiter screen with technical questions, then live coding (URL shortener TDD), then technical deep-dive, then system design, then team fit. Very long process with poor feedback.",
+      "questions": [
+        "Implement URL shortener with TDD in Java",
+        "System design: design a notification service at scale",
+        "What are the differences between optimistic and pessimistic locking?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW66923322.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jul 20, 2022",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied through a recruiter. The process took 4 weeks. I interviewed at Revolut in Jun 2022",
+      "interviewSection": "I was reached by a recruiter over LinkedIn and then first HR round was scheduled. HR had some questions written and asked them. Once I cleared it, 1st round of discussion was scheduled with 2 interviewers, in which they asked to write a Java problem and unit tests. I covered all scenarios and it went well. After that I kept following up with HR for 2 weeks with no feedback, and after 4 weeks got a rejection email with feedback that doesn't align with my interview. Seems they just want to waste your time.",
+      "questions": [
+        "Write a Java solution for the given problem and write unit tests for it",
+        "What are the SOLID principles?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW55859408.htm",
+      "title": "Senior Developer Interview",
+      "date": "Nov 25, 2021",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied online. I interviewed at Revolut (Paris) in Nov 2021",
+      "interviewSection": "Implementation of a load balancer. The person was arrogant and very stressed in a way that made me very uncomfortable from the beginning. They almost seemed forced to conduct the interview. I did TDD and it was OK for them but they didn't let me finish the optimization of the code even though time remained and we started 5 minutes late. They reproached me for having difficulty initializing a Set, which wasn't true — I just momentarily forgot. They asked why I used Set instead of List, I answered poorly. They reproached lack of use of design patterns. No final result on my code overall. (Originally in French)",
+      "questions": [
+        "Implement a load balancer with TDD",
+        "Why did you use a Set instead of a List here?",
+        "How would you apply design patterns to this solution?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW50473105.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jul 30, 2021",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied online. I interviewed at Revolut",
+      "interviewSection": "Recruiter reached out via LinkedIn, setup a screening call which was fine. After this, first round was a live coding round. Interviewer gave a very simple problem to solve. Then asked me to write test cases. After it, he changed the requirement and asked me to modify the code and unit tests. Again he changed the requirement — I realised this is a typical TDD/Scrum kind of live coding where you keep refactoring as per requirements. Candidate is expected to ask questions, drive the solution, write clean code and tests.",
+      "questions": [
+        "Implement a service step by step with evolving requirements (TDD style)",
+        "Write unit tests and refactor as requirements change"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW43141968.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Feb 26, 2021",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 1 day. I interviewed at Revolut (London, England) in Feb 2021",
+      "interviewSection": "Describing here my experience with the Live Coding Interview — first of their 6-step process. I was given a relatively simple service to implement. My approach was to gain all clarifications at the beginning. After completing the first requirement, the second requirement required quite a bit of refactor and introduced a new concept. Normally introducing a new concept requires design discussion, but the interviewer just kept pushing to the next step.",
+      "questions": [
+        "Implement a service with simple business logic and incrementally evolving requirements",
+        "Write clean tests alongside each implementation step"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW41609032.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jan 29, 2021",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a staffing agency. The process took 3 months. I interviewed at Revolut (Berlin) in Dec 2020",
+      "interviewSection": "2 screening calls (second one technical). 3rd interview was a live coding interview where I was asked to implement a URL Shortener. The interviewer was not friendly and didn't ask any personal questions — was just rushing to implementation and technical discussions, which didn't make me feel like we were working together. Kind of disappointing.",
+      "questions": [
+        "Given a string, write a program that will output the string after a fixed URL"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW41076316.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jan 2021",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter.",
+      "interviewSection": "Typical Revolut process: recruiter with tech questions, live coding, deep tech, system design. Long and slow.",
+      "questions": [
+        "Implement account transfer service with thread safety",
+        "Describe CAP theorem and give examples"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW36713288.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 5, 2020",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "The process took 2 weeks. I interviewed at Revolut",
+      "interviewSection": "I was interviewed on the senior backend developer role. It consists of these steps: 1) 1h - Call with HR where they suddenly start asking technical questions (CQRS, O(n), O(log n), etc.) 2) 1h - Live code assessment with 1-2 developers 3) 1h - Another deep tech talk with 1-2 devs, also practical task, but mostly questions 4) ~1h - Design tech talk, architecture 5) HR soft skills talk",
+      "questions": [
+        "Live code assessment: 3 tasks in a row on the same project about load balancing, focusing on code writing speed — JUnits required",
+        "A lot of irrelevant questions: design patterns, DB questions, some are too theoretical and not applicable in real life",
+        "System design / architecture discussion"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW32221671.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Mar 5, 2020",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "",
+      "applicationSection": "I applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (London, England) in Mar 2020",
+      "interviewSection": "Had a take-home technical assessment. I was told I succeeded in the technical assessment with no further details. Moving to the second stage, I had an online interview and knew I failed. I asked for feedback — the answer was 'Yeah I'm working on it.' Since then NO feedback whatsoever. This is unacceptable and disrespectful for someone who works full-time and managed to spend a lot of time preparing the technical assessment.",
+      "questions": [
+        "Take-home technical assessment (no details provided)",
+        "Online technical interview — no feedback given"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW30815273.htm",
+      "title": "Senior Software Developer Interview",
+      "date": "Dec 11, 2019",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied through a recruiter. The process took 2 weeks. I interviewed at Revolut in Dec 2019",
+      "interviewSection": "1. HR-screen - 30 min. About 8 general questions in CS on data structures, etc. 2. Pair programming session - 1h. Simple but revealing task with TDD in mind — create design of simple system as 1 class, TDD it with a dedicated test. 3. Technical interview & Systems design interview - 2h. I had good times with the recruiter and pair programming Senior Engineer, but not with the final interview with 4 Senior Engineers. Feedback was a bit hair-pulling — mentioned a couple of errors during live coding that were minor.",
+      "questions": [
+        "General CS questions: data structures, time complexity",
+        "Pair programming: TDD — implement a simple system design as a single class",
+        "Technical / System design interview with 4 Senior Engineers"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW28843445.htm",
+      "title": "Senior Software Developer Interview",
+      "date": "Aug 26, 2019",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 3 weeks. I interviewed at Revolut (Kraków) in Jul 2019",
+      "interviewSection": "I got taken aback by the interview process at Revolut. The test task isn't too complicated but requires a lot of time. In my case I spent an entire week doing it after work and the full weekend. I sent it back to the recruiter who contacted me initially, but never got a reply. In 3 weeks I got a no-reply response containing basically no details about my gaps — just generic phrases that aren't clear enough to define a self-improvement plan. This is a deeply disrespectful attitude towards candidates.",
+      "questions": [
+        "Take-home test task (extensive, multiple days of work)"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW22553995.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Sep 19, 2018",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 2 weeks. I interviewed at Revolut (London, England) in Sep 2018",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW17414557.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 18, 2017",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "",
+      "applicationSection": "I applied online. The process took 3 weeks. I interviewed at Revolut (London, England) in Oct 2017",
+      "interviewSection": "",
+      "questions": []
+    }
+  ]
+}

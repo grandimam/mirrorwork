@@ -1,0 +1,1561 @@
+{
+  "source": "Glassdoor",
+  "company": "Revolut",
+  "role": "Senior Software Engineer",
+  "filter": "Senior+Software+Engineer",
+  "totalInterviewsOnSite": 122,
+  "totalExtracted": 122,
+  "extractedAt": "2026-04-14",
+  "interviews": [
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW103257445.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Mar 21, 2026",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied online. I interviewed at Revolut",
+      "interviewSection": "1. Screening call (basic tech questions) 2. Coding assignment (can be done online within limited time) 3. Live coding, easy/medium leetcode task 4. System Design. This stage, where I failed twice. First time I received feedback, that as a mobile developer I didn't cover BE part enough. Second time I received the opposite feedback, that I covered BE part, but didn't have enough time to cover mobile part well enough.",
+      "questions": [
+        "ArraysList vs LinkedList and what structure can be used to achieve O(1) computation time to get/set data (HashMap)"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW103145095.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Mar 12, 2026",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. I interviewed at Revolut in Feb 2026",
+      "interviewSection": "I did not have a positive experience with Revolut’s interview process overall. Overall I would say it was very positive until last team fit. The recruiter communication at the start was good, and the preparation meetings were helpful. My first team interview to another team was also very positive, although that team seemed to be looking for someone with stronger crypto experience. The main issue was the final team fit interview, which felt unprofessional. One interviewer struggled to communicate clearly in English and sometimes repeated questions I had already answered. Another interviewer could not properly answer my questions about the team and the company’s current situation. After that, I was rejected based on the feedback, and the recruiter never replied to my emails before or after the rejection, despite asking for feedback throughout the earlier stages. The process started better than it ended, and the last stage left a very poor impression.",
+      "questions": [
+        "General questions related to SE"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW102062646.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jan 5, 2026",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut",
+      "interviewSection": "A recruiter contacted me on LinkedIn, and the process moved quickly. They provided a list of possible topics before each stage, although the range was very broad. The interviewers were rarely interested in the candidate’s thought process and instead expected specific answers and solutions. Even the initial HR screening included technical questions; however, the interviewers were not able to adequately evaluate the answers and seemed to be looking mainly for buzzwords. Overall, HR appeared uninterested in having a meaningful dialogue. Some interviewers rescheduled interviews without prior notification. Revolut is known for a high failure rate, so it can be useful to treat the process as a knowledge check rather than taking it too seriously.",
+      "questions": [
+        "Java, concurrency, databases, system design, performance optimizations etc. in other words there's a lot of ways to fail the interview. Not sure if the goal is to find out what you know or rather what you don't know."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW101397240.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 20, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 1 week. I interviewed at Revolut (Athens, Athens, Attica) in Sep 2022",
+      "interviewSection": "The process was fast but once I got to the f2f interview I understood that the interviewer was overworked. I didnt pass but I surely didnt want to get there after that.",
+      "questions": [
+        "Java concurrency breakdown, keywords and race conditions"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW101328103.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 17, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (Warsaw, Masovia) in Nov 2025",
+      "interviewSection": "I was contacted by a recruiter on LinkedIn and had my first HR screening interview a few days later. During the interview, HR asked why I applied for the role and then moved on to technical that were focused on concurrency, idempotency, and PostgreSQL.",
+      "questions": [
+        "The time complexity of a Python dictionary lookup"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW101281091.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 14, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut",
+      "interviewSection": "On made the first stage of the interview, didn't get to the next stage. This is for the new observerbily team that is been formed. About 4 stages in total",
+      "questions": [
+        "Question about metics and traces Prometheus and Loki"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW101155436.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 8, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "Declined offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. I interviewed at Revolut (Warsaw, Masovia) in Oct 2025",
+      "interviewSection": "Process is quick and they provide guidance and support on all stages. Also they give you resources to prepare. Recruitment team is professional and I felt very comfortable at all stages",
+      "questions": [
+        "System design card ordering feature"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW100232668.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Sep 24, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (Dubai) in Sep 2025",
+      "interviewSection": "1. Screening with recruiter Questions about my background, some technical questions just to check if I'm familiar with basic required things. Recruiter gave a very detailed information about what to expect from tech interview, which topics may be covered and what kind of questions may be asked. 2. Technical interview. Coding challenge. I was asked to implement simple in-memory load balancer for pool of IP addresses. Then requirements changes to add different balancing strategies. Another time I was asked to implement URL shortener service. In this interview focus must be on TDD, patterns, SOLID and clean code. 3. Technical interview. I was given a code snippet, Account class and service with transfer() method, where I need to implement transfer logic. In this interview focus is on thread-safety, concurrency, DDD. First implement with pure java locks (ReentrantLock), then option with DB lock. Implement pure procedural SQL implementation. Deep dive into transaction isolation levels, anomalies, optimistic/pessimistic locks. Also in previous interview I was asked about resilience/stability patterns, microservices, DB indexes. Overall impression is that they are don't have high need for engineers, just looking if some genious guy, who doesn't make any mistake while coding in the interview and answers all the questions 200% correct. If you loose attention and make couple of mistakes, you'll fail the interview. I felt like I did good in the interview, but was rejected both times. As I said, small mistakes, and you are done.",
+      "questions": [
+        "Implement load balancer, url shortener. Implement money transfer method, make it thread safe and performant. Transaction isolation, optimistic/pessimistic locks, DB indexes, thread safety, stability/resilience patters, distirbuted transactions, event sourcing, DDD."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW99445911.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Aug 19, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied online. I interviewed at Revolut in Aug 2025",
+      "interviewSection": "The process Pretty straightforward. Most of the technical questions are already on GitHub (revolut_coding), so if you work through those and can explain your answers clearly, you’ll be fine for the technical rounds. My experience I cleared all the technical stages, but things fell apart at the team match stage. • Recruiter: Very responsive in the beginning and guided me well. After the team matches though, communication just stopped — no feedback despite several follow-ups. • First team match: Honestly, not great. The interviewer interrupted a lot, dismissed answers as “obvious,” and the whole vibe felt unprofessional. As a Ukrainian, I personally felt there may have been bias based on my national and political background. I’ve since seen other candidates here mention similar concerns, so I don’t think I was the only one who felt this way. • Second team match: Completely different. The interviewer was professional, we discussed projects, trade-offs, success metrics — it was the kind of conversation you hope for. Concerns After that first team match, I filled out the interviewer feedback survey and mentioned the communication issues. Not long after, I was dropped from the process without explanation. I can’t prove the two were connected, but the timing was odd enough to make me wonder. Overall The technical process is clear and easy to prepare for, which is a plus. But the later stages were inconsistent, and feedback just stopped altogether. I personally felt some bias in one interview, possibly influenced by national or political background, and other reviews suggest I wasn’t alone. If you’re applying, study the GitHub repo and you’ll likely get through the technicals — just don’t expect much clarity or feedback once you hit the team match stage.",
+      "questions": [
+        "Most of the technical questions are already on GitHub (revolut_coding)"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW99037100.htm",
+      "title": "Sr. Software Engineer Interview",
+      "date": "Jul 30, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut",
+      "interviewSection": "Very lengthy with very rude recruiter. Superficial questioning with the recruiter not being able to handle anything outside their checklist expected responses. I would not recommend giving any time to their outreach efforts.",
+      "questions": [
+        "What's your experience managing people?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW98900145.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jul 23, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut (Dubai)",
+      "interviewSection": "Very polite interviewers, average questions about concurrency, databases, But if you answer not by manual of interviewer, your answers will be wrong, despite on your expertise. Lack of adequate feedback after technical sections",
+      "questions": [
+        "Circuit breaker coding task, databases, K8s"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW97635677.htm",
+      "title": "Sr. Software Engineer Interview",
+      "date": "May 27, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (Portugal) in May 2025",
+      "interviewSection": "Interviewing at Revolut – Senior/Lead Role The interview process at Revolut was structured and transparent. The recruiter was very friendly, supportive, and guided me through the process thoroughly. Before each interview stage, we had a preparation call, which helped me focus on the key topics. Stage 1: Recruiter Screening A general screening call covering high-level concepts such as ACID, CQRS, microservices, and cloud fundamentals. Straightforward and pleasant. Stage 2: Live Coding (Load Balancer Implementation) The interviewer was professional and the session focused on implementing a basic load balancer. I received positive feedback and advanced to the next stage. Stage 3: Live Coding + Theoretical Questions This stage included a practical task (money transfer between two accounts) and a deep dive into system design fundamentals—patterns, database indexing, deployment strategies, distributed transactions, observability, etc. The interviewer was friendly and the discussion was technical and engaging. Stage 4: System Design (Apartment Reservation System) This round was unfortunately disappointing. The interviewer had an unapproachable communication style, which made the experience uncomfortable. I was told my design was overly complex and did not pass the round. However, due to strong feedback from the earlier stages, the recruiter invited me to retry the system design interview after 3 months. Stage 5 (Reattempt): System Design (Card Issuing and Delivery System) This time, the interviewer was respectful and constructive. The task was to design a card issuing and delivery system with low load, and the discussion was mostly around handling distributed transactions. While I covered 2PC, TCC, and SAGA, I was unfamiliar with the \"transactional outbox\" pattern, which the interviewer expected. I was told that for this role level, Revolut does not allow any unanswered questions, and thus I didn’t pass. Despite the outcome, the interviewer stayed on to answer my follow-up questions about Revolut’s engineering practices, which left a very positive impression.",
+      "questions": [
+        "Implement simple load balancer with different balancing strategies"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW97547587.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "May 23, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied online. The process took 2 months. I interviewed at Revolut in May 2025",
+      "interviewSection": "Stages: HR → 2 Technical → System Design → 3 Team Fit rounds Technical Rounds: The Reasonable Part The actual technical interviews were solid and fair. System design was standard for the level. No complaints here - this is how technical interviews should be conducted. --- Team Fit: Where Things Got Creative Round 1: Team A - The Trust Issues Edition Started normally with behavioral questions, then suddenly turned into an interrogation. The interviewer seemed convinced I was fabricating my experience and began re-asking technical questions from previous rounds (\"How exactly do you guarantee exactly-once delivery?\"). Apparently, working 3-5 years ago requires forensic-level memory of database status values. The passive-aggressive undertone was... palpable. Round 2: Team B - The Coordinated Rejection Two weeks later... Different team, same tribe, but apparently communication flows freely between teams. Opened with \"So you already failed one, but apparently you know how to pass interviews\" and wrapped up in 15 minutes. Efficient, I'll give them that. Round 3: Team C - The Microservices Philosophy Exam Another week passes... Completely different tribe this time, yet somehow they also needed their own assessment. Because apparently surviving two team fits from different teams isn't enough data - they needed a third opinion on why I chose microservices architecture. At this point, I was genuinely curious about their decision-making process and wondering if there's a fourth tribe waiting in the wings. And interviewer had been working less than a year in the company. --- The \"Challenge\" Question Backfire When I asked about their biggest technical challenges last year, the answer was enlightening: \"We deployed a bug to production that wasn't caught in staging.\" Truly groundbreaking stuff. Really makes you wonder what kind of entrepreneurial genius they're expecting to hire for a senior role. --- The One-Way Street The entire process felt like a job application to an exclusive club rather than a mutual evaluation. They expect you to be thrilled by the opportunity while showing minimal interest in what you might bring to the table. Classic symptoms of a company that believes their paycheck grants them unlimited interview creativity. Final Thoughts After a month-long process, they ghost you. No feedback, no closure - just silence. Professional courtesy apparently doesn't scale with valuation. Advice for future candidates: Prepare your \"Why Revolut?\" speech, brush up on microservices philosophy, and maybe practice remembering database schemas from your previous jobs. Oh, and bring extra patience - you'll need it.",
+      "questions": [
+        "Why Revolut? What made you choose us?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW97333086.htm",
+      "title": "Sr. Software Engineer Interview",
+      "date": "May 14, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 2 weeks. I interviewed at Revolut in May 2025",
+      "interviewSection": "Overall, I had a positive interview experience. The process was smooth and well-structured, with timely communication throughout. The interviewers were friendly and made me feel comfortable. The questions were fair and relevant to the role.",
+      "questions": [
+        "Write an SQL query with aggregation."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW97205929.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "May 8, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut",
+      "interviewSection": "The interview process was long - it took me 6 weeks. I had 7 recruitment meetings in total, not counting the 'prep calls' with the recruiter. I think that is way too much time and resources spent on deciding whether to hire me or not, especially for a company that describes itself everywhere as being a 'fast paced environment'. The prep calls with the recruiter (Talent Acquisition Specialist) were very helpful, I felt like she really wanted me to get the job, she gave me list of all the topics that I could expect to be asked about during every stage and gave me tips on how to pass. The interview scheduling process was really nice for the first stages. I could just choose the time from the calendar with available slots. In later stages it wasn't that easy. I had to give my availability windows for the next few days and then wait up to 2 days for them to confirm which one they choose. Interviews were often postponed last minute and the interviewers were often a few minutes late for the meetings. I've passed the first four technical stages. I would say the difficulty was average. Knowing the topics beforehand, either from the recruiter or from here, made the preparation much easier. System design was probably the most difficult one, but I received a very positive feedback. Until this point everyone was really nice and interviewers spent a lot of time answering my questions. The recruiter told me that what's left is a 30 min team fit and if there would be no red flags I would be hired. Seemed easy, but wasn't so. I had 3 team fit attempts in total. The engineering managers didn't find my experience impressive. I've described projects that gave me promotion in my previous company, but they either said they seem too simple or not very technical. Some of the managers seemed rather rough and the conversations with them were not a pleasant experience. In the end I've received a feedback, which I think was mostly based on the last team fit, that while my technical skills are good enough, I was not enthusiastic enough about joining the company. This seems a bit absurd after spending so much time in the recruitment process, but on the other hand I'm not a very enthusiastic person, so perhaps they've made a good call. I think Revolut has a lot of great candidates, as the work is fully remote and the salary range is rather impressive. That's why they can reject candidates based on superficial reasons, there will be more candidates coming anyway, and it's better to avoid a mis-hire.",
+      "questions": [
+        "Create a system design of a hotel reservation system. Mobile app wants to book a room. To do it, you need to call 3rd party API which may not be reliable."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW96982124.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Apr 28, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (London, England) in Oct 2024",
+      "interviewSection": "I inerviewed at Revolut in April 2024 first, and then in October as well. The interview process is unncessarily long at this company. You have the first stage with the recruiter who asks you technical questions without having any underatanding of your responses. They are just after some buzz words. But if you’re working with Java you can get it right. And then I cannot really recall now, but there were one or two rounds of core java interviews. Maybe just one… It was really in depth, lots of internal working of the Java concurrency and multithreading libraries. With 20 years of experience, it was hard for me. This round was designed more for someone just coming out of the university with lot of lexical knowledge. I am more like practical guy, and luckily there was a pair programming exercise as well, where I could shine. I had to write a simple money transfer class. Obviously, focusing on concurrency. If you write the simplest thing coming to your mind, you’ll get this right. The next round was a database interview. They require in depth knowledge about indices and transaction isolation levels. If you use these things, and you know what are they, how and when to use them, that’s just the half of the job. You need to prepare for the “why”s… Just like the previous round, they need the theoretical knowledge and not the practical application of it. With my experience i’m better in practicalities, but after some learning and preparation, I got through this round as well. And then here we are, I failed the system design. Actually, twice. There were similarities between how I failed in April and October. I went ahead with the design after clarifying the requirements and some basic estimations about the required storage both times. At the first interview in April, we agreed with the interviewer that the 3rd party API what I need to depend on, is a safe one, it produces consistent results all the time. This is important, because that made the solution more appealing to a synchronuous system, just becauae of simplicity and it was easier to reason about that. I started to design the system and explained what I do. But before I finished with every previously agreed requirements, maybe 20 minutes before the end of the interview, the interviewer told me this: “You know what, let’s make that 3rd party API not safe and not consistent in responses!” Well, that was a bit unexpected, because I put significant effort in covering every edge case, and it also put the whole sync solution out of context and I had to restart… But magically, I managed to finish to design for every requirements, but obviously not at the detail how I originally planned. You can guess what was the feedback… Something like this: The candidate spent too much time on clarifying the requirements and estimating the capacities, so he didn’t manage to finish with all the requirements in time. They also mentioned that I needed significant guidance to make the system async. Well, I answered to Revolut that I don’t think 5 minutes is too long for clarifying the requirements, and this is what the practice videos they send out for preparation suggest. I also mentioned to them, that everything was finished, however I must have admitted not at that detail what I’d be proud of. But that happened because the interviewer changed the previously agreed requirements 20 mins before the interview was finished. No surprise, Revolut ghosted me. Until last October when they dropped me a message, obviously some template, saying they were amazed by my experience and performance in April and they’d like me to re-take the system design round. If I was that amazing why wasn't I let through to the next interview? I was a biz shocked at the first time. But based on my previous experience, I thought, I could do it, this time. Oh boy, I couldn’t be more wrong on this. At this time, I didn’t spent 5 mins on requirements. But at the end, I asked the interviewer if he was happy with the features what I plan to cover or he wanted to add something else as well. He was happy with it. So, I designed the whole system in time. I had to use a 3rd party API again. I went for a simple, but reasonable solution, because I didn’t want surprises at the end. And yes, I covered everything, designed everything. But I didn't have a good feeling about it, because despite I communicated clearly, and always said it out loud what I was doing and why I was doing that, the interviewer always asked for explanation for basically, everything. I know that's their job, but he did it in a way, that he wanted to express his superiority over me. At least that's what I felt. He was just a little bit more than half of my age (based on the looks), so I am sure, I've designed way more systems then he'd done, but, of course, I didn't mentioned it. And I was very polite even he wasn't and tried to reason about why I think my idea is the one what I should focus on. Or when he had a good point (yeah he had that once), then I made it part of my design. So, I hoped for his objectivity, because I covered everything what we agreed before and it looked to be OK. What do you think about the feedback... Yeah, I needed significant guidance on how to design a system and focusing on the most important things. I haven't talked about anything else, just the previously agreed requirements. Not more and not less. In this design I had to do something similar like when you book a flight ticket or cinema ticket. You know, you chose your seat, and then pay. And between this time the seats are reserved for you, and other customers cannot book it, This guy might not have done any of these before, because he wasn't familiar with the concept of booking a seat in cinema or on a flight. I am not saying that was my task, it wasn't but the core of the problem was very similar to this. And this was another huge \"mistake\" from me. I don't want to mention more, because it looks like everything was wrong what I did and how I did it. I thought the system design is an open ended interview questions. There are no right or wrong answers. But this guy only wanted to see his solution and wasn't opened for other approaches at all. So, I think, I've failed the interview before even starting it...",
+      "questions": [
+        "How does the Hashmap work?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW96071059.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Mar 23, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut (Porto, Oporto)",
+      "interviewSection": "They are very respectful, and I had a good experience with both HR and tech interview, always available to answer any question and I can see they're really rooting for you to successfully go through their process.",
+      "questions": [
+        "Code challenge regarding TDD, SOLID, Design Patterns and best OOP practices"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW95751797.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Mar 12, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut",
+      "interviewSection": "Technical part is 4 stages - screening q&a, live coding, more live coding and deeper q&a, system design. Each session preempted by recruiter “prep” call. All this was actually quite reasonable and realistic, no leet code. And preps were actually useful perhaps even a bit too revealing. And then after about 6 total hours spread across several weeks they start pairing you up with multiple engineering managers who quickly get disinterested because your past experience doesn’t fit their ideal profile - contracting roles? Instant red flag. Big data but not millions of users? Too bad. Internal platform in investment bank? No, has to be retail product and not enough users anyway. Etc etc. Like, it’s all literally right there on my CV we could have saved each other’s time from the start, why even bother reaching out? Looks like recruiter folk are gaming their KPIs (Revolut is famously driven by KPIs) that track interview stages separately.",
+      "questions": [
+        "Write a simple load balancer, implement money transfer between two accounts function, design hotel booking system."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW95498650.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Mar 3, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (Barcelona) in Feb 2025",
+      "interviewSection": "The interview process was quite structured and well-organized. It began with a call from the recruiter, who explained the overall process. The first stage was an online coding round, where you were required to write production-grade code that compiles successfully and is covered with comprehensive unit tests. Next came another coding round, where you were asked to write a simple function and then translate it into an SQL query—this formed the first half of the round. The second half focused purely on technical questions related to databases, architectural patterns, distributed systems, microservices, deployment, observability, and more. Following that was the system design round. You were given a vague description of a system that needed to be integrated into Revolut's existing environment. The expectation was that you would navigate through the ambiguity by asking relevant questions until the interviewer was satisfied with your solution. Unlike typical system design interviews that focus on large-scale distributed systems like YouTube or Google Drive, this round was centered on FinOps-related designs. Next came the behavioral round, followed by the team-matching round. Before each stage, a recruiter would conduct a prep session, giving an overview of the types of questions you might be asked and providing feedback from the previous round. One downside of the process was the lack of detailed feedback. If you failed any round, you would simply receive a generic rejection email with no explanation, leaving little opportunity to learn from any mistakes. A notable negative aspect of interviewing at Revolut is the rigid approach to technical questioning. There is little consideration for a candidate’s thought process or experience; instead, they expect instant, precise answers. For example, if asked about CQRS, you are expected to deliver a Wikipedia-style definition in just a few sentences. Similarly, failing to recall what each letter in ACID stands for would be considered a red flag. The volume of technical questions is overwhelming, so a strong grasp of fundamentals is essential. Overall, despite not making it to the final stage, I am still satisfied with the process. However, even if I had received an offer, I doubt I would have accepted it, given the overly mechanical nature of the interviews, Revolut’s reportedly harsh company culture, and the widely discussed lack of work-life balance.",
+      "questions": [
+        "A classic question in the interview involves implementing either a Load Balancer or a URL Shortener class using a Test-Driven Development (TDD) approach. This means you are expected to write test cases first and then develop the working code that ensures all tests pass. The code must be production-ready, thread-safe (avoiding deadlocks), and should incorporate well-known design patterns such as Strategy. Additionally, you are required to implement functionality that involves probabilities (e.g., random selection) and ensure it is covered by test cases. It is also expected that you mention how probabilities can be tested using statistical methods, such as equal frequency distribution."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW94583160.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jan 24, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied online. The process took 2 months. I interviewed at Revolut in Jan 2025",
+      "interviewSection": "Incredibly disappointing for such an on-the-face-of-it innovative company. The first round is a screening where in theory they explain the whole process and get to know you a bit better before asking some basic screening questions. The interviewer I got was hands-down the worst I’ve ever got. He was completely disinterested in me as a person and rushed through a slideshow on the process as a whole. I had to ask him to bring it back to even see the information, which seemed to annoy him. We then whipped through some general tech questions, which was extremely awkward as he was not technical in any way. You just had to say the answer he had written down on his notes. This was already extremely offputting and I had no intention of continuing the process from this initial point because of it.",
+      "questions": [
+        "If the hash of two objects are equal, does that mean the two objects themselves are equal?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW94319108.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jan 14, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "Declined offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut in Nov 2024",
+      "interviewSection": "The interview had 4 steps: 1. Recruiter call, where you will be asked standard tech questions. 2. Live coding. 3. System design 4. Team fit(it can be multiple teams). After each interview, you will hear from their recruitment department. It took more than a month because it was 1+ week of wait for the next interview.",
+      "questions": [
+        "Standard questions that were mentioned several times here about multi-threading in Java"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW94296645.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jan 13, 2025",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied online. The process took 2 days. I interviewed at Revolut (Madrid) in Jan 2021",
+      "interviewSection": "A waste of time. It was an interview with someone who clearly didn't know what he was talking about. This person just threw to me random questions such as \"do you have experience with hash maps?\" The final feedback was \"no experience with hashmap\"",
+      "questions": [
+        "Do you have experience with hash maps?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW93975801.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Dec 30, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (London, England) in Dec 2024",
+      "interviewSection": "Well, this was my third time interviewing with Revolut. The first time, I reached the system design round. Although I didn’t see any major red flags, I was ultimately rejected. I took the feedback positively and was confident about performing better in future attempts. The second time, I was rejected in the first round for using a traditional for loop, which seemed surprising, given that it was a logical choice in the context. Nevertheless, I accepted the feedback and worked on refining my skills further. The third time, I was rejected again in the first round without any feedback. During the interview, I followed best practices, understanding and discussing the requirements before jumping into implementation. I wrote comprehensive test cases, followed a TDD approach, and implemented the functionality as expected. However, none of this seemed to make a difference. What stood out this time was the coding exercise itself. It is well-known that Revolut’s coding challenges frequently involve either a Load Balancer or a URL Shortener. These aren’t particularly tough problems, especially in today’s AI tools that enable you to learn, implement multithreaded functionality, apply TDD, and address edge cases within an hour or so. I had prepared thoroughly and performed well, yet it didn’t matter. Interestingly, in all three interviews, I noticed that the evaluators for the system design and coding rounds came from the same region. This made me wonder whether unconscious biases—potentially influenced by ongoing geopolitical tensions—might have influenced the process. Of course, this is speculative, but it is something that stood out to me. After three attempts, I’ve come to terms with the outcome and have decided this will be my last interview with Revolut. In retrospect, I am relieved not to be selected, as these experiences raise concerns about how candidates are evaluated. If such issues exist in the hiring process, they could extend to the workplace culture. I hope Revolut reflects on these practices to ensure hiring decisions are based solely on technical merit, fostering an environment prioritising fairness, inclusivity, and professionalism.",
+      "questions": [
+        "Implement URL Shortener in Java"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW93733735.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Dec 17, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 3 weeks. I interviewed at Revolut",
+      "interviewSection": "A very pleasant experience - a recruiter will keep in touch with you between interviews and provide tips and notes on what to prepare for and what topics to focus on. I was rejected and in the feedback they mentioned that one of requirements was ability to deliver production-ready code quickly and under pressure, which makes me think I actually dodged a bullet.",
+      "questions": [
+        "a 3 (probably more) part question: 1. Implement a load balancer in Java that can register services 2. Add a random service selection algorithm 3. Add a round-robin selection algorithm everything should be tested."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW93732036.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Dec 17, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut",
+      "interviewSection": "The experience has been in line with the (low) expectations I had I have been contacted for a Senior Engineer role. Initially i wasn't sure I wanted to invest time in this process because i had heard something about ridiculous recruiting practices and a toxic workplace. Meeting a good recruiter, though, made me change my mind and think \"let's give this a try\" The first stage was a live coding session. The problem at hand was quite simple, the critical part of the interview was to show that you write your code incrementally and test every single tiny case. They might also ask you \"unconventional\" things like to write a test verifying that the result of a method call is random The second stage was a \"tech call\" which involved more coding (extremely simple this time) and few questions about DB (isolation, indexes) , Resilience patterns, Deployment strategies etc. I was told to be prepared with a solid theoretic foundation, but when i have tried to go deep into these topics, i have found out that the expected answers were way more practical. This resulted in me wasting some interview time (which is a very important aspect for them because, more than the interaction with the candidate, it seems that they have to fill in a checklist of things you have answered) The third stage was System design. The interviewer has given me a brief and (intentionally, I guess) very vague description of a product to design. Even though there was some misunderstanding here and there, I was able to discuss all the requirements, propose a solution, answer a few challenge-questions the interviewer asked me by extending the proposed design and describe provided API; in a nutshell, I have managed to finish the task and I felt there were no red-flags detected from the interviewer. Plus, he told me that i was gonna receive a feedback in max. 2 days After that call, Revolut has disappeared from my life. I have dedicated a lot of time to prepare myself for these interviews (more than it requires TBH) and this is the way i was treated. Even if for some (unexpected) reason the last round went bad, I won't never know what this reason is, but reading from other experiences here, it's possible that it's not gonna be something i can really work on (apart from just increasing my luck) On top of that, the \"good recruiter\" seemed have let me down too because, after being extremely nice, empathetic and supportive, he's just ruthlessly ghosted me if this is the way they treat their potential employees, i can't imagine what it means to be an actual employee. Moreover, from the questions I have asked to various interviewers, I have tried to understand if they were excited and motivated about working in Revolut and from their body language I got a subtle feeling that the opinion was \"I regret to be here\"",
+      "questions": [
+        "Mostly things about concurrency and DB isolation"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW93729319.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Dec 17, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 4 weeks. I interviewed at Revolut (Warsaw, Masovia) in Oct 2024",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW93311826.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Dec 2, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 4 weeks. I interviewed at Revolut in Aug 2024",
+      "interviewSection": "The interview process was very friendly. The HR team provided information on everything. Everything was very clear.Before each interview, the HR team had an informational meeting. The interviewer was very helpful during the technical interviews.",
+      "questions": [
+        "Classic questions were asked. Why Revolut? What projects at your current job have challenged you?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW93096054.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 22, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (London, England) in Nov 2024",
+      "interviewSection": "Be prepared to go through a 5 stage interview process..yes you read that right, 5. I started out our initial call with an internal recruiter and the experience quickly turned sour. The recruiter's lack of technical knowledge was evident, and they seemed more interested in testing my ability to recall specific terminology rather than assessing my actual skills. Any answer that wasn't word-for-word accurate was met with condescending tone which was frustrating. To my surprise, the recruiter told me I had moved on to the next stage, which was supposed to be a technical round. However, I soon realized that this was actually the first stage, and I was expected to proceed with the live coding round. The live coding round was a disaster. The interviewer was late, showed little interest in our interaction, and provided a vague problem description for a URL shortener challenge. I had to spend 15 minutes clarifying the requirements, which was unacceptable. I was expecting a more structured approach like a GitHub repository or a hackerrank interface. After completing the challenge, I received a passive-aggressive email stating that they were looking for specific skill sets. In reality, it seemed they were looking for someone who could memorize a vast amount of technical terminology, rather than a developer with actual skills and experience. Overall, I was disappointed and frustrated with the interview process. It was a waste of my time and energy, and I would not recommend this company to others.",
+      "questions": [
+        "Do you know the difference between x and y?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW92567783.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Nov 5, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (Barcelona) in Nov 2024",
+      "interviewSection": "Recruiter approached with a questions regarding database, data structures, java and concurrency. After answer it they scheduled a first interview with HR. More of the same. In the living code interview, interviewer gave some load balance tasks like register an unique load balancer and to implement a random algorithm to get a load balancer instance. While applying clean code practices and strict TDD from scratch - no engagement from the interviewer side at all. Although I was talking through my mental process all the time, little interactions were made. At the end, Interviewer only made one question in 45 minutes: how should you make a test if you want to be certain if the random algorithm was working? As I already implemented the test using a simple logic of getting at least one of several instances, he said that a way of doing it is trying thousands of times (exponentially speaking). It striked me as a surprise once tests should be deterministic and the given solution is not deterministic at all. Not taking into consideration the CPU and memory wasted. I mean, it's a random algorithm. After 1 day they vaguely replied that \"after much consideration, we have decided not to proceed further with your application, as we require more specific knowledge to be successful in our recruitment process\". That's it. I have no idea what this means. No feedback. No explanation after surviving 1 hour of me trying to read interviewer's reaction. The only \"humane\" part was the contact by the recruiter. All the rest was a set of trap questions that you must answer what they want to hear. This was my second and last attempt to enter in this company and after giving them some credit, process is flawed. They're looking at someone that would answer exactly what they wanna hear.",
+      "questions": [
+        "Give me examples of concurrency problems. Give me one example of algorithm to store data in a database. What's the difference between sharding and replication?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW92422896.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 30, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (London, England) in Oct 2024",
+      "interviewSection": "The interview process consisted of four stages: a coding interview, a coding and discussion session, a system design interview, and a product-focused interview. The questions mostly revolved around concurrency, database indexes, isolation levels, and other general concepts. The focus was primarily on foundational knowledge, and overall, the interviews were relatively straightforward. I reached the second stage and received a feedback call after the first interview, where they outlined the topics like concurrency, database indexes, and transaction isolation levels. They mentioned I got great feedback. The second interview, in my opinion, went just as well. I wasn’t stuck on any question, made no mistakes, and even finished with 10 minutes to spare. It was purely technical, so I was confident in the outcome. However, I received a vague rejection email with no feedback call this time. I reached out to the recruiter for feedback but was completely ignored. Wasted 2 days and had to take a half day off work. Given this experience, the rumors about the toxic work culture might hold some truth",
+      "questions": [
+        "Implement load balancer with in memory persistence"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW92274604.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 25, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "Declined offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 1 week. I interviewed at Revolut (Vienna) in Aug 2024",
+      "interviewSection": "The interview process at Revolut is highly professional, beginning with an HR interview to evaluate the candidate's alignment with the company’s culture and values, followed by several rounds of technical questions and assessments that thoroughly test the candidate's skills, problem-solving abilities, and adaptability to complex",
+      "questions": [
+        "There are some routine questions and some technical questions specific to the position"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW92203316.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 23, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 4 weeks. I interviewed at Revolut",
+      "interviewSection": "The interviewer asked me to perform overly strict and impractical TDD, such as testing whether an empty method throws an exception. While I understand the intent to assess my TDD capabilities, addressing both TDD, concurrency and JDK knowledge in such a short time frame requires more time. I followed the strict TDD approach as instructed, but 20 minutes into the 45-minute session, I was asked to move on due to time, leaving me with only 25 minutes to tackle the actual requirements, of which I completed 2 out of 3. In their feedback, they mentioned I hadn’t written tests for all requirements and validations. Expecting full test coverage and concurrency implementation in 25 minutes is simply impractical. Additionally, they pointed out that I didn't know more differences between URI and URL beyond the basic difference that one is a resource identifier and the other a resource locator. Are they assessing memorization or programming abilities? Those are details that can be easily looked up. So, after reviewing the documentation and learning all the differences, am I now a better programmer? Such criteria feel misguided. I demonstrated a solid understanding of concurrency and TDD, yet I didn’t progress to the next stage due to minor issues that I intentionally skipped to save time. Do they want to evaluate if I can test all the null checks, or do they want to assess advanced programming skills? It felt more like they weren't genuinely hiring.",
+      "questions": [
+        "Load balancer, register and retrieve instances."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW92193692.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 23, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I interviewed at Revolut (Madrid)",
+      "interviewSection": "I had a first brief interview where they asked about database concurrency using fancy words so study those words if you need to pass the first interview. For example ACID.",
+      "questions": [
+        "Are you familiar with ACID principles?"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW92122314.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 21, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (Madrid)",
+      "interviewSection": "I was approached by a recruiter on LinkedIn for a Senior Software Engineer position at Revolut. With around 10 years of experience across multiple business domains and tech stacks, I was excited to explore the fintech sector. The initial interaction was with a recruiter who scheduled a call with a technical recruiter. The call felt more like a superficial checklist rather than an in-depth evaluation. The questions were general, basic, and didn’t dive into any real technical expertise. I started the interview process in mid-September. The first round was a coding interview with one engineer. I was tasked with building a load balancer for a maximum of 10 services, and the interview consisted of multiple tasks. I managed to solve all four tasks, including TDD and concurrency. My advice here: keep it simple. They asked for things like ensuring services were unique, which might lead you to think a Set or Map would be appropriate. However, they seemed to prefer an ArrayList and manual validation logic. It felt like they were more focused on following a rigid checklist rather than evaluating real-world problem-solving skills. The first interview was uncomfortable, largely because the interviewer was extremely rude and unengaged. To my surprise, I passed that round. The second technical interview took place two weeks later. The experience was worse. The interviewer arrived 7 minutes late, didn’t introduce himself, nor did he ask me to introduce myself. To make matters worse, he wasn’t prepared with the question and asked me to talk while he searched for it. I humorously tested if he was paying attention by saying random things—he wasn’t. Once we got to the task, I had to implement a money transfer operation using an Account class. I built the Account class, maintaining thread safety with a ReentrantLock and applying all the necessary logical validations. The task required finding the correct type for the transfer amount, and I initially used double and proceeded with the implementation. The rest of the interview involved SQL, where I answered around 15 questions, including writing an optimistic locking query, which I completed correctly. Toward the end, we moved to theory questions covering topics like deployment, production, rollbacks, and monitoring—about 40 questions in total. After all that, the interviewer said, \"I wish you had solved the coding question!\" Surprised, I asked why. He responded, \"You used double for the transfer amount, which is incorrect.\" Although I immediately acknowledged that BigDecimal would have been more appropriate (recalling an issue with fractions from years ago), he bluntly stated that since I didn’t use it from the start, he couldn’t mark it as solved. It became clear that the interviewer was following a strict checklist rather than truly evaluating my overall solution and technical knowledge. He seemed more focused on ticking boxes than understanding my thought process or experience. Having been through countless interviews, including at companies like Amazon and Google (Where I work), this was one of the most frustrating and disorganized experiences I’ve encountered. The rigid, outdated approach made me question whether I’d even want to continue the process. Before receiving any feedback, I had already decided that I didn’t want to work at a company where the interviewers demonstrated such narrow-mindedness and a lack of professionalism.",
+      "questions": [
+        "Technical Recruiter round: SOLID, CQRS, Concurrency challenges, Threads, SQL and NoSQL, DataStrucutres (Very basic)"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW92071116.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 19, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied online. The process took 3 days. I interviewed at Revolut in Oct 2024",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW91972662.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 16, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (London, England) in Oct 2024",
+      "interviewSection": "I advise people not to waste their time. I wish I read others reviews before bothering. 5 stages of interview, initial screen with internal recruiter was fine. Coding challenge was a nice challenge. I would say I did it almost all right with TDD and explaining my thoughts and fulfilled all their requirements. Was just core java which I have 15+ years experience. I've interviewed many people and know exactly what is being looked for. The interviewer seemed unengaged for some reason. I just got an email back to say they thought about it and decided no. And said for me to learn their tech stack and come back. I was only tested on java. I also have architected and written full products including pipelines and all the cloud infrastructure as code so have plenty of experience in many tech stacks. As for the role, they seem to just write java and are quite old school where the engineers don't touch any of the devops side. They have a very basic career path but I would like to thing that would change as they mature as a company. The main problem with the interview though is I asked for feedback from the recruiter I dealt with and the initial recruiter that reached out to me. Both of which didn't have a level of professionalism to respond. Maybe worth in a few years when they matured a little as a company",
+      "questions": [
+        "Initial questions were basic like what is ACID, CQRS, equals and hashcode."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW91799616.htm",
+      "title": "Senior Software Developer Interview",
+      "date": "Oct 10, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut",
+      "interviewSection": "I went through the first 2 stages. The coding part was a bit weird, you would think that you did everything right, but then they reject you based on some reason like a best practice you did not use in your unit test. Even if you developed a correct solution with concurrency and all! It seems they try to pick on every single thing NOT to hire. My advice: do not waste your time with this interview process. However, I see this the oppinion of most people here and developers still go to interviews, probably because of the remote work, most companies require at least hybrid now.",
+      "questions": [
+        "Implement load balancer, concurrency, tests."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW91371139.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Sep 26, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through a recruiter. The process took 2 months. I interviewed at Revolut",
+      "interviewSection": "The hiring process is smooth but it is more like the cracking of the tech interview process. The hiring team is helping you through the process, I haven't been involved in that long hiring process before, and also not it system design, not in database sharding processes, etc. If you got the interview invitation and are in the same situation as me, just try to watch some YouTube videos about the areas you are not strong enough and read some articles, maybe how core banking works, etc. I guess, it should be fine to crack the process. I did those after each step I got through so it did not help of course. Good luck.",
+      "questions": [
+        "The 1st is a coding challenge. You are expecting to implement a hash map based solution. The 2nd is questions about threading, database locks, acid, sharding, etc. The 3rd is about system design. Mine was an ATM refill design."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW91346956.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Sep 25, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied through a recruiter. I interviewed at Revolut (Kraków) in Jun 2023",
+      "interviewSection": "First Round - Basic questions. Easy one. Second - live coding. I wouldn't say its difficult , but you have to follow SOLID, KISS etc. You have to code fast and keep good quality. I would say you have to be prepared. Since I was not really looking for a job and it was just curiosity I failed.",
+      "questions": [
+        "What is Cqrs, event sourcing"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW90777619.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Sep 6, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut",
+      "interviewSection": "The hiring process for a Senior Python Software Engineer at Revolut typically involves several stages designed to assess technical skills, problem-solving abilities, and alignment with the company’s mission. It includes: 1. Initial Screening: Reviewing your experience, primarily focusing on Python, distributed systems, and databases. 2. Coding Tests: Live coding sessions where candidates solve Python-related problems in real time. 3. Technical Interviews: Deep dives into system architecture, security-first design, and problem-solving. 4. Bar Raiser: Ensuring high standards for both technical and cultural fit ￼ .",
+      "questions": [
+        "Been asked about the cap theorem. Load Balancer."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW90505752.htm",
+      "title": "Senior Software Engineer InterviewAug 28, 2024Anonymous Interview CandidateNo offerPositive experienceAverage interviewApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut in Jul 2024InterviewThe interview process at Revolut is thorough and consists of five rounds:",
+      "date": "1. Technical HR interview",
+      "candidate": "2. Live Coding interview",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW90003888.htm",
+      "title": "Senior Software Engineer InterviewAug 12, 2024Anonymous Interview CandidateDeclined offerPositive experienceAverage interviewApplicationI interviewed at RevolutInterviewoverall smooth well set process",
+      "date": "had to go through some of coding, system design, behavioral interviews.",
+      "candidate": "all interviews were conducted online using collaborative coding/design tools.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW89964463.htm",
+      "title": "Senior Software Engineer InterviewAug 10, 2024Anonymous Interview CandidateNo offerPositive experienceAverage interviewApplicationI applied through a recruiter. I interviewed at RevolutInterviewScreening with hr then coding interview mainly about concurrency. Not so difficult , the interviewer will ask questions and give hints. Overall good experience. Nothing more to say about it.Interview questions [1]Question 1Concurrency coding problem and questions about it.1 AnswerHelpfulShare1",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW89262955.htm",
+      "title": "Senior Software Engineer InterviewJul 18, 2024Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI interviewed at RevolutInterviewFirst interview with HR.",
+      "date": "Second interview was a live coding challenge, that was really disappointing. Some considerations here:",
+      "candidate": "- They ask you to build a load balancer, and I was aware of it in advance, so I was able to properly prepare for the interview, even I coded it before interview to practice.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW88900067.htm",
+      "title": "Senior Software Engineer InterviewJul 6, 2024Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied online. The process took 2 weeks. I interviewed at RevolutInterview2 Tech rounds and then HR round, Overall stupid process, useless and laid back interviewers who don't know a damn thing themselves.",
+      "date": "Judgmental on stupid things like Optional, java streams, etc.Interview questions [1]Question 1Write a URL shortner which doesn't allow more than 100 URLs to be stored.",
+      "candidate": "I thought, wait, these guys waited for 14 days, just to ask me this? And overall interviewer kept me in skepticism, and doubtfulness, and later rejected out of nowhere. No proper communication.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW88800336.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jul 3, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 1 week. I interviewed at Revolut in Jun 2024",
+      "interviewSection": "Total disgrace, interviewer didn’t show up, wrote emails to everywhere. No one responded, very unprofessional recruitment process. I've applied to the same role to start process again, this time didn’t even respond to my application",
+      "questions": [
+        "Available time for screening interview"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW88726576.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jul 1, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut (London, England)",
+      "interviewSection": "I have given my first round of interviews, a live coding round, a positive experience, and the interviewer is friendly. 1. one coding question and the interviewer asked about the improvements.",
+      "questions": [
+        "coding question on URL patterns"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW88602672.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jun 26, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Easy interview",
+      "applicationSection": "I applied online. The process took 4 weeks. I interviewed at Revolut (Kraków) in Jun 2024",
+      "interviewSection": "5 stages of interviews, screen call with recruiter, coding interview, tech discussion, system design, team fit. Passed all stages, but haven't received either offer nor proper feedback. I literally received \"we have concluded that another candidate was more closely aligned with the job requirements and to our team\". It is really weird, considering that I somehow managed to get to the final round which is team fit. What was the point of all previous stages if you rejected me on pretty much a formality (in my opinion) stage? I almost sure that they didn't find another candidate because they hire all the time But this is all speculations, because I didn't receive a proper feedback which is not cool, Revolut. For anyone who really want to waste theirs time the only interview that is \"hard\" to pass is the coding challenge. It is \"hard\" but not in a way you think. They will give you one of two tasks - write simple load balancer or tinyUrl implementation. It is pretty straightforward problems, the hard part is that interviewer will nitpick every decision you make. For example, in problem stated that only 10 instances allowed and you need to constraint it. Normal solution would be to have a capacity field that passed in a constructor and binding and validation logic happen outside (in factory or if you are using some kind of container in configuration class) of load-balancer constructor, which I did. But the interviewer said that this is really bad and the problem states that you should limit it with a hardcoded static value of 10 and not any other way. The other really weird complain was that I use a set for a deduplication of instances instead of list quote: \"Because we have constraint of 10 max instances the proper collection for this class is a ArrayList, and not HashSet, because checking 10 instances is a constant time\". I was so pissed off that wanted to end the interview at that point. I mean, you expect me to write this kind of code for you as well? All other rounds was ok, nothing challenging or weird really, so focus on the coding part and try to do everything as dumb and simple as possible, so interviewer wouldn't have a chance to nitpick any of your decisions. But for anyone sound: just don't waste your time, except you really want to work there for some reason. P.S. I got an offer from Google, so I guess I'm senior enough for them.",
+      "questions": [
+        "Implement simple load-balancer with max of 10 instances and different load-balancing strategies support(round robin and random)"
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW88594521.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jun 26, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Difficult interview",
+      "applicationSection": "I applied through an employee referral. The process took 4 weeks. I interviewed at Revolut in Jun 2024",
+      "interviewSection": "I have made it to the system design session: the first 2 were pretty smooth, challenging but fair. My feeling changed when I have done the system design: I have felt like the interview was kind of closed, with an expected solution instead of an open question, because all the questions were: \"Could this work if we use this instead? Let's change it\". It left me with a bittersweet feeling of not having had a fair chance to shine and a fair evaluation.",
+      "questions": [
+        "They were questions related to changes that the interviewer wanted on the project. I won't disclose them because it's not fair towards Revolut."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW87928517.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Jun 4, 2024",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I interviewed at Revolut",
+      "interviewSection": "I had one interview with a recruiter first with some technical questions. After that, I did a live coding session. I solved all problems and did all changes required. I received a generic answer discarding me next day without giving me any feedback.",
+      "questions": [
+        "ACID, Hashmaps, TDD live coding session."
+      ]
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW87341599.htm",
+      "title": "Senior Software Engineer InterviewMay 16, 2024Anonymous Interview CandidateVilniusNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. The process took 4 weeks. I interviewed at Revolut (Vilnius) in May 2024InterviewThe technical interview started with some weird requirements. They said in an email, \"Please make sure you are able to share your screen, have a strong Wi-Fi connection, laptop, and a working camera, headset with microphone.\"",
+      "date": "But what if I have a PC with an RJ45 connector instead of a laptop and wi-fi? Ok, never mind...",
+      "candidate": "They suggested training at HackerRank to prepare for the interview, but HackerRank is algorithmic in nature, while their task was just the implementation of a simple \"load balancer registry\" which should store no more than n instances. Pretty simple solution. After implementation, they were asked to write unit tests for every scenario. For this, I should have added a maven JUnit dependency. After all, I've been asked regarding thread safety, which was not in the requirements.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW87299985.htm",
+      "title": "Senior Software Engineer InterviewMay 15, 2024Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. The process took 1 week. I interviewed at Revolut in May 2024InterviewUnfortunately, it was the worst interview of my life. It is not about the question itself but an unprofessional approach to feedback + evaluation. First of all, in every stage of communication, it was clearly mentioned that I would get feedback in 48 hours either way. But it was not the truth. It took 5 days to get the response and only after I dropped an email about asking the status. And the feedback itself was totally baseless. The task was to create a \"urlShortener\". My solution was fully capable and working in O(1) time complexity. I even did the TDD approach and my tests are also there and running.",
+      "date": "I was rejected due to using \"non-thread-safe data types, mutable statements and objects\" - There was no requirement for multithreading in task definition, and in the interview preparing document it was mentioned to avoid unnecessary overhead such as multi-threading and interfaces. Another feedback was due to some tests being ambiguous - which again I strongly disagree. The task was simple, so the tests were simple and clear.Interview questions [1]Question 1Write a simple urlShortener that gets the original URL and returns a shortened URL and vice versa.Answer questionHelpfulShare5",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW87259802.htm",
+      "title": "Senior Software Engineer InterviewMay 14, 2024Anonymous Interview CandidateWrocławNo offerNeutral experienceEasy interviewApplicationI applied through a recruiter. The process took 5 days. I interviewed at Revolut (Wrocław) in Apr 2024InterviewI had a short call with a recruiter, who told me about the company and asked a few questions about my experience and technical knowledge.",
+      "date": "After 2 days, I received a feedback, saying my answers were clever and correct, but they don't want  to continue the recruitment process with me...Interview questions [1]Question 1What's the time complexity for the get method in HashMap?Answer questionHelpfulShare1",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW87071898.htm",
+      "title": "Senior Software Engineer InterviewMay 8, 2024Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied online. The process took 2 weeks. I interviewed at Revolut in May 2024InterviewThis was not an interview, but the interviewer’s self-assertion by humiliating the candidate. The test itself is not aimed at identifying your experience or depth of knowledge, but simply whether you can code quickly. After the task there are comments like “yes, your level is definitely not up to the level of Revolut”, “you position yourself as a Senior, why don’t you have developed live coding skills”, “knowledge in testing is rather weak”. How did you manage to understand this on some elementary boilerplate cases that are usually not written by hand?",
+      "date": "There were no questions at all about the intricacies of multi-threaded processing, atomicity and asynchronous collections that the recruiter spoke about. There were no Senior level questions either.Interview questions [1]Question 1Just a simple project to complete. Read Android Recommended Architecture article + an article about Clean Architecture on Wikipedia and you will manage.1 AnswerHelpfulShare2",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW85996168.htm",
+      "title": "Senior Software Engineer InterviewApr 4, 2024Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. I interviewed at RevolutInterviewFirst I did an interview with the recruiter, he was very kind and helpful, he asked me some technical questions and explained the rest of the process.",
+      "date": "Afterwards I did live coding, which was not excessively complex and I was able to continue the process.",
+      "candidate": "The third interview was half live coding, with an exercise mainly to evaluate my knowledge about concurrency, and a theoretical part. This part seemed a little unfair to me since I was able to find a solution that I think was efficient, although it was not the most efficient. In the theoretical part I answered most of the answers briefly, because we had less than 30 minutes, and hoping that if they wanted to go deeper into a topic, they would tell me, but it didn't happen and it was a negative point on my side.Interview questions [1]Question 1Database indexes, isolation levels, partition vs sharding, cqrs, stability patterns, types of deploymentsAnswer questionHelpfulShare14",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW84967869.htm",
+      "title": "Senior Software Engineer InterviewMar 4, 2024Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied online. I interviewed at Revolut in Feb 2024InterviewI sat my 'live coding' interview a week ago and still have not been told if I have passed or not.",
+      "date": "My experience during the first round interview was good. I was caught a little off guard by being asked some technical questions during this round but I assume that is by design. I was then invited to book a `live coding` interview along with instructions on how best to prepare and the expected coding environment that needed to be setup and working prior to the interview starting. All very professional I was fairly impressed.",
+      "candidate": "The `live coding` interview was OK. They put a large emphasis on using TDD but also completing the task to a production quality. These two concepts do work a bit against each other when you have such a small amount of time. Eg: For a production quality function I would (and did) spend a lot of time validating the input to the function. (eventually the interviewer did tell me to not worry anymore with input validation) but by then I had wasted a bunch of time. The interviewer did not provide me with any kind of requirements which again goes against the time factor by having to build my own set of requirements by asking questions or coding in the wrong direction for some time.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW84715182.htm",
+      "title": "Senior Software Developer InterviewFeb 25, 2024Anonymous Interview CandidateWarsaw, MasoviaNo offerNeutral experienceAverage interviewApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (Warsaw, Masovia) in Jan 2022InterviewIt is a big corporate so review was a regular interview with standard questions. After answering them I got technical verification on which I was asked basic Java Script tasks. Boring...Interview questions [1]Question 1Why you want to work for us1 AnswerHelpfulShare",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW84407114.htm",
+      "title": "Senior Software Engineer InterviewFeb 15, 2024Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. I interviewed at Revolut in Feb 2024InterviewThis is my first time writing a negative review. Initially, the process seemed promising with a pleasant interview conducted by the lady recruiter, who even conducted a basic technical screening. However, the subsequent interview left much to be desired. I felt as though I was being assessed by someone lacking the necessary qualifications for the role. The interview  was relatively straightforward, covering topics like multithreading and data structures—areas in which I have extensive experience spanning 13 years, with positive feedback from previous employers on complex technical solutions. Upon reviewing the interviewer's LinkedIn profile, I discovered they only had four years of experience.  It was like explaining the intricacies of car transmission to someone who insists on starting in first gear after hitting a bump on a high speed, despite me knowing it should be  at least the second.",
+      "date": "Moreover, the interviewer failed to articulate their questions clearly; for instance, when asking about the determinism of a method, they expected a new test using a mock, despite the interview guidelines explicitly stating no libraries or frameworks were allowed (hello Mockito).",
+      "candidate": "after I found out what he really expects, I explained the way it could be done with a mock, but normally people without interview experience do not count the answer when its not exactly as they planned.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW83179144.htm",
+      "title": "Senior Software Engineer InterviewJan 9, 2024Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. The process took 1 week. I interviewed at Revolut in Jan 2024InterviewI was contacted via Linkedin. First I had an interview with HR, they were a little bit late to the call but it was ok, I liked that they were pretty clear explaining the next steps.",
+      "date": "Second interview was a live code interview. Folk was nice and talkative, but expectations were not clear enough of what they wanted from me. The resources shared with me talked about being fast and building a tested software but in the end I got rejected for not knowing by heart the algorithm performance of a Set.",
+      "candidate": "To be as fair as I can, I'll keep my opinion of how important that is to a software engineer to know those things by heart to myself. You can judge yourself.Interview questions [1]Question 1Some questions about concurrency, testing and performance.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW82995392.htm",
+      "title": "Senior Software Engineer InterviewJan 3, 2024Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied online. The process took 2 weeks. I interviewed at RevolutInterviewThe interview questions were not the typical DSA questions. Instead, they focused mainly on Java concurrency, databases, ACID, and related topics. Overall, the questions were quite easy, especially if you are confident with concurrency.",
+      "date": "However, what I disliked the most was the HR representative who was supposed to give me feedback after the interview just disappeared. HR should be the face of the company, but unfortunately, that was not the case here. It shows how poorly they treat people. Many employees have complained about how they have been treated, and this experience with HR only reinforced their complaints.",
+      "candidate": "In summary, this was the worst HR experience I have ever had.Interview questions [2]Question 1Write simple Load balancer class in JavaAnswer questionQuestion 2Write thread safe Java class that transfers money from account A to account B Answer questionShow all 2 questionsHelpfulShare15",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW82040938.htm",
+      "title": "Senior Software Engineer InterviewNov 23, 2023Anonymous Interview CandidateNo offerNegative experienceDifficult interviewApplicationI applied online. I interviewed at RevolutInterviewI had the interview with the hr and she was in a rush, asking questions very fast and difficult to understand, and probably doens't catch the idea if you are talking about something because she only know the exact answer and ignore the similar ones. A lot of database related questions while they are not looking for a dbaInterview questions [1]Question 1too many therotical questions related to dtabase read and write Answer questionHelpfulShare5",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW81450746.htm",
+      "title": "Senior Software Engineer InterviewNov 1, 2023Anonymous Interview CandidateLondon, EnglandNo offerNegative experienceAverage interviewApplicationI applied online. The process took 2 weeks. I interviewed at Revolut (London, England) in Oct 2023InterviewIt's a lengthy process and I didn't go past the first coding interview. First you have a call with the recruiter that follows a scripts and will ask you a bunch of questions. Topics include: ACID, HashMap time complexity, database indexes, difference between backwards and forwards compatibility, difference between sharding and partitioning.. Lots of questions can't remember all of them. If you get through that, it will be the first coding interview. They tell you to set up a simple (no framework) java project beforehand, and during the interview you will receive some instructions. I was asked to code a load balancer. The requirements will force you in a way that you will be forced to make decisions about concurrency. The interviewer was nice, but it's incredibly disappointing that their style of interviewing seem to be biased to make people fail. They will put in a trap and make you think of a solution in 10 seconds. If you don't, they will fail you. It's not at all a representation of real life work. No wonder you almost never see anyone getting an offer, they must enjoy spending money on recruitment. In my view, I was able to find adequate solutions for all the problems he forced me into. And he sometimes just disregarded some simpler solutions like making the LoadBalancer class immutable. Like many other companies, the recruitment process of Revolut is simply broken. Won't be applying again.Interview questions [1]Question 1What's the difference between ArrayList and LinkedListAnswer questionHelpfulShare7",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW80925008.htm",
+      "title": "Senior Software Engineer InterviewOct 13, 2023Anonymous Interview CandidatePortugalNo offerPositive experienceAverage interviewApplicationI interviewed at Revolut (Portugal)InterviewI had a first iteration for now, it was a screen interview with hr/technical guy. All went well, the took 30 minutes about myself, my motivation and so on. After that we had a session with several technical questions in format question - answer. Level of questions was ok, interviwer behaved well friendly and polite, there was nothing to complain aboutInterview questions [1]Question 1Acid principles, concurrency in javaAnswer questionHelpfulShare1",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW79754238.htm",
+      "title": "Senior Software Engineer InterviewSep 4, 2023Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied online. I interviewed at Revolut in Aug 2023InterviewI was interviewed for a Senior Software Engineer position at Revolut. I was rejected after the second step. The first interview was with a recruiter, the communication was not great, as the recruiter accent wasn't the best, made it very difficult to follow. I was asked some technical questions by the recruiter, whom clearly didn't understand if my answers were correct. Second stage was with a Senior Engineer. I've done what was asked, even performed some improvements asked by the engineer. But in the end got rejected, no proper feedback was given, just the ordinary email rejection template. Honestly I feel that the engineer didn't want to hire me for some other reason as everytime, the engineer identified some limitation I was able to solve it. I think maybe in revolut, people are just expected to know the interview in advance and prepare for it like a robot instead of doing it in an iterative way. Still I think the questions are interesting and the problem was interesting.Interview questions [1]Question 1Concurrency issues, sharding, replication, cqrs, event sourcing, solid principles, acid database characteristics or even transaction isolation levels. Write a thread safe loadbalancer api in a tdd approach.Answer questionHelpfulShare6",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW79749454.htm",
+      "title": "Senior Software Engineer InterviewSep 4, 2023Anonymous Interview CandidateMadridDeclined offerNeutral experienceDifficult interviewApplicationI interviewed at Revolut (Madrid)InterviewEl proceso de entrevista careció de claridad en las expectativas técnicas, con preguntas irrelevantes y un panel poco preparado. La falta de retroalimentación y comunicación post-entrevista dejó una experiencia desalentadora.HelpfulShare4",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW78714951.htm",
+      "title": "Senior Software Engineer InterviewJul 31, 2023Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. The process took 2 months. I interviewed at Revolut in Mar 2023InterviewTwo technical rounds. First one with live coding and writing tests, second with little coding and technical discussion. Coding exercises related to multithreading. After technical rounds feedback was decent. Later I got 3 \"team fit\" interviews and got declined without any feedback.Interview questions [1]Question 1Multithreading, partitioning, sharding, transaction isolation levels, db indexes, generally stuff from Designing Data intensive applications bookAnswer questionHelpfulShare3Revolut response2yHi there,",
+      "date": "Thank you for letting us know about this.",
+      "candidate": "Sincere apologies for the lack of feedback. We're concerned about your comments due to the fact that we are radically truthful about each other’s performance and providing feedback is a crucial component of our workplace.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW77436410.htm",
+      "title": "Senior Software Engineer InterviewJun 16, 2023Anonymous Interview CandidatePorto, OportoNo offerPositive experienceAverage interviewApplicationI applied through a recruiter. I interviewed at Revolut (Porto, Oporto)InterviewThere were several interviews. Technical interview: coding task about concurrency (synchronization, read/write locks), deadlock. Also discussion about concurrency, DB, ACID, optimistic vs pessimistic, services, distributed systems. System design: task about designing net of ATM and checking their cash/balance.Interview questions [1]Question 1Compare optimistic vs pessimistic DB locking and when to use?Answer questionHelpfulShare5",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW77219549.htm",
+      "title": "Senior Software Engineer InterviewJun 9, 2023Anonymous Interview CandidateMadridNo offerNeutral experienceAverage interviewApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (Madrid) in Jun 2023InterviewI was approached by a recruiter. I had an initial interview with her, in which she asked about my background, and did some technical questions. Then I had a pair coding session to develop a Service Registry. Focused on TDD, and following up questions about concurrency and strategy pattern. My final round was a tech interview with 2 guys. It was a coding session to create a class for transferring money between accounts. Its main focus was concurrency. Then following up questions about isolation levels, indexes, optimistic locking, distributed patterns, DDD, CQRS. I have to say it was a weird moment when I said PKs are btrees by default in Postgres, and clustered indexes. One of the guys replied that I was wrong, and that PK by default are hashes. I think replying to your interviewing is a red flag over you, so I preferred not to. Looks like he did not have enough knowledge about what they were asking, and feels strange. On the next day, I received a generic rejection email. Through all the process, I feeled a bit \"ignored\" personally, in the sense that they do not want to know anything about you as a person. They only ask for a 1 minute presentation, literally. I had a lot of doubts about Revolut regarding their culture after reading reviews here and in other pages. This fact was just reinforcing that bad perception. Anyway, overall a good experience, with nice people and interesting questions.Interview questions [1]Question 1Develop a Service Registry using TDD. It can only have 10 records, and no duplicates. Then implement a get() method with 2 strategies: random and Round Robin. Develop a method which receives 2 accounts and makes a transfer. Has to have into account concurrency. Then following debate about SQL statements to make it concurrent, isolation levels, optimistic locking, indexes in DBs, DDD, CQRS, distributed logging, monitoring.Answer questionHelpfulShare16",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW77019503.htm",
+      "title": "Senior Software Engineer InterviewJun 2, 2023Anonymous Interview CandidateBarcelonaNo offerNeutral experienceAverage interviewApplicationI applied online. The process took 1 day. I interviewed at Revolut (Barcelona) in Jun 2023InterviewShort 20-30 minutes screening call with technical questoins and personal background. You're also presented with the company and position working conditions, potential salary and other benefits. There are other process stages but I only reached this far.Interview questions [1]Question 1- Transactions isolation levels - Concurrency issues - What is CQRSAnswer questionHelpfulShare2",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW76959980.htm",
+      "title": "Senior Software Engineer InterviewMay 31, 2023Anonymous Interview CandidateMoscow, MoskvaNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (Moscow, Moskva)InterviewGot a home assignment prior the first interview. It's common practice and it's ok. But it's been reviewed by them late in the evening. Being asked to do some additions to the assignment and the Interview was appointed immediately after my current job's working hours. Am I supposed to improve my assignment at night? Was a red flag for me implying that they like working in the off hours.Interview questions [1]Question 1Had questions about logging, distributed logging storage, managing and analyzing.Answer questionHelpfulShare",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW76832140.htm",
+      "title": "Senior Software Engineer InterviewMay 27, 2023Anonymous Interview CandidateBarcelonaNo offerNeutral experienceAverage interviewApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (Barcelona) in Aug 2022InterviewJust some standard Coding Challenges mostly focusing on speed and slightly on correctness too. If you work for a while to prepare your coding speed then you will find it easy mostly. However, they do ask you regarding Multithreading so you gotta have those concepts very clear beforehand.Interview questions [1]Question 1ACID properties, CAP theorem, Multithreading concepts, Sharding/Partitioning, DB indexes (pros and cons)1 AnswerHelpfulShare2",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW76104020.htm",
+      "title": "Senior Software Engineer InterviewMay 4, 2023Anonymous Interview CandidateNo offerNeutral experienceEasy interviewApplicationI applied online. The process took 1 week. I interviewed at Revolut in May 2022InterviewApplied to an offer in LinkedIn. Contacted by them, and scheduled the first interview. The first interview was just a 10 minutes talk with one interviewer. 5 minutes where she told me about Revolut and how they work, 3 minutes talking about my experience, and the rest for 2 plain questions about if I knew the complecity of a hashmap, and the meaning of transactionality. The questions were plainly read by her and there was no discussion at all, quite cold and. Rejected after it because of another more fitting candidate.Interview questions [1]Question 1Complexity of lookup on a hashmapAnswer questionHelpfulShare",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW72377920.htm",
+      "title": "Senior Software Engineer InterviewJan 6, 2023Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. The process took 5 days. I interviewed at Revolut in Nov 2022InterviewThe first part of the interview was a quick screening with a recruiter asking some simple technical questions. The second part was a live coding exercise with a software engineer where I was required to write a LoadBalancer. I did write the balancer (very well in my opinion) however I had a flaw in my code which was not thread safe. I found the flaw and fixed it, however the interviewer seemed quite disappointed that I made the mistake in the first place. I can't really tell as he was very quiet during the whole interview and gave 0 feedback and even seemed annoyed when I asked him a question. I received a rejection afterwards, again with no feedback. So my advice is to focus a lot on multithreading as it seems that a simple mistake there is a dealbreaker.Interview questions [1]Question 1SOLID principle, multihreading, database transactionsAnswer questionHelpfulShare7Revolut response3yHi there,",
+      "date": "Thank you for making us aware of this.",
+      "candidate": "At Revolut we are honest and truthful about each other’s performance and feedback is a crucial component of our workplace, we apologise this was not the case for yourself.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW72343614.htm",
+      "title": "Senior Software Engineer InterviewJan 5, 2023Anonymous Interview CandidateWarsaw, MasoviaNo offerNegative experienceDifficult interviewApplicationI applied through a recruiter. The process took 1 day. I interviewed at Revolut (Warsaw, Masovia) in Dec 2022InterviewThe interviewer did not show up for the screening meeting (accepted by both parties). After waiting in a call room and then contacting recruiter, got feedback that they are \"checking it\". Since that day till today over 3 weeks passed and there is silence.Interview questions [1]Question 1None. The interview did not happen.Answer questionHelpfulShare4Revolut response3yHello!",
+      "date": "Thanks so much for bringing this issue to our attention!",
+      "candidate": "We aim to provide an excellent candidate experience during the recruitment process, sincere apologies that you had a bad one.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW70575310.htm",
+      "title": "Senior Software Engineer InterviewOct 28, 2022Anonymous Interview CandidateNo offerPositive experienceDifficult interviewApplicationI applied through a recruiter. I interviewed at Revolut in Sep 2022InterviewThe interview process was quite comprehensive with good deep question, it consisted of 3 phases: coding part, technical interview part and system design part. I liked that questions was quite profound and deep. The interviewers were smart guys with deep knowledge in the field. It would be great to have such colleagues). I passed coding part, technical interview part, but did not pass system design part. So will prepare and apply latter.Interview questions [1]Question 1Money transfer between accounts in multithreaded environment.Answer questionHelpfulShare5Revolut response3yHi there,",
+      "date": "Thank you for taking the time to share your thoughts, we really appreciate it.",
+      "candidate": "We hope you enjoyed the interview process.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW66923322.htm",
+      "title": "Senior Software Engineer InterviewJul 20, 2022Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. The process took 4 weeks. I interviewed at Revolut in Jun 2022InterviewI was reached by a recruiter over linkedIn and then first HR round was scheduled. HR had some questions written and asked them. Once I cleared it 1st round of discussion was scheduled with 2 interviewer, in which this asked to write a java problem and their unit test. I covered all the scenario and it went well. After that I keep on following with HR for 2 week with the feedback and heard nothing back.  And after 4 week got a rejection mail from HR with my feedback which does not align with my interview. Seems they just want to waste your time and nothing else.Interview questions [1]Question 1ACID property, Java, Junits, no framework useAnswer questionHelpfulShare3Revolut response3yHello,",
+      "date": "Thank you for letting us know about this.",
+      "candidate": "We're concerned about your comments due to the fact that we are radically truthful about each other’s performance and feedback culture is a crucial component of our workplace.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW66504818.htm",
+      "title": "Senior Software Developer InterviewJul 10, 2022Anonymous Interview CandidatePorto, OportoNo offerPositive experienceEasy interviewApplicationI applied online. The process took 2 weeks. I interviewed at Revolut (Porto, Oporto) in Jul 2022InterviewBefore the interview, I read some opinions here at Glassdoor about the hiring process and I got scared by the reviews, but I had a completely different experience of the process. The first part of the interview was if HR asked about SOLID, ACID, TDD, and concurrency concepts.",
+      "date": "The second part was a live coding interview with a really nice guy. The problem was not complicated at all, but I was nervous and I forgot to refactor some parts of the code.Interview questions [1]Question 1Create a URL shortener that can be used as a libraryAnswer questionHelpfulShare6Revolut response3yHi there,",
+      "candidate": "Thank you for taking the time to share your thoughts!",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW65371854.htm",
+      "title": "Senior Developer InterviewJun 10, 2022Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. I interviewed at RevolutInterviewThe interview person was not able to describe the problem and also was not ready to listen the solution.  Overall the interview process was very non interactive. Better to have an experienced interview panel.Interview questions [1]Question 1System design  and Java interview questions Answer questionHelpfulShare2",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW63132985.htm",
+      "title": "Senior Software Developer InterviewApr 22, 2022Anonymous Interview CandidateNo offerNegative experienceDifficult interviewApplicationI applied through a recruiter. The process took 1 day. I interviewed at Revolut in Apr 2022InterviewRecruiter contacted via LinkedIn, I told my doubts about the company given the comments I read in Glassdoor. He told me they've changed and I should give them a try, so I agreed to have a call with another recruiter.",
+      "date": "This call has been the most awkward, weird and clueless interview in my whole life! They demonstrate a toxic culture since the HR screening.",
+      "candidate": "The recruiter was much more into following her script and asking me theoretical questions rather than getting to know me best and checking whether I could be a good peronal/cultural fit for the company...",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW59509664.htm",
+      "title": "Senior Software Engineer InterviewFeb 11, 2022Anonymous Interview CandidateMadridNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. The process took 3 days. I interviewed at Revolut (Madrid) in Feb 2022InterviewFirst was a standard interview with HR. Very easy going person.",
+      "date": "Then moved to the worst live coding interview I've had in 7 years.",
+      "candidate": "Interviewer lacked communication skills and ended up rejecting me for a solution I clearly not gave, he said I should use a strategy pattern, which is exactly what i suggested and even coded an interface showing the possible implementations.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW55859408.htm",
+      "title": "Senior Developer InterviewNov 25, 2021Anonymous Interview CandidateParisNo offerNegative experienceEasy interviewApplicationI applied online. I interviewed at Revolut (Paris) in Nov 2021InterviewImplémentation d'un loadBalancer. La personne était arragonte et très stressé de façon qui j'étais très mal à l'aide depuis le début. Limite il était obligé de me faire l'entretien.",
+      "date": "1 j'ai effectué le tdd et c'était ok pour lui mais il ne m'a pas laissé terminé l'optimasation du code malgré qu'il restait du temps et qu'on a commencé 5 min en retard.",
+      "candidate": "2 Il m'a rapproché que j'ai eu difficulté à initialiser un set hors ce n'est pas vrai j'ai juste  oublié mais j'ai peu le faire en 5 secondes max.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW54483412.htm",
+      "title": "Senior Software Engineer InterviewOct 26, 2021Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied online. The process took 5 days. I interviewed at Revolut in Oct 2021InterviewApplied through the Linkedin job board for remote opening. Recruiter sent mail for booking calendar for discussion. First round: recruiter-hr asked some technical questions. She had template with expected answers.Interview questions [1]Question 1Multithreading, concurrency, junit, tdd, transactions, db indexing, ACID, different isolation levels, huge relational DB optimizationAnswer questionHelpfulShare6",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW53885206.htm",
+      "title": "Senior Software Engineer InterviewOct 12, 2021Anonymous Interview CandidateSan Jose, San JoseNo offerNegative experienceAverage interviewApplicationI applied online. The process took 2 weeks. I interviewed at Revolut (San Jose, San Jose) in Mar 2021InterviewAll good up to the technical interview where I joined a call with 2 revolut engineers that treated me poorly and laughed at me throughout the interview for not knowing the answer to their questions.Interview questions [1]Question 1Q: write a transactional method to mimic a banking debit and deposit.Answer questionHelpfulShare",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW52255413.htm",
+      "title": "Senior Software Engineer InterviewSep 8, 2021Anonymous Interview CandidateBerlinNo offerPositive experienceDifficult interviewApplicationI applied through a recruiter. The process took 1 week. I interviewed at Revolut (Berlin) in Sep 2021InterviewThe interview process for this position consists of 4 steps:",
+      "date": "1. Short call with the recruiter with some tech questions",
+      "candidate": "2. Live coding challenge",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW52158602.htm",
+      "title": "Senior Software Engineer InterviewSep 6, 2021Anonymous Interview CandidateDublin, DublinNo offerNegative experienceAverage interviewApplicationI applied through a staffing agency. The process took 2 days. I interviewed at Revolut (Dublin, Dublin) in Sep 2021InterviewAt the first stage, I had an interview with the recruiter and I was asked about solid principles, ACID, unit tests, and some other questions about Java.",
+      "date": "Then I had the technical test to develop a load balancer that receives a Collection of URLs.Interview questions [1]Question 1What are SOLID, ACID, TDD, why unit tests are important?",
+      "candidate": "Then there was a  code test to develop a rough Load Balancer, in which the idea is to receive a Collection of URLs in the constructor of a class and then validate duplication of URLS, number of URLs, and so on.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW50473105.htm",
+      "title": "Senior Software Engineer InterviewJul 30, 2021Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied online. I interviewed at RevolutInterviewRecruiter reached out to me via LinkedIn and we setup a screening call which was fine. This was one-to-one video call. After this first round was live coding round.",
+      "date": "Interviewer came and initial hi-hello (with out telling the format of interview and expectation) he gave a very simple problem to solve. Then he asked me to write test cases for that. After it he changed the requirement and asked me to modify the code and unit tests, which I did. Again he changed the requirement and asked me to do, at this time I realise that this is typical TDD/Scrum kind of live coding where you keep refactoring the code as per requirement. I went till 4 such iteration during the interview.",
+      "candidate": "After couple of days I received response that I was not able to finish the problem in time.  I am not judging but I wasn't aware of the problem and had no idea what they were looking for.Interview questions [1]Question 1URL shortening algo along with joint test case.1 AnswerHelpfulShare9",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW49183972.htm",
+      "title": "Senior Software Engineer InterviewJul 1, 2021Anonymous Interview CandidateWarsaw, MasoviaNo offerNegative experienceEasy interviewApplicationI applied online. The process took 1 week. I interviewed at Revolut (Warsaw, Masovia) in Jun 2021InterviewStarts of with the Recruiting HR calling you after your application.  Next Round is a take home technical task. Which i did the best considering the 24 hrs limitation.",
+      "date": "And the feedback i got was rude to say the least.",
+      "candidate": "\" The project has lack of tidiness in general. A lot of TODOs, comments, bad formatting. \"",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW46109777.htm",
+      "title": "Senior Software Engineer InterviewApr 27, 2021Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. I interviewed at Revolut in Apr 2021InterviewThe recruitment process involves 3 steps, one basic technical interview with recruiter, one coding challenge and last one which is a mix between",
+      "date": "coding challenge and some questions (Database isolation levels, microservices, optimistic versus pessimistic concurrency control).",
+      "candidate": "Regarding the talk with recruiter or even the first challenge was a good enough experience.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW45002635.htm",
+      "title": "Senior Software Developer InterviewApr 4, 2021Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. I interviewed at Revolut in Mar 2021InterviewIn total we had 3 interactions.",
+      "date": "- first there was a casual chat with someone from HR to get some general info from both parties",
+      "candidate": "- second there was an online coding interview with 1 person. The task was simple, but there were not many real questions to answer.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW44245655.htm",
+      "title": "Senior Software Engineer InterviewMar 19, 2021Anonymous Interview CandidateNo offerNegative experienceDifficult interviewApplicationI applied through a recruiter. I interviewed at Revolut in Mar 2021InterviewThe interview process had some good and some bad parts. I would say from the start that I didn't got an offer.",
+      "date": "The discussion with the recruiter was really nice and productive.  She asked me a few things about myself and my experience (including some small technical question) and then she told me more about Revolut, about the way they are doing things and I kind of felt like it would be a good fit for me.",
+      "candidate": "After a few days, I had the live coding challenge and that went well. I was asked the implement three easy tasks, one depending on another. The only observation I would have here would be the fact that the interviewer and a strange english accent and a few time I had to ask him to repeat his question. All in all he was a nice guy, giving me a lot of information about Revolut and how they work.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW43141968.htm",
+      "title": "Senior Software Engineer InterviewFeb 26, 2021Anonymous Interview CandidateLondon, EnglandNo offerPositive experienceAverage interviewApplicationI applied through a recruiter. The process took 1 day. I interviewed at Revolut (London, England) in Feb 2021InterviewI'm describing here my experience with the Live Coding Interview.",
+      "date": "This is the first of their 6 steps process.",
+      "candidate": "I was given to implement a service that does something relatively simple. Think simple business logic.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW42802287.htm",
+      "title": "Senior Software Engineer InterviewFeb 20, 2021Anonymous Interview CandidateNo offerPositive experienceAverage interviewApplicationI applied in-person. I interviewed at Revolut in Feb 2021Interview1) Interview with a recruiter: some common questions are asked plus a few simple technical ones.",
+      "date": "The recruiter sends all necessary information including the PDF covering steps of hiring process.",
+      "candidate": "2) 1h coding session: here the focus is on discussing the task, implementing it and covering with tests. It is important to discover all possible scenarios.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW42325516.htm",
+      "title": "Senior Software Engineer InterviewFeb 11, 2021Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. I interviewed at RevolutInterviewThe HR step (1st) was nothing new.",
+      "date": "The 2nd step, which is a live-coding session was subpar... the coding task is actually really simple, but it's set up for people used at doing dojo-style of coding, you do something really small, without thinking too much so that it can be done fast, if that's how your brain works you'll probably do better than I did :-)",
+      "candidate": "Also,  the interviewer laughing when you cannot get exactly what he's thinking doesn't really help.Interview questions [1]Question 1What is the most common data structure used for DB indexes ?1 AnswerHelpfulShare3",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW42148028.htm",
+      "title": "Senior Software Engineer InterviewFeb 8, 2021Anonymous Interview CandidateNo offerNeutral experienceAverage interviewApplicationI applied through a recruiter. I interviewed at Revolut in Jan 2021InterviewI participated in 3 stages:",
+      "date": "1 - Interview with an HR person. He asked basic questions that every HR asks and some more techniques: How complex is HashMap search, what is ACID.",
+      "candidate": "2 - Interview with a very attentive and friendly developer. I needed to develop some simple string manipulation methods. I developed everything with TDD. The feedback was positive and I went to step 3.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW42011952.htm",
+      "title": "Senior Software Engineer InterviewFeb 5, 2021Anonymous Interview CandidateDeclined offerPositive experienceDifficult interviewApplicationI interviewed at RevolutInterviewLive coding session using IDE, basic core libraries. Involved 3 tasks, each increasing complexity to previous one.",
+      "date": "Screening involved basic questions about Java, multi-threading, Micro-services, SQL transaction isolation Level, When to use SQL, Pessimistic and Optimistic locking.Interview questions [1]Question 1What is reason to join Revolut ?Answer questionHelpfulShare2",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW41609032.htm",
+      "title": "Senior Software Engineer InterviewJan 29, 2021Anonymous Interview CandidateBerlinNo offerNegative experienceAverage interviewApplicationI applied through a staffing agency. The process took 3 months. I interviewed at Revolut (Berlin) in Dec 2020Interview2 screening calls (second one technical). 3rd interview was a live coding interview where I was asked to implement a URL Shortner. The interviewer was not friendly and didn't ask any personal questions, was just rushing to implementation and technical discussions, which didn't make me feel like we were working together. Kind of disappointing.Interview questions [2]Question 1Given a string, write a program that will output the string after a fixed URLAnswer questionQuestion 2Implement URL Shortner and add tests to it. 1 AnswerShow all 2 questionsHelpfulShare1",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW41076316.htm",
+      "title": "Senior Software Engineer InterviewJan 20, 2021Anonymous Interview CandidateNo offerNeutral experienceAverage interviewApplicationI applied through a recruiter. I interviewed at RevolutInterviewWas contacted via mail regarding job opening in UK.",
+      "date": "After initial phone screen (with couple of tecnical questions) we agreed on first phone technical interview.",
+      "candidate": "Didn't passed technical screen - seems that TDD is not not optional but required approach.Interview questions [1]Question 1SOLID principles of object-oriented programmingAnswer questionHelpfulShare",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW40595969.htm",
+      "title": "Senior Software Engineer InterviewJan 13, 2021Anonymous Interview CandidateNew York, NYNo offerNegative experienceEasy interviewApplicationI interviewed at Revolut (New York, NY)InterviewThe HR interview started ok then out of the blue I got questions about SOLID and ACID.",
+      "date": "The live coding interview is pretty simple but I got declined because I did not know in depth the URL java clasa and some misunderstanding about streams API.",
+      "candidate": "I find the refusal reason very nitpicky.Interview questions [1]Question 1What is the complexity of searching in hashmapAnswer questionHelpfulShare6",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW39825288.htm",
+      "title": "Senior Software Engineer InterviewDec 27, 2020Anonymous Interview CandidateNo offerPositive experienceDifficult interviewApplicationI interviewed at RevolutInterviewImplement a String parser. The task was about counting the literals in the input string. The solution has to be tested as they prefer testing prior documentation. Then we have discussed the solution.Interview questions [1]Question 1What is the Personal synchronisation?1 AnswerHelpfulShare1",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW37774974.htm",
+      "title": "Senior Software Engineer InterviewOct 29, 2020Anonymous Interview CandidateBerlinNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (Berlin) in Oct 2020InterviewFirst 2 rounds were very good, questions made sense and interviewers were nice. Last round the interviewers seemed very uninterested and did not seen to care about the interview. I felt very disrespected. Waste of everyone's time. Questions were also very theoretical (its definitely important to know the concepts, but they were asking specific names from specific databases versions kind of questions). I wish good luck for the company because I like the product, but regarding the tech stack and how to approach the problems they did not seen to be open minded to suggestions and just wants some developer that will sit and type code as fast as possible. The interviewers were also very cold and didn't even care to try to show me that Revolut was a good company to work for, in fact they seemed very unhappy and gave me an awful impression of how it is to work at Revolut. Also one of them joined late. My conclusion is that they have nice challenges to be solved, but if they continue closed mind and the current culture, they will not go very further.Interview questions [1]Question 190% of the questios were about concurrency, locks, synchronization, multi threads.Answer questionHelpfulShare9",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW36713288.htm",
+      "title": "Senior Software Engineer InterviewOct 5, 2020Anonymous Interview CandidateNo offerNeutral experienceDifficult interviewApplicationThe process took 2 weeks. I interviewed at RevolutInterviewI was interview on the senior backend developer role. It consist of these steps:",
+      "date": "1)  1h - Call with HR, where he suddenly starts to ask you technical questions (cqrs, O(n) , log(n), etc)",
+      "candidate": "2) 1h - Live code assessment with 1-2 developers",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW34151706.htm",
+      "title": "Senior Software Developer InterviewJul 10, 2020Anonymous employeeAccepted offerPositive experienceAverage interviewApplicationI applied through a recruiter. I interviewed at Revolut in Dec 2019Interview1. Recruiter asked a few questions and gave me a test-task",
+      "date": "2. Senior developers asked a few questions",
+      "candidate": "3. Team lead asked a few questions",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW33102086.htm",
+      "title": "Senior Software Engineer InterviewMay 10, 2020Anonymous Interview CandidateBerlinNo offerNeutral experienceAverage interviewApplicationI applied through a recruiter. The process took 1 week. I interviewed at Revolut (Berlin) in Apr 2020InterviewI went through 2 steps in their interview process.",
+      "date": "1) HR call. HR person was very nice, we had a good conversation. He asked some common HR questions + bunch of theoretical technical questions for screening purposes.",
+      "candidate": "2) Live coding session. The task for live coding was quite interesting, but their requirements are really confusing. Basically they want you to implement something using best OOP practices and TDD in 45 minutes (consider ~35 minutes since you have to spend time for introduction and requirements clarification). The task consist of 3 parts, but they don't tell you about that, they ask you to implement only first part and then ask you to improve it if you managed to finish the first part. For 35 minutes I've managed to implement only 1st part, using canonical TDD + spending time for proper design. Afterwards I got a feedback that I was spending a lot of time on what actually TDD is about (designing your implementation from tests, making them fail, making them green, refactoring etc.) :D.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW32825188.htm",
+      "title": "Senior Software Engineer InterviewApr 21, 2020Anonymous Interview CandidateNew York, NYNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (New York, NY) in Apr 2020InterviewContacted by a recruiter on LinkedIn.",
+      "date": "Had a quick call; seemed nice.",
+      "candidate": "He did quiz me around data structures, tdd, solid etc. Typical.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW32589272.htm",
+      "title": "Senior Software Engineer InterviewApr 3, 2020Anonymous Interview CandidateLondon, EnglandNo offerPositive experienceAverage interviewApplicationI applied online. The process took 1 week. I interviewed at Revolut (London, England) in Feb 2020InterviewStage1: 40 minute phone call to discuss experience and technical ability.",
+      "date": "Stage2: At-home coding test to be completed within 7 days. The test was to create a restful application for handling payments. Concurrency and coding style were the main points of the test.Interview questions [1]Question 1Time complexity and underlying data structures of java collections 1 AnswerHelpfulShare",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW32221671.htm",
+      "title": "Senior Software Engineer InterviewMar 5, 2020Anonymous Interview CandidateLondon, EnglandNo offerNegative experienceApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (London, England) in Mar 2020InterviewHad a take-home technical assessment to do, I have been told that I succeed in the technical assessment with no further details. Moving to the second stage, I had an online interview and I knew that I failed. I asked Revolut recruiter to give me feedback on that last interview so I can improve myself. The answer was \"Yeah I'm working on it\". And since then NO feedback whatsoever. This is unacceptable and disrespectful for someone who works full-time and managed to spend a lot of time in preparing the technical assessment. You pass the first stage with the technical assessment but then the second stage goes completely blank. I contacted at multiple times Revolut recruiter and he kept ignoring me, so at the end, I just gave up. This is a waste of time where you spend some effort during the interview process but then nothing is giving back to you.",
+      "date": "The second interview full of gruelling questions and exotic technical conditions which will actually never happen in real-life needs to be sorted out as well. The interviewer from Poland kept asking question full of traps and sometimes non-sense just to put you in a very uncomfortable position.",
+      "candidate": "I advise you to put the remote interview before asking people to spend their time in the technical assessment.Interview questions [1]Question 1Concurrency, Deadlock, transaction, synchronized ...Answer questionHelpfulShare9",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW32135786.htm",
+      "title": "Senior Software Engineer InterviewFeb 29, 2020Anonymous Interview CandidateLondon, EnglandNo offerNegative experienceDifficult interviewApplicationI applied online. The process took 2 weeks. I interviewed at Revolut (London, England) in Sep 2018InterviewInitial call with an internal recruiter to hear about the project, followed by a lengthy coding project (which you have 7 days to complete), followed by a 1h30 skype technical call.",
+      "date": "I enjoyed the project and the recruiter call was ok, she was very friendly. However, the two developers that did the technical skype call were the rudest people i've ever met.",
+      "candidate": "Complete lack of professionalism, when an answer was not what they were expecting they would turn to the other and start laughing, as if it was some internal joke.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW31965370.htm",
+      "title": "Sr. Software Engineer InterviewFeb 20, 2020Anonymous Interview CandidateNo offerNegative experienceApplicationI applied through other source. The process took 2 weeks. I interviewed at RevolutInterviewFirst was contacted with tech recruiter, took about an hour. Went well. Second was live coding (instead of home task, since I have a job already). Live coding is a part which made me think that here was no intention to hire, like conveyor type of an interview. No guideline of expectations. Asked questions were far away from real world programming. I am working in this industry more than 10 years in global corps and felt like I am a an intern which has not experience based on a feedback. In other words waste of time.",
+      "date": "Given task was easy, solved that, however been told that it is going to work slow after all. That really surprised me, if you are looking for optimal solution (in 20 mins) please state it clear, not like answering to a questions:",
+      "candidate": "- that's ok",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW31590071.htm",
+      "title": "Senior Software Engineer InterviewJan 30, 2020Anonymous Interview CandidateNo offerNegative experienceDifficult interviewApplicationI applied online. I interviewed at Revolut in Jan 2020InterviewWaste of time.  They will give one big take home assignment and expect you to spend so much time. Don't take any assignment it's a waste of time, they are just trying to learn from candidates and improve. Or just prove that candidate is wrong.Interview questions [1]Question 1Solid principles. Bank account transfer applicationAnswer questionHelpfulShare1Revolut response6yThank you for your honest review; we appreciate your taking the time to give us your feedback.  We use our home tasks to test the skills we’d expect you to use in the job role at Revolut and see how you respond to certain problems.",
+      "date": "We’re in the process of reviewing all our home tasks to ensure that they are fair and representative of what we’re asking for. If you have more specific feedback relating to your home task, please get in touch with your recruiter directly to let us know how we can improve.Show more",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW31526387.htm",
+      "title": "Senior Software Engineer InterviewJan 27, 2020Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied online. The process took 2 weeks. I interviewed at RevolutInterviewTechnical Recruiter asking very random technical questions.",
+      "date": "felt like they probably have some sheet of acceptable answers because anything outside of that sheet (for example if you want to elaborate or explain an opinion) was met with silence or attempts to navigate the answer to the answer sheet.Interview questions [2]Question 1SOLID principlesAnswer questionQuestion 2classify DATA structures into linear and non-linearAnswer questionShow all 2 questionsHelpfulShareRevolut response6yThank you for taking the time to give us your honest thoughts. Due to the volume of candidates that we consider, we rely on our technical recruiters to have a basic level of technical understanding when screening candidates. We will continue to provide training and learning initiatives to bridge gaps between technical candidates and their recruiters.Show more",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW30815273.htm",
+      "title": "Senior Software Developer InterviewDec 11, 2019Anonymous Interview CandidateNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut in Dec 2019Interview1. HR-screen - 30 min. About 8 general questions in CS on data structures, etc.",
+      "date": "2. Pair programming session - 1h. Simple, but revealing task with TDD in mind. You will create design of simple system covered as 1 class, the idea is to TDD it with a dedicated test.",
+      "candidate": "3. Technical interview & Systems design interview - 2h.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW30685859.htm",
+      "title": "Senior Software Engineer InterviewDec 4, 2019Anonymous employeeAccepted offerPositive experienceAverage interviewApplicationI applied online. The process took 2 days. I interviewed at Revolut in May 2017InterviewBrief discussion about experience and current position with immersion into technical details. It's better if you really understand what you are doing and which tools you are using and why. Live coding with quite simple task, but high quality solution expected.Interview questions [1]Question 1Overall experience and knowledgeAnswer questionHelpfulShare",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW29868568.htm",
+      "title": "Senior Software Engineer InterviewOct 17, 2019Anonymous Interview CandidateNo offerPositive experienceDifficult interviewApplicationI applied online. The process took 1 week. I interviewed at Revolut in Oct 2019InterviewFirstly I had a relaxed phone / video call to discuss the role and my experience. Discussions around why I want to work for Revolut and what I'm looking for. Very friendly and easy going chat.",
+      "date": "Second stage is completing a home task. Designing and implementing a money transfer API. Good instructions were given with plenty of time to complete the task. The code is then reviewed and detailed feedback given.",
+      "candidate": "Unfortunately I didn't pass the second stage. My solution was lacking in some areas which was a fair assessment. The result and feedback was quick and communicated very well.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW29731601.htm",
+      "title": "Senior Software Engineer InterviewOct 10, 2019Anonymous Interview CandidateLondon, EnglandNo offerNegative experienceEasy interviewApplicationI applied through a recruiter. The process took 2 weeks. I interviewed at Revolut (London, England) in Aug 2019Interview1.  Home task",
+      "date": "You are given a week to make REST-ish api for money transfer.",
+      "candidate": "Reviewer may ask you rework the task, because he is not able to check  `README.md` or check `gradle.build` script for requirements.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW29408794.htm",
+      "title": "Senior Software Engineer InterviewSep 24, 2019Anonymous Interview CandidateDeclined offerPositive experienceAverage interviewApplicationI applied online. The process took 1 week. I interviewed at Revolut in Apr 2019InterviewWell organised. Live coding sessions were interesting. Test project test the right things, with sufficient time to implement it.",
+      "date": "The recruiter communicated the timelines and the areas the interview will be covering.Interview questions [1]Question 1Transactions Isolation levels1 AnswerHelpfulShare2",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW28843445.htm",
+      "title": "Senior Software Developer InterviewAug 26, 2019Anonymous Interview CandidateKrakówNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. The process took 3 weeks. I interviewed at Revolut (Kraków) in Jul 2019InterviewI got taken aback by the interview process at Revolut.",
+      "date": "First of all, the test task isn't too complicated but requires a lot of time.",
+      "candidate": "In my case I spent entire week doing it after work and the full weekend. I sent it back to the recruiter, who contacted me initially, but never got a reply.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW26422583.htm",
+      "title": "Senior Software Engineer InterviewJun 1, 2019Anonymous Interview CandidateNo offerNegative experienceApplicationI interviewed at RevolutInterviewI was invited to apply by a recruiter in Russia. Although I wasn't interested, I'd decided to try as the company offers potential relocation to London.",
+      "date": "At a first stage they send me a technical assignment, which is time consuming. It took me about two weekends, and partial development during weekdays.",
+      "candidate": "A few days later they invited me for a technical interview, without giving any guides what to expect. It started with a coding exercise on multithreading, then series of \"How to\" questions regarding to UI/Tables examples from their app etc.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW24093527.htm",
+      "title": "Senior Software Engineer InterviewJan 7, 2019Anonymous Interview CandidateNo offerNegative experienceAverage interviewApplicationI applied through a recruiter. The process took 1 week. I interviewed at RevolutInterviewFirst step with was the call with an HR who outlined the details of the process.",
+      "date": "Then there was a time-consuming take-home test project to build an iOS app. The project had vague requirements and in my attempt to clarify what they are looking for, the recruiter who acted as a proxy between me and developers responded with RTFM (\"read the description\").",
+      "candidate": "After a couple of days of work on the project, I submitted it to the recruiter and a day after received a rejection. I still don't quite understand what they were looking for. The test project itself was quite tedious and involved a lot of boilerplate.Interview questions [1]Question 1Can you drop me a quick word so I know you’ve received this?1 AnswerHelpfulShare25Revolut response6yThank you for the feedback. It helps us learn and get better day by the day; still, we do feel sorry you had a negative experience.",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW23095850.htm",
+      "title": "Senior Software Engineer InterviewOct 24, 2018Anonymous Interview CandidateNo offerNegative experienceApplicationI interviewed at RevolutInterviewThat was probably the worst process I've ever had. Recruiter tried to set a call several times, but each time she just didn't call. Never got neither explanation nor apology. Decided not to proceedInterview questions [1]Question 1Don't know, as there was no interviewAnswer questionHelpfulShare2",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW22735989.htm",
+      "title": "Senior Software Engineer InterviewOct 1, 2018Anonymous Interview CandidateNo offerNeutral experienceApplicationI applied online. The process took 1 week. I interviewed at RevolutInterviewIrresponsibly. The lady didn't even have my CV handy. During the application process, I provided a comprehensive info in my cover letter but seems like in the garbage it went. Changed my mind about the company and want my time back.Interview questions [1]Question 1Salary expectations.1 AnswerHelpfulShare4",
+      "date": "",
+      "candidate": "",
+      "outcome": "",
+      "experience": "",
+      "difficulty": "",
+      "applicationSection": "",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW22553995.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Sep 19, 2018",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "Average interview",
+      "applicationSection": "I applied online. The process took 2 weeks. I interviewed at Revolut (London, England) in Sep 2018",
+      "interviewSection": "",
+      "questions": []
+    },
+    {
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW17414557.htm",
+      "title": "Senior Software Engineer Interview",
+      "date": "Oct 18, 2017",
+      "candidate": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Neutral experience",
+      "difficulty": "",
+      "applicationSection": "I applied online. The process took 3 weeks. I interviewed at Revolut (London, England) in Oct 2017",
+      "interviewSection": "",
+      "questions": []
+    }
+  ]
+}

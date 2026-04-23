@@ -1,0 +1,548 @@
+{
+  "company": "Revolut",
+  "role": "Senior Java Developer",
+  "source": "Glassdoor",
+  "url": "https://www.glassdoor.com/Interview/Revolut-Interview-Questions-E1176471.htm?filter.jobTitleFTS=Senior+Java+Developer",
+  "last_updated": "Feb 13, 2026",
+  "total_interviews": 21,
+  "summary_stats": {
+    "difficulty": "Average",
+    "overall_experience": "Mostly negative",
+    "positive_experience_pct": "29%",
+    "negative_experience_pct": "52%",
+    "how_candidates_got_interview": {
+      "recruiter": "50%",
+      "applied_online": "38%"
+    },
+    "average_hiring_process_days": 23
+  },
+  "ai_summary": {
+    "interview_process_and_format": "The interview process is generally multi-staged, often including initial screenings, technical rounds, and live coding tasks.",
+    "candidate_experience": "While some candidates found the interviewers to be supportive and professional, others reported inconsistent or negative experiences.",
+    "interview_timelines": "Communication about progress can be inconsistent. Several candidates highlighted delays in receiving feedback."
+  },
+  "faqs": {
+    "is_it_hard_to_get_hired": "Glassdoor users rated their interview experience at Revolut as 35.4% positive with an average difficulty rating.",
+    "interview_process_stages": {
+      "phone_interview": "23%",
+      "one_on_one_interview": "20%",
+      "skills_test": "19%",
+      "presentation": "10%",
+      "background_check": "8%",
+      "personality_test": "6%",
+      "iq_intelligence_test": "5%",
+      "other": "4%",
+      "group_panel_interview": "3%",
+      "drug_test": "2%"
+    }
+  },
+  "interviews": [
+    {
+      "id": 1,
+      "review_id": "RVW102818804",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW102818804.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Feb 13, 2026",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": null,
+      "process_duration": null,
+      "interview_description": "Smooth polished process. Average tech level of interviewers. Narrow minded persons. Probably their main criteria is speed of coding, not code quality.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Implement money transfer method for java library.",
+          "answer_url": "https://www.glassdoor.com/Interview/Implement-money-transfer-method-for-java-library-QTN_8834934.htm"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "review_id": "RVW102772059",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW102772059.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Feb 10, 2026",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Neutral",
+      "difficulty": "Average",
+      "application_method": "Applied online",
+      "process_duration": null,
+      "interview_description": "A lot of stages including live coding tasks, common engineering problems discussion and system design.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Build a top-level design for a system responsible for temporary debit card issuance.",
+          "answer_url": "https://www.glassdoor.com/Interview/Build-a-top-level-design-for-a-system-responsible-of-temporary-debit-card-issuance-QTN_8829243.htm"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "review_id": "RVW100927366",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW100927366.htm",
+      "title": "Senior Java Software Engineer Interview",
+      "date": "Oct 28, 2025",
+      "candidate": "Anonymous",
+      "location": "Madrid",
+      "offer": "Declined offer",
+      "experience": "Positive",
+      "difficulty": "Difficult",
+      "application_method": "Recruiter",
+      "process_duration": null,
+      "interview_description": "The overall interview process was well-structured and professional, consisting of four stages over a period of time.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Implement LoadBalancer using TDD style with Random/RoundRobin strategies.",
+          "answer_url": "https://www.glassdoor.com/Interview/1-implement-LoadBalancer-using-TDD-style-with-Random-RoundRobin-strategies-QTN_8617374.htm"
+        },
+        {
+          "number": 2,
+          "question": "Implement a thread-safe Account Ledger given a skeleton.",
+          "answer_url": "https://www.glassdoor.com/Interview/2-implement-an-thread-safe-Account-Ledger-given-a-skeleton-QTN_8617375.htm"
+        },
+        {
+          "number": 3,
+          "question": "System Design an Apartment Booking application with a 3rd party API integration.",
+          "answer_url": "https://www.glassdoor.com/Interview/3-System-Design-an-Apartment-Booking-application-with-a-3rd-party-API-integration-QTN_8617376.htm"
+        },
+        {
+          "number": 4,
+          "question": "Describe a project you delivered end-to-end in depth, focus on innovation and initiative.",
+          "answer_url": "https://www.glassdoor.com/Interview/4-Describe-a-project-you-delievered-e2e-in-debt-focus-on-inovation-and-initiative-QTN_8617377.htm"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "review_id": "RVW100421790",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW100421790.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Oct 3, 2025",
+      "candidate": "Anonymous",
+      "location": "Dubai",
+      "offer": "No offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Recruiter",
+      "process_duration": null,
+      "interview_description": "HR Call – Initial screening with HR discussing background, experience, and motivation. Followed by technical rounds.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "One of the questions was about concurrent collections and their usage.",
+          "answer_url": "https://www.glassdoor.com/Interview/-One-of-the-questions-was-about-concurrent-collections-and-their-usage-QTN_8559248.htm"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "review_id": "RVW99660583",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW99660583.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Aug 28, 2025",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Average",
+      "application_method": "Recruiter",
+      "process_duration": "4 weeks",
+      "interview_description": "1. HR call 2. Live coding + some questions about complexity of the solution (Load balancer). Decent experience overall.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Live coding + questions about complexity of the solution. Load balancer with some extra requirements added once implemented.",
+          "answer_url": "https://www.glassdoor.com/Interview/Live-coding-some-questions-about-complexity-of-the-solution-Load-balancer-Some-extra-requirements-once-you-implement-th-QTN_8473753.htm"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "review_id": "RVW97601666",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW97601666.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "May 26, 2025",
+      "candidate": "Anonymous",
+      "location": "Warsaw, Masovia",
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": null,
+      "process_duration": null,
+      "interview_description": "Had an intro call with a recruitment coordinator that went well. Was assured Revolut has a good culture. Company makes a strong accent on concurrency initially.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Create a load balancer with production quality considerations. Concurrency-focused task.",
+          "answer_url": "https://www.glassdoor.com/Interview/Company-for-some-reason-makes-a-strong-accent-on-concurrency-initially-I-was-asked-to-create-a-load-balancer-with-the-prod-QTN_8256787.htm",
+          "answers_count": 1
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "review_id": "RVW95794112",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW95794112.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Mar 13, 2025",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Difficult",
+      "application_method": "Recruiter",
+      "process_duration": "2 days",
+      "interview_description": "A 20-minute interview with HR where you describe your experience and answer simple questions about Java and data structures.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Can elements be not equal if they have the same hashCode? What is the time complexity to get an element from a HashMap? What transaction levels exist in databases?",
+          "answer_url": "https://www.glassdoor.com/Interview/-can-elements-be-not-equal-if-they-have-same-hashCode-worth-complexity-to-get-element-from-hashmap-what-transaction-le-QTN_8066752.htm"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "review_id": "RVW83184350",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW83184350.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Jan 9, 2024",
+      "candidate": "Anonymous",
+      "location": "Bucharest, Bucuresti",
+      "offer": "No offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": null,
+      "process_duration": null,
+      "interview_description": "Simple intro about the company and position and high-level questions about Java design patterns.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Talk about the Memento pattern.",
+          "answer_url": "https://www.glassdoor.com/Interview/Talk-about-the-Memento-pattern-QTN_6872423.htm"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "review_id": "RVW81961213",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW81961213.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Nov 20, 2023",
+      "candidate": "Anonymous",
+      "location": "London, England",
+      "offer": "Declined offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Applied online",
+      "process_duration": "2 weeks",
+      "interview_description": "Interview on Zoom with two engineers from Berlin and Moscow, conducted in English. A live coding session was part of the interview.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Question about transfer between two accounts – how to achieve consistency and avoid double-spending money.",
+          "answer_url": "https://www.glassdoor.com/Interview/Question-about-transfer-between-two-accounts-how-to-achieve-consistency-and-don-t-double-spent-money-QTN_6773524.htm"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "review_id": "RVW81559699",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW81559699.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Nov 5, 2023",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Neutral",
+      "difficulty": "Average",
+      "application_method": "Other source",
+      "process_duration": "2 days",
+      "interview_description": "Very common questions. A lot of questions related to databases even for a Java developer role. Answering anything below the expected level means failure.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "ACID principles. How to make a transaction in a database.",
+          "answer_url": "https://www.glassdoor.com/Interview/ACID-priciples-How-to-make-transaction-in-DB-QTN_6737986.htm"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "review_id": "RVW76505794",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW76505794.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "May 17, 2023",
+      "candidate": "Anonymous",
+      "location": "Lisbon, Lisbon District",
+      "offer": "No offer",
+      "experience": "Neutral",
+      "difficulty": "Average",
+      "application_method": null,
+      "process_duration": null,
+      "interview_description": "Just a single call – a quick technical screening call; declined afterwards. Questions seemed standard.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Describe a given pattern in microservices architectures.",
+          "answer_url": "https://www.glassdoor.com/Interview/Describe-a-given-pattern-in-microservices-architectures-QTN_6313007.htm",
+          "answers_count": 1
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "review_id": "RVW71661479",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW71661479.htm",
+      "title": "Senior Software Engineer - Java Developer Interview",
+      "date": "Dec 6, 2022",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Average",
+      "application_method": "Staffing agency",
+      "process_duration": "3 weeks",
+      "interview_description": "1. Introductory call with a recruiter – common questions plus some simple technical questions. 2. Technical interview with engineers.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Lots of questions about concurrent and multithreaded programming, race conditions, deadlock, and optimization of relational databases.",
+          "answer_url": "https://www.glassdoor.com/Interview/Lots-of-questions-about-concurrent-and-multithreaded-programming-rece-conditions-deadlock-and-optimization-of-relational-QTN_5919259.htm"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "review_id": "RVW63578775",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW63578775.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "May 3, 2022",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": "Recruiter",
+      "process_duration": "1 day",
+      "interview_description": "First HR interview, ~10 min. ~5 min explaining company processes and how the team works, followed by a few technical questions.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "What's the time complexity of a lookup in a HashMap?",
+          "answer_url": "https://www.glassdoor.com/Interview/What-s-the-time-complexity-of-a-lookup-in-a-HashMap-QTN_5409593.htm"
+        },
+        {
+          "number": 2,
+          "question": "Explain what is a transaction?",
+          "answer_url": "https://www.glassdoor.com/Interview/Explain-what-is-a-transaction-QTN_5409594.htm"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "review_id": "RVW61840947",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW61840947.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Mar 27, 2022",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Neutral",
+      "difficulty": "Average",
+      "application_method": "Recruiter",
+      "process_duration": "3 weeks",
+      "interview_description": "1. Recruiter interview – default HR interview with some basic technical questions. 2. Technical interview with engineers.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "What is a database transaction?",
+          "answer_url": "https://www.glassdoor.com/Interview/What-is-a-database-transaction-QTN_5306109.htm",
+          "answers_count": 1
+        },
+        {
+          "number": 2,
+          "question": "List database transaction isolation levels.",
+          "answer_url": "https://www.glassdoor.com/Interview/List-database-transaction-isolation-levels-QTN_5306110.htm",
+          "answers_count": 1
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "review_id": "RVW56079377",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW56079377.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Dec 1, 2021",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": null,
+      "process_duration": null,
+      "interview_description": "The recruiter was described as incompetent. Interview ended when the candidate began explaining why a certain answer might be incomplete.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "How can we implement concurrency in Java?",
+          "answer_url": "https://www.glassdoor.com/Interview/How-we-can-implement-concurrency-in-java-QTN_4992329.htm",
+          "answers_count": 1
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "review_id": "RVW52205293",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW52205293.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Sep 7, 2021",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Average",
+      "application_method": "Applied online",
+      "process_duration": "1 day",
+      "interview_description": "Described as the most inadequate interview in 11 years of career. Despite many negative reviews, Revolut continues with the same process.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Write something based on abstract requirements.",
+          "answer_url": "https://www.glassdoor.com/Interview/Write-something-based-on-abstract-requirements-QTN_4762850.htm"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "review_id": "RVW44539505",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW44539505.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Mar 25, 2021",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Positive",
+      "difficulty": "Difficult",
+      "application_method": "Applied online",
+      "process_duration": null,
+      "interview_description": "First round was a pleasant talk with HR. HR asked several basic technical questions and a coding interview challenge was included.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Write some concurrent code. How could we implement this using Java concurrency mechanisms? Using database locking mechanisms?",
+          "answer_url": "https://www.glassdoor.com/Interview/Write-some-concurrent-code-How-could-we-implement-this-using-Java-concurrency-mechanisms-Using-database-locking-mechanism-QTN_4335233.htm"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "review_id": "RVW41743967",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW41743967.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Feb 1, 2021",
+      "candidate": "Anonymous",
+      "location": "Kraków",
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Average",
+      "application_method": "Applied online",
+      "process_duration": null,
+      "interview_description": "1-hour coding interview where you must build an architecture based on abstract requirements. Speed of implementation is assessed.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Write an application based on abstract requirements.",
+          "answer_url": "https://www.glassdoor.com/Interview/Write-an-application-based-on-abstract-requirements-QTN_4179990.htm"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "review_id": "RVW38275951",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW38275951.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Nov 12, 2020",
+      "candidate": "Anonymous",
+      "location": "Kraków",
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": "Applied online",
+      "process_duration": "2 days",
+      "interview_description": "Friendly talk with recruiter, followed by a technical interview scheduled the next day with an unexpectedly senior interviewer.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Computational complexity of data structures.",
+          "answer_url": "https://www.glassdoor.com/Interview/computational-complexity-of-data-structures-QTN_4009118.htm"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "review_id": "RVW34078115",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW34078115.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Jul 6, 2020",
+      "candidate": "Anonymous",
+      "location": "London, England",
+      "offer": "No offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Recruiter",
+      "process_duration": "1 week",
+      "interview_description": "Convenient and interesting HR round with basic Java questions; simple but complex task in a live coding session.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Working with random String generators.",
+          "answer_url": "https://www.glassdoor.com/Interview/Working-with-random-String-generators-QTN_3795410.htm"
+        },
+        {
+          "number": 2,
+          "question": "CQRS (Command Query Responsibility Segregation).",
+          "answer_url": "https://www.glassdoor.com/Interview/cqrs-QTN_3795411.htm"
+        },
+        {
+          "number": 3,
+          "question": "Internal database data structures.",
+          "answer_url": "https://www.glassdoor.com/Interview/internal-db-data-structures-QTN_3795412.htm"
+        },
+        {
+          "number": 4,
+          "question": "TDD (Test-Driven Development).",
+          "answer_url": "https://www.glassdoor.com/Interview/TDD-QTN_3795413.htm"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "review_id": "RVW23369005",
+      "url": "https://www.glassdoor.com/Interview/Revolut-Interview-E1176471-RVW23369005.htm",
+      "title": "Senior Java Developer Interview",
+      "date": "Nov 12, 2018",
+      "candidate": "Anonymous",
+      "location": null,
+      "offer": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": "Recruiter",
+      "process_duration": "2 weeks",
+      "interview_description": "First step is a home assignment: a small RESTful service about banking with vague requirements. Followed by a live coding interview.",
+      "questions": [
+        {
+          "number": 1,
+          "question": "Design a RESTful service about banking (requirements intentionally vague/abstract).",
+          "answer_url": "https://www.glassdoor.com/Interview/Design-a-RESTful-service-about-banking-and-also-read-our-minds-about-what-we-want-QTN_2893131.htm"
+        }
+      ]
+    }
+  ]
+}

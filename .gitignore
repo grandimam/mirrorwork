@@ -16,49 +16,30 @@ __pycache__/
 venv/
 *.egg-info/
 
-# ============================================
-# USER DATA (personal, not tracked in git)
-# ============================================
+# Personal data (keep template clean)
+profile/*
+!profile/.gitkeep
 
-# Profile - user's personal career data
-profile/
+sources/resume/*
+!sources/resume/.gitkeep
 
-# Sources - user's resumes and work samples
-sources/
+sources/documents/*
+!sources/documents/.gitkeep
 
-# Activity - user's job applications and tracker
-activity/
+sources/research/*
+!sources/research/.gitkeep
 
-# Interview - company data and practice sessions
-# Tracked: banks/, *.json (company files), sessions/README.md
-# Ignored: session logs (personal practice history)
-interview/sessions/*.json
-!interview/sessions/README.md
-!interview/sessions/.gitkeep
+sources/github/reports/*
+!sources/github/reports/.gitkeep
 
-# Learning - user's progress and practice history
-learning/progress.json
-learning/local/
+sources/github/stories/*
+!sources/github/stories/.gitkeep
 
-# Per-skill user progress (not the banks)
-learning/python/
-learning/go/
-learning/javascript/
-learning/databases/
-learning/system-design/
-!learning/banks/
+activity/inbox/*
+!activity/inbox/.gitkeep
 
-# ============================================
-# COMMUNITY (fetched, can be refreshed)
-# ============================================
-# These are fetched dynamically, not shipped
-learning/community/
+activity/jobs/*
+!activity/jobs/.gitkeep
 
-# ============================================
-# TEMPLATES (shipped with repo)
-# ============================================
-# These ARE tracked:
-# - learning/banks/        (official skill question banks)
-# - interview/banks/       (interview question banks)
-# - agents/                (agent instructions)
-# - .claude/               (skills, hooks, settings)
+generated/*
+!generated/.gitkeep
