@@ -291,6 +291,41 @@ Weak: databases, caching
 
 ---
 
+### Fetch Commands
+
+#### `/mirrorwork fetch leetcode`
+
+Fetch LeetCode company-tagged questions from community GitHub repos.
+
+Read `agents/fetch.md` and follow its instructions.
+
+```
+───────────────────────────────────────
+📦 **Fetching LeetCode questions...**
+
+| Company | Problems | New |
+|---------|----------|-----|
+| stripe | 45 | 45 |
+| google | 892 | 892 |
+| meta | 756 | 756 |
+
+Saved to: learning/community/leetcode/
+
+───────────────────────────────────────
+```
+
+#### `/mirrorwork fetch leetcode --company <name>`
+
+Fetch questions for a specific company only.
+
+Example: `/mirrorwork fetch leetcode --company stripe`
+
+#### `/mirrorwork fetch leetcode --list`
+
+List all available companies in the source.
+
+---
+
 ### Case Commands
 
 #### `/mirrorwork case <job-id>`
@@ -402,3 +437,4 @@ generated/
 | `learn` | `agents/learn.md` | Skills dashboard |
 | `learn <skill>` | `agents/learn.md` | Practice skill |
 | `progress` | `agents/learn.md` | Overall progress |
+| `fetch leetcode` | `agents/fetch.md` | Fetch company questions |

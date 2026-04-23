@@ -21,24 +21,13 @@ venv/
 # ============================================
 
 # Profile - user's personal career data
-profile/*
-!profile/.gitkeep
+profile/
 
 # Sources - user's resumes and work samples
-sources/resume/*
-!sources/resume/.gitkeep
-sources/work-samples/*
-!sources/work-samples/.gitkeep
-sources/manifest.json
+sources/
 
 # Activity - user's job applications and tracker
-activity/jobs/*
-!activity/jobs/.gitkeep
-activity/tracker.md
-
-# Generated - tailored resumes per job
-generated/*
-!generated/.gitkeep
+activity/
 
 # Interview - company data and practice sessions
 # Tracked: banks/, *.json (company files), sessions/README.md
@@ -63,10 +52,7 @@ learning/system-design/
 # COMMUNITY (fetched, can be refreshed)
 # ============================================
 # These are fetched dynamically, not shipped
-learning/community/leetcode/*
-!learning/community/leetcode/.gitkeep
-learning/community/system-design/*
-!learning/community/system-design/.gitkeep
+learning/community/
 
 # ============================================
 # TEMPLATES (shipped with repo)

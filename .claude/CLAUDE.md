@@ -44,23 +44,27 @@ interview/                    # INTERVIEW PREP (company-based)
 
 learning/                     # SKILLS LEARNING (evaluate + improve)
 ├── progress.json             # Overall progress summary
-├── banks/                    # Question banks by skill
-│   ├── python/
-│   │   ├── basics.json
+├── banks/                    # OFFICIAL (shipped, from official docs)
+│   ├── python/               # From Python docs, PEPs
 │   │   ├── data-structures.json
 │   │   ├── concurrency.json
 │   │   └── advanced.json
-│   ├── system-design/
-│   │   ├── fundamentals.json
-│   │   ├── components.json
-│   │   └── patterns.json
+│   ├── system-design/        # Fundamentals (CAP, scaling, etc.)
+│   │   └── fundamentals.json
 │   └── databases/
-│       ├── sql.json
-│       └── nosql.json
-└── {skill-slug}/             # Per-skill progress
-    ├── progress.json         # Scores by topic, gaps, schedule
-    └── sessions/             # Practice history
-        └── {date}.json
+│       └── sql.json
+├── community/                # FETCHED (dynamic, from GitHub/community)
+│   ├── leetcode/             # Company-tagged LeetCode problems
+│   │   ├── stripe.json
+│   │   ├── google.json
+│   │   └── meta.json
+│   └── system-design/        # Company-specific system design
+│       └── uber-ride-matching.md
+├── local/                    # USER-ADDED (gitignored)
+│   └── ...
+└── {skill-slug}/             # Per-skill progress (gitignored)
+    ├── progress.json
+    └── sessions/
 
 sources/                      # RAW INPUTS
 ├── manifest.json
@@ -81,7 +85,8 @@ agents/                       # AGENTS
 ├── behavioral.md
 ├── coding.md
 ├── system-design.md
-└── learn.md                  # Skills learning agent
+├── learn.md                  # Skills learning agent
+└── fetch.md                  # Fetch community questions
 
 generated/
 └── {job-id}/
@@ -226,6 +231,7 @@ Each skill in `learning/{skill-slug}/progress.json` contains:
 | `coding.md`          | Coding practice                | `/mirrorwork prep <company> coding` |
 | `system-design.md`   | System design practice         | `/mirrorwork prep <company> system-design` |
 | `learn.md`           | Skills learning + evaluation   | `/mirrorwork learn <skill>`       |
+| `fetch.md`           | Fetch community questions      | `/mirrorwork fetch leetcode`      |
 
 ## Commands
 
@@ -247,6 +253,8 @@ Each skill in `learning/{skill-slug}/progress.json` contains:
 | `/mirrorwork learn <skill> --review` | Review weak areas (spaced repetition) |
 | `/mirrorwork learn <skill> --assess` | Full assessment |
 | `/mirrorwork progress` | Overall learning progress |
+| `/mirrorwork fetch leetcode` | Fetch LeetCode company questions |
+| `/mirrorwork fetch leetcode --company <name>` | Fetch for specific company |
 | `/mirrorwork case <job-id>` | Build advocacy case |
 | `/mirrorwork resume <job-id>` | Generate tailored resume |
 | `/mirrorwork tracker` | View/update tracker |
