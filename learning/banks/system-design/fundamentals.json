@@ -1,0 +1,151 @@
+{
+  "skill": "system-design",
+  "topic": "fundamentals",
+  "subtopics": ["scalability", "availability", "consistency", "cap-theorem"],
+  "questions": [
+    {
+      "id": "sd-fund-001",
+      "subtopic": "scalability",
+      "difficulty": "easy",
+      "type": "conceptual",
+      "question": "What is the difference between horizontal and vertical scaling?",
+      "answer": "Vertical scaling (scaling up) means adding more power to existing machines (more CPU, RAM, storage). Horizontal scaling (scaling out) means adding more machines to the pool. Vertical has limits (max server size) and single point of failure. Horizontal is theoretically unlimited, provides redundancy, but adds complexity (distributed systems). Most large-scale systems use horizontal scaling.",
+      "key_points": [
+        "Vertical = bigger machine",
+        "Horizontal = more machines",
+        "Vertical has hardware limits",
+        "Horizontal adds complexity but is more scalable"
+      ],
+      "hints": [
+        "Think about limits of each approach",
+        "What happens when one machine fails?"
+      ]
+    },
+    {
+      "id": "sd-fund-002",
+      "subtopic": "availability",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What does 'five nines' (99.999%) availability mean in practical terms?",
+      "answer": "99.999% availability means ~5.26 minutes of downtime per year, or ~26 seconds per month. To achieve this: multiple redundant components, automatic failover, no single points of failure, geographic distribution, graceful degradation. Each additional 9 is exponentially harder. 99.9% = 8.76 hours/year, 99.99% = 52.6 minutes/year, 99.999% = 5.26 minutes/year.",
+      "key_points": [
+        "5.26 minutes downtime per year",
+        "Requires redundancy at every level",
+        "Each additional 9 is exponentially harder",
+        "Needs automatic failover"
+      ],
+      "hints": [
+        "Calculate the downtime",
+        "What does this require architecturally?"
+      ]
+    },
+    {
+      "id": "sd-fund-003",
+      "subtopic": "cap-theorem",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "Explain the CAP theorem. What are C, A, and P?",
+      "answer": "CAP theorem states that a distributed system can only guarantee two of three properties: Consistency (all nodes see same data at same time), Availability (every request gets a response), Partition tolerance (system works despite network failures). Since network partitions are inevitable, you choose between CP (consistent but may be unavailable during partition) or AP (available but may serve stale data).",
+      "key_points": [
+        "C = Consistency (same data everywhere)",
+        "A = Availability (always responds)",
+        "P = Partition tolerance (survives network splits)",
+        "Must choose CP or AP (partitions happen)"
+      ],
+      "hints": [
+        "What happens when network splits?",
+        "Why can't you have all three?"
+      ]
+    },
+    {
+      "id": "sd-fund-004",
+      "subtopic": "consistency",
+      "difficulty": "hard",
+      "type": "conceptual",
+      "question": "What is the difference between strong consistency, eventual consistency, and causal consistency?",
+      "answer": "Strong consistency: all reads see the most recent write immediately. Highest latency, lowest throughput. Eventual consistency: given enough time, all replicas converge to same value. Lowest latency, may read stale data. Causal consistency: operations that are causally related are seen in same order by all nodes, but concurrent operations may be seen in different orders. Middle ground between strong and eventual.",
+      "key_points": [
+        "Strong: immediate, all see latest write",
+        "Eventual: converges over time, may be stale",
+        "Causal: preserves cause-effect ordering",
+        "Trade-off between consistency and performance"
+      ],
+      "hints": [
+        "Think about what guarantees each provides",
+        "What are the latency implications?"
+      ]
+    },
+    {
+      "id": "sd-fund-005",
+      "subtopic": "scalability",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What is a load balancer? What algorithms can it use?",
+      "answer": "Load balancer distributes traffic across multiple servers to improve performance and reliability. Algorithms: Round Robin (rotate through servers), Weighted Round Robin (more to capable servers), Least Connections (send to server with fewest active connections), IP Hash (consistent routing based on client IP), Random. Can be L4 (transport layer, fast) or L7 (application layer, can route by URL/header).",
+      "key_points": [
+        "Distributes traffic across servers",
+        "Round robin, least connections, IP hash",
+        "L4 (fast, TCP) vs L7 (smart, HTTP)",
+        "Improves performance and reliability"
+      ],
+      "hints": [
+        "How do you decide which server gets the request?",
+        "What are trade-offs of each algorithm?"
+      ]
+    },
+    {
+      "id": "sd-fund-006",
+      "subtopic": "availability",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What is a single point of failure (SPOF)? How do you eliminate them?",
+      "answer": "SPOF is any component whose failure causes the entire system to fail. Eliminate by: 1) Redundancy - multiple instances of each component. 2) Failover - automatic switching to backup. 3) Geographic distribution - multiple data centers. 4) Load balancing - distribute across instances. 5) Regular testing - chaos engineering. Common SPOFs: single database, single load balancer, single DNS, single region.",
+      "key_points": [
+        "Component whose failure kills the system",
+        "Add redundancy at every layer",
+        "Need automatic failover",
+        "Test failures regularly"
+      ],
+      "hints": [
+        "What happens if this component fails?",
+        "How do you add redundancy?"
+      ]
+    },
+    {
+      "id": "sd-fund-007",
+      "subtopic": "cap-theorem",
+      "difficulty": "hard",
+      "type": "conceptual",
+      "question": "Give examples of CP and AP systems. When would you choose each?",
+      "answer": "CP systems (consistency over availability): Banking systems, inventory management, booking systems. Examples: HBase, MongoDB (default), Redis Cluster. Choose when incorrect data is worse than downtime. AP systems (availability over consistency): Social media feeds, analytics, caching. Examples: Cassandra, DynamoDB, CouchDB. Choose when stale data is acceptable but downtime isn't.",
+      "key_points": [
+        "CP: banks, inventory, bookings",
+        "AP: social feeds, analytics, caching",
+        "CP when wrong data is dangerous",
+        "AP when availability is critical"
+      ],
+      "hints": [
+        "What are consequences of stale data?",
+        "What are consequences of downtime?"
+      ]
+    },
+    {
+      "id": "sd-fund-008",
+      "subtopic": "scalability",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What is database sharding? What are its challenges?",
+      "answer": "Sharding splits data across multiple databases based on a shard key (e.g., user_id, geography). Each shard holds a subset of data. Challenges: 1) Cross-shard queries are expensive. 2) Joins across shards are complex. 3) Rebalancing when adding shards. 4) Choosing good shard key (avoid hotspots). 5) Transaction complexity. 6) Application complexity increases.",
+      "key_points": [
+        "Split data across multiple databases",
+        "Based on shard key",
+        "Cross-shard queries are expensive",
+        "Choosing shard key is critical"
+      ],
+      "hints": [
+        "How do you decide which shard holds which data?",
+        "What operations become harder?"
+      ]
+    }
+  ]
+}

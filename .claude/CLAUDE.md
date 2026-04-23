@@ -2,70 +2,103 @@
 
 > Your career, reflected.
 
-Career OS built on Claude Code. Track achievements, prep for interviews, search for jobs.
+Career OS built on Claude Code. Build your profile, analyze jobs, prepare for interviews, and master your skills.
 
 ```
 Resume₁ ──┐
-Resume₂ ──┼──► Master Profile ──► Job Analysis ──► Derived Positioning
-Resume₃ ──┘        (facts)          (fit)            (per job)
+Resume₂ ──┼──► Master Profile ──► Job Analysis ──► Interview Prep
+Resume₃ ──┘        (facts)          (fit)         (company-modeled)
+                     │
+                     └──► Skills Learning (evaluate, remember, improve)
 ```
 
 - **Profile** = who you are (facts, grows over time)
 - **Positioning** = how you present yourself (derived per job)
-- Each resume ADDS to your profile, never overwrites
+- **Interview Prep** = practice with a simulated interviewer from the company
+- **Learning** = evaluate and improve your skills with spaced repetition
 
 ## Structure
 
 ```
-profile/                    # MASTER PROFILE (merged from all resumes)
-├── identity.json           # Name, email, location, links
-├── experience.json         # Work history (merged, deduped)
-├── education.json          # Degrees, certifications
-├── skills.json             # Expert/proficient/familiar (union)
-└── proof-points.json       # Quantified achievements (merged)
+profile/                      # MASTER PROFILE (merged from all resumes)
+├── identity.json             # Name, email, location, links
+├── experience.json           # Work history (merged, deduped)
+├── education.json            # Degrees, certifications
+├── skills.json               # Expert/proficient/familiar (union)
+└── proof-points.json         # Quantified achievements (merged)
 
-activity/                   # JOBS + PIPELINE
-├── manifest.json           # Portals config for scanning
-├── tracker.md              # Applications tracker (unified view)
-├── inbox/                  # All discovered jobs (by date)
-│   └── {date}.json         # matched + filtered jobs for dedup
-└── jobs/*.json             # Analyzed jobs
+activity/                     # JOBS + TRACKING
+├── tracker.md                # Applications tracker (status + outcomes)
+└── jobs/
+    └── {job-id}.json         # Analyzed jobs (JD + positioning + fit)
 
-sources/                    # RAW INPUTS
-├── manifest.json           # Central registry (tracks all files)
-├── resume/                 # All resumes
-│   └── {date}-{source}.md  # e.g., 2026-04-11-backend.md
-└── work-samples/           # Tech specs, design docs, RFCs
-    └── *.pdf, *.md
+interview/                    # INTERVIEW PREP (company-based)
+├── banks/                    # Generic question banks (fallback)
+│   ├── behavioral.json
+│   ├── coding/
+│   └── system-design/
+└── {company-slug}/           # Per-company
+    ├── intel.json            # Company research
+    ├── questions.json        # Company-specific questions
+    └── sessions/
 
-agents/                     # Agent instructions (markdown)
-├── scan.md                 # Discover jobs from portals
-├── inbox.md                # Review discovered jobs
-├── tracker.md              # View/update applications tracker
-├── add-resume.md           # Resume → MERGE into profile
-├── add-job.md              # JD → job file + positioning + fit
-├── add-brag.md             # Achievement → proof-points.json
-├── add-doc.md              # Tech spec → proof points + skills
-├── fit-analysis.md         # Brutal, honest fit check
-├── case-agent.md           # Advocacy mode, build your case
-└── generate-resume.md      # Generate tailored resumes
+learning/                     # SKILLS LEARNING (evaluate + improve)
+├── progress.json             # Overall progress summary
+├── banks/                    # Question banks by skill
+│   ├── python/
+│   │   ├── basics.json
+│   │   ├── data-structures.json
+│   │   ├── concurrency.json
+│   │   └── advanced.json
+│   ├── system-design/
+│   │   ├── fundamentals.json
+│   │   ├── components.json
+│   │   └── patterns.json
+│   └── databases/
+│       ├── sql.json
+│       └── nosql.json
+└── {skill-slug}/             # Per-skill progress
+    ├── progress.json         # Scores by topic, gaps, schedule
+    └── sessions/             # Practice history
+        └── {date}.json
 
-generated/                  # GENERATED ARTIFACTS
-└── {job-id}/               # Per-job output folder
-    └── {date}-resume.md    # Tailored resume
+sources/                      # RAW INPUTS
+├── manifest.json
+├── resume/
+└── work-samples/
 
-scripts/                    # Python tools
-└── github_tracker/         # GitHub contribution CLI
+agents/                       # AGENTS
+├── add-resume.md
+├── add-job.md
+├── add-brag.md
+├── add-doc.md
+├── fit-analysis.md
+├── case-agent.md
+├── generate-resume.md
+├── tracker.md
+├── company-research.md
+├── prep.md
+├── behavioral.md
+├── coding.md
+├── system-design.md
+└── learn.md                  # Skills learning agent
 
-.claude/                    # Claude Code config
+generated/
+└── {job-id}/
+    └── {date}-resume.md
+
+scripts/
+└── github_tracker/
+
+.claude/
 ├── skills/
-│   ├── mw/SKILL.md         # /mw command router
-│   └── github/SKILL.md     # /github command router
-├── hooks.json              # Workflow automation
-└── settings.json           # Permissions
+│   ├── mirrorwork/SKILL.md
+│   └── github/SKILL.md
+├── hooks.json
+└── settings.json
 ```
 
-### Profile
+## Profile
 
 | File                | Purpose          | Key Fields                                |
 | ------------------- | ---------------- | ----------------------------------------- |
@@ -75,9 +108,7 @@ scripts/                    # Python tools
 | `skills.json`       | Skills inventory | expert, proficient, familiar, learning    |
 | `proof-points.json` | Achievements     | id, summary, metrics, skills, story_ready |
 
-**Note:** No `positioning.json` — positioning is derived per job.
-
-### Job
+## Job
 
 Each job in `activity/jobs/*.json` contains:
 
@@ -105,76 +136,132 @@ Each job in `activity/jobs/*.json` contains:
 }
 ```
 
-### Sources Manifest
+## Company Intel
 
-All source files are tracked in `sources/manifest.json`:
+Each company in `interview/{company-slug}/intel.json` contains:
 
 ```json
 {
-  "files": [
+  "company": "Stripe",
+  "slug": "stripe",
+  "researched_at": "2026-04-12",
+
+  "values": [
     {
-      "path": "resume/2026-04-11-backend.md",
-      "type": "resume",
-      "label": "Backend-focused resume",
-      "added_at": "2026-04-11",
-      "status": "processed",
-      "extracted": {
-        "experience": 4,
-        "skills": 15,
-        "proof_points": 3
-      }
-    },
-    {
-      "path": "work-samples/payment-rfc.pdf",
-      "type": "tech-spec",
-      "label": "Payment gateway design doc",
-      "added_at": "2026-04-11",
-      "status": "pending",
-      "extracted": null
+      "name": "Users first",
+      "description": "Build for the user, not for yourself",
+      "interview_signals": ["How did you handle conflicting user needs?"]
     }
-  ]
+  ],
+
+  "interview_process": {
+    "rounds": ["phone screen", "coding", "system design", "hiring manager"],
+    "style": "collaborative, focus on tradeoffs",
+    "what_they_look_for": ["clarity of thought", "API design sense"]
+  },
+
+  "tech_context": {
+    "stack": ["Ruby", "Go", "AWS"],
+    "scale": "millions of API calls/day",
+    "challenges": ["reliability at scale", "developer experience"]
+  },
+
+  "recent_news": ["launched X", "expanding to Y"]
 }
 ```
 
-| Field       | Purpose                                                         |
-| ----------- | --------------------------------------------------------------- |
-| `path`      | Relative to `sources/`                                          |
-| `type`      | `resume`, `tech-spec`, `case-study`, `code-sample`              |
-| `label`     | User-provided description                                       |
-| `added_at`  | When file was added                                             |
-| `status`    | `processed` / `failed` (processed immediately on add)           |
-| `extracted` | What was pulled out (type-specific, populated after processing) |
+## Skill Progress
+
+Each skill in `learning/{skill-slug}/progress.json` contains:
+
+```json
+{
+  "skill": "python",
+  "current_level": "proficient",
+  "target_level": "expert",
+  "started_at": "2026-04-01",
+  "last_practice": "2026-04-20",
+  "total_sessions": 12,
+  "total_questions": 85,
+
+  "topics": {
+    "data-structures": {
+      "score": 85,
+      "questions_seen": 20,
+      "correct": 17,
+      "last_practiced": "2026-04-20",
+      "confidence": "high",
+      "next_review": "2026-04-27"
+    },
+    "concurrency": {
+      "score": 45,
+      "questions_seen": 10,
+      "correct": 4,
+      "last_practiced": "2026-04-18",
+      "confidence": "low",
+      "next_review": "2026-04-21"
+    }
+  },
+
+  "weak_areas": ["concurrency", "metaclasses"],
+  "strong_areas": ["data-structures", "comprehensions"]
+}
+```
 
 ## Agents
 
-| Agent                | Purpose                    | Trigger                  |
-| -------------------- | -------------------------- | ------------------------ |
-| `scan.md`            | Discover jobs from portals | `/mw scan`               |
-| `inbox.md`           | Review discovered jobs     | `/mw inbox`              |
-| `tracker.md`         | View/update tracker        | `/mw tracker`            |
-| `add-resume.md`      | Parse resume → MERGE       | `/mw init`, `add resume` |
-| `add-job.md`         | JD + derive positioning    | `/mw add job [url]`      |
-| `add-brag.md`        | Capture achievement        | `/mw add brag`           |
-| `add-doc.md`         | Tech spec → proof points   | `/mw add doc`            |
-| `fit-analysis.md`    | Brutal, honest fit check   | Auto after add job       |
-| `case-agent.md`      | Build advocacy case        | `/mw case <job-id>`      |
-| `generate-resume.md` | Generate tailored resume   | `/mw resume <job-id>`    |
+| Agent                | Purpose                        | Trigger                           |
+| -------------------- | ------------------------------ | --------------------------------- |
+| `add-resume.md`      | Parse resume → MERGE           | `/mirrorwork init`, `add resume`  |
+| `add-job.md`         | JD + company research + fit    | `/mirrorwork add job`             |
+| `add-brag.md`        | Capture achievement            | `/mirrorwork add brag`            |
+| `add-doc.md`         | Tech spec → proof points       | `/mirrorwork add doc`             |
+| `fit-analysis.md`    | Brutal, honest fit check       | Auto after add job                |
+| `case-agent.md`      | Build advocacy case            | `/mirrorwork case <job-id>`       |
+| `generate-resume.md` | Generate tailored resume       | `/mirrorwork resume <job-id>`     |
+| `tracker.md`         | View/update tracker            | `/mirrorwork tracker`             |
+| `company-research.md`| Research company intel         | Auto when new company added       |
+| `prep.md`            | Interview prep orchestrator    | `/mirrorwork prep <company>`      |
+| `behavioral.md`      | Behavioral interview coach     | `/mirrorwork prep <company> behavioral` |
+| `coding.md`          | Coding practice                | `/mirrorwork prep <company> coding` |
+| `system-design.md`   | System design practice         | `/mirrorwork prep <company> system-design` |
+| `learn.md`           | Skills learning + evaluation   | `/mirrorwork learn <skill>`       |
 
-## Features
+## Commands
 
-### Data Flow
+| Command | Description |
+|---------|-------------|
+| `/mirrorwork` | Status overview |
+| `/mirrorwork init` | First-time setup |
+| `/mirrorwork add resume` | Add resume (merges into profile) |
+| `/mirrorwork add job` | Paste JD → analyze + research company |
+| `/mirrorwork add brag` | Capture achievement |
+| `/mirrorwork add doc` | Add work sample |
+| `/mirrorwork prep <company>` | Interview prep (pick type) |
+| `/mirrorwork prep <company> behavioral` | Behavioral practice |
+| `/mirrorwork prep <company> coding` | Coding practice |
+| `/mirrorwork prep <company> system-design` | System design practice |
+| `/mirrorwork learn` | Skills dashboard |
+| `/mirrorwork learn <skill>` | Practice a skill |
+| `/mirrorwork learn <skill> --topic <topic>` | Focus on specific topic |
+| `/mirrorwork learn <skill> --review` | Review weak areas (spaced repetition) |
+| `/mirrorwork learn <skill> --assess` | Full assessment |
+| `/mirrorwork progress` | Overall learning progress |
+| `/mirrorwork case <job-id>` | Build advocacy case |
+| `/mirrorwork resume <job-id>` | Generate tailored resume |
+| `/mirrorwork tracker` | View/update tracker |
+| `/github sync` | Sync GitHub data |
+
+## Data Flow
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  SOURCES (raw inputs)                                       │
 │  ├── manifest.json         # Central registry of all files  │
 │  ├── resume/               # All resumes                    │
-│  │   ├── 2024-01-paste.md  # Resume v1                      │
-│  │   └── 2026-04-file.md   # Resume v2                      │
 │  └── work-samples/         # Tech specs, design docs        │
-│      └── *.pdf, *.md                                        │
 └─────────────────────┬───────────────────────────────────────┘
-                      │ /mw add <type> (MERGE)
+                      │ /mirrorwork add <type> (MERGE)
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  PROFILE (master record - merged from all sources)          │
@@ -182,178 +269,83 @@ All source files are tracked in `sources/manifest.json`:
 │  ├── experience.json       # All roles (merged, deduped)    │
 │  ├── skills.json           # All skills (union)             │
 │  └── proof-points.json     # All achievements (merged)      │
-└─────────────────────┬───────────────────────────────────────┘
-                      │ /mw add job
-                      ▼
+└───────────┬─────────────────────────────┬───────────────────┘
+            │                             │
+            │ /mirrorwork add job         │ /mirrorwork learn
+            ▼                             ▼
+┌───────────────────────────┐   ┌─────────────────────────────┐
+│  JOB ANALYSIS             │   │  SKILLS LEARNING            │
+│  ├── activity/jobs/*.json │   │  ├── Evaluate by topic      │
+│  └── interview/{company}/ │   │  ├── Track progress         │
+└───────────┬───────────────┘   │  ├── Spaced repetition      │
+            │                   │  └── Identify gaps           │
+            │ /mirrorwork prep  └─────────────────────────────┘
+            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  JOBS (per-job analysis + derived positioning)              │
-│  └── activity/jobs/*.json                                   │
-│      ├── requirements      # What they want                 │
-│      ├── positioning       # DERIVED: how to present        │
-│      └── fit               # Brutal honest assessment       │
+│  INTERVIEW PREP                                             │
+│  ├── Behavioral   # Questions from company values           │
+│  ├── Coding       # Prioritized by YOUR weak areas          │
+│  └── System Design # Company-relevant problems              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Multi-Resume Flow
-
-Each `/mw add resume` MERGES into the master profile:
+## Learning Flow
 
 ```
-Resume 1 (2024)          Resume 2 (2026)
-├── 3 roles              ├── 4 roles (1 new, 3 overlap)
-├── 10 skills            ├── 12 skills (5 new, 7 overlap)
-└── 2 proof points       └── 4 proof points (2 new)
-        │                        │
-        └────────┬───────────────┘
-                 ▼
-         Master Profile
-         ├── 4 roles (merged)
-         ├── 15 skills (union, tiers upgraded)
-         └── 4 proof points (merged)
+/mirrorwork learn python
+
+╭─────────────────────────────────────╮
+│  mirrorwork · Learn: Python         │
+╰─────────────────────────────────────╯
+
+Level: proficient → expert
+
+───────────────────────────────────────
+📊 **Progress by Topic**
+
+| Topic | Score | Confidence | Review |
+|-------|-------|------------|--------|
+| basics | 95% | ✓ high | — |
+| data-structures | 85% | ✓ high | Apr 27 |
+| oop | 75% | ~ medium | Apr 25 |
+| concurrency | 45% | ✗ low | TODAY |
+| advanced | 40% | ✗ low | Apr 22 |
+
+**Recommendation:** Review concurrency (due today)
+
+───────────────────────────────────────
 ```
 
-**Merge rules:**
+## Spaced Repetition
 
-- **Experience:** Dedup by (company, role, start_date). Merge highlights.
-- **Skills:** Union. Upgrade tiers (familiar → proficient → expert).
-- **Proof Points:** Dedup by id. Merge metrics.
-
-**Workflow:**
-
-1. User runs `/mw add <type>` (resume, job, brag, doc)
-2. Agent prompts for file/content
-3. File saved to `sources/`, registered in manifest
-4. Parsed immediately → merged into profile
-5. Manifest updated with `extracted` details
-
-### Pipeline Flow
+Uses SM-2 algorithm for review scheduling:
 
 ```
-/mw scan                    /mw inbox                   /mw add job
-    │                           │                           │
-    ▼                           ▼                           ▼
-┌─────────────┐           ┌─────────────┐           ┌─────────────┐
-│ DISCOVER    │           │ REVIEW      │           │ ANALYZE     │
-│             │           │             │           │             │
-│ • Fetch     │──────────►│ • Pending   │──────────►│ • Parse JD  │
-│   portals   │           │   jobs      │           │ • Fit check │
-│ • Dedup     │           │ • Add/Skip  │           │ • Position  │
-│ • Filter    │           │             │           │             │
-└─────────────┘           └─────────────┘           └─────────────┘
-       │                                                   │
-       ▼                                                   ▼
-activity/inbox/                                      activity/jobs/
-(all jobs: matched + filtered)
+Correct → Interval grows: 1d → 3d → 7d → 14d → 30d
+Wrong   → Reset to 1 day
+
+Topics with low confidence are reviewed more frequently.
 ```
 
-**Portals config** (`activity/manifest.json`):
+## Tracker
 
-```json
-{
-  "portals": [
-    {
-      "name": "Careem",
-      "url": "https://jobs.careem.com/",
-      "location": "United Arab Emirates, Remote",
-      "target_roles": ["backend", "platform", "senior"],
-      "last_scan": "2026-04-12",
-      "enabled": true
-    }
-  ]
-}
+The tracker (`activity/tracker.md`) tracks application status and interview outcomes:
+
+```markdown
+| Company | Role | Fit | Status | Stage | Outcome | Notes |
+|---------|------|-----|--------|-------|---------|-------|
+| Stripe | Staff Backend | 85% | interviewing | system-design | pending | Round 3 on Monday |
+| Careem | Platform Lead | 90% | rejected | coding | failed | Struggled with DP |
+| Talabat | Backend Lead | 78% | offer | final | passed | Negotiating |
 ```
 
-| Field          | Purpose                       |
-| -------------- | ----------------------------- |
-| `name`         | Display name                  |
-| `url`          | Careers page URL              |
-| `location`     | Target location               |
-| `target_roles` | Keywords to filter job titles |
-| `last_scan`    | When last scanned             |
-| `enabled`      | Include in scans              |
+**Statuses:** `saved`, `applied`, `interviewing`, `offered`, `accepted`, `rejected`, `withdrawn`
 
-**Inbox file** (`activity/inbox/{date}.json`):
+**Stages:** `phone`, `coding`, `system-design`, `behavioral`, `hiring-manager`, `final`
 
-```json
-{
-  "date": "2026-04-12",
-  "jobs": [
-    {
-      "url": "https://...",
-      "portal": "Talabat",
-      "title": "Senior Backend Engineer",
-      "matched": true,
-      "status": "pending"
-    },
-    {
-      "url": "https://...",
-      "portal": "Talabat",
-      "title": "Office Manager",
-      "matched": false,
-      "status": "filtered"
-    }
-  ]
-}
-```
+**Outcomes:** `pending`, `passed`, `failed`
 
-| Field     | Values                                                |
-| --------- | ----------------------------------------------------- |
-| `matched` | `true` = matches target_roles, `false` = filtered out |
-| `status`  | `pending`, `added`, `skipped`, `filtered`             |
-
-### Job → Resume Flow
-
-```
-/mw add job
-      │
-      ▼
-┌─────────────┐
-│ PARSE JD    │
-│ + POSITION  │
-│ + FIT CHECK │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────────────────────────────────────┐
-│ "Generate resume now?"                       │
-│                                              │
-│  [Yes] ──────► Generate tailored resume      │
-│  [Not now] ──► Run /mw resume later          │
-│  [Case first] ► Build talking points first   │
-└─────────────────────────────────────────────┘
-       │
-       ▼
-┌─────────────┐             ┌─────────────┐
-│ FIT ANALYSIS│             │ MAKE A CASE │
-│             │             │             │
-│ • Brutal    │     ──►     │ • Advocate  │
-│ • Honest    │  (if you    │ • Reframe   │
-│ • Binary    │   decide    │ • Story     │
-│             │  to apply)  │             │
-│ "Do I meet  │             │ "How do I   │
-│  the reqs?" │             │  position?" │
-└─────────────┘             └─────────────┘
-```
-
-**Streamlined workflow:** Paste JD → Fit Analysis → Generate Resume (all in one flow)
-
-### Commands
-
-| Command               | Agent           | Description                      |
-| --------------------- | --------------- | -------------------------------- |
-| `/mw`                 | (inline)        | Show status                      |
-| `/mw init`            | add-resume      | First-time setup                 |
-| `/mw scan`            | scan            | Discover jobs from portals       |
-| `/mw inbox`           | inbox           | Review discovered jobs           |
-| `/mw add resume`      | add-resume      | Add resume (merges into profile) |
-| `/mw add job [url]`   | add-job         | Add job + derive positioning     |
-| `/mw add brag`        | add-brag        | Capture achievement              |
-| `/mw add doc`         | add-doc         | Add tech spec, work sample       |
-| `/mw case <job-id>`   | case-agent      | Build advocacy case              |
-| `/mw resume <job-id>` | generate-resume | Generate tailored resume         |
-| `/github sync`        | (skill)         | Sync GitHub data                 |
-
-### Hooks
+## Hooks
 
 | Trigger                         | Action           |
 | ------------------------------- | ---------------- |
@@ -361,12 +353,13 @@ activity/inbox/                                      activity/jobs/
 
 ## Conventions
 
-- **JSON** for all structured data (profile, jobs, GitHub)
-- **Markdown** for narratives (career.md, research notes)
+- **JSON** for all structured data (profile, jobs, company intel, progress)
+- **Markdown** for narratives and session transcripts
 - File names: `kebab-case.json`
-- IDs: `{company}-{slug}` (e.g., `dubizzle-latency-fix`)
+- IDs: `{company}-{slug}` (e.g., `stripe-staff-backend`)
+- Company slugs: `kebab-case` (e.g., `stripe`, `dt-one`)
+- Skill slugs: `kebab-case` (e.g., `python`, `system-design`)
 - Dates: `YYYY-MM-DD` or `YYYY-MM`
-- Resume files: `{YYYY-MM-DD}-{source}.md`
 
 ## Principles
 
@@ -374,3 +367,7 @@ activity/inbox/                                      activity/jobs/
 2. **Accumulate, don't overwrite** — Each resume adds to master profile
 3. **Positioning is contextual** — Derived per job, not global
 4. **Brutal honesty first** — Fit analysis before advocacy
+5. **Answers from facts** — Behavioral answers come from your proof points
+6. **Company-modeled prep** — Interview practice shaped by company values
+7. **Learn through repetition** — Spaced review for lasting retention
+8. **Track to improve** — Know your weak areas, focus practice there

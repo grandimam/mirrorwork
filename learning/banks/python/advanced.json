@@ -1,0 +1,151 @@
+{
+  "skill": "python",
+  "topic": "advanced",
+  "subtopics": ["decorators", "generators", "context-managers", "metaclasses"],
+  "questions": [
+    {
+      "id": "py-adv-001",
+      "subtopic": "decorators",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What is a decorator in Python? How does it work internally?",
+      "answer": "A decorator is a function that takes another function as input and returns a modified version of it. When you use @decorator syntax, Python replaces the original function with the decorator's return value. Internally, `@decorator def func(): pass` is equivalent to `func = decorator(func)`. Decorators enable adding behavior without modifying the original function's code.",
+      "key_points": [
+        "Function that takes and returns a function",
+        "@decorator is syntactic sugar",
+        "Equivalent to func = decorator(func)",
+        "Enables behavior modification"
+      ],
+      "hints": [
+        "Think about what @decorator syntax does",
+        "What does the decorator return?"
+      ]
+    },
+    {
+      "id": "py-adv-002",
+      "subtopic": "decorators",
+      "difficulty": "hard",
+      "type": "code_write",
+      "question": "Write a decorator that caches function results (memoization). It should work with any number of arguments.",
+      "answer": "```python\nfrom functools import wraps\n\ndef memoize(func):\n    cache = {}\n    \n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        key = (args, tuple(sorted(kwargs.items())))\n        if key not in cache:\n            cache[key] = func(*args, **kwargs)\n        return cache[key]\n    \n    return wrapper\n\n@memoize\ndef fibonacci(n):\n    if n < 2:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)\n```",
+      "key_points": [
+        "Use closure to store cache",
+        "Create hashable key from args/kwargs",
+        "@wraps preserves function metadata",
+        "Check cache before calling function"
+      ],
+      "hints": [
+        "How do you create a hashable key from arguments?",
+        "Where does the cache live?"
+      ]
+    },
+    {
+      "id": "py-adv-003",
+      "subtopic": "generators",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What is the difference between a generator and a regular function? When would you use a generator?",
+      "answer": "A generator uses `yield` instead of `return` and produces values lazily - one at a time, only when requested. It maintains state between yields. Use generators when: 1) Processing large datasets that don't fit in memory. 2) Creating infinite sequences. 3) Building data pipelines. 4) When you only need to iterate once. Memory efficient because values aren't stored all at once.",
+      "key_points": [
+        "yield vs return",
+        "Lazy evaluation - values on demand",
+        "Maintains state between yields",
+        "Memory efficient for large data"
+      ],
+      "hints": [
+        "Think about memory usage",
+        "When is each value computed?"
+      ]
+    },
+    {
+      "id": "py-adv-004",
+      "subtopic": "generators",
+      "difficulty": "hard",
+      "type": "code_output",
+      "question": "What does this code print?\n\n```python\ndef gen():\n    yield 1\n    yield 2\n    return 'done'\n    yield 3\n\ng = gen()\nprint(next(g))\nprint(next(g))\ntry:\n    print(next(g))\nexcept StopIteration as e:\n    print(f'stopped: {e.value}')\n```",
+      "answer": "1\n2\nstopped: done\n\nThe generator yields 1, then 2. The `return 'done'` raises StopIteration with value 'done'. The `yield 3` is never reached because return exits the generator. StopIteration.value contains the return value.",
+      "key_points": [
+        "return in generator raises StopIteration",
+        "return value accessible via exception.value",
+        "Code after return is unreachable",
+        "next() raises StopIteration when exhausted"
+      ],
+      "hints": [
+        "What happens when a generator returns?",
+        "Where does the return value go?"
+      ]
+    },
+    {
+      "id": "py-adv-005",
+      "subtopic": "context-managers",
+      "difficulty": "medium",
+      "type": "conceptual",
+      "question": "What are __enter__ and __exit__ methods? How do they relate to the `with` statement?",
+      "answer": "__enter__ is called when entering a `with` block and its return value is bound to the `as` variable. __exit__ is called when exiting the block (even on exception) and receives exception info (type, value, traceback) or None if no exception. If __exit__ returns True, it suppresses the exception. This pattern ensures cleanup happens regardless of how the block exits.",
+      "key_points": [
+        "__enter__ called on entry, return bound to 'as'",
+        "__exit__ always called on exit",
+        "__exit__ receives exception info or None",
+        "Return True from __exit__ to suppress exception"
+      ],
+      "hints": [
+        "Think about the 'with' statement lifecycle",
+        "What happens if an exception occurs?"
+      ]
+    },
+    {
+      "id": "py-adv-006",
+      "subtopic": "context-managers",
+      "difficulty": "medium",
+      "type": "code_write",
+      "question": "Write a context manager that times how long a block of code takes to execute.",
+      "answer": "```python\nimport time\nfrom contextlib import contextmanager\n\n@contextmanager\ndef timer():\n    start = time.perf_counter()\n    yield\n    elapsed = time.perf_counter() - start\n    print(f'Elapsed: {elapsed:.4f}s')\n\n# Usage:\nwith timer():\n    # code to time\n    time.sleep(1)\n```\n\nOr class-based:\n```python\nclass Timer:\n    def __enter__(self):\n        self.start = time.perf_counter()\n        return self\n    \n    def __exit__(self, *args):\n        self.elapsed = time.perf_counter() - self.start\n        print(f'Elapsed: {self.elapsed:.4f}s')\n```",
+      "key_points": [
+        "@contextmanager simplifies creation",
+        "Code before yield is __enter__",
+        "Code after yield is __exit__",
+        "Class-based uses __enter__/__exit__"
+      ],
+      "hints": [
+        "When do you start the timer?",
+        "When do you stop it?"
+      ]
+    },
+    {
+      "id": "py-adv-007",
+      "subtopic": "metaclasses",
+      "difficulty": "hard",
+      "type": "conceptual",
+      "question": "What is a metaclass? When would you use one?",
+      "answer": "A metaclass is a class whose instances are classes. Just as a class defines behavior of instances, a metaclass defines behavior of classes. Default metaclass is `type`. Use metaclasses for: 1) Automatic registration of subclasses. 2) Enforcing coding standards (required methods). 3) Adding class-level behavior. 4) ORMs (Django models). 5) ABCs. Usually there are simpler alternatives (decorators, __init_subclass__).",
+      "key_points": [
+        "Class of a class",
+        "type is the default metaclass",
+        "Controls class creation",
+        "Often decorators or __init_subclass__ are simpler"
+      ],
+      "hints": [
+        "If an object is an instance of a class, what is a class an instance of?",
+        "When do you need to modify class creation?"
+      ]
+    },
+    {
+      "id": "py-adv-008",
+      "subtopic": "metaclasses",
+      "difficulty": "hard",
+      "type": "code_write",
+      "question": "Write a metaclass that automatically makes all methods of a class log when they're called.",
+      "answer": "```python\nimport functools\n\ndef log_call(func):\n    @functools.wraps(func)\n    def wrapper(*args, **kwargs):\n        print(f'Calling {func.__name__}')\n        return func(*args, **kwargs)\n    return wrapper\n\nclass LoggingMeta(type):\n    def __new__(mcs, name, bases, namespace):\n        for key, value in namespace.items():\n            if callable(value) and not key.startswith('_'):\n                namespace[key] = log_call(value)\n        return super().__new__(mcs, name, bases, namespace)\n\nclass MyClass(metaclass=LoggingMeta):\n    def foo(self):\n        return 'foo'\n    \n    def bar(self):\n        return 'bar'\n\n# MyClass().foo() prints 'Calling foo' then returns 'foo'\n```",
+      "key_points": [
+        "__new__ intercepts class creation",
+        "Iterate namespace to find methods",
+        "Wrap callables with decorator",
+        "Skip private methods (__)"
+      ],
+      "hints": [
+        "Where do you intercept class creation?",
+        "How do you modify methods before class is created?"
+      ]
+    }
+  ]
+}

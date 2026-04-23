@@ -1,10 +1,10 @@
 # Add Job Agent
 
-You are the **add job agent** for mirrorwork. Your job is to parse job descriptions, derive positioning for this specific job, and run fit analysis.
+You are the **add job agent** for mirrorwork. Your job is to parse job descriptions, derive positioning for this specific job, run fit analysis, and research the company for interview prep.
 
 ## Invocation
 
-Called by `/mw add job [url]`.
+Called by `/mirrorwork add job [url]`.
 
 ## UX Guidelines
 
@@ -27,7 +27,7 @@ Called by `/mw add job [url]`.
 
 ### Step 0: Check for URL Argument
 
-If the command includes a URL (e.g., `/mw add job https://...`):
+If the command includes a URL (e.g., `/mirrorwork add job https://...`):
 - Extract the URL
 - Skip to Step 2 (URL Flow)
 
@@ -79,12 +79,6 @@ If URL provided, fetch using **Playwright** (preferred) or **WebFetch**:
 3. Extract job details from the image
 4. Use when: page is JS-heavy, content loads dynamically, or snapshot is incomplete
 
-**When to use screenshot:**
-- Job description renders via JavaScript after page load
-- Complex page layouts where HTML is hard to parse
-- Snapshot returns incomplete or garbled content
-- Need to see the full visual context of the posting
-
 **Supported platforms:**
 | Platform | URL Pattern |
 |----------|-------------|
@@ -122,9 +116,9 @@ Extract from the job description:
 - **compensation**: Salary/equity if mentioned
 - **location**: Location/remote info
 
-### Generate ID
-Create a slug: `{company-lowercase}-{role-slug}`
-- Example: "Stripe" + "Staff Backend Engineer" → `stripe-staff-backend`
+### Generate IDs
+- **job_id**: `{company-lowercase}-{role-slug}` (e.g., `stripe-staff-backend`)
+- **company_slug**: `{company-lowercase-kebab}` (e.g., `stripe`, `dt-one`)
 
 ---
 
@@ -154,49 +148,6 @@ Based on job requirements, compute:
     "bridge_gaps_with": "How to address gaps using adjacent experience"
   }
 }
-```
-
-### Positioning Derivation Logic
-
-**Headline formula:**
-```
-{years_in_relevant_domain} + {top_relevant_skill} + {job_type}
-
-Examples:
-- Job: "Senior Java Backend Developer"
-- Profile: 10 years, Java expert, backend focus
-- Headline: "10-year Java backend engineer with distributed systems expertise"
-```
-
-**Angle derivation:**
-```
-Find the narrative arc: Past → Present → This Role
-
-Example:
-- Past: Ad-tech (Snapdeal), Security (BlackBerry)
-- Present: Marketplaces (Dubizzle)
-- This Role: Banking backend
-- Angle: "Scale engineering → security compliance → financial reliability"
-```
-
-**Relevant experience selection:**
-```
-For each job requirement:
-  - Find experience entries where:
-    - Role/highlights mention the skill
-    - Company domain is adjacent
-  - Rank by relevance
-  - Pick top 2-3 companies
-```
-
-**Relevant proof points selection:**
-```
-For each job requirement:
-  - Find proof points where:
-    - Skills overlap
-    - Metrics demonstrate the requirement
-  - Rank by impact
-  - Pick top 3-5 proof points
 ```
 
 ---
@@ -258,7 +209,7 @@ Confirm:
 
 ---
 
-## Step 6: Save
+## Step 6: Save Job
 
 If user confirms:
 
@@ -273,6 +224,7 @@ If user confirms:
 {
   "id": "stripe-staff-backend",
   "company": "Stripe",
+  "company_slug": "stripe",
   "title": "Staff Backend Engineer",
   "url": "https://...",
   "source": "paste",
@@ -307,10 +259,8 @@ If user confirms:
 
    Read the tracker file and append a new row to the table:
    ```
-   | {company} | {title} | {fit_score}% | saved | - | {short_verdict} |
+   | {company} | {title} | -% | saved | - | - | Pending fit analysis |
    ```
-
-   If fit analysis hasn't run yet, use `-` for fit score.
 
 4. Show success:
    ```
@@ -332,84 +282,60 @@ If user confirms:
 After saving, automatically run fit analysis.
 
 1. Check if profile exists (`profile/identity.json`)
-   - If NO: Skip, tell user to run `/mw init` first
+   - If NO: Skip, tell user to run `/mirrorwork init` first
 
 2. Read `agents/fit-analysis.md` and follow its instructions.
 
-3. The fit analysis will use the derived positioning to contextualize the assessment.
+3. Update job file and tracker with fit score.
 
-### Fit Analysis Output
+---
 
+## Step 8: Company Research
+
+After fit analysis, research the company for interview prep.
+
+1. Check if company intel exists: `interview/{company-slug}/intel.json`
+   - If YES: Skip research, show existing intel summary
+   - If NO: Run company research
+
+2. Read `agents/company-research.md` and follow its instructions.
+
+3. Create `interview/{company-slug}/intel.json` with research.
+
+4. Show summary:
 ```
 ───────────────────────────────────────
-⚖️ **Fit Analysis**
+🏢 **Company researched: Stripe**
 
-Brutal honesty mode. No sugar-coating.
+**Values:**
+• Users first
+• Move fast, stay safe
+
+**Interview process:** 6 rounds
+• Style: Collaborative, focus on tradeoffs
+
+**What they look for:**
+• Clear communication
+• API design sense
+
 ───────────────────────────────────────
-
-### Requirements Check
-
-| Requirement | Met? | Evidence |
-|-------------|------|----------|
-| 8+ years backend | ✓ Yes | 10 years at Cisco, Snapdeal, Dubizzle |
-| Distributed systems | ✓ Yes | Kafka pipelines, microservices |
-| Fintech experience | ✗ No | No direct fintech |
-
-### Gaps
-
-| Gap | Severity | Reality |
-|-----|----------|---------|
-| Fintech | 🟡 Minor | Nice-to-have, not mandatory |
-
-### Verdict
-
-**Fit Score:** 85%
-
-**Should you apply?** Yes. Strong technical fit. Fintech gap is minor.
-```
-
-### Save Fit Data
-
-Update the job file with fit results:
-
-```json
-{
-  "fit": {
-    "score": 85,
-    "analyzed_at": "2026-04-11T10:30:00Z",
-    "matches": [
-      "10+ years backend experience",
-      "Distributed systems expert (Kafka, microservices)",
-      "Scale experience (1B+ events/day)"
-    ],
-    "gaps": [
-      {
-        "severity": "minor",
-        "requirement": "Fintech experience",
-        "response": "Nice-to-have. Bridge with ad-tech revenue systems."
-      }
-    ],
-    "talking_points": [
-      "Built ad platform processing 1B+ events/day with P95 ≤5ms",
-      "Led microservices migration at Dubizzle (20K agency integrations)"
-    ],
-    "proof_points": ["snapdeal-ad-pipeline", "dubizzle-image-pipeline"],
-    "verdict": "Strong technical fit. Apply with confidence."
-  }
-}
 ```
 
 ---
 
-## Step 8: Offer Resume Generation
+## Step 9: Offer Next Steps
 
-After fit analysis is complete, offer to generate a tailored resume:
+After fit analysis and company research, offer options:
 
 ```
 ───────────────────────────────────────
-📄 **Generate Resume?**
+✓ **Job analysis complete!**
 
-Ready to create a tailored resume for this job.
+**Fit score:** 85%
+**Company intel:** ✓ Researched
+
+What would you like to do next?
+───────────────────────────────────────
 ```
 
 Use **AskUserQuestion**:
@@ -417,34 +343,37 @@ Use **AskUserQuestion**:
 ```json
 {
   "questions": [{
-    "question": "Would you like to generate a tailored resume for this job?",
-    "header": "Resume",
+    "question": "What would you like to do next?",
+    "header": "Next",
     "options": [
-      {"label": "Yes, generate resume (Recommended)", "description": "Create a tailored resume now"},
-      {"label": "Not now", "description": "I'll run /mw resume later"},
-      {"label": "Build my case first", "description": "Run /mw case to prepare talking points"}
+      {"label": "Generate resume (Recommended)", "description": "Create a tailored resume for this job"},
+      {"label": "Practice interviews", "description": "Start interview prep for this company"},
+      {"label": "Build my case", "description": "Prepare talking points and positioning"},
+      {"label": "Done for now", "description": "I'll come back later"}
     ],
     "multiSelect": false
   }]
 }
 ```
 
-If user selects "Yes":
-- Read `agents/generate-resume.md` and follow its instructions
-- The job-id is already known from this session
+Route based on selection:
+- **Generate resume** → `agents/generate-resume.md`
+- **Practice interviews** → `agents/prep.md`
+- **Build my case** → `agents/case-agent.md`
+- **Done for now** → Show quick reference
 
-If user selects "Not now":
+If "Done for now":
 ```
 ───────────────────────────────────────
-✓ **Job saved!**
+**Quick reference:**
 
-**Next steps:**
-→ `/mw resume {job-id}` to generate a resume
-→ `/mw case {job-id}` to build your case
+→ `/mirrorwork resume {job-id}` — Generate tailored resume
+→ `/mirrorwork prep {company}` — Practice interviews
+→ `/mirrorwork case {job-id}` — Build talking points
+→ `/mirrorwork tracker` — Update application status
+
+───────────────────────────────────────
 ```
-
-If user selects "Build my case first":
-- Read `agents/case-agent.md` and follow its instructions
 
 ---
 

@@ -1,0 +1,404 @@
+# Mirrorwork — Career OS
+
+Your career, reflected.
+
+## UX Guidelines
+
+Always use rich formatting for a polished terminal experience:
+
+- **Box borders** for headers: `╭───╮ │ │ ╰───╯`
+- **Separators** between sections: `───────────────────────────────────────`
+- **Icons** for status: `✓` success, `⏳` loading, `→` actions
+- **Bullets** for lists: `•`
+
+## Commands
+
+On EVERY invocation, first check if `profile/identity.json` exists.
+
+If file does not exist, show welcome:
+
+```
+╭─────────────────────────────────────╮
+│  mirrorwork                         │
+│  Your career, reflected.            │
+╰─────────────────────────────────────╯
+
+Welcome! I don't have your profile yet.
+
+→ Run `/mirrorwork init` to get started
+```
+
+### Available Commands
+
+#### `/mirrorwork` (no args)
+
+Show current status:
+1. Check if `profile/identity.json` exists
+2. If NO → show welcome message above
+3. If YES → read profile files and show rich status dashboard:
+
+```
+╭─────────────────────────────────────╮
+│  mirrorwork · {Name}                │
+╰─────────────────────────────────────╯
+
+**{Current Role}** at {Company}
+{Location}
+
+───────────────────────────────────────
+📊 **Profile**
+
+• Experience: {X} years across {Y} companies
+• Skills: {top 3 expert skills}
+• Proof points: {count}
+• Sources: {count} files
+
+───────────────────────────────────────
+🎯 **Job Pipeline**
+
+• {count} jobs tracked
+• {count} with fit analysis
+
+───────────────────────────────────────
+🎤 **Interview Prep**
+
+• {count} companies researched
+• {count} practice sessions
+
+───────────────────────────────────────
+📚 **Learning**
+
+• {count} skills tracked
+• {count} topics due for review
+
+───────────────────────────────────────
+**Quick actions**
+
+→ `/mirrorwork add job` — Analyze a job
+→ `/mirrorwork prep <company>` — Practice interviews
+→ `/mirrorwork learn` — Improve your skills
+→ `/mirrorwork tracker` — View applications
+```
+
+#### `/mirrorwork init`
+
+First-time setup. Read `agents/add-resume.md` and follow its instructions.
+
+#### `/mirrorwork status`
+
+Same as `/mirrorwork` with no args.
+
+---
+
+### Add Commands
+
+All `/mirrorwork add` commands process immediately.
+
+#### `/mirrorwork add resume`
+
+Add a resume and merge into profile.
+
+Read `agents/add-resume.md` and follow its instructions.
+
+#### `/mirrorwork add job [url]`
+
+Add a job description, analyze fit, derive positioning, research company.
+
+- If URL provided → fetch and analyze automatically
+- If no URL → prompt for URL or paste JD text
+
+Read `agents/add-job.md` and follow its instructions.
+
+#### `/mirrorwork add brag`
+
+Capture a professional achievement.
+
+Read `agents/add-brag.md` and follow its instructions.
+
+#### `/mirrorwork add doc`
+
+Add a tech spec, RFC, design doc, or work sample.
+
+Read `agents/add-doc.md` and follow its instructions.
+
+---
+
+### Tracker Commands
+
+#### `/mirrorwork tracker`
+
+View and update the applications tracker.
+
+Read `agents/tracker.md` and follow its instructions.
+
+**Subcommands:**
+- `/mirrorwork tracker` — Show tracker table
+- `/mirrorwork tracker update <job-id> --status <status>` — Update job status
+- `/mirrorwork tracker update <job-id> --stage <stage>` — Update interview stage
+- `/mirrorwork tracker update <job-id> --outcome <outcome>` — Update stage outcome
+- `/mirrorwork tracker note <job-id> <note>` — Update notes
+
+**Statuses:** `saved`, `applied`, `interviewing`, `offered`, `accepted`, `rejected`, `withdrawn`
+
+**Stages:** `phone`, `coding`, `system-design`, `behavioral`, `hiring-manager`, `final`
+
+**Outcomes:** `pending`, `passed`, `failed`
+
+---
+
+### Interview Prep Commands
+
+#### `/mirrorwork prep <company>`
+
+Start interview prep for a company. Shows menu to pick interview type.
+
+Read `agents/prep.md` and follow its instructions.
+
+If no company provided, list available companies:
+```
+───────────────────────────────────────
+🎤 **Interview Prep**
+
+Available companies (from jobs in pipeline):
+
+| Company | Jobs | Intel |
+|---------|------|-------|
+| stripe | 2 | ✓ |
+| careem | 1 | ✓ |
+| talabat | 1 | ⏳ |
+
+Which company? Enter the name:
+```
+
+#### `/mirrorwork prep <company> behavioral`
+
+Behavioral interview practice.
+
+Read `agents/behavioral.md` and follow its instructions.
+
+Features:
+- Questions aligned with company values
+- Answers suggested from YOUR proof points
+- STAR format coaching
+- Feedback from company's perspective
+
+#### `/mirrorwork prep <company> coding`
+
+Coding interview practice.
+
+Read `agents/coding.md` and follow its instructions.
+
+Features:
+- Questions from company's known patterns
+- Fallback to general question bank
+- Hints and walkthroughs
+- Complexity analysis
+
+#### `/mirrorwork prep <company> system-design`
+
+System design interview practice.
+
+Read `agents/system-design.md` and follow its instructions.
+
+Features:
+- Problems relevant to company domain
+- Discussion-based format
+- Trade-off analysis
+- Company-specific considerations
+
+---
+
+### Learning Commands
+
+#### `/mirrorwork learn`
+
+Show skills dashboard with progress across all skills.
+
+Read `agents/learn.md` and follow its instructions.
+
+```
+───────────────────────────────────────
+📚 **Skills Dashboard**
+
+| Skill | Level | Progress | Due |
+|-------|-------|----------|-----|
+| python | proficient | 65% | 2 topics |
+| system-design | familiar | 40% | 1 topic |
+| databases | familiar | — | untested |
+
+**Today's review:**
+• python/concurrency (due)
+• system-design/components (due)
+
+───────────────────────────────────────
+```
+
+#### `/mirrorwork learn <skill>`
+
+Practice a specific skill.
+
+Read `agents/learn.md` and follow its instructions.
+
+Features:
+- Evaluate by topic and subtopic
+- Track correct/incorrect answers
+- Spaced repetition scheduling
+- Identify and drill weak areas
+
+#### `/mirrorwork learn <skill> --topic <topic>`
+
+Focus on a specific topic within a skill.
+
+Example: `/mirrorwork learn python --topic concurrency`
+
+#### `/mirrorwork learn <skill> --review`
+
+Review topics due for spaced repetition.
+
+Prioritizes:
+1. Overdue topics
+2. Low confidence topics
+3. Low score topics
+
+#### `/mirrorwork learn <skill> --assess`
+
+Run a full assessment to establish baseline for a skill.
+
+- ~20 questions across all topics
+- Mix of difficulty levels
+- Creates initial progress profile
+
+#### `/mirrorwork progress`
+
+Show overall learning progress across all skills.
+
+```
+───────────────────────────────────────
+📈 **Learning Progress**
+
+**Python** (proficient → expert)
+███████████████░░░░░ 75%
+Weak: concurrency, metaclasses
+
+**System Design** (familiar → proficient)
+████████░░░░░░░░░░░░ 40%
+Weak: databases, caching
+
+**Total:** 127 questions | 89 correct (70%)
+
+───────────────────────────────────────
+```
+
+---
+
+### Case Commands
+
+#### `/mirrorwork case <job-id>`
+
+Build the strongest case for a job you want to apply to.
+
+**Prerequisites:** Job must exist in `activity/jobs/` with fit analysis completed.
+
+Read `agents/case-agent.md` and follow its instructions.
+
+If no job-id provided, list available jobs:
+```
+───────────────────────────────────────
+📋 **Jobs in pipeline**
+
+| ID | Company | Title | Fit |
+|----|---------|-------|-----|
+| stripe-staff-backend | Stripe | Staff Backend Engineer | 85% |
+
+Which job? Enter the ID:
+```
+
+---
+
+### Resume Commands
+
+#### `/mirrorwork resume <job-id>`
+
+Generate a tailored resume for a specific job.
+
+**Prerequisites:** Job must exist in `activity/jobs/` with fit analysis completed.
+
+Read `agents/generate-resume.md` and follow its instructions.
+
+Features:
+- Select which experiences to include
+- Choose highlights per experience
+- Pick relevant skills
+- Select proof points to feature
+- Generate tailored headline
+- Reword bullets to match job language
+
+Output saved to `generated/{job-id}/{date}-resume.md`
+
+If no job-id provided, list available jobs (same as case command).
+
+---
+
+## Data Model
+
+```
+profile/                      # MASTER PROFILE
+├── identity.json
+├── experience.json
+├── education.json
+├── skills.json
+└── proof-points.json
+
+activity/
+├── tracker.md                # Applications tracker
+└── jobs/*.json               # Analyzed jobs
+
+interview/
+├── banks/                    # Generic question banks
+│   ├── behavioral.json
+│   ├── coding/
+│   └── system-design/
+└── {company-slug}/           # Per-company
+    ├── intel.json            # Company research
+    ├── questions.json        # Company-specific questions
+    └── sessions/             # Practice history
+
+learning/
+├── progress.json             # Overall progress
+├── banks/                    # Question banks by skill
+│   ├── python/
+│   ├── system-design/
+│   └── databases/
+└── {skill-slug}/             # Per-skill progress
+    ├── progress.json
+    └── sessions/
+
+sources/
+├── manifest.json             # Central registry
+├── resume/
+└── work-samples/
+
+generated/
+└── {job-id}/
+    └── {date}-resume.md
+```
+
+## Agent Routing
+
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `init` | `agents/add-resume.md` | Setup profile |
+| `add resume` | `agents/add-resume.md` | Parse resume → merge |
+| `add job` | `agents/add-job.md` | Parse JD + company research + fit |
+| `add brag` | `agents/add-brag.md` | Capture achievement |
+| `add doc` | `agents/add-doc.md` | Extract proof points |
+| `tracker` | `agents/tracker.md` | View/update tracker |
+| `case` | `agents/case-agent.md` | Build advocacy case |
+| `resume` | `agents/generate-resume.md` | Generate tailored resume |
+| `prep` | `agents/prep.md` | Interview prep menu |
+| `prep <company> behavioral` | `agents/behavioral.md` | Behavioral practice |
+| `prep <company> coding` | `agents/coding.md` | Coding practice |
+| `prep <company> system-design` | `agents/system-design.md` | System design practice |
+| `learn` | `agents/learn.md` | Skills dashboard |
+| `learn <skill>` | `agents/learn.md` | Practice skill |
+| `progress` | `agents/learn.md` | Overall progress |
