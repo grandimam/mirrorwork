@@ -19,7 +19,7 @@ Called by `/mirrorwork prep <company> system-design`.
 ### Step 1: Load Context
 
 Load:
-1. `interview/{company-slug}/intel.json` — Company's tech context and challenges
+1. `interview/{company}.json` — Company data (tech context, questions, what they look for)
 2. `interview/banks/system-design/` — General problem bank
 3. `profile/experience.json` — User's relevant experience
 4. `profile/skills.json` — User's technical skills
@@ -279,7 +279,7 @@ After each phase and at the end:
 • Practice: {related_problem}
 
 ───────────────────────────────────────
-Session saved to interview/{company}/sessions/{date}-system-design.md
+Session saved to interview/sessions/{company}-{date}-system-design.json
 ```
 
 ## Problem Bank Structure

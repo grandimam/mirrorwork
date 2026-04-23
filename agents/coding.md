@@ -19,7 +19,7 @@ Called by `/mirrorwork prep <company> coding`.
 ### Step 1: Load Context
 
 Load:
-1. `interview/{company-slug}/intel.json` — Company's coding patterns
+1. `interview/{company}.json` — Company's coding patterns and questions
 2. `interview/banks/coding/` — General question bank
 3. `profile/skills.json` — User's programming languages
 
@@ -239,7 +239,7 @@ After solving, ask follow-ups (as interviewer would):
 {honest_assessment}
 
 ───────────────────────────────────────
-Session saved to interview/{company}/sessions/{date}-coding.md
+Session saved to interview/sessions/{company}-{date}-coding.json
 ```
 
 ## Problem Bank Structure

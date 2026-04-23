@@ -23,7 +23,7 @@ Called by `/mirrorwork prep <company> behavioral`.
 ### Step 1: Load Context
 
 Load:
-1. `interview/{company-slug}/intel.json` — Company values and question patterns
+1. `interview/{company}.json` — Company values, process, and question patterns
 2. `profile/experience.json` — User's work history
 3. `profile/proof-points.json` — User's achievements
 4. `profile/skills.json` — User's skills
@@ -53,7 +53,7 @@ Ready? Let's begin.
 
 ### Step 3: Ask Questions
 
-Select 3-5 questions based on company values. Prioritize questions from `intel.json.common_questions.behavioral`.
+Select 3-5 questions based on company values. Prioritize questions from `{company}.json.questions.behavioral`.
 
 **Question format:**
 
@@ -190,7 +190,7 @@ After all questions (or user types "done"):
 {honest_assessment}
 
 ───────────────────────────────────────
-Session saved to interview/{company}/sessions/{date}-behavioral.md
+Session saved to interview/sessions/{company}-{date}-behavioral.json
 ```
 
 ## Question Bank by Value Type

@@ -16,30 +16,63 @@ __pycache__/
 venv/
 *.egg-info/
 
-# Personal data (keep template clean)
+# ============================================
+# USER DATA (personal, not tracked in git)
+# ============================================
+
+# Profile - user's personal career data
 profile/*
 !profile/.gitkeep
 
+# Sources - user's resumes and work samples
 sources/resume/*
 !sources/resume/.gitkeep
+sources/work-samples/*
+!sources/work-samples/.gitkeep
+sources/manifest.json
 
-sources/documents/*
-!sources/documents/.gitkeep
-
-sources/research/*
-!sources/research/.gitkeep
-
-sources/github/reports/*
-!sources/github/reports/.gitkeep
-
-sources/github/stories/*
-!sources/github/stories/.gitkeep
-
-activity/inbox/*
-!activity/inbox/.gitkeep
-
+# Activity - user's job applications and tracker
 activity/jobs/*
 !activity/jobs/.gitkeep
+activity/tracker.md
 
+# Generated - tailored resumes per job
 generated/*
 !generated/.gitkeep
+
+# Interview - company data and practice sessions
+# Tracked: banks/, *.json (company files), sessions/README.md
+# Ignored: session logs (personal practice history)
+interview/sessions/*.json
+!interview/sessions/README.md
+!interview/sessions/.gitkeep
+
+# Learning - user's progress and practice history
+learning/progress.json
+learning/local/
+
+# Per-skill user progress (not the banks)
+learning/python/
+learning/go/
+learning/javascript/
+learning/databases/
+learning/system-design/
+!learning/banks/
+
+# ============================================
+# COMMUNITY (fetched, can be refreshed)
+# ============================================
+# These are fetched dynamically, not shipped
+learning/community/leetcode/*
+!learning/community/leetcode/.gitkeep
+learning/community/system-design/*
+!learning/community/system-design/.gitkeep
+
+# ============================================
+# TEMPLATES (shipped with repo)
+# ============================================
+# These ARE tracked:
+# - learning/banks/        (official skill question banks)
+# - interview/banks/       (interview question banks)
+# - agents/                (agent instructions)
+# - .claude/               (skills, hooks, settings)

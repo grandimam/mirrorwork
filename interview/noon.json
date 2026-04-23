@@ -1,0 +1,222 @@
+{
+  "company": "noon",
+  "slug": "noon",
+  "website": "https://noon.com",
+  "careers": "https://careers.noon.com",
+  "engineering_blog": "https://engineering.noon.com",
+
+  "about": {
+    "description": "E-commerce marketplace operating in UAE, KSA, and Egypt",
+    "products": ["Marketplace", "noon Daily (grocery)", "noon Pay (fintech)"],
+    "locations": ["Dubai (HQ)", "Cairo", "Bengaluru", "London"],
+    "tech_stack": ["Python", "Django", "PostgreSQL", "Elasticsearch", "Kafka", "Redis"]
+  },
+
+  "values": [
+    {
+      "name": "Ownership",
+      "description": "Take full responsibility for outcomes",
+      "interview_signals": ["Examples of end-to-end delivery", "No 'that wasn't my job' attitude"]
+    },
+    {
+      "name": "Speed",
+      "description": "Move fast, iterate quickly",
+      "interview_signals": ["Working in fast-paced environments", "Quick decision making"]
+    },
+    {
+      "name": "Customer Focus",
+      "description": "Decisions driven by user impact",
+      "interview_signals": ["How you prioritize user needs", "Customer-centric examples"]
+    },
+    {
+      "name": "Data-Driven",
+      "description": "Use metrics to guide decisions",
+      "interview_signals": ["Quantified achievements", "A/B testing, metrics examples"]
+    },
+    {
+      "name": "Collaboration",
+      "description": "Cross-team work and communication",
+      "interview_signals": ["Working with non-engineering teams", "Conflict resolution"]
+    }
+  ],
+
+  "interview_process": {
+    "timeline": "3-4 weeks typical",
+    "success_rate": "~24%",
+    "difficulty": "Medium",
+    "rounds": [
+      {
+        "name": "HR Screen",
+        "duration": "5-10 min",
+        "focus": "Background, salary expectations, visa/relocation"
+      },
+      {
+        "name": "Online Assessment",
+        "duration": "2-3 hours",
+        "platform": "HackerRank",
+        "focus": "DSA (5-7 problems), SQL (2-3 queries), MCQs (10-15)"
+      },
+      {
+        "name": "Technical Interviews",
+        "duration": "45-60 min each",
+        "count": "2-3 rounds",
+        "focus": "Live coding, LeetCode-style, backend concepts"
+      },
+      {
+        "name": "System Design",
+        "duration": "30-45 min",
+        "focus": "Schema design, API design, e-commerce domain"
+      },
+      {
+        "name": "Behavioral/Culture Fit",
+        "duration": "30-45 min",
+        "count": "1-2 rounds",
+        "focus": "STAR format, ownership, collaboration"
+      }
+    ],
+    "what_they_look_for": {
+      "technical": ["LeetCode Easy-Medium", "SQL proficiency", "Database internals", "REST APIs"],
+      "soft_skills": ["Communication", "Problem solving approach", "Ownership", "Collaboration"]
+    },
+    "tips": [
+      "Focus on medium LeetCode problems",
+      "Practice SQL heavily (JOINs, aggregations, window functions)",
+      "Know database internals for backend roles",
+      "Be ready to discuss your projects in depth",
+      "Communicate clearly during problem solving"
+    ],
+    "red_flags": [
+      "Going silent while coding",
+      "Skipping edge cases",
+      "Unprepared for 'Why noon?'",
+      "Badmouthing previous employer"
+    ]
+  },
+
+  "questions": {
+    "assessment": {
+      "dsa": [
+        "Number of subarrays with product <= K",
+        "Search in rotated sorted array",
+        "Implement stack using queue",
+        "Find common elements in sorted arrays",
+        "Sliding window max sum",
+        "Two sum variations",
+        "Binary search with condition"
+      ],
+      "sql": [
+        "Find second largest value in table",
+        "Find duplicate records",
+        "Running totals with window functions",
+        "JOINs with aggregations",
+        "Self-joins for hierarchical data"
+      ],
+      "mcq_topics": [
+        "Time/space complexity",
+        "HTTP methods and status codes",
+        "REST API concepts",
+        "Database ACID properties",
+        "OOP principles",
+        "Data structures fundamentals"
+      ]
+    },
+    "coding": {
+      "patterns": ["Two pointers", "Sliding window", "Binary search", "Stack/Queue", "DP (medium)"],
+      "problems": [
+        {
+          "name": "Sliding Window - Max subarray sum of size K",
+          "difficulty": "Easy",
+          "pattern": "sliding_window"
+        },
+        {
+          "name": "Binary Search - Search in rotated sorted array",
+          "difficulty": "Medium",
+          "pattern": "binary_search",
+          "note": "Very common at noon"
+        },
+        {
+          "name": "Stack - Min Stack with O(1) operations",
+          "difficulty": "Medium",
+          "pattern": "stack"
+        },
+        {
+          "name": "DP - Climbing stairs / Number of ways",
+          "difficulty": "Easy",
+          "pattern": "dp"
+        },
+        {
+          "name": "Trees - Level order zigzag traversal",
+          "difficulty": "Medium",
+          "pattern": "bfs"
+        }
+      ]
+    },
+    "technical_discussion": [
+      "Explain database indexing and isolation levels",
+      "What is SQL injection? How to defend?",
+      "How does JWT work?",
+      "Difference between hashing and encryption",
+      "How would you handle concurrent updates to the same row?",
+      "Explain optimistic vs pessimistic locking"
+    ],
+    "system_design": [
+      {
+        "name": "Marketplace Catalog & Search",
+        "domain": "e-commerce",
+        "key_points": ["Elasticsearch", "CDC sync", "Multi-language", "Faceted search"]
+      },
+      {
+        "name": "Video Platform with Product Sidebar",
+        "domain": "social commerce",
+        "key_points": ["CDN", "Product tagging", "Quick checkout", "Recommendations"]
+      },
+      {
+        "name": "Banking System (Savings & Current)",
+        "domain": "fintech",
+        "key_points": ["Double-entry bookkeeping", "Optimistic locking", "Transaction isolation"]
+      },
+      {
+        "name": "Parking System",
+        "domain": "booking",
+        "key_points": ["Real-time availability", "Pricing models", "Spot allocation"]
+      }
+    ],
+    "behavioral": [
+      {
+        "question": "Why do you want to join noon?",
+        "assesses": "Research, genuine interest"
+      },
+      {
+        "question": "Describe a significant obstacle you encountered",
+        "assesses": "Resilience, problem-solving"
+      },
+      {
+        "question": "Tell me about a challenging project",
+        "assesses": "Technical depth, ownership"
+      },
+      {
+        "question": "How did you handle a disagreement with a colleague?",
+        "assesses": "Conflict resolution"
+      },
+      {
+        "question": "Describe a time you failed",
+        "assesses": "Self-awareness, learning"
+      },
+      {
+        "question": "How do you mentor junior developers?",
+        "assesses": "Teaching ability, patience"
+      },
+      {
+        "question": "Walk me through a technical decision you made",
+        "assesses": "Reasoning, trade-offs"
+      }
+    ],
+    "hr": [
+      "Tell me about your professional experience",
+      "What's your current compensation?",
+      "What are your salary expectations?",
+      "When can you start?",
+      "Are you interviewing elsewhere?"
+    ]
+  }
+}
