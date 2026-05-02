@@ -1,0 +1,93 @@
+{
+  "company": "noon",
+  "round": "system-design",
+
+  "format": {
+    "duration": "30-45 minutes",
+    "position": "Usually combined with technical round (mid-senior)",
+    "style": "Whiteboard/diagram + discussion",
+    "focus": "Schema design, API design, scalability"
+  },
+
+  "framework": {
+    "requirements": {
+      "duration": "5 min",
+      "ask": ["Scale", "Latency", "Consistency", "Availability"],
+      "why": "Determines architecture complexity"
+    },
+    "high_level_design": {
+      "duration": "10 min",
+      "focus": ["Draw main components", "Show data flow", "Identify key services"]
+    },
+    "deep_dive": {
+      "duration": "15-20 min",
+      "focus": ["Database schema", "API contracts", "Failure handling", "Scale considerations"]
+    },
+    "tradeoffs": {
+      "duration": "5 min",
+      "focus": ["Why chose this approach", "What are the limitations", "How to improve"]
+    }
+  },
+
+  "problems": [
+    {
+      "name": "Marketplace Catalog & Indexing System",
+      "context": "noon is an e-commerce marketplace - this is their core domain",
+      "clarify": ["Number of products?", "Search latency requirements?", "Multi-language support?", "Faceted search?"],
+      "components": ["Sellers Portal", "Catalog Service", "Search Service", "PostgreSQL", "Elasticsearch"],
+      "architecture": "Sellers Portal -> Catalog Service -> PostgreSQL\n                              -> Search Service -> Elasticsearch",
+      "schema": "CREATE TABLE products (\n    id UUID PRIMARY KEY,\n    seller_id UUID NOT NULL,\n    name VARCHAR(500) NOT NULL,\n    name_ar VARCHAR(500),\n    description TEXT,\n    category_id UUID REFERENCES categories(id),\n    brand VARCHAR(200),\n    status VARCHAR(20) DEFAULT 'DRAFT',\n    created_at TIMESTAMP DEFAULT NOW(),\n    updated_at TIMESTAMP DEFAULT NOW()\n);\n\nCREATE TABLE product_variants (\n    id UUID PRIMARY KEY,\n    product_id UUID REFERENCES products(id),\n    sku VARCHAR(100) UNIQUE NOT NULL,\n    price DECIMAL(10,2) NOT NULL,\n    currency VARCHAR(3) DEFAULT 'AED',\n    stock_quantity INT DEFAULT 0,\n    attributes JSONB\n);\n\nCREATE TABLE categories (\n    id UUID PRIMARY KEY,\n    name VARCHAR(200) NOT NULL,\n    parent_id UUID REFERENCES categories(id),\n    level INT NOT NULL,\n    path VARCHAR(1000)\n);",
+      "indexes": "CREATE INDEX idx_products_category ON products(category_id);\nCREATE INDEX idx_products_seller ON products(seller_id);\nCREATE INDEX idx_variants_product ON product_variants(product_id);\nCREATE INDEX idx_products_status ON products(status) WHERE status = 'ACTIVE';",
+      "sync_strategy": "CDC from PostgreSQL -> Debezium -> Kafka -> Elasticsearch indexer (< 5 second delay)"
+    },
+    {
+      "name": "TikTok-like Video Platform with Product Sidebar",
+      "context": "Social commerce - videos with purchasable products",
+      "clarify": ["Video upload and processing?", "Product recommendation algorithm?", "Purchase flow from video?"],
+      "components": ["Mobile App", "API Gateway", "Video Feed Service", "Video Service", "Product Tagging", "User Service", "Interaction Service", "CDN", "Product Catalog"],
+      "api": {
+        "get_feed": "GET /feed -> { videos: [{ id, url, products: [{id, name, price, thumbnail}] }] }",
+        "post_interaction": "POST /videos/{id}/interactions { type: 'LIKE' | 'COMMENT' | 'PRODUCT_CLICK', product_id? }",
+        "quick_checkout": "POST /checkout/quick { video_id, product_id, quantity } -> { order_id, checkout_url }"
+      },
+      "schema": "CREATE TABLE videos (\n    id UUID PRIMARY KEY,\n    creator_id UUID NOT NULL,\n    video_url VARCHAR(500) NOT NULL,\n    thumbnail_url VARCHAR(500),\n    status VARCHAR(20) DEFAULT 'PROCESSING',\n    view_count BIGINT DEFAULT 0,\n    created_at TIMESTAMP DEFAULT NOW()\n);\n\nCREATE TABLE video_products (\n    video_id UUID REFERENCES videos(id),\n    product_id UUID NOT NULL,\n    position INT,\n    PRIMARY KEY (video_id, product_id)\n);\n\nCREATE TABLE interactions (\n    id UUID PRIMARY KEY,\n    user_id UUID NOT NULL,\n    video_id UUID REFERENCES videos(id),\n    interaction_type VARCHAR(20) NOT NULL,\n    product_id UUID,\n    created_at TIMESTAMP DEFAULT NOW()\n);"
+    },
+    {
+      "name": "Banking System (Savings & Current Accounts)",
+      "context": "Basic banking operations",
+      "clarify": ["Account types and rules?", "Interest calculation?", "Transaction limits?", "Concurrent transaction handling?"],
+      "key_concept": "Double-entry bookkeeping",
+      "schema": "CREATE TABLE accounts (\n    id UUID PRIMARY KEY,\n    user_id UUID NOT NULL,\n    account_number VARCHAR(20) UNIQUE NOT NULL,\n    account_type VARCHAR(20) NOT NULL,\n    balance DECIMAL(15,2) DEFAULT 0.00,\n    currency VARCHAR(3) DEFAULT 'AED',\n    status VARCHAR(20) DEFAULT 'ACTIVE',\n    created_at TIMESTAMP DEFAULT NOW(),\n    version INT DEFAULT 0\n);\n\nCREATE TABLE transactions (\n    id UUID PRIMARY KEY,\n    reference_id VARCHAR(50) UNIQUE NOT NULL,\n    from_account_id UUID REFERENCES accounts(id),\n    to_account_id UUID REFERENCES accounts(id),\n    amount DECIMAL(15,2) NOT NULL,\n    transaction_type VARCHAR(20) NOT NULL,\n    status VARCHAR(20) DEFAULT 'PENDING',\n    created_at TIMESTAMP DEFAULT NOW()\n);\n\nCREATE TABLE ledger_entries (\n    id UUID PRIMARY KEY,\n    transaction_id UUID REFERENCES transactions(id),\n    account_id UUID REFERENCES accounts(id),\n    entry_type VARCHAR(10) NOT NULL,\n    amount DECIMAL(15,2) NOT NULL,\n    balance_after DECIMAL(15,2) NOT NULL,\n    created_at TIMESTAMP DEFAULT NOW()\n);",
+      "optimistic_locking": "UPDATE accounts\nSET balance = balance - 100.00, version = version + 1\nWHERE id = 'source_id'\n  AND balance >= 100.00\n  AND version = 5;"
+    },
+    {
+      "name": "Parking System",
+      "context": "Parking lot management with real-time availability",
+      "clarify": ["Different vehicle types?", "Pricing model?", "Real-time spot availability?"],
+      "api": {
+        "availability": "GET /parking-lots/{id}/availability -> { spots: { car: 45, bike: 20, truck: 5 } }",
+        "book": "POST /bookings { parking_lot_id, vehicle_type, expected_duration_hours } -> { booking_id, spot_number, entry_code, price_estimate }",
+        "checkout": "POST /bookings/{id}/checkout -> { total_amount, duration_minutes }"
+      },
+      "schema": "CREATE TABLE parking_lots (\n    id UUID PRIMARY KEY,\n    name VARCHAR(200) NOT NULL,\n    address VARCHAR(500) NOT NULL,\n    total_spots JSONB NOT NULL\n);\n\nCREATE TABLE parking_spots (\n    id UUID PRIMARY KEY,\n    parking_lot_id UUID REFERENCES parking_lots(id),\n    spot_number VARCHAR(20) NOT NULL,\n    vehicle_type VARCHAR(20) NOT NULL,\n    status VARCHAR(20) DEFAULT 'AVAILABLE'\n);\n\nCREATE TABLE bookings (\n    id UUID PRIMARY KEY,\n    spot_id UUID REFERENCES parking_spots(id),\n    vehicle_number VARCHAR(20) NOT NULL,\n    entry_time TIMESTAMP,\n    exit_time TIMESTAMP,\n    status VARCHAR(20) DEFAULT 'RESERVED',\n    price_per_hour DECIMAL(10,2) NOT NULL,\n    total_amount DECIMAL(10,2)\n);",
+      "indexes": "CREATE INDEX idx_spots_available ON parking_spots(parking_lot_id, vehicle_type) WHERE status = 'AVAILABLE';"
+    }
+  ],
+
+  "key_concepts": {
+    "e_commerce_domain": ["Product catalog", "Inventory", "Orders"],
+    "multi_tenancy": ["Sellers on marketplace"],
+    "search": ["Elasticsearch for product search"],
+    "payments": ["Idempotency", "Double-entry"],
+    "delivery": ["Order tracking", "Logistics"],
+    "scale": ["High read volume", "Caching"]
+  },
+
+  "common_followups": [
+    "How would you handle 10x more traffic?",
+    "What if the database goes down?",
+    "How do you ensure data consistency?",
+    "What indexes would you add?",
+    "How would you deploy this?"
+  ]
+}

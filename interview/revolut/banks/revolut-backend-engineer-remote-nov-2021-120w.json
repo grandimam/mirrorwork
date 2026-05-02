@@ -1,0 +1,154 @@
+{
+  "source": "LeetCode Discuss",
+  "url": "https://leetcode.com/discuss/post/1566703/revolut-backend-engineer-remote-nov-2021-120w/",
+  "title": "Revolut | Backend Engineer | Remote | Nov 2021 [Reject]",
+  "posted_by": "Anonymous User",
+  "post_date": "Nov 08, 2021",
+  "last_updated": "Nov 10, 2021",
+  "tags": ["Revolut", "Interview"],
+  "result": "Rejected",
+  "views": 7262,
+
+  "candidate_background": {
+    "current_employment": "Software Engineer",
+    "location": "Mumbai, India"
+  },
+
+  "job_applied_for": {
+    "company": "Revolut",
+    "position": "Senior Java Backend Engineer",
+    "work_type": "Remote",
+    "region": "India"
+  },
+
+  "interview_process_overview": [
+    "HR contacted the candidate regarding a position available at Revolut and arranged the interview.",
+    "Revolut conducts 2 Technical Rounds and 1 HR Round.",
+    "All technical rounds are based purely on Java (Java 8+); Java skills must be polished.",
+    "Spring Framework is not allowed during the interview.",
+    "Production-ready code is expected, and unit testing (JUnit) of the same must be done. Any IDE can be used.",
+    "Interviewers are from different time zones and provide good feedback during the interview."
+  ],
+
+  "interview_rounds": [
+    {
+      "round": "Technical Round 1",
+      "duration": "45 minutes",
+      "questions": [
+        {
+          "question_id": 1,
+          "description": "Create a LoadBalancer class with the following requirements:",
+          "requirements": [
+            "Has a method to register backend instances.",
+            "Each backend instance address should be unique — it should not be possible to register the same address twice.",
+            "Load balancer should accept up to 10 backend instances.",
+            "The code should be production-ready.",
+            "The LoadBalancer will be released as a library."
+          ]
+        },
+        {
+          "question_id": 2,
+          "description": "Develop an algorithm such that when invoking the LoadBalancer's get() method multiple times, it should return one backend instance chosen randomly between the registered ones."
+        }
+      ],
+      "requirements_summary": [
+        "Code must be production-ready",
+        "Unit tests using JUnit are required for both coding tasks"
+      ],
+      "candidate_approach": {
+        "classes_implemented": [
+          {
+            "class_name": "BackendInstance",
+            "fields": ["String address"],
+            "constructor": "BackendInstance(String input) { this.address = input; }"
+          },
+          {
+            "class_name": "LoadBalancer",
+            "fields": ["Map<String, BackendInstance> (HashMap)"],
+            "methods": [
+              {
+                "name": "register(BackendInstance input) -> boolean",
+                "logic": "Checks if size < 10 and address is not already in the map. If unique and under limit, registers; else returns false or prints 'Overload'."
+              },
+              {
+                "name": "get() -> BackendInstance",
+                "logic": "Converts keySet to array, picks a random index using Random.nextInt(), and returns the corresponding BackendInstance."
+              }
+            ]
+          },
+          {
+            "class_name": "LoadBalancerTest",
+            "test_methods": [
+              {
+                "name": "testDuplicate()",
+                "description": "Tests that registering the same BackendInstance twice returns true the first time and false the second time."
+              },
+              {
+                "name": "testMaxSize()",
+                "description": "Tests that registering 11 instances allows the first 10 and rejects the 11th."
+              }
+            ]
+          }
+        ],
+        "known_flaws": [
+          "Code was not up to the mark; had many flaws.",
+          "Bug in get() method: used random.nextInt(10) instead of random.nextInt(number of already registered instances).",
+          "System.out.println used instead of throwing custom exceptions.",
+          "Max size (10) was hardcoded instead of being placed in a constants class or properties file.",
+          "Concurrency was not handled (should clarify and potentially use ConcurrentHashMap).",
+          "TDD (Test-Driven Development) approach was not followed.",
+          "Unit tests were only written for the first coding problem due to time constraints."
+        ]
+      },
+      "result": "Rejected"
+    },
+    {
+      "round": "Technical Round 2",
+      "details": "Not reached (candidate was rejected after Round 1)."
+    },
+    {
+      "round": "HR Round",
+      "details": "Not reached (candidate was rejected after Round 1)."
+    }
+  ],
+
+  "advice_and_tips": [
+    "Keep SOLID principles in mind during coding.",
+    "The interviewer emphasizes your approach and understanding more than just the code.",
+    "Follow TDD (Test-Driven Development): write tests first, then develop.",
+    "Avoid hardcoding constants — use a constants class or properties file.",
+    "Use custom exceptions with proper messages instead of System.out.println.",
+    "Clarify concurrency requirements upfront; use ConcurrentHashMap if needed.",
+    "Revolut is known for emphasizing the Strategy Design Pattern (O in SOLID)."
+  ],
+
+  "candidate_reflection": "It was a great experience. The candidate plans to apply again.",
+
+  "community_comments": [
+    {
+      "author": "Vyshnav Ramesh",
+      "date": "Nov 20, 2021",
+      "comment": "Observations on code quality: follow TDD, avoid hardcoded size, replace System.out.println with custom exceptions, handle concurrency, and note that Revolut is known for the Strategy Design Pattern.",
+      "references": [
+        "https://turkogluc.com/java-concurrency-with-load-balancer-simulation/",
+        "https://lldcoding.com/design-lld-load-balancer-machine-coding"
+      ]
+    },
+    {
+      "author": "Anonymous",
+      "date": "Apr 09, 2024",
+      "comment": "Found a Medium article implementing a Concurrent Load Balancer.",
+      "references": ["https://medium.com/p/bfa68d30d54a"]
+    },
+    {
+      "author": "maveriq",
+      "date": "May 07, 2024",
+      "comment": "Critical bug in the get() method: random.nextInt(10) should be random.nextInt(number of already registered instances)."
+    },
+    {
+      "author": "Coder",
+      "date": "Nov 09, 2021",
+      "comment": "Asked how the LoadBalancer was implemented and requested ideas/approach."
+    }
+  ]
+}

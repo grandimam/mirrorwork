@@ -1,0 +1,106 @@
+{
+  "company": "revolut",
+  "round": "team-fit",
+
+  "format": {
+    "duration": "45-60 minutes",
+    "position": "Round 5 (final round, after system design)",
+    "interviewers": "Team leads, Product Owners, sometimes multiple teams",
+    "focus": "Culture alignment, behavioral, working style",
+    "note": "Can have multiple team fit interviews with different teams"
+  },
+
+  "values_summary": {
+    "never_settle": "Push beyond what's asked, seek harder problems, continuous improvement",
+    "dream_team": "Radical honesty, high standards, mentoring, no ego",
+    "think_deeper": "First-principles, challenge assumptions, data-driven, root cause",
+    "get_it_done": "End-to-end ownership, push through obstacles, urgency, no excuses",
+    "deliver_wow": "Attention to detail, craftsmanship, user-centric, internal quality too"
+  },
+
+  "question_mapping": {
+    "Tell me about a project you delivered end-to-end": ["get_it_done", "never_settle"],
+    "Describe a time you disagreed with your manager": ["think_deeper", "dream_team"],
+    "Tell me about a failure or mistake": ["dream_team", "think_deeper"],
+    "How do you handle conflicting priorities?": ["get_it_done"],
+    "Tell me about a time you received tough feedback": ["dream_team"],
+    "Describe making a decision with incomplete information": ["think_deeper", "get_it_done"],
+    "Tell me about going above and beyond": ["never_settle"],
+    "How do you ensure quality in your work?": ["deliver_wow"]
+  },
+
+  "red_flags": [
+    "Blaming others for failures — lack of ownership",
+    "Vague answers without specifics — can't back up claims",
+    "No questions for them — not genuinely interested",
+    "Badmouthing previous employers",
+    "\"That wasn't my job\" — not a Dream Team player",
+    "Unable to articulate disagreements — avoids conflict",
+    "No examples of pushing for quality",
+    "Passive in career decisions"
+  ],
+
+  "bar_raiser": {
+    "what": "Additional validation by senior engineer OUTSIDE the hiring team",
+    "purpose": "Ensure candidate meets Revolut's high bar, unbiased by team's hiring pressure",
+    "has_veto_power": true,
+
+    "evaluates": [
+      "Would this person raise the bar on any team?",
+      "Deep values alignment, not surface-level",
+      "Long-term potential — will they grow into a leader?",
+      "Red flags the team might have overlooked",
+      "Do their stories hold up under deeper probing?"
+    ],
+
+    "common_questions": [
+      "You mentioned X in an earlier round — tell me more about that decision",
+      "Walk me through the technical details of how you solved Y",
+      "What would you do differently if you had to do it again?",
+      "If you joined and found the codebase was a mess, what would you do?",
+      "How would you handle a teammate who consistently misses deadlines?",
+      "You disagree with your tech lead's architecture decision — what do you do?",
+      "Tell me about a time you had to choose between quality and speed",
+      "Describe a situation where you pushed back on leadership and lost",
+      "What's the hardest feedback you've ever received?",
+      "What concerns do you have about joining Revolut?",
+      "What's the biggest risk we'd be taking by hiring you?",
+      "Why shouldn't we hire you?"
+    ],
+
+    "sample_answers": {
+      "biggest_risk": "I'm opinionated about engineering quality — I'll push for better code, faster tests, less tech debt. In a fast-moving environment, that can create friction. The risk is that I slow things down by fighting battles that aren't worth fighting. I've learned to pick my battles, but it's still something I actively manage.",
+      "pushed_back_and_lost": "At Cisco, I proposed migrating our telemetry pipeline from batch to real-time streaming. Leadership said no — too risky during a critical release cycle. I disagreed but committed. In hindsight, they were right. The release was already complex, and adding a major infrastructure change would have been reckless. I learned that timing matters as much as being right.",
+      "teammate_misses_deadlines": "First, I'd understand why. Overcommitted? Blocked on dependencies? Struggling with the work? If workload, help redistribute or push back on scope. If skill, pair with them or connect them with resources. If effort or attitude — that's a different conversation, and I'd involve the manager early."
+    }
+  },
+
+  "questions_for_them": {
+    "about_team": [
+      "What does the engineering team I'd join own end-to-end?",
+      "What's the biggest technical challenge the team is facing right now?",
+      "How are technical decisions made on the team?",
+      "What does on-call look like?"
+    ],
+    "about_culture": [
+      "How long have you been at Revolut and what keeps you here?",
+      "I tend to push hard on engineering standards. How does Revolut's culture handle tension between moving fast and pushing back on shortcuts?",
+      "What does 'Never Settle' look like in practice on this team?"
+    ],
+    "about_growth": [
+      "What does career progression look like for engineers here?",
+      "How do you give feedback to engineers?",
+      "What opportunities are there to work across teams or domains?"
+    ]
+  },
+
+  "tips": [
+    "Be specific — use real examples with numbers and outcomes",
+    "Show ownership — 'I did X' not 'We did X'",
+    "Demonstrate self-awareness — know your weaknesses",
+    "Be direct — they value radical honesty, not diplomatic hedging",
+    "Show ambition — they want people who push for more",
+    "Ask good questions — shows genuine interest",
+    "Connect to their values — frame stories around their 5 values"
+  ]
+}

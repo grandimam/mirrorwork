@@ -1,0 +1,540 @@
+{
+  "topic": "live-coding",
+  "description": "Object-oriented design problems: capacity-bounded structures, registration/release, pluggable selection and eviction policies, time-windowed counters, rate limiters, frequency tracking, and reservoir sampling. Practice for live-coding rounds (Revolut Load Balancer, URL Shortener, Money Transfer, Rate Limiter).",
+  "problems": [
+    {
+      "id": "insert-delete-getrandom",
+      "leetcode": 380,
+      "url": "https://leetcode.com/problems/insert-delete-getrandom-o1/",
+      "name": "Insert Delete GetRandom O(1)",
+      "difficulty": "medium",
+      "patterns": ["hash-map", "array", "design"],
+      "companies": ["revolut", "google", "amazon", "meta", "linkedin"],
+      "relevance": "Closest analogue to Revolut Load Balancer — register/deregister/random-select with O(1) guarantees.",
+      "description": "Implement RandomizedSet with insert(val), remove(val), getRandom() all in O(1) average. getRandom must return each element with equal probability.",
+      "examples": [
+        {
+          "input": "insert(1), remove(2), insert(2), getRandom(), remove(1), insert(2), getRandom()",
+          "output": "true, false, true, 1 or 2, true, false, 2",
+          "explanation": "getRandom should return 1 or 2 randomly. After removing 1, only 2 remains."
+        }
+      ],
+      "constraints": [
+        "-2^31 <= val <= 2^31 - 1",
+        "At most 2 * 10^5 calls",
+        "There will be at least one element when getRandom is called"
+      ],
+      "hints": [
+        "Hash map alone gives O(1) insert/remove but not O(1) random",
+        "Array alone gives O(1) random but O(n) remove",
+        "Combine: array for storage + hash map of value → index. To remove, swap with last element and pop."
+      ],
+      "solution": {
+        "python": "import random\n\nclass RandomizedSet:\n    def __init__(self) -> None:\n        self._values: list[int] = []\n        self._index: dict[int, int] = {}\n\n    def insert(self, val: int) -> bool:\n        if val in self._index:\n            return False\n        self._index[val] = len(self._values)\n        self._values.append(val)\n        return True\n\n    def remove(self, val: int) -> bool:\n        if val not in self._index:\n            return False\n        idx, last = self._index[val], self._values[-1]\n        self._values[idx] = last\n        self._index[last] = idx\n        self._values.pop()\n        del self._index[val]\n        return True\n\n    def getRandom(self) -> int:\n        return random.choice(self._values)",
+        "complexity": {
+          "time": "O(1) average for all operations",
+          "space": "O(n)"
+        }
+      },
+      "follow_ups": [
+        "Add a max_size and raise CapacityExceededError on insert",
+        "Swap getRandom for round-robin (cursor + modulo)",
+        "Add weighted random (cumulative-sum + bisect)",
+        "Make it thread-safe with a single Lock"
+      ]
+    },
+    {
+      "id": "insert-delete-getrandom-duplicates",
+      "leetcode": 381,
+      "url": "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/",
+      "name": "Insert Delete GetRandom O(1) - Duplicates Allowed",
+      "difficulty": "hard",
+      "patterns": ["hash-map", "array", "design"],
+      "companies": ["revolut", "google", "amazon"],
+      "relevance": "Variant for weighted/duplicate servers in a load balancer.",
+      "description": "Same as 380 but values can repeat. getRandom must return each element with probability proportional to its count.",
+      "constraints": [
+        "-2^31 <= val <= 2^31 - 1",
+        "At most 2 * 10^5 calls"
+      ],
+      "hints": [
+        "Replace dict[int, int] with dict[int, set[int]] of indices",
+        "On remove, pick any index from the set, swap with last, update both maps"
+      ],
+      "solution": {
+        "python": "import random\n\nclass RandomizedCollection:\n    def __init__(self) -> None:\n        self._values: list[int] = []\n        self._indices: dict[int, set[int]] = {}\n\n    def insert(self, val: int) -> bool:\n        existed = val in self._indices and bool(self._indices[val])\n        self._indices.setdefault(val, set()).add(len(self._values))\n        self._values.append(val)\n        return not existed\n\n    def remove(self, val: int) -> bool:\n        if val not in self._indices or not self._indices[val]:\n            return False\n        idx = next(iter(self._indices[val]))\n        last = self._values[-1]\n        self._values[idx] = last\n        self._indices[val].discard(idx)\n        self._indices[last].add(idx)\n        self._indices[last].discard(len(self._values) - 1)\n        self._values.pop()\n        return True\n\n    def getRandom(self) -> int:\n        return random.choice(self._values)",
+        "complexity": {
+          "time": "O(1) average",
+          "space": "O(n)"
+        }
+      },
+      "follow_ups": [
+        "Use as backing store for a WeightedRandomBalancer where each server registers N times by weight"
+      ]
+    },
+    {
+      "id": "design-phone-directory",
+      "leetcode": 379,
+      "url": "https://leetcode.com/problems/design-phone-directory/",
+      "name": "Design Phone Directory",
+      "difficulty": "medium",
+      "patterns": ["queue", "hash-set", "design"],
+      "companies": ["revolut", "google"],
+      "relevance": "get/check/release with a fixed pool size — same shape as register/deregister with max_size.",
+      "description": "Design a phone directory with maxNumbers slots: get() returns any free number, check(n) is true if free, release(n) frees a number.",
+      "constraints": [
+        "1 <= maxNumbers <= 10^4",
+        "0 <= number < maxNumbers",
+        "At most 2 * 10^4 calls"
+      ],
+      "hints": [
+        "Maintain a set of available numbers and a queue/deque for fast get",
+        "On release, push back if currently used"
+      ],
+      "solution": {
+        "python": "from collections import deque\n\nclass PhoneDirectory:\n    def __init__(self, max_numbers: int) -> None:\n        self._available: deque[int] = deque(range(max_numbers))\n        self._free: set[int] = set(range(max_numbers))\n\n    def get(self) -> int:\n        if not self._available:\n            return -1\n        n = self._available.popleft()\n        self._free.discard(n)\n        return n\n\n    def check(self, number: int) -> bool:\n        return number in self._free\n\n    def release(self, number: int) -> None:\n        if number not in self._free:\n            self._free.add(number)\n            self._available.append(number)",
+        "complexity": {
+          "time": "O(1) for all operations",
+          "space": "O(n)"
+        }
+      },
+      "follow_ups": [
+        "Replace integer pool with arbitrary server addresses",
+        "Make thread-safe with a Lock"
+      ]
+    },
+    {
+      "id": "seat-reservation-manager",
+      "leetcode": 1845,
+      "url": "https://leetcode.com/problems/seat-reservation-manager/",
+      "name": "Seat Reservation Manager",
+      "difficulty": "medium",
+      "patterns": ["heap", "design"],
+      "companies": ["revolut", "uber"],
+      "relevance": "reserve/unreserve smallest available — capacity-bounded resource pool, same shape as least-loaded server selection.",
+      "description": "Manage n seats numbered 1..n. reserve() returns the smallest-numbered free seat, unreserve(seatNumber) frees it.",
+      "constraints": [
+        "1 <= n <= 10^5",
+        "1 <= seatNumber <= n",
+        "At most 10^5 total calls"
+      ],
+      "hints": [
+        "Min-heap of free seat numbers gives O(log n) for both ops",
+        "Lazy initialization: start with [1] and a counter, push 2..n on demand"
+      ],
+      "solution": {
+        "python": "import heapq\n\nclass SeatManager:\n    def __init__(self, n: int) -> None:\n        self._free: list[int] = list(range(1, n + 1))\n        heapq.heapify(self._free)\n\n    def reserve(self) -> int:\n        return heapq.heappop(self._free)\n\n    def unreserve(self, seat_number: int) -> None:\n        heapq.heappush(self._free, seat_number)",
+        "complexity": {
+          "time": "O(log n) per operation",
+          "space": "O(n)"
+        }
+      },
+      "follow_ups": [
+        "Adapt to a LeastConnectionsBalancer — heap keyed by (active_conns, server_id)",
+        "Handle stale heap entries when a server is deregistered"
+      ]
+    },
+    {
+      "id": "lru-cache",
+      "leetcode": 146,
+      "url": "https://leetcode.com/problems/lru-cache/",
+      "name": "LRU Cache",
+      "difficulty": "medium",
+      "patterns": ["hash-map", "doubly-linked-list", "design"],
+      "companies": ["revolut", "amazon", "meta", "google", "microsoft"],
+      "relevance": "Capacity-bounded structure with eviction policy — directly relevant to URL Shortener's MAX_URLS cap.",
+      "description": "Design get(key) and put(key, value) both O(1). Capacity is fixed; on overflow evict the least-recently-used entry.",
+      "constraints": [
+        "1 <= capacity <= 3000",
+        "0 <= key, value <= 10^9",
+        "At most 2 * 10^5 calls"
+      ],
+      "hints": [
+        "OrderedDict gets you O(1) move-to-end and popitem(last=False)",
+        "From scratch: dict + doubly-linked list, head=most-recent, tail=LRU"
+      ],
+      "solution": {
+        "python": "from collections import OrderedDict\n\nclass LRUCache:\n    def __init__(self, capacity: int) -> None:\n        self._capacity: int = capacity\n        self._cache: OrderedDict[int, int] = OrderedDict()\n\n    def get(self, key: int) -> int:\n        if key not in self._cache:\n            return -1\n        self._cache.move_to_end(key)\n        return self._cache[key]\n\n    def put(self, key: int, value: int) -> None:\n        if key in self._cache:\n            self._cache.move_to_end(key)\n        self._cache[key] = value\n        if len(self._cache) > self._capacity:\n            self._cache.popitem(last=False)",
+        "complexity": {
+          "time": "O(1) per operation",
+          "space": "O(capacity)"
+        }
+      },
+      "follow_ups": [
+        "Implement without OrderedDict — dict + doubly-linked list",
+        "Add TTL per entry",
+        "Make thread-safe with a Lock"
+      ]
+    },
+    {
+      "id": "lfu-cache",
+      "leetcode": 460,
+      "url": "https://leetcode.com/problems/lfu-cache/",
+      "name": "LFU Cache",
+      "difficulty": "hard",
+      "patterns": ["hash-map", "doubly-linked-list", "design"],
+      "companies": ["revolut", "amazon", "google"],
+      "relevance": "Same capacity-bounded shape as LRU but with a frequency-based selection policy — practice for swapping eviction strategies.",
+      "description": "get(key)/put(key,value) both O(1). On overflow, evict least-frequently-used; ties broken by least-recently-used.",
+      "constraints": [
+        "1 <= capacity <= 10^4",
+        "At most 2 * 10^5 calls"
+      ],
+      "hints": [
+        "Two hash maps: key→(value,freq), freq→OrderedDict of keys at that freq",
+        "Track min_freq; on access, bump freq and move key between buckets"
+      ],
+      "solution": {
+        "python": "from collections import OrderedDict, defaultdict\n\nclass LFUCache:\n    def __init__(self, capacity: int) -> None:\n        self._capacity: int = capacity\n        self._values: dict[int, tuple[int, int]] = {}\n        self._buckets: defaultdict[int, OrderedDict[int, None]] = defaultdict(OrderedDict)\n        self._min_freq: int = 0\n\n    def _bump(self, key: int) -> None:\n        value, freq = self._values[key]\n        del self._buckets[freq][key]\n        if not self._buckets[freq] and freq == self._min_freq:\n            self._min_freq += 1\n        self._buckets[freq + 1][key] = None\n        self._values[key] = (value, freq + 1)\n\n    def get(self, key: int) -> int:\n        if key not in self._values:\n            return -1\n        self._bump(key)\n        return self._values[key][0]\n\n    def put(self, key: int, value: int) -> None:\n        if self._capacity <= 0:\n            return\n        if key in self._values:\n            self._values[key] = (value, self._values[key][1])\n            self._bump(key)\n            return\n        if len(self._values) >= self._capacity:\n            evict, _ = self._buckets[self._min_freq].popitem(last=False)\n            del self._values[evict]\n        self._values[key] = (value, 1)\n        self._buckets[1][key] = None\n        self._min_freq = 1",
+        "complexity": {
+          "time": "O(1) per operation",
+          "space": "O(capacity)"
+        }
+      },
+      "follow_ups": [
+        "Compare to LRU — when does each policy win?",
+        "Add decay so old hits matter less"
+      ]
+    },
+    {
+      "id": "design-authentication-manager",
+      "leetcode": 1797,
+      "url": "https://leetcode.com/problems/design-authentication-manager/",
+      "name": "Design Authentication Manager",
+      "difficulty": "medium",
+      "patterns": ["hash-map", "design"],
+      "companies": ["revolut"],
+      "relevance": "TTL-based registry — extends naturally to deregistering stale servers via heartbeat.",
+      "description": "generate(tokenId, currentTime), renew(tokenId, currentTime) (only if unexpired), countUnexpired(currentTime). TTL is fixed at construction.",
+      "constraints": [
+        "1 <= timeToLive <= 10^8",
+        "1 <= currentTime <= 10^8",
+        "At most 2000 calls, currentTime non-decreasing across calls"
+      ],
+      "hints": [
+        "Store tokenId → expiry. expiry = currentTime + timeToLive",
+        "countUnexpired can be O(n) here, or use an OrderedDict + lazy cleanup for amortized O(1)"
+      ],
+      "solution": {
+        "python": "from collections import OrderedDict\n\nclass AuthenticationManager:\n    def __init__(self, time_to_live: int) -> None:\n        self._ttl: int = time_to_live\n        self._tokens: OrderedDict[str, int] = OrderedDict()\n\n    def _evict(self, current_time: int) -> None:\n        while self._tokens:\n            token, expiry = next(iter(self._tokens.items()))\n            if expiry > current_time:\n                break\n            self._tokens.popitem(last=False)\n\n    def generate(self, token_id: str, current_time: int) -> None:\n        self._evict(current_time)\n        self._tokens[token_id] = current_time + self._ttl\n\n    def renew(self, token_id: str, current_time: int) -> None:\n        self._evict(current_time)\n        if token_id in self._tokens:\n            del self._tokens[token_id]\n            self._tokens[token_id] = current_time + self._ttl\n\n    def countUnexpired(self, current_time: int) -> int:\n        self._evict(current_time)\n        return len(self._tokens)",
+        "complexity": {
+          "time": "Amortized O(1) per call",
+          "space": "O(n) active tokens"
+        }
+      },
+      "follow_ups": [
+        "Apply this pattern to deregister servers automatically when heartbeats expire",
+        "Make it thread-safe"
+      ]
+    },
+    {
+      "id": "design-underground-system",
+      "leetcode": 1396,
+      "url": "https://leetcode.com/problems/design-underground-system/",
+      "name": "Design Underground System",
+      "difficulty": "medium",
+      "patterns": ["hash-map", "design"],
+      "companies": ["revolut", "uber", "amazon"],
+      "relevance": "check-in / check-out tracking with running aggregation — same accumulator pattern as connection counts per server.",
+      "description": "checkIn(id, station, t), checkOut(id, station, t), getAverageTime(start, end). Tracks per-passenger trips and aggregates average duration per (start, end) pair.",
+      "constraints": [
+        "1 <= id, t <= 10^6",
+        "1 <= len(stationName) <= 10",
+        "At most 2 * 10^4 calls"
+      ],
+      "hints": [
+        "Two maps: id → (start, t_in), (start, end) → (sum, count)",
+        "On checkOut, look up the open trip, update aggregate, drop the open trip"
+      ],
+      "solution": {
+        "python": "class UndergroundSystem:\n    def __init__(self) -> None:\n        self._open: dict[int, tuple[str, int]] = {}\n        self._totals: dict[tuple[str, str], tuple[int, int]] = {}\n\n    def checkIn(self, id: int, station_name: str, t: int) -> None:\n        self._open[id] = (station_name, t)\n\n    def checkOut(self, id: int, station_name: str, t: int) -> None:\n        start, t_in = self._open.pop(id)\n        key = (start, station_name)\n        total, count = self._totals.get(key, (0, 0))\n        self._totals[key] = (total + (t - t_in), count + 1)\n\n    def getAverageTime(self, start_station: str, end_station: str) -> float:\n        total, count = self._totals[(start_station, end_station)]\n        return total / count",
+        "complexity": {
+          "time": "O(1) per operation",
+          "space": "O(passengers + station_pairs)"
+        }
+      },
+      "follow_ups": [
+        "Replace running sum/count with a sliding window over the last N minutes",
+        "Make thread-safe under concurrent check-in/check-out"
+      ]
+    },
+    {
+      "id": "encode-decode-tinyurl",
+      "leetcode": 535,
+      "url": "https://leetcode.com/problems/encode-and-decode-tinyurl/",
+      "name": "Encode and Decode TinyURL",
+      "difficulty": "medium",
+      "patterns": ["hash-map", "design", "string"],
+      "companies": ["revolut", "amazon", "google", "uber"],
+      "relevance": "Direct URL Shortener — one of Revolut's three canonical live-coding rounds (Load Balancer, URL Shortener, Money Transfer).",
+      "description": "Design encode(longUrl) -> shortUrl and decode(shortUrl) -> longUrl such that decode(encode(x)) == x. Codes should be short and the system should handle collisions.",
+      "constraints": [
+        "1 <= len(url) <= 10^4",
+        "url is guaranteed to be a valid URL"
+      ],
+      "hints": [
+        "Two maps: long->short and short->long. Random 6-char base62 code.",
+        "Check for collisions before assigning. For idempotency, return the existing short URL if long URL already mapped."
+      ],
+      "solution": {
+        "python": "import random\nimport string\n\nclass Codec:\n    def __init__(self) -> None:\n        self._long_to_short: dict[str, str] = {}\n        self._short_to_long: dict[str, str] = {}\n        self._alphabet: str = string.ascii_letters + string.digits\n\n    def _generate(self) -> str:\n        return ''.join(random.choices(self._alphabet, k=6))\n\n    def encode(self, longUrl: str) -> str:\n        if longUrl in self._long_to_short:\n            return f'http://tinyurl.com/{self._long_to_short[longUrl]}'\n        code = self._generate()\n        while code in self._short_to_long:\n            code = self._generate()\n        self._long_to_short[longUrl] = code\n        self._short_to_long[code] = longUrl\n        return f'http://tinyurl.com/{code}'\n\n    def decode(self, shortUrl: str) -> str:\n        return self._short_to_long[shortUrl.rsplit('/', 1)[-1]]",
+        "complexity": {
+          "time": "O(1) average per operation",
+          "space": "O(n)"
+        }
+      },
+      "follow_ups": [
+        "Add MAX_URLS cap with LRU eviction",
+        "Make codes deterministic (hash of URL) instead of random",
+        "Add TTL per short URL with lazy cleanup",
+        "Make thread-safe with a Lock"
+      ]
+    },
+    {
+      "id": "design-hit-counter",
+      "leetcode": 362,
+      "url": "https://leetcode.com/problems/design-hit-counter/",
+      "name": "Design Hit Counter",
+      "difficulty": "medium",
+      "patterns": ["queue", "sliding-window", "design"],
+      "companies": ["revolut", "google", "dropbox"],
+      "relevance": "Sliding-window counter — the shape behind Revolut's withdrawal rate-limiter and 10-minute event-bucketing problems.",
+      "description": "hit(timestamp) records a hit at the given second. getHits(timestamp) returns hits in the past 5 minutes (300 seconds). Timestamps are monotonically non-decreasing.",
+      "constraints": [
+        "1 <= timestamp <= 2 * 10^9",
+        "Calls to hit and getHits are made in chronological order",
+        "At most 300 calls per second"
+      ],
+      "hints": [
+        "Deque of timestamps; on getHits, popleft while front <= timestamp - 300",
+        "For high-volume hits per second, bucket by second: 300-slot ring buffer of (timestamp, count)"
+      ],
+      "solution": {
+        "python": "from collections import deque\n\nclass HitCounter:\n    def __init__(self) -> None:\n        self._hits: deque[int] = deque()\n\n    def hit(self, timestamp: int) -> None:\n        self._hits.append(timestamp)\n\n    def getHits(self, timestamp: int) -> int:\n        while self._hits and self._hits[0] <= timestamp - 300:\n            self._hits.popleft()\n        return len(self._hits)",
+        "complexity": {
+          "time": "Amortized O(1) per hit, O(k) per getHits where k = expired entries",
+          "space": "O(n) hits in window"
+        }
+      },
+      "follow_ups": [
+        "Switch to a 300-slot ring buffer to bound memory regardless of hit rate",
+        "Generalize to arbitrary window size W",
+        "Adapt to a TokenBucketRateLimiter — same temporal-bucket idea",
+        "Make thread-safe under concurrent hit/getHits"
+      ]
+    },
+    {
+      "id": "logger-rate-limiter",
+      "leetcode": 359,
+      "url": "https://leetcode.com/problems/logger-rate-limiter/",
+      "name": "Logger Rate Limiter",
+      "difficulty": "easy",
+      "patterns": ["hash-map", "queue", "design"],
+      "companies": ["revolut", "google"],
+      "relevance": "Per-key TTL gate — same shape as Revolut's per-user withdrawal rate limiter.",
+      "description": "shouldPrintMessage(timestamp, message) returns true iff this message has not been printed in the last 10 seconds. Timestamps are non-decreasing.",
+      "constraints": [
+        "0 <= timestamp <= 10^9",
+        "1 <= len(message) <= 30",
+        "At most 10^4 calls"
+      ],
+      "hints": [
+        "Map message -> next-allowed-timestamp",
+        "To bound memory, evict expired entries lazily as timestamps advance"
+      ],
+      "solution": {
+        "python": "class Logger:\n    def __init__(self) -> None:\n        self._next_allowed: dict[str, int] = {}\n\n    def shouldPrintMessage(self, timestamp: int, message: str) -> bool:\n        if timestamp < self._next_allowed.get(message, 0):\n            return False\n        self._next_allowed[message] = timestamp + 10\n        return True",
+        "complexity": {
+          "time": "O(1) per call",
+          "space": "O(n) distinct messages"
+        }
+      },
+      "follow_ups": [
+        "Bound memory: deque of (timestamp, message) with periodic eviction",
+        "Adapt to per-user request rate limiter (key by user_id)",
+        "Make thread-safe under concurrent calls"
+      ]
+    },
+    {
+      "id": "linked-list-random-node",
+      "leetcode": 382,
+      "url": "https://leetcode.com/problems/linked-list-random-node/",
+      "name": "Linked List Random Node",
+      "difficulty": "medium",
+      "patterns": ["reservoir-sampling", "math", "design"],
+      "companies": ["revolut", "google", "amazon"],
+      "relevance": "Reservoir sampling — explicitly listed in Revolut's interview guide as 'select a random number from a stream with O(1) space'.",
+      "description": "Given the head of a singly linked list of unknown length, return a random node value. Each node must be selected with equal probability. Use O(1) space — you cannot store the full list.",
+      "constraints": [
+        "Number of nodes is in [1, 10^4]",
+        "-10^4 <= Node.val <= 10^4",
+        "At most 10^4 calls to getRandom"
+      ],
+      "hints": [
+        "Reservoir sampling (k=1): for each node i (0-indexed), keep it with probability 1/(i+1)",
+        "Equivalent to random.randint(0, i) == 0 at each step"
+      ],
+      "solution": {
+        "python": "import random\nfrom typing import Optional\n\nclass ListNode:\n    def __init__(self, val: int = 0, next: Optional['ListNode'] = None) -> None:\n        self.val: int = val\n        self.next: Optional['ListNode'] = next\n\nclass Solution:\n    def __init__(self, head: Optional[ListNode]) -> None:\n        self._head: Optional[ListNode] = head\n\n    def getRandom(self) -> int:\n        chosen: int = 0\n        node: Optional[ListNode] = self._head\n        i: int = 0\n        while node is not None:\n            if random.randint(0, i) == 0:\n                chosen = node.val\n            node = node.next\n            i += 1\n        return chosen",
+        "complexity": {
+          "time": "O(n) per getRandom",
+          "space": "O(1)"
+        }
+      },
+      "follow_ups": [
+        "Generalize to reservoir sampling of size k",
+        "Apply to a streaming load balancer: pick a random server from an unknown-length stream of registrations",
+        "Weighted reservoir sampling (A-Res algorithm)"
+      ]
+    },
+    {
+      "id": "all-oone-data-structure",
+      "leetcode": 432,
+      "url": "https://leetcode.com/problems/all-oone-data-structure/",
+      "name": "All O`one Data Structure",
+      "difficulty": "hard",
+      "patterns": ["hash-map", "doubly-linked-list", "design"],
+      "companies": ["revolut", "amazon", "google"],
+      "relevance": "Frequency-bucket design — natural extension of LRU/LFU. Practice for swappable selection policies (max-key vs min-key) on the same backing store.",
+      "description": "Implement inc(key), dec(key), getMaxKey(), getMinKey() — all O(1). Keys start at count 0 (inc creates them). dec at count 1 removes the key.",
+      "constraints": [
+        "1 <= len(key) <= 10",
+        "At most 5 * 10^4 calls"
+      ],
+      "hints": [
+        "Doubly-linked list of count-buckets, each bucket holds a set of keys at that count",
+        "key->bucket map for O(1) lookup. Increment moves key to next bucket (insert if missing)."
+      ],
+      "solution": {
+        "python": "class _Bucket:\n    def __init__(self, count: int = 0) -> None:\n        self.count: int = count\n        self.keys: set[str] = set()\n        self.prev: '_Bucket | None' = None\n        self.next: '_Bucket | None' = None\n\nclass AllOne:\n    def __init__(self) -> None:\n        self._head: _Bucket = _Bucket()\n        self._tail: _Bucket = _Bucket()\n        self._head.next = self._tail\n        self._tail.prev = self._head\n        self._of: dict[str, _Bucket] = {}\n\n    def _insert_after(self, prev: _Bucket, count: int) -> _Bucket:\n        node = _Bucket(count)\n        node.prev = prev\n        node.next = prev.next\n        prev.next.prev = node\n        prev.next = node\n        return node\n\n    def _detach(self, node: _Bucket) -> None:\n        node.prev.next = node.next\n        node.next.prev = node.prev\n\n    def inc(self, key: str) -> None:\n        cur = self._of.get(key, self._head)\n        nxt = cur.next\n        target_count = cur.count + 1\n        if nxt is self._tail or nxt.count != target_count:\n            nxt = self._insert_after(cur, target_count)\n        nxt.keys.add(key)\n        self._of[key] = nxt\n        if cur is not self._head:\n            cur.keys.discard(key)\n            if not cur.keys:\n                self._detach(cur)\n\n    def dec(self, key: str) -> None:\n        cur = self._of[key]\n        if cur.count == 1:\n            del self._of[key]\n        else:\n            prev = cur.prev\n            target_count = cur.count - 1\n            if prev is self._head or prev.count != target_count:\n                prev = self._insert_after(prev, target_count)\n            prev.keys.add(key)\n            self._of[key] = prev\n        cur.keys.discard(key)\n        if not cur.keys:\n            self._detach(cur)\n\n    def getMaxKey(self) -> str:\n        if self._tail.prev is self._head:\n            return ''\n        return next(iter(self._tail.prev.keys))\n\n    def getMinKey(self) -> str:\n        if self._head.next is self._tail:\n            return ''\n        return next(iter(self._head.next.keys))",
+        "complexity": {
+          "time": "O(1) per operation",
+          "space": "O(n)"
+        }
+      },
+      "follow_ups": [
+        "Adapt the bucket structure to LFU eviction — getMinKey is the eviction candidate",
+        "Add tie-breaking by insertion order (LRU-within-bucket)",
+        "Make thread-safe with a Lock"
+      ]
+    },
+    {
+      "id": "design-leaderboard",
+      "leetcode": 1244,
+      "url": "https://leetcode.com/problems/design-a-leaderboard/",
+      "name": "Design A Leaderboard",
+      "difficulty": "medium",
+      "patterns": ["hash-map", "heap", "sorting", "design"],
+      "companies": ["revolut", "amazon", "google"],
+      "relevance": "Score accumulator with top-K — same accumulator pattern as per-server connection counts; fintech leaderboard / top-account flavor.",
+      "description": "addScore(playerId, score) adds score to a player (creates if missing). top(K) returns sum of top K scores. reset(playerId) zeros the player's score.",
+      "constraints": [
+        "1 <= playerId, K <= 10^4",
+        "1 <= score <= 100",
+        "At most 1000 calls"
+      ],
+      "hints": [
+        "Hash map playerId -> score. top(K) = sum(heapq.nlargest(K, scores.values()))",
+        "For frequent top(K), maintain a SortedList keyed by score for O(K) reads"
+      ],
+      "solution": {
+        "python": "import heapq\n\nclass Leaderboard:\n    def __init__(self) -> None:\n        self._scores: dict[int, int] = {}\n\n    def addScore(self, playerId: int, score: int) -> None:\n        self._scores[playerId] = self._scores.get(playerId, 0) + score\n\n    def top(self, K: int) -> int:\n        return sum(heapq.nlargest(K, self._scores.values()))\n\n    def reset(self, playerId: int) -> None:\n        self._scores.pop(playerId, None)",
+        "complexity": {
+          "time": "addScore/reset O(1), top O(n log K)",
+          "space": "O(n)"
+        }
+      },
+      "follow_ups": [
+        "Make top(K) O(K log n) with a SortedList of (-score, playerId)",
+        "Add bottom(K) and rank(playerId)",
+        "Snapshot leaderboard at a given timestamp (versioned scores)",
+        "Make thread-safe under concurrent addScore/reset"
+      ]
+    },
+    {
+      "id": "design-circular-queue",
+      "leetcode": 622,
+      "url": "https://leetcode.com/problems/design-circular-queue/",
+      "name": "Design Circular Queue",
+      "difficulty": "medium",
+      "patterns": ["array", "queue", "design"],
+      "companies": ["revolut", "amazon", "microsoft"],
+      "relevance": "Fixed-capacity bounded buffer — fundamentals for capacity-bounded systems (URL Shortener cap, request buffer, ring-buffer rate limiters).",
+      "description": "Implement a circular queue of fixed size k with enQueue, deQueue, Front, Rear, isEmpty, isFull — all O(1).",
+      "constraints": [
+        "1 <= k <= 1000",
+        "0 <= value <= 1000",
+        "At most 3000 calls"
+      ],
+      "hints": [
+        "Array of size k + head index + size counter. Tail = (head + size) % k.",
+        "Avoid storing both head and tail — derive tail from size to avoid the empty-vs-full ambiguity."
+      ],
+      "solution": {
+        "python": "class MyCircularQueue:\n    def __init__(self, k: int) -> None:\n        self._buf: list[int] = [0] * k\n        self._head: int = 0\n        self._size: int = 0\n        self._capacity: int = k\n\n    def enQueue(self, value: int) -> bool:\n        if self._size == self._capacity:\n            return False\n        self._buf[(self._head + self._size) % self._capacity] = value\n        self._size += 1\n        return True\n\n    def deQueue(self) -> bool:\n        if self._size == 0:\n            return False\n        self._head = (self._head + 1) % self._capacity\n        self._size -= 1\n        return True\n\n    def Front(self) -> int:\n        return -1 if self._size == 0 else self._buf[self._head]\n\n    def Rear(self) -> int:\n        return -1 if self._size == 0 else self._buf[(self._head + self._size - 1) % self._capacity]\n\n    def isEmpty(self) -> bool:\n        return self._size == 0\n\n    def isFull(self) -> bool:\n        return self._size == self._capacity",
+        "complexity": {
+          "time": "O(1) per operation",
+          "space": "O(k)"
+        }
+      },
+      "follow_ups": [
+        "Use as the backing store for the 300-slot ring-buffer Hit Counter",
+        "Add blocking variants (block on full/empty) using Condition variables",
+        "Make thread-safe with a Lock or use lock-free atomics"
+      ]
+    }
+  ],
+  "drill_plan": {
+    "goal": "Build muscle memory for the Revolut live-coding round (Load Balancer, URL Shortener, Money Transfer).",
+    "sessions": [
+      {
+        "session": 1,
+        "focus": "Core data structure",
+        "problem": "insert-delete-getrandom",
+        "extension": "Add max_size + CapacityExceededError. Now you have a single-strategy LoadBalancer."
+      },
+      {
+        "session": 2,
+        "focus": "Strategy pattern",
+        "problem": "insert-delete-getrandom",
+        "extension": "Pull selection out into a Balancer Protocol. Implement RandomBalancer and RoundRobinBalancer."
+      },
+      {
+        "session": 3,
+        "focus": "Capacity + free-pool patterns",
+        "problem": "design-phone-directory",
+        "extension": "Re-do as URL Shortener with MAX_URLS=100 — generate-and-check loop instead of integer pool."
+      },
+      {
+        "session": 4,
+        "focus": "Heap-based selection",
+        "problem": "seat-reservation-manager",
+        "extension": "Re-do as LeastConnectionsBalancer — heap keyed by active connection count."
+      },
+      {
+        "session": 5,
+        "focus": "Capacity + eviction policy",
+        "problem": "lru-cache",
+        "extension": "Add TTL eviction. Compare to LFU policy."
+      },
+      {
+        "session": 6,
+        "focus": "TTL + lazy cleanup",
+        "problem": "design-authentication-manager",
+        "extension": "Apply to LoadBalancer — auto-deregister servers whose heartbeat expired."
+      },
+      {
+        "session": 7,
+        "focus": "Thread safety",
+        "problem": "insert-delete-getrandom",
+        "extension": "Add a single Lock. Then split into ReadWriteLock — reads (get) and writes (register/deregister)."
+      },
+      {
+        "session": 8,
+        "focus": "Multi-resource locking",
+        "problem": "money-transfer",
+        "extension": "Two-account transfer with consistent lock ordering. Test concurrent transfers in opposite directions."
+      }
+    ]
+  }
+}

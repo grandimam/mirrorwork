@@ -1,0 +1,85 @@
+{
+  "company": "revolut",
+  "round": "system-design",
+
+  "format": {
+    "duration": "45-60 minutes",
+    "position": "Round 4 (after live coding + technical deep-dive)",
+    "style": "High-detail, production-focused",
+    "expectation": "API contracts, DB schemas, technology choices, deployment, failure handling"
+  },
+
+  "problems": [
+    {
+      "name": "Card Delivery System",
+      "context": "Physical card manufacturing and delivery to customers",
+      "clarify": ["Cards/day scale", "SLA for delivery tracking updates", "Courier integrations", "Failed delivery handling"],
+      "components": ["Card Service", "Delivery Service", "Notification Service", "Webhook Receiver"],
+      "api": {
+        "create_card": "POST /cards { user_id, card_type, shipping_address } -> { card_id, estimated_delivery }",
+        "get_status": "GET /cards/{card_id}/delivery-status -> { status, tracking_number, carrier, events[] }",
+        "webhook": "POST /webhooks/courier { tracking_number, event_type, timestamp, location }"
+      },
+      "schema": "cards(id, user_id, card_type, status, created_at)\ndeliveries(id, card_id, courier_id, tracking_number, status, shipping_address)\ndelivery_events(id, delivery_id, event_type, location, timestamp, raw_payload)",
+      "failure_handling": ["Courier API down -> queue and retry with backoff", "Duplicate webhooks -> idempotency key on (tracking_number, event_type, timestamp)", "Lost card -> trigger reissue, notify user"]
+    },
+    {
+      "name": "Payment Notification Service",
+      "context": "Notify users of payment events at scale",
+      "clarify": ["Channels (push, SMS, email, in-app)", "Latency SLA", "Retry policy", "User preferences"],
+      "key_concepts": ["Event sourcing", "CQRS", "Idempotency", "At-least-once with dedup"],
+      "components": ["Event Ingestion Service", "Notification Router", "Channel Adapters", "Status Tracker"],
+      "idempotency_flow": "1. Receive PaymentEvent with event_id\n2. Check if notification with event_id exists\n3. If exists -> skip\n4. If not -> create notification, send to channel",
+      "failure_handling": ["Provider timeout -> retry with exponential backoff (max 3)", "Provider down -> fallback to secondary or queue", "No push token -> fallback to SMS/email"]
+    },
+    {
+      "name": "Distributed Rate Limiter",
+      "context": "Protect APIs from abuse, per-user and global limits",
+      "clarify": ["Scope (per-user, per-API, per-IP, global)", "Granularity (req/sec, req/min)", "Hard vs soft limit", "Latency budget"],
+      "algorithms": {
+        "token_bucket": {"pros": "Allows burst, smooth", "cons": "Requires state per key"},
+        "sliding_window_log": {"pros": "Accurate", "cons": "Memory-heavy"},
+        "sliding_window_counter": {"pros": "Memory-efficient", "cons": "Approximate at edges"},
+        "fixed_window": {"pros": "Simple", "cons": "2x burst at boundary"}
+      },
+      "recommended": "Sliding Window Counter",
+      "redis_schema": "Key: ratelimit:{user_id}:{endpoint}:{minute_timestamp}\nValue: count\nTTL: 2 minutes",
+      "failure_handling": ["Redis down -> fail open (allow) or fail closed (reject)", "Clock skew -> use Redis server time", "Thundering herd -> Lua script for atomic check-and-increment"]
+    },
+    {
+      "name": "Apartment Booking System",
+      "context": "Book apartments via 3rd party provider API",
+      "clarify": ["Real-time or cached availability", "Payment flow", "Cancellation policy", "Concurrent booking handling"],
+      "key_challenges": ["Double-booking prevention", "3rd party API latency/failures", "Reservation expiry"],
+      "state_machine": "SEARCHING -> SELECTED -> RESERVED -> CONFIRMED -> COMPLETED\n                     |           |\n                  EXPIRED     CANCELLED",
+      "double_booking_prevention": "Option 1: Unique constraint on (apartment_id, dates) WHERE status IN ('RESERVED', 'CONFIRMED')\nOption 2: SELECT FOR UPDATE with daterange overlap check",
+      "failure_handling": ["3rd party timeout -> retry once, then fail gracefully", "Payment fails after reservation -> release reservation", "Reservation expires -> background job cancels and notifies"]
+    },
+    {
+      "name": "Temporary Debit Card Issuance",
+      "context": "Issue virtual cards with expiry and spending limits",
+      "clarify": ["Card validity period", "Spending limit scope", "Real-time authorization", "PCI compliance scope"],
+      "components": ["Card Service", "Authorization Service", "Limits Service", "Expiry Job"],
+      "authorization_flow": "1. Receive auth request\n2. Lookup card by card_number_hash\n3. Check: status = 'ACTIVE' AND expires_at > NOW()\n4. Check: spent_amount + amount <= spending_limit\n5. If pass -> approve, increment spent_amount atomically\n6. Log transaction",
+      "atomic_spend_update": "UPDATE temporary_cards SET spent_amount = spent_amount + ? WHERE id = ? AND status = 'ACTIVE' AND expires_at > NOW() AND spent_amount + ? <= spending_limit RETURNING id;"
+    }
+  ],
+
+  "common_followups": [
+    "What happens if payment succeeds but notification fails?",
+    "This handles 1K TPS, what about 100K?",
+    "What if the 3rd party API is down for 2 hours?",
+    "User clicks pay twice — what happens?",
+    "Two users book the same slot at the same time?",
+    "What indexes do you need? Why?",
+    "How do you deploy without downtime?",
+    "How do you know if this system is healthy?"
+  ],
+
+  "concepts_to_know": {
+    "event_driven": ["Event sourcing", "CQRS", "Idempotency keys", "At-least-once vs exactly-once"],
+    "database": ["Transaction isolation levels", "SELECT FOR UPDATE", "Optimistic locking", "Index design"],
+    "distributed": ["CAP theorem", "Eventual consistency", "Distributed locking (Redlock)", "Circuit breaker"],
+    "payments": ["Double-entry bookkeeping", "Idempotent processing", "Audit trails", "PCI basics"]
+  }
+}

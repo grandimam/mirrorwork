@@ -1,0 +1,85 @@
+{
+  "company": "noon",
+  "source": "Glassdoor Interview Experiences",
+  "last_updated": "2026-04-24",
+
+  "summary": {
+    "total_interviews": 62,
+    "regions": {
+      "uae": 54,
+      "india": 8
+    },
+    "offer_outcomes": {
+      "accepted": 15,
+      "declined_offer": 5,
+      "no_offer": 42
+    },
+    "experience_sentiment": {
+      "positive": 26,
+      "neutral": 15,
+      "negative": 15
+    },
+    "difficulty_distribution": {
+      "easy": 10,
+      "average": 28,
+      "difficult": 18
+    },
+    "locations": [
+      "Dubai",
+      "Cairo",
+      "Gurgaon",
+      "London",
+      "Bengaluru",
+      "Toronto",
+      "New Cairo",
+      "Alexandria",
+      "Colombo"
+    ]
+  },
+
+  "common_themes": [
+    "LeetCode-style DSA problems (easy to hard)",
+    "SQL and database internals (indexing, isolation levels, concurrency control)",
+    "System design questions (marketplace catalog, TikTok-like app, banking systems, parking systems)",
+    "HackerRank online assessments as first screen",
+    "Typically 2-4 technical rounds followed by behavioral/culture fit",
+    "Problem solving with data structures (stack, queue, linked list, trees, DP, sliding window)"
+  ],
+
+  "frequently_asked_questions": [
+    "Find the index of an element in a sorted rotated array",
+    "Implement Stack using Queue",
+    "Number of subarrays having product less than or equal to K",
+    "Calculate Min at any point of time in stack",
+    "Find common elements in sorted arrays",
+    "Tree question - variant of level order traversal",
+    "Design a system for saving and current account bank",
+    "Design marketplace catalog and indexing",
+    "Design a TikTok-like video platform with product sidebar",
+    "Design a parking system",
+    "Explain database indexing and isolation levels",
+    "What do you know about SQL injection? How to defend?",
+    "How does JWT work?",
+    "Difference between hashing and encryption"
+  ],
+
+  "interview_tips_from_candidates": {
+    "positive": [
+      "Everyone was cooperative and helpful",
+      "Well communicated at every step",
+      "Process was smooth and fast",
+      "Interviewer was helpful and gave hints when stuck",
+      "Focus on medium LeetCode, hard is rare",
+      "Be ready to discuss your GitHub repos",
+      "Database internals questions are common for backend"
+    ],
+    "warnings": [
+      "Sometimes long gaps without communication",
+      "Some candidates reported unprofessional behavior",
+      "No feedback on rejection in some cases",
+      "Follow up politely if you don't hear back in a week"
+    ]
+  },
+
+  "note": "Full interview details available in original glassdoor scrape files"
+}

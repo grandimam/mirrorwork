@@ -1,21 +1,26 @@
 # Mirrorwork
 
-> Your career, reflected.
+> Stop applying to jobs you won't get.
 
-Career OS built on Claude Code. Build your profile, analyze jobs, prepare for interviews, and master your skills.
+Career tool built on Claude Code. Tells you the truth about your fit, helps you close gaps, and prepares you for interviews the way that company actually asks them.
 
 ```
-Resume₁ ──┐
-Resume₂ ──┼──► Master Profile ──► Job Analysis ──► Interview Prep
-Resume₃ ──┘        (facts)          (fit)         (company-modeled)
-                     │
-                     └──► Skills Learning (evaluate, remember, improve)
+SETUP → ADD → PREP → ANALYZE → LEARN ←──┐
+               │        │        │       │
+               │        │        ├── Work on gap (Socratic)
+               │        │        ├── Checkpoint mock
+               │        │        ├── Exposed? ──────────┘
+               │        │        └── Full mock → Ready!
+               │        │
+               │        └── Fit + Gaps + Positioning
+               │
+               └── Intel (values, process, questions)
 ```
 
 - **Profile** = who you are (facts, grows over time)
-- **Positioning** = how you present yourself (derived per job)
-- **Interview Prep** = practice with a simulated interviewer from the company
-- **Learning** = evaluate and improve your skills with spaced repetition
+- **Prep** = company intel (values, questions, process)
+- **Analyze** = fit score + gaps + positioning
+- **Learn** = close gaps through Socratic practice + mock validation
 
 ## Structure
 
@@ -30,208 +35,53 @@ profile/                      # MASTER PROFILE (merged from all resumes)
 activity/                     # JOBS + TRACKING
 ├── tracker.md                # Applications tracker (status + outcomes)
 └── jobs/
-    └── {job-id}.json         # Analyzed jobs (JD + positioning + fit)
+    └── {job-id}.json         # Analyzed jobs (JD + requirements)
 
-interview/                    # INTERVIEW PREP (company-based)
-├── banks/                    # Generic question banks (fallback)
-│   ├── behavioral.json
-│   ├── coding/
-│   └── system-design/
-└── {company-slug}/           # Per-company
-    ├── intel.json            # Company research
-    ├── questions.json        # Company-specific questions
-    └── sessions/
-
-learning/                     # SKILLS LEARNING (evaluate + improve)
-├── progress.json             # Overall progress summary
-├── banks/                    # OFFICIAL (shipped, from official docs)
-│   ├── python/               # From Python docs, PEPs
-│   │   ├── data-structures.json
-│   │   ├── concurrency.json
-│   │   └── advanced.json
-│   ├── system-design/        # Fundamentals (CAP, scaling, etc.)
-│   │   └── fundamentals.json
-│   └── databases/
-│       └── sql.json
-├── community/                # FETCHED (dynamic, from GitHub/community)
-│   ├── leetcode/             # Company-tagged LeetCode problems
-│   │   ├── stripe.json
-│   │   ├── google.json
-│   │   └── meta.json
-│   └── system-design/        # Company-specific system design
-│       └── uber-ride-matching.md
-├── local/                    # USER-ADDED (gitignored)
-│   └── ...
-└── {skill-slug}/             # Per-skill progress (gitignored)
-    ├── progress.json
-    └── sessions/
+prep/                         # INTERVIEW PREP (per-company)
+└── {company-slug}/
+    ├── intel.json            # Company values, process, questions
+    ├── analysis.json         # Fit score, gaps, positioning
+    ├── stories/              # Prepared stories (artifacts)
+    │   ├── failure.md
+    │   ├── leadership.md
+    │   └── ...
+    └── sessions/             # Mock interview sessions
+        └── {date}-mock.json
 
 sources/                      # RAW INPUTS
 ├── manifest.json
 ├── resume/
 └── work-samples/
 
-agents/                       # AGENTS
-├── add-resume.md
-├── add-job.md
-├── add-brag.md
-├── add-doc.md
-├── fit-analysis.md
-├── case-agent.md
-├── generate-resume.md
-├── tracker.md
-├── company-research.md
-├── prep.md
-├── behavioral.md
-├── coding.md
-├── system-design.md
-├── learn.md                  # Skills learning agent
-└── fetch.md                  # Fetch community questions
+agents/                       # AGENTS (6 total)
+├── setup.md                  # First-time init
+├── add.md                    # Add data (resume, job, brag, doc)
+├── prep.md                   # Collect company intel
+├── analyze.md                # Fit + gaps + positioning
+├── learn.md                  # Close gaps + mock (continuous loop)
+└── tracker.md                # Track applications
 
 generated/
 └── {job-id}/
     └── {date}-resume.md
 
-scripts/
-└── github_tracker/
-
 .claude/
 ├── skills/
-│   ├── mirrorwork/SKILL.md
-│   └── github/SKILL.md
+│   └── mirrorwork/SKILL.md
 ├── hooks.json
 └── settings.json
 ```
 
-## Profile
-
-| File                | Purpose          | Key Fields                                |
-| ------------------- | ---------------- | ----------------------------------------- |
-| `identity.json`     | Contact info     | name, email, location, linkedin, github   |
-| `experience.json`   | Work history     | company, role, dates, highlights, skills  |
-| `education.json`    | Education        | institution, degree, field, year          |
-| `skills.json`       | Skills inventory | expert, proficient, familiar, learning    |
-| `proof-points.json` | Achievements     | id, summary, metrics, skills, story_ready |
-
-## Job
-
-Each job in `activity/jobs/*.json` contains:
-
-```json
-{
-  "id": "stripe-staff-backend",
-  "company": "Stripe",
-  "title": "Staff Backend Engineer",
-  "requirements": { "must_have": [...], "nice_to_have": [...] },
-
-  "positioning": {
-    "headline": "10-year backend engineer scaling transaction systems",
-    "angle": "Ad-tech scale → financial reliability",
-    "lead_with": ["1B+ events/day", "P95 ≤5ms"],
-    "relevant_experience": ["Snapdeal", "Cisco"],
-    "relevant_proof_points": ["snapdeal-ad-pipeline"]
-  },
-
-  "fit": {
-    "score": 85,
-    "matches": [...],
-    "gaps": [...],
-    "verdict": "Strong technical fit"
-  }
-}
-```
-
-## Company Intel
-
-Each company in `interview/{company-slug}/intel.json` contains:
-
-```json
-{
-  "company": "Stripe",
-  "slug": "stripe",
-  "researched_at": "2026-04-12",
-
-  "values": [
-    {
-      "name": "Users first",
-      "description": "Build for the user, not for yourself",
-      "interview_signals": ["How did you handle conflicting user needs?"]
-    }
-  ],
-
-  "interview_process": {
-    "rounds": ["phone screen", "coding", "system design", "hiring manager"],
-    "style": "collaborative, focus on tradeoffs",
-    "what_they_look_for": ["clarity of thought", "API design sense"]
-  },
-
-  "tech_context": {
-    "stack": ["Ruby", "Go", "AWS"],
-    "scale": "millions of API calls/day",
-    "challenges": ["reliability at scale", "developer experience"]
-  },
-
-  "recent_news": ["launched X", "expanding to Y"]
-}
-```
-
-## Skill Progress
-
-Each skill in `learning/{skill-slug}/progress.json` contains:
-
-```json
-{
-  "skill": "python",
-  "current_level": "proficient",
-  "target_level": "expert",
-  "started_at": "2026-04-01",
-  "last_practice": "2026-04-20",
-  "total_sessions": 12,
-  "total_questions": 85,
-
-  "topics": {
-    "data-structures": {
-      "score": 85,
-      "questions_seen": 20,
-      "correct": 17,
-      "last_practiced": "2026-04-20",
-      "confidence": "high",
-      "next_review": "2026-04-27"
-    },
-    "concurrency": {
-      "score": 45,
-      "questions_seen": 10,
-      "correct": 4,
-      "last_practiced": "2026-04-18",
-      "confidence": "low",
-      "next_review": "2026-04-21"
-    }
-  },
-
-  "weak_areas": ["concurrency", "metaclasses"],
-  "strong_areas": ["data-structures", "comprehensions"]
-}
-```
-
 ## Agents
 
-| Agent                | Purpose                        | Trigger                           |
-| -------------------- | ------------------------------ | --------------------------------- |
-| `add-resume.md`      | Parse resume → MERGE           | `/mirrorwork init`, `add resume`  |
-| `add-job.md`         | JD + company research + fit    | `/mirrorwork add job`             |
-| `add-brag.md`        | Capture achievement            | `/mirrorwork add brag`            |
-| `add-doc.md`         | Tech spec → proof points       | `/mirrorwork add doc`             |
-| `fit-analysis.md`    | Brutal, honest fit check       | Auto after add job                |
-| `case-agent.md`      | Build advocacy case            | `/mirrorwork case <job-id>`       |
-| `generate-resume.md` | Generate tailored resume       | `/mirrorwork resume <job-id>`     |
-| `tracker.md`         | View/update tracker            | `/mirrorwork tracker`             |
-| `company-research.md`| Research company intel         | Auto when new company added       |
-| `prep.md`            | Interview prep orchestrator    | `/mirrorwork prep <company>`      |
-| `behavioral.md`      | Behavioral interview coach     | `/mirrorwork prep <company> behavioral` |
-| `coding.md`          | Coding practice                | `/mirrorwork prep <company> coding` |
-| `system-design.md`   | System design practice         | `/mirrorwork prep <company> system-design` |
-| `learn.md`           | Skills learning + evaluation   | `/mirrorwork learn <skill>`       |
-| `fetch.md`           | Fetch community questions      | `/mirrorwork fetch leetcode`      |
+| Agent | Purpose | Command |
+|-------|---------|---------|
+| `setup.md` | First-time init, create directories | `/mirrorwork init` |
+| `add.md` | Add data (resume, job, brag, doc) | `/mirrorwork add <type>` |
+| `prep.md` | Collect company intel (web search + user input) | `/mirrorwork prep <company>` |
+| `analyze.md` | Fit score + gaps + positioning | `/mirrorwork analyze <company>` |
+| `learn.md` | Close gaps (Socratic) + mock validation | `/mirrorwork learn <company>` |
+| `tracker.md` | Track applications | `/mirrorwork tracker` |
 
 ## Commands
 
@@ -240,111 +90,249 @@ Each skill in `learning/{skill-slug}/progress.json` contains:
 | `/mirrorwork` | Status overview |
 | `/mirrorwork init` | First-time setup |
 | `/mirrorwork add resume` | Add resume (merges into profile) |
-| `/mirrorwork add job` | Paste JD → analyze + research company |
+| `/mirrorwork add job` | Add job posting, derive positioning |
 | `/mirrorwork add brag` | Capture achievement |
-| `/mirrorwork add doc` | Add work sample |
-| `/mirrorwork prep <company>` | Interview prep (pick type) |
-| `/mirrorwork prep <company> behavioral` | Behavioral practice |
-| `/mirrorwork prep <company> coding` | Coding practice |
-| `/mirrorwork prep <company> system-design` | System design practice |
-| `/mirrorwork learn` | Skills dashboard |
-| `/mirrorwork learn <skill>` | Practice a skill |
-| `/mirrorwork learn <skill> --topic <topic>` | Focus on specific topic |
-| `/mirrorwork learn <skill> --review` | Review weak areas (spaced repetition) |
-| `/mirrorwork learn <skill> --assess` | Full assessment |
-| `/mirrorwork progress` | Overall learning progress |
-| `/mirrorwork fetch leetcode` | Fetch LeetCode company questions |
-| `/mirrorwork fetch leetcode --company <name>` | Fetch for specific company |
-| `/mirrorwork case <job-id>` | Build advocacy case |
-| `/mirrorwork resume <job-id>` | Generate tailored resume |
-| `/mirrorwork tracker` | View/update tracker |
-| `/github sync` | Sync GitHub data |
+| `/mirrorwork add doc` | Add work sample (tech spec, RFC, etc.) |
+| `/mirrorwork prep <company>` | Collect company intel |
+| `/mirrorwork analyze <company>` | Analyze fit + gaps + positioning |
+| `/mirrorwork learn <company>` | Close gaps, run mocks |
+| `/mirrorwork tracker` | View/update applications |
 
-## Data Flow
+## Workflow
+
+### Phase 1: Setup + Profile
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  SOURCES (raw inputs)                                       │
-│  ├── manifest.json         # Central registry of all files  │
-│  ├── resume/               # All resumes                    │
-│  └── work-samples/         # Tech specs, design docs        │
-└─────────────────────┬───────────────────────────────────────┘
-                      │ /mirrorwork add <type> (MERGE)
-                      ▼
-┌─────────────────────────────────────────────────────────────┐
-│  PROFILE (master record - merged from all sources)          │
-│  ├── identity.json         # Name, contact, links           │
-│  ├── experience.json       # All roles (merged, deduped)    │
-│  ├── skills.json           # All skills (union)             │
-│  └── proof-points.json     # All achievements (merged)      │
-└───────────┬─────────────────────────────┬───────────────────┘
-            │                             │
-            │ /mirrorwork add job         │ /mirrorwork learn
-            ▼                             ▼
-┌───────────────────────────┐   ┌─────────────────────────────┐
-│  JOB ANALYSIS             │   │  SKILLS LEARNING            │
-│  ├── activity/jobs/*.json │   │  ├── Evaluate by topic      │
-│  └── interview/{company}/ │   │  ├── Track progress         │
-└───────────┬───────────────┘   │  ├── Spaced repetition      │
-            │                   │  └── Identify gaps           │
-            │ /mirrorwork prep  └─────────────────────────────┘
-            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  INTERVIEW PREP                                             │
-│  ├── Behavioral   # Questions from company values           │
-│  ├── Coding       # Prioritized by YOUR weak areas          │
-│  └── System Design # Company-relevant problems              │
-└─────────────────────────────────────────────────────────────┘
+/mirrorwork init          → Create directories
+/mirrorwork add resume    → Parse resume, merge into profile
+/mirrorwork add brag      → Add achievements
 ```
 
-## Learning Flow
+### Phase 2: Add Job + Prep
 
 ```
-/mirrorwork learn python
-
-╭─────────────────────────────────────╮
-│  mirrorwork · Learn: Python         │
-╰─────────────────────────────────────╯
-
-Level: proficient → expert
-
-───────────────────────────────────────
-📊 **Progress by Topic**
-
-| Topic | Score | Confidence | Review |
-|-------|-------|------------|--------|
-| basics | 95% | ✓ high | — |
-| data-structures | 85% | ✓ high | Apr 27 |
-| oop | 75% | ~ medium | Apr 25 |
-| concurrency | 45% | ✗ low | TODAY |
-| advanced | 40% | ✗ low | Apr 22 |
-
-**Recommendation:** Review concurrency (due today)
-
-───────────────────────────────────────
+/mirrorwork add job       → Parse JD, save requirements
+/mirrorwork prep <company> → Research company (web search + user input)
 ```
 
-## Spaced Repetition
+Prep collects:
+- Company values (with sources)
+- Interview process (rounds, format)
+- Real interview questions (behavioral, coding, system design)
+- Tech stack and context
+- Insider tips
 
-Uses SM-2 algorithm for review scheduling:
+### Phase 3: Analyze
 
 ```
-Correct → Interval grows: 1d → 3d → 7d → 14d → 30d
-Wrong   → Reset to 1 day
+/mirrorwork analyze <company>
+```
 
-Topics with low confidence are reviewed more frequently.
+Produces:
+- **Fit score** — Do you meet the requirements?
+- **Deal-breakers** — Mandatory requirements you're missing
+- **Gaps** — What you need to work on (prioritized)
+- **Strengths** — What to lead with
+- **Positioning** — How to present yourself (if applying)
+
+### Phase 4: Learn (Continuous Loop)
+
+```
+/mirrorwork learn <company>
+```
+
+The learn phase is a continuous loop:
+
+1. **Work on gaps** — Socratic practice for each gap type:
+   - Behavioral → Build stories with STAR structure
+   - Values → Map proof points to company values
+   - Technical → Knowledge check + application
+   - System design → Design problems with trade-offs
+
+2. **Checkpoint mock** — Quick validation (3-4 questions)
+   - Tests closed gaps
+   - Exposes weak areas
+   - Reopens gaps if needed
+
+3. **Full mock** — Complete interview simulation
+   - All rounds based on company process
+   - Realistic pressure and time constraints
+   - Detailed feedback
+
+4. **Loop** — If mock exposes issues, go back to step 1
+
+```
+Work on gap → Checkpoint → Exposed? → Work on gap → ...
+                              ↓
+                         Full mock
+                              ↓
+                     ✓ Ready for interview
+```
+
+## Data Formats
+
+### Profile
+
+| File | Purpose | Key Fields |
+|------|---------|------------|
+| `identity.json` | Contact info | name, email, location, linkedin, github |
+| `experience.json` | Work history | company, role, dates, highlights, skills |
+| `skills.json` | Skills inventory | expert, proficient, familiar, learning |
+| `proof-points.json` | Achievements | id, summary, metrics, skills, story_ready |
+
+### Job (`activity/jobs/{id}.json`)
+
+```json
+{
+  "id": "company-role-slug",
+  "company": "Company Name",
+  "title": "Job Title",
+  "requirements": {
+    "must_have": ["requirement 1", "requirement 2"],
+    "nice_to_have": ["requirement 3"]
+  }
+}
+```
+
+### Company Intel (`prep/{company}/intel.json`)
+
+```json
+{
+  "company": "Company Name",
+  "slug": "company-slug",
+  "collected_at": "2026-05-02",
+
+  "values": [
+    {
+      "name": "Value Name",
+      "description": "Description",
+      "source": "https://..."
+    }
+  ],
+
+  "process": {
+    "rounds": [
+      {
+        "name": "Round Name",
+        "duration": "45 min",
+        "focus": "What they test"
+      }
+    ],
+    "style": "collaborative, focus on tradeoffs"
+  },
+
+  "questions": [
+    {
+      "text": "Question text",
+      "type": "behavioral|coding|system_design",
+      "source": "glassdoor.com/..."
+    }
+  ],
+
+  "tech_stack": {
+    "languages": ["Python", "Go"],
+    "databases": ["PostgreSQL", "Redis"],
+    "infrastructure": ["AWS", "Kubernetes"]
+  },
+
+  "insights": [
+    {
+      "text": "Insider tip",
+      "source": "blind.com/..."
+    }
+  ],
+
+  "sources": ["list of all URLs used"]
+}
+```
+
+### Analysis (`prep/{company}/analysis.json`)
+
+```json
+{
+  "company": "company-slug",
+  "job_id": "job-id",
+  "analyzed_at": "2026-05-02",
+
+  "fit": {
+    "score": 75,
+    "requirements_met": 6,
+    "requirements_partial": 2,
+    "requirements_missed": 1,
+    "deal_breakers": ["Banking domain"],
+    "verdict": "Strong technical fit but missing mandatory requirement"
+  },
+
+  "gaps": [
+    {
+      "id": "gap-001",
+      "title": "No failure story",
+      "priority": "critical",
+      "category": "behavioral",
+      "status": "open",
+      "evidence": ["3 questions about failures in collected questions"],
+      "how_to_close": "Prepare a real failure story with learnings"
+    }
+  ],
+
+  "strengths": [
+    {
+      "area": "Technical depth",
+      "evidence": "10 years experience, multiple proof points at scale"
+    }
+  ],
+
+  "positioning": {
+    "headline": "10-year backend engineer scaling transaction systems",
+    "lead_with": ["Scale experience", "Reliability focus"],
+    "bridges": [
+      {
+        "gap": "Banking domain",
+        "reframe": "Ad-tech revenue systems have same requirements"
+      }
+    ],
+    "cover_letter_hook": "I've spent 10 years building systems where every transaction matters..."
+  }
+}
+```
+
+### Story Artifact (`prep/{company}/stories/failure.md`)
+
+```markdown
+# Failure Story
+
+## The Story
+
+{Structured STAR story}
+
+## Key Points
+
+- {point 1}
+- {point 2}
+
+## Company Framing
+
+{How to frame for this specific company}
+
+## Follow-up Answers
+
+**Q: What would you do differently?**
+A: {prepared answer}
+
+**Q: How do you know you've changed?**
+A: {prepared answer}
 ```
 
 ## Tracker
 
-The tracker (`activity/tracker.md`) tracks application status and interview outcomes:
+The tracker (`activity/tracker.md`) tracks application status:
 
 ```markdown
 | Company | Role | Fit | Status | Stage | Outcome | Notes |
 |---------|------|-----|--------|-------|---------|-------|
-| Stripe | Staff Backend | 85% | interviewing | system-design | pending | Round 3 on Monday |
-| Careem | Platform Lead | 90% | rejected | coding | failed | Struggled with DP |
-| Talabat | Backend Lead | 78% | offer | final | passed | Negotiating |
+| Company A | Staff Backend | 85% | interviewing | system-design | pending | Round 3 Monday |
+| Company B | Senior SWE | 78% | rejected | coding | failed | Struggled with DP |
+| Company C | Platform Lead | 90% | offer | final | passed | Negotiating |
 ```
 
 **Statuses:** `saved`, `applied`, `interviewing`, `offered`, `accepted`, `rejected`, `withdrawn`
@@ -353,29 +341,22 @@ The tracker (`activity/tracker.md`) tracks application status and interview outc
 
 **Outcomes:** `pending`, `passed`, `failed`
 
-## Hooks
-
-| Trigger                         | Action           |
-| ------------------------------- | ---------------- |
-| Write to `activity/jobs/*.json` | Run fit analysis |
-
 ## Conventions
 
-- **JSON** for all structured data (profile, jobs, company intel, progress)
-- **Markdown** for narratives and session transcripts
+- **JSON** for all structured data
+- **Markdown** for narratives and story artifacts
 - File names: `kebab-case.json`
 - IDs: `{company}-{slug}` (e.g., `stripe-staff-backend`)
 - Company slugs: `kebab-case` (e.g., `stripe`, `dt-one`)
-- Skill slugs: `kebab-case` (e.g., `python`, `system-design`)
 - Dates: `YYYY-MM-DD` or `YYYY-MM`
 
 ## Principles
 
-1. **Privacy first** — All data stays local
+1. **Brutal honesty first** — Know the truth about your fit before you apply
 2. **Accumulate, don't overwrite** — Each resume adds to master profile
-3. **Positioning is contextual** — Derived per job, not global
-4. **Brutal honesty first** — Fit analysis before advocacy
-5. **Answers from facts** — Behavioral answers come from your proof points
-6. **Company-modeled prep** — Interview practice shaped by company values
-7. **Learn through repetition** — Spaced review for lasting retention
-8. **Track to improve** — Know your weak areas, focus practice there
+3. **Company-modeled prep** — Practice the way that company actually interviews
+4. **Socratic learning** — User does the thinking, tool guides
+5. **Continuous loop** — Mock → expose → fix → mock again until ready
+6. **Transparent sources** — Every piece of data has a reference
+7. **Privacy by default** — All data stays local
+8. **Gaps can reopen** — If mock exposes weakness, gap goes back to open

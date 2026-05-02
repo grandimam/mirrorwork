@@ -1,0 +1,1 @@
+System design; I have given a task to draw system architecture design for a system in Banking domain. Interviewer also asked to write down table structure for this system. After passing all these stages you are accepted as SWE but they have one more stage where you matched with teams that looking for developers.

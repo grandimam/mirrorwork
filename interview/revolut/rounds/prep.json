@@ -1,0 +1,174 @@
+{
+  "company": "revolut",
+  "prepared_at": "2026-04-24",
+  "round": "hr",
+
+  "intro": {
+    "short": "My name is Fauzan, I have 9+ years of experience working as a Backend Engineer building high-throughput systems using Python, Postgres, Kafka, and related technologies.",
+    "current_role": "I am currently working at Dubizzle where I own the backend architecture for property platform that serves 12M+ transactions daily, managing ~1M listings across 30K agencies. I build and ship alongside a 3-person team (~50 PRs/week, we cap it at 1K lines for reviewability). I also define the technical roadmap and coordinate delivery across product, BI, and partner teams.",
+    "motivation": "My motivation for joining Revolut is that I have built high-throughput systems in eCommerce and marketplaces — I want to do it where the engineering problems are harder and the impact is more direct."
+  },
+
+  "why_leaving": "I've spent 2.5 years at Dubizzle building and scaling the Property Platform — it's been a great run. But the engineering complexity of a classifieds platform has a ceiling. Revolut both as a business and engineering challenge is a fundamentally harder problem, and that's where I want to grow.",
+
+  "experience_walkthrough": [
+    {"company": "Snapdeal", "pitch": "I started at Snapdeal, India's second-largest e-commerce platform, building ad serving systems. That's where I learned to reason about and build real-time pipelines processing a billion+ events a day at sub-5ms latency."},
+    {"company": "PipeCandy", "pitch": "Then I was a founding engineer at PipeCandy, a market intelligence startup — built their distributed crawling platform from scratch processing 1.3M sites a day. That's where I learned to own everything end-to-end, because it mattered."},
+    {"company": "Cisco", "pitch": "Spent 3.5 years at Cisco on DNA Center — enterprise network management at massive scale. I understood how to deal with large orgs, getting buy-in from leadership, working with enterprises like Apple. I built their Kafka telemetry pipelines, 10M+ events a day, policy orchestration across 100K+ devices."},
+    {"company": "BlackBerry", "pitch": "Then BlackBerry — led a team of 5, architected a multi-tenant cloud security SaaS platform from scratch for 50+ Fortune 500 clients. It helped me apply my enterprise experience, and added a security dimension to my work. Full ownership: architecture, delivery, hiring."},
+    {"company": "Dubizzle", "pitch": "Then here at Dubizzle — platform owner for Property vertical, 12M+ daily transactions, ~1M listings across 30K agencies."}
+  ],
+
+  "signature_project": {
+    "name": "Sync Pipeline",
+    "problem": "The core engineering challenge in Dubizzle's Property Platform is that it needs to ingest ~1M listings across 30K agencies, and keep them in sync. The previous system didn't scale as more listings and agencies were onboarded. Listings going stale or images not appearing directly impacted seller and buyer experience.",
+    "solution": "I designed and built an end-to-end sync pipeline using Celery, Python, Postgres, and RabbitMQ. The job runs every minute, auto scales to 100+ workers, and completes a full sync under 30 minutes. I built adaptive monitoring that checks queue completion status and makes decisions to resume or proceed automatically — so it's self-healing, not dependent on someone watching it. It also handles the image upload flow end-to-end so users never see missing images on the platform.",
+    "result": "Since launch, we have reduced sync time by 85% (2-4 hours → under 30 minutes), eliminated manual monitoring, and scaled to handle 2x agency growth with no architectural changes."
+  },
+
+  "current_role_details": {
+    "infrastructure": "Python, Django, PostgreSQL, RabbitMQ, Celery for task processing, Redis for caching, AWS (ECS, RDS, S3, CloudFront, Kinesis), Kubernetes for orchestration, and ELK for observability.",
+    "responsibilities": "Backend architecture for property platform that serves 12M+ transactions daily, managing ~1M listings across 30K agencies. I build and ship alongside a 3-person team (~50 PRs/week, we cap it at 1K lines for reviewability). I also define the technical roadmap and coordinate delivery across product, BI, and partner teams.",
+    "tech_tasks": [
+      "Sync pipeline — Designed and built the listing ingestion system processing ~1M listings across 30K agencies. Solved scaling, idempotency, adaptive monitoring, and image uploads end-to-end.",
+      "Image pipeline redesign — Redesigned the image pipeline using CloudFront and S3, reducing latency by 30% for 1M+ daily images.",
+      "WhatsApp interactive flows — Migrated from template messages to interactive flows that pre-qualify buyers before reaching sellers — budget, timeline, location preferences.",
+      "Delivery pipeline optimization — Measured team productivity (PR timestamps, staging-to-production time, per-stage analysis), identified QA as the bottleneck, proposed and implemented spec-driven development. 50% reduction in cycle time.",
+      "Microservices migration — Led migration from monolith, defining service boundaries and API contracts across 30K agency integrations."
+    ],
+    "product_context": "Dubizzle Property connects property buyers and renters with sellers and agencies across the UAE. It's the country's largest classifieds platform for real estate — aggregating listings from 30K agencies, giving buyers a single place to search, and giving sellers and agencies a channel to reach millions of potential customers.",
+    "team_structure": "3-person engineering team plus a manager. Product tickets come from the product team — we groom them together, then engineers own their items individually. Technical decisions happen in technical grooming sessions — once the approach is finalized, the engineer owns the full delivery end-to-end."
+  },
+
+  "value_stories": {
+    "never_settle": {
+      "strength": "strong",
+      "stories": [
+        {
+          "id": "sync-pipeline-pushback",
+          "summary": "Leadership rejected sync pipeline rebuild — I analyzed why previous attempt failed, fixed root causes, built POC, got buy-in, shipped it",
+          "situation": "Leadership rejected my proposal for the sync pipeline rebuild — they'd tried something similar before and it crashed the database",
+          "action": "Dug into why the previous attempt failed and found three root causes: (1) uncapped DB connections overwhelmed Postgres, (2) idempotency only at agency level — too coarse. My design fixed all three: capped worker connections, pushed idempotency three levels deep (agency → listing → field), used Celery + RabbitMQ to distribute load",
+          "result": "Built a POC, got buy-in, delivered it. Reduced sync time by 85% (2-4 hours → under 30 minutes)"
+        },
+        {
+          "id": "spec-driven-development",
+          "summary": "Measured delivery pipeline, identified QA as bottleneck, proposed spec-driven development — 50% cycle time reduction",
+          "situation": "Team delivery was slow, but nobody knew why",
+          "action": "Tracked PR timestamps, time from staging to production, time spent at each stage. Data showed QA was the biggest bottleneck (handoff delays, limited context). Proposed spec-driven development where engineers own the full delivery cycle including testing",
+          "result": "Team adopted it, ticket completion dropped from 7 days to 3 — 50% reduction"
+        }
+      ]
+    },
+    "dream_team": {
+      "strength": "strong",
+      "stories": [
+        {
+          "id": "weekend-work-feedback",
+          "summary": "Team pushed back on my weekend work — I turned it into a shared, sustainable process",
+          "situation": "I was fixing production issues on weekends solo. Team flagged it created pressure on them to do the same",
+          "action": "Made the case for why this work mattered — if we ignored alerts, they'd compound into bigger outages. Turned it from 'Fauzan works weekends' into a team process: rotated ownership, prioritized alerts that actually mattered, made it shared responsibility",
+          "result": "Work still got done, but structured and sustainable. Team felt heard, I adapted without backing down on substance"
+        },
+        {
+          "id": "mentoring-go-to-python",
+          "summary": "Mentored engineer from Go background into Python/Django — promoted to Senior in 3 months",
+          "situation": "New engineer joining from Go background, needed to ramp up on Python/Django stack",
+          "action": "Paired on complex tasks early, gave feature ownership quickly so he'd learn by doing, helped navigate domain and stakeholders, gave direct feedback through code reviews",
+          "result": "Within 3 months he was operating independently — now owns Motors backend architecture. Promoted to Senior within probation period"
+        }
+      ]
+    },
+    "think_deeper": {
+      "strength": "strong",
+      "stories": [
+        {
+          "id": "kinesis-reframe",
+          "summary": "Proposed moving from polling/webhooks to Kinesis streams — reframed the problem entirely",
+          "situation": "We were pulling from Profolio over the network every minute — bandwidth issues, rate limits, dropped events",
+          "action": "Reframed the problem: 'why are we pulling at all?' Proposed Profolio pushes events to Kinesis, we consume at our own pace. No network overhead, data is durable and replayable, consumption rate fully in our control",
+          "result": "Currently in technical specification stage — fundamental architecture improvement, not incremental optimization"
+        },
+        {
+          "id": "rabbitmq-vs-kafka",
+          "summary": "Chose RabbitMQ over Kafka with clear reasoning, Kinesis where log-based streaming fits",
+          "situation": "Needed messaging for sync pipeline",
+          "action": "RabbitMQ for task queuing (workers pulling jobs, acknowledgment, retries), Kinesis where we need log-based streaming with replay. Understood the tradeoffs: Kafka/Kinesis for event sourcing and replay, RabbitMQ for work distribution",
+          "result": "Right tool for right problem — system is simple and maintainable"
+        },
+        {
+          "id": "neo4j-failure-lesson",
+          "summary": "Didn't push hard enough on Neo4j decision at BlackBerry — learned to POC early, not debate",
+          "situation": "Team wanted Neo4j for asset hierarchy and attack path visualization",
+          "action": "I raised concerns but let the discussion drag out instead of building a POC to prove my point",
+          "result": "Lost weeks, delivery slipped. Lesson: the right tool doesn't matter if you don't ship. If I have a strong opinion, make the case early with a POC, not arguments"
+        }
+      ]
+    },
+    "get_it_done": {
+      "strength": "strong",
+      "stories": [
+        {
+          "id": "datacenter-strike",
+          "summary": "Wartime datacenter strike — cross-region migration under pressure, restored in 3 hours",
+          "situation": "During the recent war, an Amazon datacenter in me-central-1 was struck. All major API endpoints and database down. All core services hosted in that single region",
+          "action": "Opened war room with senior engineers and managers. I was part of the team executing cross-region migration — moving services to Europe (Ireland), India, and other AWS regions. Had to figure out migration path, handle data consistency, bring services up in unfamiliar regions in real-time",
+          "result": "Full core flows restored within ~3 hours. Latency increased (expected with cross-region) but happened around midnight so impact minimized. No data loss, all critical user flows operational"
+        },
+        {
+          "id": "sync-pipeline-ownership",
+          "summary": "Built sync pipeline end-to-end — design through production, no handoffs",
+          "situation": "Sync pipeline needed to be rebuilt",
+          "action": "Designed, built, tested, deployed, monitored. Self-healing monitoring so it's not dependent on someone watching it. Coordinates across product, BI, and partner teams",
+          "result": "50 PRs/week velocity. Nothing is someone else's job"
+        }
+      ]
+    },
+    "deliver_wow": {
+      "strength": "strong",
+      "stories": [
+        {
+          "id": "barq-framework",
+          "summary": "Built Barq — pure-Python HTTP framework 2-5x faster than FastAPI, removing async complexity",
+          "situation": "Async/await in Python forces complexity on developers — callback chains, different mental model",
+          "action": "Created Barq for free-threaded Python 3.13+. No async/await — just threads with true parallelism. Focused on developer experience and performance",
+          "result": "2-5x faster than FastAPI on real workloads. Simpler mental model. 'Intrinsic beauty in a well-thought-out solution' — removing complexity while improving performance"
+        },
+        {
+          "id": "sync-pipeline-elegance",
+          "summary": "Sync pipeline is simple by design — 3 core files, self-healing, new engineers understand it in an hour",
+          "situation": "Building the sync pipeline",
+          "action": "Spent extra time removing complexity. 3 core files, no special cases, self-healing monitoring. Designed so the system could grow without us",
+          "result": "New engineers understand the full system in an hour. Internal quality matters as much as external"
+        },
+        {
+          "id": "whatsapp-interactive-flows",
+          "summary": "WhatsApp interactive flows — pre-qualify buyers before reaching sellers",
+          "situation": "WhatsApp messages were dumb templates — sellers got cold leads with no context",
+          "action": "Migrated to interactive flows that pre-qualify buyers: budget, timeline, location preferences. Sellers receive leads with context, ready to act",
+          "result": "Seller response time dropped from multiple back-and-forth calls to 1 — buyers arrive pre-qualified"
+        }
+      ]
+    }
+  },
+
+  "common_questions": {
+    "why_revolut": "I've spent 2.5 years at Dubizzle building and scaling the Property Platform. But the engineering complexity of a classifieds platform has a ceiling. Revolut — both as a business and engineering challenge — is a fundamentally harder problem. Financial systems, global scale, real-time processing. That's where I want to grow.",
+    "why_hire_you": "Platform owner who builds and leads — I'm not just an IC writing code or a manager overseeing others. I do both. I've scaled systems across startups (PipeCandy), enterprise (Cisco, BlackBerry), and marketplaces (Dubizzle). I also build in the open — Barq is a Python HTTP framework I created that's 2-5x faster than FastAPI. I bring ownership, depth, and range.",
+    "where_in_2_3_years": "Staff Engineer or Technical Lead owning a critical domain at Revolut — payments, ledger, or core infrastructure. I want to be the person who shapes how a system is built, not just builds what's asked. I also want to keep building — I don't want to move into pure management. The best technical leaders I've seen stay in the code.",
+    "failure_example": "At BlackBerry, we were building asset hierarchy and attack path visualization. Team wanted Neo4j — 'perfect' tool for graph data. I had concerns it would slow us down — learning curve, operational overhead — and that Postgres recursive queries could handle it. But I didn't push hard enough early on. Let the discussion drag out, lost weeks, delivery slipped. Lesson: the right tool doesn't matter if you don't ship. If I have a strong technical opinion, make the case early and decisively — with a POC, not arguments. Applied this at Dubizzle with the sync pipeline.",
+    "disagreement_examples": [
+      "Leadership rejected my proposal for the sync pipeline rebuild — they'd tried something similar and it crashed the database. I disagreed with their conclusion that it couldn't work. Instead of backing down, I analyzed why the previous attempt failed, designed around those issues, and built a POC to prove it. They changed their mind based on evidence, and we shipped it.",
+      "My team pushed back on me working weekends, saying it created pressure on them. I disagreed — not with their feeling, but with the conclusion that we should stop. The alerts were real, and ignoring them would compound into bigger outages. Instead of backing down or just stopping, I made the case for why the work mattered and turned it into a shared team process with rotated ownership. We kept doing the work, but in a sustainable way."
+    ],
+    "prioritization": "First, I separate real urgency from perceived urgency. Production issues affecting customers come first — always. After that, I prioritize by impact: what unblocks the most people or protects revenue. If two things have equal impact, I pick the one with the shortest path to done. Day to day, I timebox. I don't context-switch between urgent items — I give each one focused time, ship it, then move to the next.",
+    "what_interests_you": "I am interested in the payments and transaction infrastructure side — ensuring consistency and reliability when you're moving real money across currencies in real-time is a fundamentally harder distributed systems problem than what I've worked on. The fact that Revolut operates across 38+ countries also means there's regulatory and data complexity layered on top.",
+    "success_first_6_months": "In the first 3 months, I want to deeply understand the domain and codebase — the flows, the failure modes, the debt. I want to ship meaningful work early, not just onboarding tickets. By 6 months, I want to own a system or component end-to-end — be the person the team trusts to make architectural calls on it."
+  },
+
+  "questions_for_them": [
+    "What does the engineering team I'd join own end-to-end?",
+    "How long have you been at Revolut and what keeps you here?",
+    "I tend to push hard on engineering standards — faster delivery, better code quality, less tech debt. Sometimes that creates healthy friction. How does Revolut's culture handle that tension between moving fast and pushing back on shortcuts?"
+  ]
+}

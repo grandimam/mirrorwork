@@ -1,0 +1,97 @@
+{
+  "company": "revolut",
+  "round": "technical-deep-dive",
+  "context": "Follow-up questions on sync pipeline and general technical knowledge",
+
+  "sync_pipeline_questions": {
+    "architecture": [
+      {
+        "q": "Why Celery + RabbitMQ and not Kafka?",
+        "a": "Kafka is designed for high-throughput event streaming with durable log retention — overkill for our use case. We needed a task queue with routing, retries, and worker management. Celery + RabbitMQ gives us that out of the box — DLQ and auto-scaling workers. We don't need event replay because we can simply re-pull the data from the source. We use Kafka-equivalent (AWS Kinesis) for events closer to the users like impressions, clicks where we benefit from event replays. Different problems, different tools."
+      },
+      {
+        "q": "How does the adaptive monitoring decide to resume vs proceed?",
+        "a": "The main worker (publisher) checks queue depth and consumer lag. If the queue is backing up, it slows down publishing. If workers are idle and the queue is empty, it proceeds to the next sync cycle. If a previous cycle hasn't completed, it skips rather than stacking jobs."
+      },
+      {
+        "q": "What happens if a worker dies mid-sync?",
+        "a": "The message stays unacknowledged in RabbitMQ and gets redelivered to another worker. Tasks are idempotent so reprocessing is safe."
+      },
+      {
+        "q": "How do you handle partial failures — 900K listings sync but 100K fail?",
+        "a": "Failed messages retry N times, then move to DLQ. We have alerting on DLQ depth, and a process to inspect, fix, and replay them. We don't block the full sync for partial failures."
+      },
+      {
+        "q": "Why not event-driven instead of polling every minute?",
+        "a": "We actually have both. Source pushes events to us via webhooks for real-time updates, and we run the polling sync as a consistency reconciliation layer. The push handles the happy path — instant updates. The pull catches anything the push missed — network failures, dropped webhooks, out-of-order events. Belt and suspenders."
+      },
+      {
+        "q": "How do you ensure idempotency?",
+        "a": "Idempotency is ensured at the listing level. Each listing record carries a versioned timestamp from the source. During updates or retries, we only apply the record if its timestamp is newer than what we already have — so even if a listing is processed twice, the outcome is the same."
+      },
+      {
+        "q": "What if two records have the same timestamp?",
+        "a": "In practice this is rare — source timestamps have millisecond precision. But if it happens, the update is a no-op because the data is identical (same source timestamp = same source state). If pushed further: we could add a secondary tiebreaker like a source sequence ID or hash of the payload, but we haven't needed it."
+      }
+    ],
+    "scale_performance": [
+      {
+        "q": "What's the bottleneck — CPU, I/O, or database writes?",
+        "a": "CPU is not the bottleneck — we can scale workers horizontally. The two real bottlenecks are: (1) I/O — the source can rate-limit us or increase in latency, and (2) database writes — bulk writes from sync compete with live customer reads and writes. We have to be careful not to degrade user-facing experience while syncing."
+      },
+      {
+        "q": "How does auto-scaling to 100+ workers work?",
+        "a": "Kubernetes HPA triggered by RabbitMQ queue depth. When the queue backs up, HPA spins up more Celery worker pods. When the queue drains, it scales back down. We configured the thresholds once and tuned them over time."
+      },
+      {
+        "q": "Have you hit Postgres connection pool limits with 100+ workers?",
+        "a": "Yes, when scaled aggressively. Right now, our approach is to cap the workers where connections stay healthy — tuned based on RDS's max connections. It works for our scale; if we needed to push further we can use RDS proxy or PGBouncer."
+      }
+    ],
+    "todo_gaps": [
+      "How do you monitor push vs pull consistency — do you measure drift?",
+      "What's your SLA for listing freshness? How do you alert if breached?",
+      "What happens if Postgres goes down mid-sync?",
+      "How do you handle image upload failures?",
+      "How do you handle ordering — what if update arrives before create?",
+      "Full sync or incremental? How do you detect deletes?",
+      "How do you handle concurrent updates from push and pull?",
+      "How do you deploy changes without downtime?",
+      "What does your DLQ review process look like?",
+      "What observability do you have?"
+    ]
+  },
+
+  "general_technical": [
+    {
+      "topic": "databases",
+      "q": "What is a database transaction?",
+      "a": "A transaction is a group of operations executed as a single unit — it either completes entirely or fails entirely, nothing in between. In financial systems this is critical — a money transfer debits one account and credits another. If only the debit happens, money disappears. Transactions guarantee both happen or neither does."
+    },
+    {
+      "topic": "databases",
+      "q": "List database transaction isolation levels.",
+      "a": "Four types: Read Uncommitted, Read Committed, Repeatable Reads, and Serializable. For online payment processing: Read Committed with row-level locking."
+    },
+    {
+      "topic": "databases",
+      "q": "ACID principles — explain each.",
+      "a": "Atomicity — transaction completes fully or rolls back entirely. Consistency — database moves from one valid state to another. Isolation — concurrent transactions don't interfere. Durability — once committed, data survives crashes."
+    },
+    {
+      "topic": "concurrency",
+      "q": "What are the problems of concurrency?",
+      "a": "Race conditions (concurrent access corrupts shared state), deadlocks (threads block each other waiting for locks), lost updates (concurrent writes overwrite each other). At DB level: dirty reads, non-repeatable reads, phantom reads — what isolation levels prevent."
+    },
+    {
+      "topic": "data-structures",
+      "q": "Can elements be not equal if they have the same hashCode?",
+      "a": "Yes, two elements can have the same hash code but not be equal. That's why we compare both hash code and equality."
+    },
+    {
+      "topic": "data-structures",
+      "q": "Explain HashMap complexity.",
+      "a": "Python dict uses hash table with open addressing. Get/Insert/Delete: O(1) average, O(n) worst case (when too many collisions). Open addressing is faster due to CPU cache locality. Python rehashes at ~2/3 load factor, making worst case rare."
+    }
+  ]
+}

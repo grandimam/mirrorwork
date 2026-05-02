@@ -1,0 +1,93 @@
+{
+  "company": "noon",
+  "round": "online-assessment",
+
+  "format": {
+    "duration": "2-3 hours",
+    "position": "Round 1 (after HR screening call)",
+    "platform": "HackerRank",
+    "difficulty": "Easy to Medium"
+  },
+
+  "sections": {
+    "problem_solving": {
+      "count": "5-7 problems",
+      "topics": [
+        {"name": "Arrays/Strings", "difficulty": "Easy-Medium", "count": "2-3"},
+        {"name": "Hash Maps", "difficulty": "Easy-Medium", "count": "1-2"},
+        {"name": "Dynamic Programming", "difficulty": "Medium", "count": "1"},
+        {"name": "Binary Search", "difficulty": "Easy-Medium", "count": "1"}
+      ],
+      "common_types": [
+        "Two Sum / Subarray problems",
+        "Sliding window (product less than K, max sum subarray)",
+        "Binary search in rotated sorted array",
+        "String manipulation",
+        "Stack/Queue operations"
+      ],
+      "sample_problems": [
+        "Number of subarrays having product less than or equal to K",
+        "Find index of element in sorted rotated array",
+        "Implement stack using queue",
+        "Find common elements in sorted arrays"
+      ]
+    },
+    "sql_queries": {
+      "count": "2-3 questions",
+      "topics": [
+        {"name": "Basic SELECT", "examples": "Filtering, ordering, grouping"},
+        {"name": "JOINs", "examples": "INNER, LEFT, self-joins"},
+        {"name": "Aggregations", "examples": "COUNT, SUM, AVG with GROUP BY"},
+        {"name": "Subqueries", "examples": "Nested queries, EXISTS"},
+        {"name": "Window Functions", "examples": "ROW_NUMBER, RANK (senior roles)"}
+      ],
+      "sample_questions": [
+        "Find the second largest value in a table",
+        "Write a query to find duplicate records",
+        "Calculate running totals with window functions"
+      ]
+    },
+    "mcqs": {
+      "count": "10-15 questions",
+      "topics": [
+        "Data structures fundamentals",
+        "Time/space complexity analysis",
+        "HTTP methods and status codes",
+        "REST API concepts",
+        "Database concepts (ACID, indexing)",
+        "OOP principles",
+        "Microservices basics"
+      ],
+      "sample_questions": [
+        {"q": "What is the time complexity of searching in a balanced BST?", "a": "O(log n)"},
+        {"q": "Which HTTP status code indicates resource not found?", "a": "404"},
+        {"q": "What does ACID stand for in databases?", "a": "Atomicity, Consistency, Isolation, Durability"}
+      ]
+    }
+  },
+
+  "time_management": {
+    "coding_problem": "30-40 min max per problem",
+    "mcqs": "15-20 minutes total",
+    "sql_queries": "10-15 minutes each"
+  },
+
+  "common_mistakes": [
+    "Not reading constraints - Check input size to determine expected complexity",
+    "Missing edge cases - Empty array, single element, all same values",
+    "Inefficient SQL - Avoid SELECT * and unnecessary subqueries",
+    "Skipping MCQs - Quick points, don't leave blank"
+  ],
+
+  "preparation_tips": {
+    "dsa": "LeetCode Easy-Medium, focus on arrays, hash maps, sliding window",
+    "sql": "HackerRank SQL section, focus on JOINs and aggregations",
+    "theory": "Review HTTP, REST, ACID, basic CS fundamentals"
+  },
+
+  "after_assessment": {
+    "results": "Typically within 1 week",
+    "next_step": "If passed, HR schedules technical interviews",
+    "timeline": "3-4 weeks total from assessment to offer"
+  }
+}

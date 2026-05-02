@@ -1,0 +1,465 @@
+{
+  "company": "Revolut",
+  "role": "Senior Python Developer / Senior Python Software Engineer",
+  "source": "Glassdoor",
+  "last_updated": "Oct 12, 2025",
+  "overall_stats": {
+    "total_interviews": 5,
+    "difficulty": "Average",
+    "experience_breakdown": {
+      "positive": "80%",
+      "negative": "20%"
+    },
+    "how_candidates_got_interview": {
+      "applied_online": "60%",
+      "recruiter": "40%"
+    }
+  },
+  "interviews": [
+    {
+      "id": 1,
+      "review_id": "RVW100593163",
+      "title": "Senior Python Developer Interview",
+      "date": "Oct 12, 2025",
+      "location": "London, England",
+      "interviewer_type": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Applied online",
+      "process_duration": "1 week",
+      "interview_date_context": "Sep 2025",
+      "description": "I went through two stages: a technical screening and a coding session. Screening was fairly standard - basic questions about Python and RDBMS, along with some questions about CQRS and Event-driven architecture. Nothing too difficult, the level of questions was reasonable. Coding session turned out to be more challenging. The task was to implement a Load Balancer in 45 minutes. The format was interesting: the interviewer gives requirements iteratively, moving to the next one after you complete the previous. What was confusing: the interviewer emphasized several times that the solution should be 'production ready,' but provided no feedback during the process. For me, production ready code means not just the logic, but also tests, logging, and error handling. This created confusion about priorities, especially when new requirements necessitated refactoring already written code along with tests, and time started running out. Impression: The format with iterative requirements is decent in itself, but the lack of intermediate feedback and unclear criteria for 'production ready' under time constraints made the task more difficult. It would have been more helpful if the interviewer had given at least some signals about whether I was heading in the right direction. Recommendations for candidates: Be prepared for rapid coding under changing requirements. Clarify upfront what exactly is meant by 'production ready' in the context of interview coding. Practice balancing code quality with implementation speed.",
+      "interview_stages": [
+        "Technical screening (Python, RDBMS, CQRS, Event-driven architecture)",
+        "Live coding session (45 minutes)"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "Implement a Load Balancer with iterative requirements in 45 minutes, ensuring production-ready code quality."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "review_id": "RVW90491466",
+      "title": "Senior Python Developer Interview",
+      "date": "Aug 28, 2024",
+      "location": "Vilnius",
+      "interviewer_type": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": "Through a recruiter",
+      "process_duration": "2 weeks",
+      "interview_date_context": "Aug 2024",
+      "description": "I had an absolutely dreadful experience with Revolut's hiring process. Initially, I asked a friend who works at Revolut to refer me. However, my application seemed to disappear entirely from the system — no decline, no update, just gone. I decided to apply manually for a position. Unfortunately, the result was the same: no response whatsoever. Fortunately, I had a recruiter from Revolut in my network who quickly addressed the issue and scheduled an initial HR interview with another recruiter. The first interview went well, though there was some confusion as the HR representative mistakenly thought I was applying for a mid-level Java role. The conversation was casual, covering some technical topics, and I was informed that for the next step — a live coding session — I should prepare my IDE and environment. They also assured me that I could take as much time as needed to prepare and that I would receive detailed feedback at every step of the process. The live coding session involved implementing a URL shortener class with the necessary methods. Throughout the session, I explained my thought process aloud, outlined the API, and wrote tests before implementing the methods. I regularly checked in with the interviewer, asking if my approach was on track and how much time remained. Near the end, with about 5–10 minutes left, the interviewer asked me to focus on coding without explanation, saying he understood everything. It was only then that he mentioned the second stage of the interview. Despite this, I completed the implementation, and we moved on to the next stage, which introduced new requirements: limiting the storage to 100 URLs and ensuring that duplicate full URLs return the existing short URL rather than creating a new one. I quickly implemented these requirements and added simple tests. The interviewer seemed satisfied and invited me to ask questions at the end. However, two days later — on a Saturday — I received feedback with a rejection. The feedback stated: 'The code was okay, your implementation was okay as well. The reason we can't proceed is the speed. We couldn't fully complete both stages.' This response was shocking. Not only did the feedback not align with the actual interview experience, but it was also vague and uninformative. I had completed both stages, even though the interviewer had only mentioned the second stage toward the end. In my opinion, it's the interviewer's responsibility to manage the time and guide the interview, not the candidate's. In summary, my experience with Revolut's recruitment process was incredibly frustrating. There was a lack of coordination, feedback was nonsensical, and there was no way to follow up with questions due to 'no-reply' emails.",
+      "interview_stages": [
+        "Initial HR screening (casual, light technical questions)",
+        "Live coding session – URL shortener implementation",
+        "Second stage of coding – extended requirements (storage limits, deduplication)"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "What is ACID in relational databases?"
+        },
+        {
+          "number": 2,
+          "question": "What are the isolation levels?"
+        },
+        {
+          "number": 3,
+          "question": "What are the problems of concurrency?"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "review_id": "RVW63070242",
+      "title": "Senior Python Software Engineer Interview",
+      "date": "Apr 21, 2022",
+      "location": null,
+      "interviewer_type": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Applied online",
+      "process_duration": "1 week",
+      "interview_date_context": null,
+      "description": "In the first HR stage, they asked memorized data structures questions. I think questions about data structures are about memorizing and understanding. You may not remember the time complexity in Python dicts and this is normal.",
+      "interview_stages": [
+        "HR screening (data structures and database theory questions)"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "What are the time complexity and the worst-case for lookup in Dictionaries?"
+        },
+        {
+          "number": 2,
+          "question": "ACID (atomicity, consistency, isolation, durability) — explaining atomicity."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "review_id": "RVW29722661",
+      "title": "Senior Python Developer Interview",
+      "date": "Oct 10, 2019",
+      "location": "London, England",
+      "interviewer_type": "Anonymous employee",
+      "outcome": "Accepted offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Through a recruiter",
+      "process_duration": "4 weeks",
+      "interview_date_context": "Oct 2019",
+      "description": "I was approached on LinkedIn by an internal recruiter. We set up an initial call for a few days later, where we talked about the role, the company, my experience, and she eventually asked some single-answer technical questions. The next stage was a homework assignment involving a Python and a SQL challenge (3 days to complete, which is more than enough). It took roughly a week to get feedback, which is exactly what the recruiter had told me. After receiving positive feedback on the assignment, we scheduled a session of 2 technical interviews. The first technical interview started with an explanation of the tech stack at Revolut and then some Python questions. The second hour was dedicated to a systems design, mostly focused on data storage. One day later, I received positive feedback and was invited to a last-stage on-site, which involved a technical discussion with the Head of Data Engineering and a Data Engineer. Overall, the process was pretty fast and straightforward, everyone was super friendly and approachable, and the internal recruiter was just amazing throughout the entire process. Probably one of the best experiences I've had so far.",
+      "interview_stages": [
+        "Initial recruiter call (role overview, experience, light technical questions)",
+        "Take-home assignment (Python + SQL challenge, 3-day window)",
+        "Two-part technical interview (Python questions + system design focused on data storage)",
+        "On-site with Head of Data Engineering and a Data Engineer"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "What is the worst case complexity of Quicksort?"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "review_id": "RVW27781821",
+      "title": "Senior Python Software Engineer Interview",
+      "date": "Jul 3, 2019",
+      "location": "London, England",
+      "interviewer_type": "Anonymous employee",
+      "outcome": "Accepted offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Applied online",
+      "process_duration": "3 weeks",
+      "interview_date_context": "Jun 2019",
+      "description": "Was approached by a recruiter via LinkedIn. All the process was very good and really fast as well. First it was a personal interview with a couple of screening technical questions on Python and SQL. Afterwards a take-home challenge for both SQL and Python. A third interview was then conducted to introduce the company structure and teams with some technical questions based on my previous experience and a system design challenge. Finally met with team leaders to see which options would be available. Afterwards received the offer.",
+      "interview_stages": [
+        "Initial personal interview (Python and SQL screening questions)",
+        "Take-home challenge (SQL + Python)",
+        "Technical interview (company/team intro, experience-based questions, system design)",
+        "Meeting with team leaders"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "System design challenge for a payment and top-up system."
+        }
+      ]
+    }
+  ]
+}
+
+{
+  "company": "Revolut",
+  "role_filter": "Python Developer",
+  "source": "Glassdoor",
+  "last_updated": "Jan 16, 2026",
+  "overall_stats": {
+    "total_interviews": 11,
+    "difficulty": "Average",
+    "experience_breakdown": {
+      "positive": "73%",
+      "negative": "27%"
+    },
+    "how_candidates_got_interview": {
+      "recruiter": "50%",
+      "applied_online": "50%"
+    }
+  },
+  "interviews": [
+    {
+      "id": 1,
+      "review_id": "RVW102295049",
+      "title": "Python Software Engineer Interview",
+      "date": "Jan 16, 2026",
+      "location": null,
+      "interviewer_type": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Applied (method not specified)",
+      "process_duration": null,
+      "interview_date_context": null,
+      "description": "Overall process is around 5 steps. 3 of them are technical (Live Coding, Technical Conversation, Systems Design). They're quite well structured and they give you some information to prepare them in advance.",
+      "interview_stages": [
+        "Live Coding",
+        "Technical Conversation",
+        "Systems Design"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "Implement a simplified banking transaction system."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "review_id": "RVW99192977",
+      "title": "Software Engineer Python Interview",
+      "date": "Aug 6, 2025",
+      "location": "London, England",
+      "interviewer_type": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": "Applied online",
+      "process_duration": null,
+      "interview_date_context": "Jul 2025",
+      "description": "Applied for a Python Software Engineer role. What followed was one of the most unprofessional interview processes I've experienced. The initial screening invite was completely empty - no job details, no requirements, nothing about what to expect. Screening call: Interviewer showed up late, then rushed through everything; cut me off constantly, wouldn't let me finish a single answer; asked random technical questions with zero context; when I asked about the role or team, got nothing back; felt more like an interrogation than a conversation. Technical round: They ask the same 3 questions to everyone: URL shortener, load balancer, or ledger system. Got the URL shortener — finished early, wrote full test coverage, used proper design patterns (SOLID principles, strategy pattern), added multi-threading with locks since they emphasized concurrency. Answered every question they threw at me. Then got a generic rejection saying I lacked 'specific knowledge.' What specific knowledge? They never said. Tried to get actual feedback multiple times, got an automated email that couldn't be replied to. Save yourself the time. This isn't how serious companies run their hiring process.",
+      "interview_stages": [
+        "Screening call (Python + general technical questions)",
+        "Live coding (URL shortener with concurrency)"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "URL shortener service in Python, with concurrent users."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "review_id": "RVW99014847",
+      "title": "Software Engineer Python Interview",
+      "date": "Jul 29, 2025",
+      "location": null,
+      "interviewer_type": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": "Applied online",
+      "process_duration": null,
+      "interview_date_context": "Jul 2025",
+      "description": "The first interview was with the recruiter — Screening. There were general questions about experience, as well as technical questions. The interviewer was positive and friendly. The second interview was Live Coding — URL Shortener. The interviewer was moody from the very beginning. A year ago (July 2024) I was interviewed at Revolut and had a very nice experience and passed the live coding stage successfully; the interviewer was fully involved, guided the process, answered questions, and was very positive. This time the interviewer wasn't involved at all. I had to guide the interview by myself. When I finished the first method, I waited for instructions on whether to proceed with tests or another method — he was silent. After waiting, I asked him directly if I needed to write tests, and he said 'Ah, yeah, let's write tests' — like he was sleeping. I proposed adding some validations for input values but he ignored it. I asked several times. In feedback he said 'No validations were added.' I asked you several times about it because there were no explicit requirements — it was my proposal. If you ignore the question several times I consider it as 'No.' Also, the interviewer failed to evaluate the time complexity of my solution and wrote in feedback that it was me who didn't provide the correct answer (which is not true). My interviewer didn't take any screenshots of my code, which gives space for manipulation in the feedback.",
+      "interview_stages": [
+        "Recruiter screening (general + technical questions)",
+        "Live coding (URL shortener)"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "What does CQRS stand for? What is the GIL? What are issues with concurrency? What data structures are used in DB indexes? What is the time complexity for getting an element in a hashmap in the worst case? Implement a URL Shortener."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "review_id": "RVW83640934",
+      "title": "Python Developer Interview",
+      "date": "Jan 23, 2024",
+      "location": null,
+      "interviewer_type": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Negative",
+      "difficulty": "Easy",
+      "application_method": "Through a recruiter",
+      "process_duration": null,
+      "interview_date_context": "Jan 2023",
+      "description": "Screening round which contains a mix of HR and technical questions. First live coding round. Even after completing the program and providing right answers, got a rejection mail with no feedback or anything. Looks like they try to get max candidates to boost up their interview numbers.",
+      "interview_stages": [
+        "Screening (HR + technical questions)",
+        "Live coding round"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "URL shortening service coding which includes concurrency."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "review_id": "RVW63448189",
+      "title": "Python Software Developer Interview",
+      "date": "Apr 29, 2022",
+      "location": null,
+      "interviewer_type": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive",
+      "difficulty": "Easy",
+      "application_method": "Applied online",
+      "process_duration": null,
+      "interview_date_context": "Apr 2022",
+      "description": "I applied via the website with a cover letter. Got a reply in 2 weeks. It was an initial interview with a technical recruiter about my experience, expectations, and the Revolut team. There was also a short technical part.",
+      "interview_stages": [
+        "Initial interview with technical recruiter (experience, expectations, short technical questions)"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "Technical questions: 1. How do you ensure and measure code quality? 2. SOLID principles. 3. TDD and what other approaches are you using for coding? 4. What is a transaction? 5. ACID principles. 6. Time complexity for Python dict — name the worst-case complexity. 7. What data structure would you use for DB search by ID? Experience questions: 1. What infrastructure was used on your last project? 2. What were your responsibilities? 3. What tech tasks did you solve? 4. What problem did the product solve? 5. What was the team? 6. Why have you decided to leave?"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "review_id": "RVW51054843",
+      "title": "Python Software Engineer Interview",
+      "date": "Aug 12, 2021",
+      "location": "Bucharest, Romania",
+      "interviewer_type": "Anonymous Interview Candidate",
+      "outcome": "No offer",
+      "experience": "Positive",
+      "difficulty": "Easy",
+      "application_method": "Applied online",
+      "process_duration": null,
+      "interview_date_context": "Jul 2021",
+      "description": "I only had the HR interview, the first step of the process. It went okay; the interviewer was really professional and gave me all the information I needed. The next step consisted of a home project, but I didn't go further due to some personal issues.",
+      "interview_stages": [
+        "HR interview",
+        "Home project (not completed due to personal reasons)"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "Describe your previous work experiences."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "review_id": "RVW47361735",
+      "title": "Python Developer Interview",
+      "date": "May 24, 2021",
+      "location": "Warsaw, Poland",
+      "interviewer_type": "Anonymous employee",
+      "outcome": "Accepted offer",
+      "experience": "Positive",
+      "difficulty": "Difficult",
+      "application_method": "Through a recruiter",
+      "process_duration": null,
+      "interview_date_context": "Nov 2020",
+      "description": "The interview had multiple stages. It was professional. Questions were interesting and sometimes demanding — because of that, people at Revolut are really skilled and hard working. Different stages focused on different areas: 0. Homework code task. 1. Python language interview. 2. Overall experience review. 3. System architecture part. 4. Bar raiser interview.",
+      "interview_stages": [
+        "Homework coding task",
+        "Python language interview",
+        "Overall experience discussion",
+        "System architecture interview",
+        "Bar raiser interview"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "Python design patterns. How does garbage collection work? How are dicts implemented? PostgreSQL isolation levels."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "review_id": "RVW33347364",
+      "title": "Python Software Engineer Interview",
+      "date": "May 25, 2020",
+      "location": "London, England",
+      "interviewer_type": "Anonymous employee",
+      "outcome": "Accepted offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Through a recruiter",
+      "process_duration": "2 weeks",
+      "interview_date_context": "Jan 2020",
+      "description": "Interview process was pretty cool and fast, no long waits for feedback. 1. 1:1 talk with recruiter and a simple test of professional background. 2. Technical task. 3. Technical interview. 4. Brainstorming session with two developers, verbally designing a new service from scratch. 5. Interview with Product Owner and Technical Lead — small talk about my background and goals for the team. 6. Offer.",
+      "interview_stages": [
+        "1:1 recruiter call + background test",
+        "Technical task (homework)",
+        "Technical interview",
+        "Brainstorming/system design session (2 developers)",
+        "Interview with Product Owner and Technical Lead"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "No specific question asked — all questions were relevant to my experience. I talked about previous projects and tasks and they dug into details."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "review_id": "RVW31967145",
+      "title": "Python Software Engineer Interview",
+      "date": "Feb 20, 2020",
+      "location": "London, England",
+      "interviewer_type": "Anonymous employee",
+      "outcome": "Accepted offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Applied online",
+      "process_duration": "5 weeks",
+      "interview_date_context": "Feb 2020",
+      "description": "Took the interviews remotely from outside the EU. Process started with a video call with a recruiter covering the positions I applied for on a high level, along with 5–6 very basic Python and SQL screening questions. That same day received a home task (Python + SQL parts, ~4–5 hours total). A few days later received honest and direct feedback on the task. Afterwards, 2 interviews back to back: one more technical screening (Python, SQL, cloud topics, plus a design challenge), and one more behavioural/cultural. The second interviewer talked about company culture and asked how I'd solve a couple of different problems; very friendly. A few days later received a call from the recruiter with an offer. Appreciated the personal touch of a phone call to deliver the offer.",
+      "interview_stages": [
+        "Video call with recruiter (role overview + 5–6 Python/SQL screening questions)",
+        "Take-home coding task (Python + SQL, ~4–5 hours)",
+        "Technical interview (Python, SQL, cloud, system design challenge)",
+        "Behavioural/cultural interview"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "Several questions about Python language features, SQL, idempotency, etc."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "review_id": "RVW31219975",
+      "title": "Python Software Engineer Interview",
+      "date": "Jan 10, 2020",
+      "location": "London, England",
+      "interviewer_type": "Anonymous employee",
+      "outcome": "Accepted offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Through a recruiter",
+      "process_duration": "4 weeks",
+      "interview_date_context": "Oct 2019",
+      "description": "The whole interview process was conducted remotely and consisted of: initial screening call with Revolut recruiter; coding test (homework) — Python and SQL (3 days allowed); Python interview + Systems Architecture interview (2 separate interviews on the same day); final interview with a panel consisting of a recruiting specialist, a business person, and one or more team leads who were interested in the profile (team leads join one at a time).",
+      "interview_stages": [
+        "Initial screening call with recruiter",
+        "Coding test homework (Python + SQL, 3 days)",
+        "Python interview (technical)",
+        "Systems architecture interview",
+        "Final panel interview (recruiting specialist, business person, team leads)"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "question": "Design a system to store and retrieve logging data; consider all components."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "review_id": "RVW29600651",
+      "title": "Python Software Engineer Interview",
+      "date": "Oct 3, 2019",
+      "location": "London, England",
+      "interviewer_type": "Anonymous employee",
+      "outcome": "Accepted offer",
+      "experience": "Positive",
+      "difficulty": "Average",
+      "application_method": "Through a recruiter",
+      "process_duration": "4 weeks",
+      "interview_date_context": "Sep 2019",
+      "description": "HR interview call. Take-home coding test (Python, SQL) — got very detailed feedback. Technical video interview (2 interviewers, 1 hour each) — questions and system design discussion. Final interview: presentation of available positions.",
+      "interview_stages": [
+        "HR interview call",
+        "Take-home coding test (Python + SQL) with detailed feedback",
+        "Technical video interview x2 (1 hour each — questions + system design)",
+        "Final interview (presentation of available positions)"
+      ],
+      "questions": []
+    }
+  ]
+}
