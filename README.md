@@ -54,25 +54,18 @@ Generic prep is lazy:
 
 > "Tell me about a time you showed leadership."
 
-That's not how Revolut interviews. Or Stripe. Or Google.
+That's not how real companies interview. Each has their own values, their own style, their own signals they look for.
 
-Mirrorwork researches each company—their values, their interview style, what they actually evaluate—and asks questions _the way they would ask them_:
-
-**Revolut's Values:**
-
-- **Never Settle** — "Be 10x, never settle for good enough"
-- **Dream Team** — "Radical honesty, tough feedback"
-- **Get It Done** — "Full ownership, no excuses"
-
-**Revolut's Question:**
+When you add a job, Mirrorwork researches the company—scrapes their careers page, engineering blog, Glassdoor reviews—and builds an intel file. Then it asks you questions _the way they would ask them_:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  INTERVIEWER (as Revolut hiring manager)                         │
+│  INTERVIEWER (based on company research)                         │
 │                                                                  │
-│  "At Revolut, we value 'Never Settle'—pushing beyond what's     │
-│   expected. Tell me about a time you weren't satisfied with     │
-│   'good enough' and pushed for something better."               │
+│  "Your target company values 'ownership'—seeing things through  │
+│   from start to finish. Tell me about a time you took full      │
+│   ownership of a project, including the parts outside your      │
+│   comfort zone."                                                 │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -87,25 +80,25 @@ You blank on behavioral questions because you forget your own accomplishments.
 Mirrorwork doesn't. When you say "help," it searches your profile and suggests an answer from your actual experience:
 
 ```
-📌 Suggested Answer: acme-data-pipeline
+📌 Suggested proof point from your profile:
 
-Your proof point:
-"Redesigned data pipeline, reducing P95 latency from 200ms to 5ms at 1B+ events/day"
+"Redesigned data pipeline, reducing P95 latency from 200ms to 5ms"
 
 STAR Format:
 
-• Situation: The data platform was hitting latency issues at scale.
+• Situation: The platform was hitting latency issues at scale.
              The team was okay with 200ms P95.
 
 • Task: Maintain SLAs while traffic grew 10x.
 
-• Action: I pushed back. Redesigned the pipeline with batching + caching.
+• Action: Pushed back. Redesigned with batching + caching.
           Refused to accept 200ms when 5ms was achievable.
 
-• Result: P95 dropped from 200ms to 5ms. Zero incidents in 6 months.
+• Result: P95 dropped to 5ms. Zero incidents in 6 months.
 
-Revolut Angle:
-"I wasn't satisfied with 'good enough.' That's what Never Settle means to me."
+Company Angle (based on their values):
+"I wasn't satisfied with 'good enough.' That aligns with your
+target company's focus on engineering excellence."
 ```
 
 Your stories. Your numbers. Their framing.
@@ -116,17 +109,17 @@ Your stories. Your numbers. Their framing.
 
 You cram before interviews. Forget everything after. Repeat.
 
-Mirrorwork uses spaced repetition (SM-2 algorithm). Topics you're weak on come back. Topics you've mastered fade away. Over time, you actually _know_ the material.
+Mirrorwork uses spaced repetition (SM-2 algorithm). As you practice, it tracks what you know and what you don't. Topics you're weak on come back. Topics you've mastered fade away.
 
 ```
-📊 Python Progress
+📊 Your Progress (example after a few sessions)
 
 | Topic          | Score | Confidence | Next Review |
 |----------------|-------|------------|-------------|
 | basics         | 95%   | ✓ high     | —           |
-| data-structures| 85%   | ✓ high     | Apr 27      |
+| data-structures| 85%   | ✓ high     | in 7 days   |
 | concurrency    | 45%   | ✗ low      | TODAY       |
-| metaclasses    | 30%   | ✗ low      | TODAY       |
+| advanced       | 30%   | ✗ low      | TODAY       |
 
 Recommendation: Review concurrency (due today, low confidence)
 ```
@@ -158,18 +151,18 @@ Paste any job description. Get:
 ### Step 3: Practice Interviews (Company-Modeled)
 
 ```bash
-/mirrorwork prep revolut behavioral
-/mirrorwork prep stripe coding
-/mirrorwork prep google system-design
+/mirrorwork prep <company> behavioral
+/mirrorwork prep <company> coding
+/mirrorwork prep <company> system-design
 ```
 
-Practice with an interviewer who asks questions _the way that company asks them_. Get feedback. Get better.
+Practice with an interviewer who asks questions based on the company's researched values and interview style. Get feedback. Get better.
 
 ### Step 4: Master Your Skills (Spaced Repetition)
 
 ```bash
-/mirrorwork learn python
-/mirrorwork learn python --review
+/mirrorwork learn <skill>
+/mirrorwork learn <skill> --review
 ```
 
 Evaluate your knowledge. Drill weak areas. Track progress over time.
@@ -183,11 +176,11 @@ Evaluate your knowledge. Drill weak areas. Track progress over time.
 See all your applications in one place:
 
 ```
-| Company | Role           | Fit | Status       | Stage         | Outcome |
-|---------|----------------|-----|--------------|---------------|---------|
-| Stripe  | Staff Backend  | 85% | interviewing | system-design | pending |
-| Revolut | Senior SWE     | 78% | rejected     | coding        | failed  |
-| Careem  | Platform Lead  | 90% | offer        | final         | passed  |
+| Company   | Role           | Fit | Status       | Stage         | Outcome |
+|-----------|----------------|-----|--------------|---------------|---------|
+| Company A | Staff Backend  | 85% | interviewing | system-design | pending |
+| Company B | Senior SWE     | 78% | rejected     | coding        | failed  |
+| Company C | Platform Lead  | 90% | offer        | final         | passed  |
 ```
 
 See patterns. "I keep failing coding rounds" → focus your practice there.
@@ -268,13 +261,13 @@ Your career data is yours alone.
 
 ## The Difference
 
-| Generic Prep               | Mirrorwork                                                                   |
-| -------------------------- | ---------------------------------------------------------------------------- |
-| "You're a great fit!"      | "Fit: 65%. Banking is mandatory. You don't have it."                         |
-| "Tell me about leadership" | "At Revolut, we value radical honesty. Tell me about giving tough feedback." |
-| Generic STAR answers       | Your actual proof point: "1B events/day, P95 ≤5ms"                           |
-| Cram, forget, repeat       | Spaced repetition—weak topics come back until you know them                  |
-| Data in someone's cloud    | Everything local, everything yours                                           |
+| Generic Prep               | Mirrorwork                                                                        |
+| -------------------------- | --------------------------------------------------------------------------------- |
+| "You're a great fit!"      | "Fit: 65%. Banking is mandatory. You don't have it."                              |
+| "Tell me about leadership" | Questions shaped by the company's actual values (researched when you add a job)  |
+| Generic STAR answers       | Your actual proof points, pulled from your profile                                |
+| Cram, forget, repeat       | Spaced repetition—weak topics come back until you know them                       |
+| Data in someone's cloud    | Everything local, everything yours                                                |
 
 ---
 
