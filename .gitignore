@@ -43,3 +43,9 @@ activity/jobs/*
 
 generated/*
 !generated/.gitkeep
+
+interview/*
+!interview/.gitkeep
+
+learning/*
+!learning/.gitkeep
